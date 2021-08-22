@@ -17,9 +17,10 @@ const RabbitModel = (props) => {
       ref={group}
       {...props}
       dispose={null}
-      visible={props.head === 'rabbit' ? true : false}
+      // visible={props.head === 'rabbit' ? true : false}
     >
       <mesh
+        userData={{ part: 'body' }}
         castShadow
         receiveShadow
         geometry={nodes.Oren_396.geometry}
@@ -27,8 +28,10 @@ const RabbitModel = (props) => {
         position={[-0.07, 0.1, -0.04]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.body === 'purple' ? true : false}
       />
       <mesh
+        userData={{ part: 'head' }}
         castShadow
         receiveShadow
         geometry={nodes.Oren_400.geometry}
@@ -36,8 +39,10 @@ const RabbitModel = (props) => {
         position={[-0.07, 0.21, -0.06]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.head === 'rabbit' ? true : false}
       />
       <mesh
+        userData={{ part: 'glasses' }}
         castShadow
         receiveShadow
         geometry={nodes.Oren_401.geometry}
@@ -45,8 +50,10 @@ const RabbitModel = (props) => {
         position={[-0.09, 0.26, 0.04]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.glasses === 'orange' ? true : false}
       />
       <mesh
+        userData={{ part: 'hands' }}
         castShadow
         receiveShadow
         geometry={nodes.Oren_396_part.geometry}
@@ -54,8 +61,10 @@ const RabbitModel = (props) => {
         position={[-0.07, 0.08, -0.02]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.head === 'rabbit' ? true : false}
       />
       <mesh
+        userData={{ part: 'feet' }}
         castShadow
         receiveShadow
         geometry={nodes.Oren_396_part_1.geometry}
@@ -63,8 +72,10 @@ const RabbitModel = (props) => {
         position={[-0.04, 0, -0.02]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.feet === 'white' ? true : false}
       />
       <mesh
+        userData={{ part: 'pants' }}
         castShadow
         receiveShadow
         geometry={nodes.Oren_396_part_2.geometry}
@@ -72,6 +83,7 @@ const RabbitModel = (props) => {
         position={[-0.04, 0.01, -0.02]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.pants === 'grey' ? true : false}
       />
     </group>
   );

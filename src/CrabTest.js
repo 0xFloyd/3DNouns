@@ -7,66 +7,86 @@ import { useGLTF } from '@react-three/drei';
 
 const CrabModel = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/crabTest.gltf');
+  const { nodes, materials } = useGLTF('/crabTest2.gltf');
   return (
     <group
       ref={group}
       {...props}
       dispose={null}
-      visible={props.head === 'crab' ? true : false}
+      // visible={props.head === 'crab' ? true : false}
     >
       <mesh
+        userData={{ part: 'body' }}
         castShadow
+        receiveShadow
         geometry={nodes.Oren_184.geometry}
         material={nodes.Oren_184.material}
         position={[-0.07, 0.1, -0.04]}
-        rotation={[Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.body === 'lightblue' ? true : false}
       />
       <mesh
+        userData={{ part: 'glasses' }}
         castShadow
+        receiveShadow
         geometry={nodes.Oren_185.geometry}
         material={nodes.Oren_185.material}
         position={[-0.09, 0.25, 0.02]}
-        rotation={[Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.glasses === 'blue' ? true : false}
       />
       <mesh
+        userData={{ part: 'head' }}
         castShadow
+        receiveShadow
         geometry={nodes.Oren_186.geometry}
         material={nodes.Oren_186.material}
         position={[-0.11, 0.21, -0.05]}
-        rotation={[Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.head === 'crab' ? true : false}
       />
       <mesh
+        userData={{ part: 'pants' }}
         castShadow
+        receiveShadow
         geometry={nodes.Oren_184_part.geometry}
         material={nodes.Oren_184_part.material}
         position={[-0.04, 0.01, -0.02]}
-        rotation={[Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.pants === 'black' ? true : false}
       />
       <mesh
+        userData={{ part: 'feet' }}
         castShadow
+        receiveShadow
         geometry={nodes.Oren_184_part_part.geometry}
         material={nodes.Oren_184_part_part.material}
         position={[-0.04, 0, -0.02]}
-        rotation={[Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        // visible={props.feet === 'white' ? true : false}
       />
       <mesh
+        userData={{ part: 'hands' }}
         castShadow
+        receiveShadow
         geometry={nodes.Oren_184_part_1.geometry}
         material={nodes.Oren_184_part_1.material}
         position={[-0.07, 0.08, -0.02]}
-        rotation={[Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
+        visible={props.head === 'crab' ? true : false}
       />
     </group>
   );
 };
 
-useGLTF.preload('/crabTest.gltf');
+useGLTF.preload('/crabTest2.gltf');
 
 export default CrabModel;
+
+//  visible={props.head === 'crab' ? true : false}

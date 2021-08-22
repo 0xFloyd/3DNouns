@@ -1,20 +1,27 @@
-import NounCanvas from "NounCanvas";
-import React, { useRef } from "react";
-import { useEffect, useState } from "react";
-import { Col, Container, Dropdown, Navbar, Row } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
+import NounCanvas from 'NounCanvas';
+import React, { useRef } from 'react';
+import { useEffect, useState } from 'react';
+import { Col, Container, Dropdown, Navbar, Row } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
 
 const App = () => {
-  const [head, setHead] = useState("rabbit");
+  const [autoRotate, setAutoRotate] = useState(false);
+
+  const [head, setHead] = useState('rabbit'); //crab
+  const [glasses, setGlasses] = useState('orange'); //blue
+  const [body, setBody] = useState('purple'); //lightblue
+  const [pants, setPants] = useState('grey'); //black
 
   return (
-    <Container fluid>
-      <Navbar style={{ height: "50px" }} expand="lg">
-        <Navbar.Brand>Nouns</Navbar.Brand>
-      </Navbar>
-      <Row style={{ height: "calc(100vh - 100px)" }}>
-        <Col xs={4}>
+    <div className="full-width">
+      {/* <Navbar style={{ height: '80px' }} expand="lg">
+        <img className="nouns-logo" src={logo} alt="NOUNS" />
+      </Navbar> */}
+      {/* <Row style={{ height: 'calc(100vh - 80px)' }}> */}
+      {/* <Row style={{ height: '100vh' }}>
+        <Col xs={2}>
+          <div></div>
           <form>
             <label>Head:</label>
             <select
@@ -34,8 +41,11 @@ const App = () => {
             <NounCanvas head={head} />
           </div>
         </Col>
-      </Row>
-    </Container>
+      </Row> */}
+      <div className="nouns-canvas">
+        <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
+      </div>
+    </div>
   );
 };
 
