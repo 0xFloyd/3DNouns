@@ -47,7 +47,7 @@ const RabbitModel = (props) => {
         receiveShadow
         geometry={nodes.Oren_401.geometry}
         material={nodes.Oren_401.material}
-        position={[-0.09, 0.26, 0.04]}
+        position={[-0.09, 0.26, props.head === 'rabbit' ? 0.04 : 0.02]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         visible={props.glasses === 'orange' ? true : false}

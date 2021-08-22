@@ -32,7 +32,11 @@ const CrabModel = (props) => {
         receiveShadow
         geometry={nodes.Oren_185.geometry}
         material={nodes.Oren_185.material}
-        position={[-0.09, 0.25, 0.02]}
+        position={[
+          -0.09,
+          props.head === 'rabbit' ? 0.26 : 0.25,
+          props.head === 'rabbit' ? 0.04 : 0.02,
+        ]}
         rotation={[-Math.PI, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         visible={props.glasses === 'blue' ? true : false}

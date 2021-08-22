@@ -276,14 +276,16 @@ const NounCanvas = (props) => {
         {/* <Svg /> */}
       </Canvas>
       <div className="options-container">
-        {/* <div>
+        <div
+          style={{
+            textAlign: 'end',
+          }}
+        >
           <span
             style={{
               cursor: 'pointer',
               padding: '0px',
               fontSize: '1rem',
-
-              float: 'right',
             }}
             onClick={() =>
               setOptionsVisibility(
@@ -291,9 +293,11 @@ const NounCanvas = (props) => {
               )
             }
           >
-            <button>{optionsVisibility === 'block' ? 'hide' : 'show'}</button>
+            <button style={{ border: 'none' }}>
+              {optionsVisibility === 'block' ? 'hide' : 'show'}
+            </button>
           </span>
-        </div>  */}
+        </div>
         <div
           className="options-controls"
           style={{ display: optionsVisibility }}
@@ -393,7 +397,7 @@ const NounCanvas = (props) => {
                 </select>
               </Col>
             </Row>
-            <div className="checkbox" style={{ marginTop: '20px' }}>
+            <div className="checkbox" style={{ marginTop: '10px' }}>
               <label>
                 <span className="white-font" style={{ marginRight: '3px' }}>
                   Auto Rotate
@@ -406,6 +410,12 @@ const NounCanvas = (props) => {
                 checked={props.autoRotate}
                 onClick={(e) => props.setAutoRotate(e.target.checked)}
               />
+            </div>
+            <div style={{ marginTop: '10px' }}>
+              <span>Hold click/ swipe to rotate</span>
+            </div>
+            <div style={{ marginTop: '10px' }}>
+              <span>Scroll/ Pinch to zoom</span>
             </div>
           </Container>
           {/* <p>{currentCameraPosition.x}</p>
