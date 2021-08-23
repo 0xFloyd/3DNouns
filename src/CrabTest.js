@@ -14,6 +14,7 @@ const CrabModel = (props) => {
       {...props}
       dispose={null}
       // visible={props.head === 'crab' ? true : false}
+      castShadow
     >
       <mesh
         userData={{ part: 'body' }}

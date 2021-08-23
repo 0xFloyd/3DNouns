@@ -7,7 +7,15 @@ import {
 } from '@react-three/fiber';
 import * as THREE from 'three';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import { Circle, Html, OrbitControls, Sky, useGLTF } from '@react-three/drei';
+import {
+  Circle,
+  Environment,
+  Html,
+  OrbitControls,
+  Sky,
+  Stage,
+  useGLTF,
+} from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import RabbitModel from 'RabbitModel';
 import CrabModel from 'CrabTest';
@@ -162,7 +170,9 @@ const NounCanvas = (props) => {
     <>
       <Canvas
         shadows
-        // camera={{ position: [0, 0.5, 0.5], fov: 55, near: 0.1, far: 100 }}
+        gl={{ preserveDrawingBuffer: true }}
+        dpr={[1, 1.5]}
+        // camera={{ position: [0, 0.5, 0.5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
           // do things here
           camera.position.x = 0.2;
@@ -170,6 +180,7 @@ const NounCanvas = (props) => {
           camera.position.z = 0.4;
           camera.lookAt(lookAtPos);
           camera.updateProjectionMatrix();
+          // camera.fov =
         }}
       >
         {/* <MyCamera
@@ -183,19 +194,30 @@ const NounCanvas = (props) => {
         </div>
       </Html> */}
         {/* <Model /> */}
-        {/* <fog attach="fog" args={['#E2E1DE', 0, 10]} /> */}
+        <fog attach="fog" args={[0xa0a0a0, 1, 10]} />
 
-        <Sky sunPosition={[-100, 20, 100]} />
-        <ambientLight intensity={0.7} />
-        {/* <spotLight position={[0, 5, 0]} intensity={0.5} castShadow /> */}
-        {/* <directionalLight position={[0, 0, 0]} intensity={0.7} /> */}
+        {/* <Sky sunPosition={[-100, 20, 100]} /> */}
+
+        <ambientLight castShadow intensity={0.8} />
+
+        {/* <spotLight position={[0, 2, 2]} intensity={0.3} castShadow /> */}
+
         <directionalLight
-          position={[-5, 5, 5]}
-          intensity={0.5}
+          position={[0, 0.5, 0.2]}
           castShadow
+          intensity={0.8}
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
         />
+
+        {/* <ambientLight intensity={0.7} />
+        <spotLight
+          intensity={0.5}
+          angle={0.1}
+          penumbra={1}
+          position={[10, 15, 10]}
+          castShadow
+        /> */}
         {/* <spotLight
           position={[0, 5, 1]}
           angle={0.5}
@@ -218,30 +240,33 @@ const NounCanvas = (props) => {
           target={[0, 0.2, 0]}
           ref={orbitControls}
           autoRotate={props.autoRotate}
-          enablePan={false}
+          enablePan={true}
           enableDamping={true}
           maxPolarAngle={Math.PI / 2.05}
           maxDistance={5}
-          minDistance={0.25}
+          minDistance={0.325}
         />
         <mesh receiveShadow position={[0, -0.025, 0]}>
-          {/* <cylinderBufferGeometry args={[2, 1, 20, 32]} /> */}
-          <boxBufferGeometry args={[7.5, 0.05, 7.5]} />
-          {/* <meshPhongMaterial
+          <boxBufferGeometry args={[100, 0.05, 100]} />
+
+          <meshStandardMaterial
+            color={new THREE.Color(0xffffff)
+              .setHex(0xffffff)
+              .convertSRGBToLinear()}
+          />
+        </mesh>
+        {/* <cylinderBufferGeometry args={[2, 1, 20, 32]} /> */}
+        {/* <meshPhongMaterial
             color={new THREE.Color('#000000')
               .setHex(0x000000)
               .convertSRGBToLinear()}
             shininess={25} */}
-          <meshStandardMaterial
-            color={new THREE.Color('#ffb851')
-              .setHex(0xffb851)
-              .convertSRGBToLinear()}
-          />
-        </mesh>
+
         <gridHelper
-          args={[7.5, 20, new THREE.Color(0x282828), new THREE.Color(0x282828)]}
+          args={[50, 200, new THREE.Color(0x282828), new THREE.Color(0x282828)]}
           position={[0, 0, 0]}
         />
+
         {/* <cylinderBufferGeometry args={[2, 1, 20, 32]} /> */}
         {/* <meshStandardMaterial
             color={new THREE.Color('#d63c5e')
@@ -255,6 +280,7 @@ const NounCanvas = (props) => {
           /> */}
         <Suspense fallback={null}>
           {/* <Model position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]} /> */}
+
           <RabbitModel
             head={head}
             glasses={glasses}
@@ -270,8 +296,9 @@ const NounCanvas = (props) => {
             feet={feet}
           />
           <NounsLogo />
-          <Ocean />
+          {/* <Ocean /> */}
           {/* <Ground /> */}
+          {/* <Environment preset="city" /> */}
         </Suspense>
         {/* <Svg /> */}
       </Canvas>

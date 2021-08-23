@@ -41,7 +41,7 @@ main {
 .nouns-canvas {
   height: 100%;
   width: 100%;
-  /* background-color: #000000; */
+  background-color: #a0a0a0;
 }
 
 .no-padding-margin {
