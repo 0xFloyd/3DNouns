@@ -205,7 +205,7 @@ const NounCanvas = (props) => {
         <directionalLight
           position={[0, 0.5, 0.2]}
           castShadow
-          intensity={0.8}
+          intensity={0.5}
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
         />
