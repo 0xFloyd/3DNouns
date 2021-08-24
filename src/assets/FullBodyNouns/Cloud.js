@@ -1,5 +1,11 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
+import {
+  getKeyByValue,
+  glassesPosition,
+  headAttributes,
+  headNames,
+} from 'attributes';
 
 const Cloud = (props) => {
   const group = useRef();
@@ -7,7 +13,7 @@ const Cloud = (props) => {
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
-        name="Body-Pride"
+        name='Body-Pride'
         castShadow
         receiveShadow
         geometry={nodes['Body-Pride'].geometry}
@@ -16,9 +22,10 @@ const Cloud = (props) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         userData={{ name: 'Body-Pride' }}
+        visible={props.body === 'Body-Pride' ? true : false}
       />
       <mesh
-        name="Shoes-White1"
+        name='Shoes-White1'
         castShadow
         receiveShadow
         geometry={nodes['Shoes-White1'].geometry}
@@ -27,9 +34,10 @@ const Cloud = (props) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         userData={{ name: 'Shoes-White1' }}
+        visible={props.shoes === 'Shoes-White1' ? true : false}
       />
       <mesh
-        name="Head-Cloud"
+        name='Head-Cloud'
         castShadow
         receiveShadow
         geometry={nodes['Head-Cloud'].geometry}
@@ -38,9 +46,10 @@ const Cloud = (props) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         userData={{ name: 'Head-Cloud' }}
+        visible={props.head === 'Head-Cloud' ? true : false}
       />
       <mesh
-        name="Pants-LightGrey1"
+        name='Pants-LightGrey1'
         castShadow
         receiveShadow
         geometry={nodes['Pants-LightGrey1'].geometry}
@@ -49,17 +58,19 @@ const Cloud = (props) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         userData={{ name: 'Pants-LightGrey1' }}
+        visible={props.pants === 'Pants-LightGrey1' ? true : false}
       />
       <mesh
-        name="Glasses4"
+        name='Glasses4'
         castShadow
         receiveShadow
         geometry={nodes.Glasses4.geometry}
         material={nodes.Glasses4.material}
-        position={[-0.09, 0.25, 0.06]}
+        position={glassesPosition[getKeyByValue(headNames, props.head)]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         userData={{ name: 'Glasses4' }}
+        visible={props.glasses === 'Glasses4' ? true : false}
       />
     </group>
   );

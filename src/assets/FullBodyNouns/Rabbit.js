@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
+import { getKeyByValue, glassesPosition, headNames } from 'attributes';
 
 const Rabbit = (props) => {
   const group = useRef();
@@ -7,18 +8,19 @@ const Rabbit = (props) => {
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
-        name="Glasses6"
+        name='Glasses6'
         castShadow
         receiveShadow
         geometry={nodes.Glasses6.geometry}
         material={nodes.Glasses6.material}
-        position={[-0.09, 0.26, 0.03]}
+        position={glassesPosition[getKeyByValue(headNames, props.head)]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         userData={{ name: 'Glasses6' }}
+        visible={props.glasses === 'Glasses6' ? true : false}
       />
       <mesh
-        name="Shoes-White-3"
+        name='Shoes-White-3'
         castShadow
         receiveShadow
         geometry={nodes['Shoes-White-3'].geometry}
@@ -27,9 +29,10 @@ const Rabbit = (props) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         userData={{ name: 'Shoes-White-3' }}
+        visible={props.shoes === 'Shoes-White-3' ? true : false}
       />
       <mesh
-        name="BodyNavy"
+        name='BodyNavy'
         castShadow
         receiveShadow
         geometry={nodes.BodyNavy.geometry}
@@ -38,9 +41,10 @@ const Rabbit = (props) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         userData={{ name: 'BodyNavy' }}
+        visible={props.body === 'BodyNavy' ? true : false}
       />
       <mesh
-        name="Pants-Lightgrey"
+        name='Pants-Lightgrey'
         castShadow
         receiveShadow
         geometry={nodes['Pants-Lightgrey'].geometry}
@@ -49,9 +53,10 @@ const Rabbit = (props) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         userData={{ name: 'Pants-Lightgrey' }}
+        visible={props.pants === 'Pants-Lightgrey' ? true : false}
       />
       <mesh
-        name="Head-Rabbit"
+        name='Head-Rabbit'
         castShadow
         receiveShadow
         geometry={nodes['Head-Rabbit'].geometry}
@@ -60,6 +65,7 @@ const Rabbit = (props) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
         userData={{ name: 'Head-Rabbit' }}
+        visible={props.head === 'Head-Rabbit' ? true : false}
       />
     </group>
   );

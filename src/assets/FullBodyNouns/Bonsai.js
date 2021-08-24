@@ -3,11 +3,11 @@ import { useGLTF } from '@react-three/drei';
 
 const Bonsai = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/bonsai.glb');
+  const { nodes, materials } = useGLTF('/Bonsai.gltf');
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
-        name="Pants-LightGrey2"
+        name='Pants-LightGrey2'
         castShadow
         receiveShadow
         geometry={nodes['Pants-LightGrey2'].geometry}
@@ -18,7 +18,7 @@ const Bonsai = (props) => {
         userData={{ name: 'Pants-LightGrey2' }}
       />
       <mesh
-        name="Shoes-White3"
+        name='Shoes-White3'
         castShadow
         receiveShadow
         geometry={nodes['Shoes-White3'].geometry}
@@ -29,7 +29,7 @@ const Bonsai = (props) => {
         userData={{ name: 'Shoes-White3' }}
       />
       <mesh
-        name="Head-Bonsai"
+        name='Head-Bonsai'
         castShadow
         receiveShadow
         geometry={nodes['Head-Bonsai'].geometry}
@@ -40,7 +40,7 @@ const Bonsai = (props) => {
         userData={{ name: 'Head-Bonsai' }}
       />
       <mesh
-        name="Body-GreenChecker"
+        name='Body-GreenChecker'
         castShadow
         receiveShadow
         geometry={nodes['Body-GreenChecker'].geometry}
@@ -54,6 +54,6 @@ const Bonsai = (props) => {
   );
 };
 
-useGLTF.preload('/bonsai.glb');
+useGLTF.preload('/Bonsai.gltf');
 
 export default Bonsai;

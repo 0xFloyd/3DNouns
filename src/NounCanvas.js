@@ -28,6 +28,21 @@ import Svg from './assets/World/Svg';
 import NounsLogo from 'NounsLogo';
 import { Water } from 'three-stdlib';
 import ProgressLoader from 'Loader';
+import { slide as Menu } from 'react-burger-menu';
+import Bonsai from 'assets/FullBodyNouns/Bonsai';
+import Cloud from 'assets/FullBodyNouns/Cloud';
+import Computer from 'assets/FullBodyNouns/Computer';
+import Crab from 'assets/FullBodyNouns/Crab';
+import Mixer from 'assets/FullBodyNouns/Mixer';
+import Pirate from 'assets/FullBodyNouns/Pirate';
+import Rabbit from 'assets/FullBodyNouns/Rabbit';
+import {
+  bodyAttributes,
+  glassesAttributes,
+  headAttributes,
+  pantsAttributes,
+  shoesAttributes,
+} from 'attributes';
 
 const dummy = new THREE.Vector3();
 const lookAtPos = new THREE.Vector3(0, 2, 0);
@@ -38,11 +53,39 @@ const NounCanvas = (props) => {
 
   const orbitControls = useRef();
 
-  const [head, setHead] = useState('crab'); //crab
-  const [glasses, setGlasses] = useState('blue'); //blue
-  const [body, setBody] = useState('lightblue'); //lightblue
-  const [pants, setPants] = useState('black'); //black
-  const [feet, setFeet] = useState('white'); //white
+  const [head, setHead] = useState(
+    headAttributes[Math.floor(Math.random() * headAttributes.length)].value
+  ); //crab
+  const [glasses, setGlasses] = useState(
+    glassesAttributes[Math.floor(Math.random() * headAttributes.length)].value
+  ); //blue
+  const [body, setBody] = useState(
+    bodyAttributes[Math.floor(Math.random() * headAttributes.length)].value
+  ); //lightblue
+  const [pants, setPants] = useState(
+    pantsAttributes[Math.floor(Math.random() * headAttributes.length)].value
+  ); //black
+  const [shoes, setShoes] = useState(
+    shoesAttributes[Math.floor(Math.random() * headAttributes.length)].value
+  ); //white
+
+  const generateRandomNoun = () => {
+    setHead(
+      headAttributes[Math.floor(Math.random() * headAttributes.length)].value
+    );
+    setGlasses(
+      glassesAttributes[Math.floor(Math.random() * headAttributes.length)].value
+    );
+    setBody(
+      bodyAttributes[Math.floor(Math.random() * headAttributes.length)].value
+    );
+    setPants(
+      pantsAttributes[Math.floor(Math.random() * headAttributes.length)].value
+    );
+    setShoes(
+      shoesAttributes[Math.floor(Math.random() * headAttributes.length)].value
+    );
+  };
 
   return (
     <>
@@ -72,11 +115,11 @@ const NounCanvas = (props) => {
         </div>
       </Html> */}
         {/* <Model /> */}
-        <fog attach="fog" args={[0xa0a0a0, 1, 10]} />
+        <fog attach='fog' args={[0xa0a0a0, 1, 5]} />
 
         {/* <Sky sunPosition={[-100, 20, 100]} /> */}
 
-        <ambientLight castShadow intensity={0.8} />
+        <ambientLight intensity={0.8} />
 
         {/* <spotLight position={[0, 2, 2]} intensity={0.3} castShadow /> */}
 
@@ -88,19 +131,18 @@ const NounCanvas = (props) => {
           shadow-mapSize-height={1024}
         />
 
-       
         <OrbitControls
           target={[0, 0.2, 0]}
           ref={orbitControls}
           autoRotate={props.autoRotate}
-          enablePan={true}
+          enablePan={false}
           enableDamping={true}
           maxPolarAngle={Math.PI / 2.05}
           maxDistance={5}
           minDistance={0.325}
         />
         <mesh receiveShadow position={[0, -0.025, 0]}>
-          <boxBufferGeometry args={[100, 0.05, 100]} />
+          <boxBufferGeometry args={[25, 0.05, 25]} />
 
           <meshStandardMaterial
             color={new THREE.Color(0xffffff)
@@ -134,7 +176,7 @@ const NounCanvas = (props) => {
         <Suspense fallback={<ProgressLoader />}>
           {/* <Model position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]} /> */}
 
-          <RabbitModel
+          {/* <RabbitModel
             head={head}
             glasses={glasses}
             body={body}
@@ -148,6 +190,56 @@ const NounCanvas = (props) => {
             body={body}
             pants={pants}
             feet={feet}
+          /> */}
+
+          {/* <Bonsai
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            feet={feet}
+          /> */}
+          <Cloud
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Computer
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Crab
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Mixer
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Pirate
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Rabbit
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
           />
 
           <NounsLogo />
@@ -157,7 +249,7 @@ const NounCanvas = (props) => {
         </Suspense>
         {/* <Svg /> */}
       </Canvas>
-      <div className="options-container">
+      <div className='options-container'>
         <div
           style={{
             textAlign: 'end',
@@ -167,7 +259,6 @@ const NounCanvas = (props) => {
             style={{
               cursor: 'pointer',
               padding: '0px',
-              fontSize: '1rem',
             }}
             onClick={() =>
               setOptionsVisibility(
@@ -181,7 +272,7 @@ const NounCanvas = (props) => {
           </span>
         </div>
         <div
-          className="options-controls"
+          className='options-controls'
           style={{ display: optionsVisibility }}
         >
           {/* <h4 className="white-font" style={{ textAlign: 'center' }}>
@@ -191,36 +282,42 @@ const NounCanvas = (props) => {
           <Container fluid>
             <Row style={{ marginBottom: '10px' }}>
               <Col xs={4}>
-                <label className="white-font">Head</label>
+                <label className='white-font'>Head</label>
               </Col>
               <Col xs={4}>
                 <select
                   value={head}
                   onChange={(e) => setHead(e.target.value)}
-                  name="cars"
-                  id="cars"
-                  form="carform"
+                  name='cars'
+                  id='cars'
+                  form='carform'
                 >
-                  <option value="crab">Crab</option>
-                  <option value="rabbit">Rabbit</option>
+                  {headAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
                 </select>
               </Col>
             </Row>
             {/*  Glasses */}
             <Row style={{ marginBottom: '10px' }}>
               <Col xs={4}>
-                <label className="white-font">Glasses</label>
+                <label className='white-font'>Glasses</label>
               </Col>
               <Col xs={4}>
                 <select
                   value={glasses}
                   onChange={(e) => setGlasses(e.target.value)}
-                  name="cars"
-                  id="cars"
-                  form="carform"
+                  name='cars'
+                  id='cars'
+                  form='carform'
                 >
-                  <option value="orange">Orange</option>
-                  <option value="blue">Blue</option>
+                  {glassesAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
                 </select>
               </Col>
             </Row>
@@ -228,70 +325,84 @@ const NounCanvas = (props) => {
             {/*  Body */}
             <Row style={{ marginBottom: '10px' }}>
               <Col xs={4}>
-                <label className="white-font">Body</label>
+                <label className='white-font'>Body</label>
               </Col>
               <Col xs={4}>
                 <select
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
-                  name="cars"
-                  id="cars"
-                  form="carform"
+                  name='cars'
+                  id='cars'
+                  form='carform'
                 >
-                  <option value="purple">Purple</option>
-                  <option value="lightblue">Light Blue</option>
+                  {bodyAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
                 </select>
               </Col>
             </Row>
             {/*  Pants */}
             <Row style={{ marginBottom: '10px' }}>
               <Col xs={4}>
-                <label className="white-font">Pants</label>
+                <label className='white-font'>Pants</label>
               </Col>
               <Col xs={4}>
                 <select
                   value={pants}
                   onChange={(e) => setPants(e.target.value)}
-                  name="cars"
-                  id="cars"
-                  form="carform"
+                  name='cars'
+                  id='cars'
+                  form='carform'
                 >
-                  <option value="grey">Grey</option>
-                  <option value="black">Black</option>
+                  {pantsAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
                 </select>
               </Col>
             </Row>
-            {/*  Feet */}
+            {/*  Shoes */}
             <Row>
               <Col xs={4}>
-                <label className="white-font">Feet</label>
+                <label className='white-font'>Shoes</label>
               </Col>
               <Col xs={4}>
                 <select
-                  value={feet}
-                  onChange={(e) => setFeet(e.target.value)}
-                  name="cars"
-                  id="cars"
-                  form="carform"
+                  value={shoes}
+                  onChange={(e) => setShoes(e.target.value)}
+                  name='cars'
+                  id='cars'
+                  form='carform'
                 >
-                  <option value="white">White</option>
-                  {/* <option value="rabbit">rabbit</option> */}
+                  {shoesAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
                 </select>
               </Col>
             </Row>
-            <div className="checkbox" style={{ marginTop: '10px' }}>
+            <div className='checkbox' style={{ marginTop: '10px' }}>
               <label>
-                <span className="white-font" style={{ marginRight: '3px' }}>
+                <span className='white-font' style={{ marginRight: '3px' }}>
                   Auto Rotate
                 </span>
               </label>
               <input
-                type="checkbox"
-                id="checkbox1"
-                className="checkbox style-2 pull-right"
+                type='checkbox'
+                id='checkbox1'
+                className='checkbox style-2 pull-right'
                 checked={props.autoRotate}
-                onClick={(e) => props.setAutoRotate(e.target.checked)}
+                onChange={(e) => props.setAutoRotate(e.target.checked)}
               />
+            </div>
+            <div style={{ marginTop: '10px' }}>
+              <button onClick={() => generateRandomNoun()}>
+                Generate Random Noun
+              </button>
             </div>
             {/* <div style={{ marginTop: '10px' }}>
               <span>Hold click/ swipe to rotate</span>
@@ -305,24 +416,28 @@ const NounCanvas = (props) => {
           <p>{currentCameraPosition.z}</p> */}
         </div>
       </div>
-      <div className="logo-container">
-        <img className="nouns-logo" src={logo} alt="NOUNS" />
+
+      <Menu right>
+        <div style={{ height: '100px', width: '200px' }}>hey</div>
+        <a id='home' className='menu-item' href='/'>
+          Home
+        </a>
+      </Menu>
+
+      <div className='logo-container'>
+        <a href='https://nouns.wtf'>
+          <img className='nouns-logo' src={logo} alt='NOUNS' />
+        </a>
       </div>
-      <div className="credit-container">
+      <div className='credit-container'>
         <span style={{ marginRight: '20px' }}>
-          <a href="https://nouns.wtf">nouns.wtf</a> ❤️ by{' '}
-          <a href="https://twitter.com/0xFloyd">0xFloyd</a> and{' '}
-          <a href="https://twitter.com/coralorca">CoralOrca</a>
+          <a href='https://nouns.wtf'>nouns.wtf</a> ❤️ by{' '}
+          <a href='https://twitter.com/0xFloyd'>0xFloyd</a> and{' '}
+          <a href='https://twitter.com/coralorca'>CoralOrca</a>
         </span>
       </div>
     </>
   );
 };
 
-
-
 export default NounCanvas;
-
-
-
-
