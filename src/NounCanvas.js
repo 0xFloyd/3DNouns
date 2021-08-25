@@ -11,6 +11,7 @@ import {
   Circle,
   Environment,
   Html,
+  Loader,
   OrbitControls,
   Sky,
   Stage,
@@ -19,152 +20,98 @@ import {
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import RabbitModel from 'RabbitModel';
 import CrabModel from 'CrabTest';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  FormCheck,
+  ProgressBar,
+  Row,
+} from 'react-bootstrap';
 import logo from './assets/nouns-logo.svg';
 import useReflector from './shaders/useReflector';
 import './shaders/materials/ReflectorMaterial';
-import Svg from 'Svg';
+import Svg from './assets/World/Svg';
 import NounsLogo from 'NounsLogo';
 import { Water } from 'three-stdlib';
-import { TextureLoader } from 'three/src/loaders/TextureLoader.js';
+import ProgressLoader from 'Loader';
+import { slide as Menu } from 'react-burger-menu';
+import Bonsai from 'assets/FullBodyNouns/Bonsai';
+import Cloud from 'assets/FullBodyNouns/Cloud';
+import Computer from 'assets/FullBodyNouns/Computer';
+import Crab from 'assets/FullBodyNouns/Crab';
+import Mixer from 'assets/FullBodyNouns/Mixer';
+import Pirate from 'assets/FullBodyNouns/Pirate';
+import Rabbit from 'assets/FullBodyNouns/Rabbit';
+import {
+  bodyAttributes,
+  glassesAttributes,
+  headAttributes,
+  pantsAttributes,
+  shoesAttributes,
+  environmentAttributes,
+} from 'attributes';
+import Shark from 'assets/FullBodyNouns/Shark';
+import { TextureLoader } from 'three';
 
 extend({ Water });
 
-const dummy = new THREE.Vector3();
 const lookAtPos = new THREE.Vector3(0, 2, 0);
-
-const Ocean = () => {
-  const ref = useRef();
-
-  // this is the renderer
-  const gl = useThree((state) => state.gl);
-
-  const waterNormals = useLoader(THREE.TextureLoader, '/waternormals.jpeg');
-  waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
-
-  // memoize -->  storing the results of expensive function calls and returning the cached result when the same inputs occur again
-  const geom = useMemo(() => new THREE.PlaneGeometry(1000, 1000), []);
-  const config = useMemo(
-    () => ({
-      textureWidth: 512,
-      textureHeight: 512,
-      waterNormals,
-      sunDirection: new THREE.Vector3(),
-      sunColor: 0xffffff,
-      waterColor: 0x001e0f,
-      distortionScale: 3.7,
-      fog: false,
-      format: gl.encoding,
-    }),
-    [waterNormals]
-  );
-  useFrame(
-    (state, delta) => (ref.current.material.uniforms.time.value += 0.005)
-  );
-
-  // 2nd argument is config which is the material
-  return (
-    <water
-      ref={ref}
-      args={[geom, config]}
-      position={[0, -1, 0]}
-      rotation-x={-Math.PI / 2}
-    />
-  );
-};
-
-function Thing() {
-  const ref = useRef();
-  // useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.01));
-
-  const [zoom, setZoom] = useState(false);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setZoom((zoom) => !zoom);
-  //   }, 2000);
-  // }, [zoom]);
-
-  useFrame((state, delta) => {
-    const step = 0.1;
-    state.camera.fov = THREE.MathUtils.lerp(
-      state.camera.fov,
-      zoom ? 10 : 42,
-      step
-    );
-    state.camera.position.lerp(
-      dummy.set(zoom ? 25 : 10, zoom ? 1 : 5, zoom ? 0 : 10),
-      step
-    );
-
-    lookAtPos.x = Math.sin(state.clock.getElapsedTime() * 2);
-
-    state.camera.lookAt(lookAtPos);
-    state.camera.updateProjectionMatrix();
-  });
-
-  return <mesh></mesh>;
-}
-
-function MyCamera(props) {
-  // This one makes the camera move in and out
-  // useFrame(({ clock, camera }) => {
-  //   camera.position.z = 50 + Math.sin(clock.getElapsedTime()) * 30;
-  // });
-  // return null;
-  const { gl, scene, camera, size } = useThree();
-  useEffect(() => {
-    props.setCurrentCameraPosition(camera.position);
-    console.log(camera.position);
-    // camera.position.x = 0;
-    // camera.position.y = 0.5;
-    // camera.position.z = 0.5;
-
-    // // camera.lookAt(lookAtPos);
-    // camera.near = 0.1;
-    // camera.far = 100;
-  });
-  useFrame((state) => {
-    props.setCurrentCameraPosition(camera.position);
-  });
-
-  return null;
-}
-
-// function Model(props) {
-//   const [meshRef, reflectorProps, passes] = useReflector();
-//   return (
-//     <>
-//       <Circle
-//         ref={meshRef}
-//         args={[12.75, 36, 36]}
-//         rotation-x={-Math.PI / 2}
-//         position={[0, 0, 0]}
-//       >
-//         <reflectorMaterial
-//           transparent
-//           opacity={0.5}
-//           color="black"
-//           metalness={0.95}
-//           roughness={1}
-//           {...reflectorProps}
-//         />
-//       </Circle>
-//     </>
-//   );
-// }
 
 const NounCanvas = (props) => {
   const [optionsVisibility, setOptionsVisibility] = useState('block');
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
+  const [menuVisibility, setMenuVisibility] = useState(true);
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 1450);
+  const [environment, setEnvironment] = useState('Normal');
+  const [head, setHead] = useState(
+    headAttributes[Math.floor(Math.random() * headAttributes.length)].value
+  );
+  const [glasses, setGlasses] = useState(
+    glassesAttributes[Math.floor(Math.random() * glassesAttributes.length)]
+      .value
+  );
+  const [body, setBody] = useState(
+    bodyAttributes[Math.floor(Math.random() * bodyAttributes.length)].value
+  );
+  const [pants, setPants] = useState(
+    pantsAttributes[Math.floor(Math.random() * pantsAttributes.length)].value
+  );
+  const [shoes, setShoes] = useState(
+    shoesAttributes[Math.floor(Math.random() * shoesAttributes.length)].value
+  );
 
   const orbitControls = useRef();
 
-  const [head, setHead] = useState('crab'); //crab
-  const [glasses, setGlasses] = useState('blue'); //blue
-  const [body, setBody] = useState('lightblue'); //lightblue
-  const [pants, setPants] = useState('black'); //black
-  const [feet, setFeet] = useState('white'); //white
+  // FUNCTIONS
+  const updateMedia = () => {
+    setDesktop(window.innerWidth > 1450);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
+  });
+
+  const generateRandomNoun = () => {
+    setHead(
+      headAttributes[Math.floor(Math.random() * headAttributes.length)].value
+    );
+    setGlasses(
+      glassesAttributes[Math.floor(Math.random() * glassesAttributes.length)]
+        .value
+    );
+    setBody(
+      bodyAttributes[Math.floor(Math.random() * bodyAttributes.length)].value
+    );
+    setPants(
+      pantsAttributes[Math.floor(Math.random() * pantsAttributes.length)].value
+    );
+    setShoes(
+      shoesAttributes[Math.floor(Math.random() * shoesAttributes.length)].value
+    );
+  };
 
   return (
     <>
@@ -194,11 +141,12 @@ const NounCanvas = (props) => {
         </div>
       </Html> */}
         {/* <Model /> */}
-        <fog attach="fog" args={[0xa0a0a0, 1, 10]} />
 
-        {/* <Sky sunPosition={[-100, 20, 100]} /> */}
+        {environment === 'Normal' && (
+          <fog attach="fog" args={[0xa0a0a0, 1, 5]} />
+        )}
 
-        <ambientLight castShadow intensity={0.8} />
+        <ambientLight intensity={0.8} />
 
         {/* <spotLight position={[0, 2, 2]} intensity={0.3} castShadow /> */}
 
@@ -210,62 +158,66 @@ const NounCanvas = (props) => {
           shadow-mapSize-height={1024}
         />
 
-        {/* <ambientLight intensity={0.7} />
-        <spotLight
-          intensity={0.5}
-          angle={0.1}
-          penumbra={1}
-          position={[10, 15, 10]}
-          castShadow
-        /> */}
-        {/* <spotLight
-          position={[0, 5, 1]}
-          angle={0.5}
-          penumbra={1}
-          intensity={2}
-          castShadow
-          shadow-mapSize-width={2048}
-          shadow-mapSize-height={2048}
-        /> */}
-        {/* <gridHelper
-          args={[50, 20, new THREE.Color(0xf316bd), new THREE.Color(0xf316bd)]}
-          position={[0, -5, 0]}
-        /> */}
-        {/* <mesh receiveShadow position={[0, -5.5, 0]}>
-          <boxBufferGeometry args={[30, 1, 30]} />
-          <meshStandardMaterial color={new THREE.Color(0x000000)} />
-        </mesh> */}
-        {/* <Thing /> */}
         <OrbitControls
           target={[0, 0.2, 0]}
           ref={orbitControls}
           autoRotate={props.autoRotate}
-          enablePan={true}
+          enablePan={false}
           enableDamping={true}
           maxPolarAngle={Math.PI / 2.05}
           maxDistance={5}
           minDistance={0.325}
         />
-        <mesh receiveShadow position={[0, -0.025, 0]}>
-          <boxBufferGeometry args={[100, 0.05, 100]} />
 
-          <meshStandardMaterial
-            color={new THREE.Color(0xffffff)
-              .setHex(0xffffff)
-              .convertSRGBToLinear()}
+        {environment === 'Normal' && (
+          <mesh receiveShadow position={[0, -0.025, 0]}>
+            <boxBufferGeometry args={[25, 0.05, 25]} />
+            <meshStandardMaterial
+              color={new THREE.Color(0xffffff)
+                .setHex(0xffffff)
+                .convertSRGBToLinear()}
+            />
+          </mesh>
+        )}
+        {environment === 'Normal' && (
+          <gridHelper
+            args={[
+              50,
+              200,
+              new THREE.Color(0x282828),
+              new THREE.Color(0x282828),
+            ]}
+            position={[0, 0, 0]}
           />
-        </mesh>
-        {/* <cylinderBufferGeometry args={[2, 1, 20, 32]} /> */}
-        {/* <meshPhongMaterial
-            color={new THREE.Color('#000000')
-              .setHex(0x000000)
-              .convertSRGBToLinear()}
-            shininess={25} */}
+        )}
+        {environment === 'Ocean' && (
+          <mesh receiveShadow position={[0, -0.025, 0]}>
+            <boxBufferGeometry args={[2, 0.05, 2]} />
+            <meshStandardMaterial
+              color={new THREE.Color(0xf6e4ad)
+                .setHex(0xf6e4ad)
+                .convertSRGBToLinear()}
+            />
+          </mesh>
+        )}
+        {environment === 'Ocean' && (
+          <gridHelper
+            args={[2, 20, new THREE.Color(0x282828), new THREE.Color(0x282828)]}
+            position={[0, 0, 0]}
+          />
+        )}
 
-        <gridHelper
-          args={[50, 200, new THREE.Color(0x282828), new THREE.Color(0x282828)]}
-          position={[0, 0, 0]}
-        />
+        {/* 
+        {environment === 'Ocean' && (
+          <mesh receiveShadow position={[0, -0.5, 0]}>
+            <cylinderBufferGeometry args={[1, 1, 1, 32]} />
+            <meshStandardMaterial
+              color={new THREE.Color('#d63c5e')
+                .setHex(0xd63c5e)
+                .convertSRGBToLinear()}
+            />
+          </mesh>
+        )} */}
 
         {/* <cylinderBufferGeometry args={[2, 1, 20, 32]} /> */}
         {/* <meshStandardMaterial
@@ -278,53 +230,120 @@ const NounCanvas = (props) => {
               .setHex(0xd63c5e)
               .convertSRGBToLinear()}
           /> */}
-        <Suspense fallback={null}>
+        <Suspense fallback={<ProgressLoader />}>
+          {environment === 'Ocean' && <Sky sunPosition={[-100, 20, 100]} />}
+          {environment === 'Ocean' && <Ocean />}
+          {/* {environment === 'Ocean' && <Ground />} */}
           {/* <Model position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]} /> */}
 
-          <RabbitModel
+          {/* <Bonsai
             head={head}
             glasses={glasses}
             body={body}
             pants={pants}
             feet={feet}
-          />
-          <CrabModel
+          /> */}
+          <Cloud
             head={head}
             glasses={glasses}
             body={body}
             pants={pants}
-            feet={feet}
+            shoes={shoes}
           />
+          <Computer
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Crab
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Mixer
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Pirate
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Rabbit
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+          <Shark
+            head={head}
+            glasses={glasses}
+            body={body}
+            pants={pants}
+            shoes={shoes}
+          />
+
           <NounsLogo />
-          {/* <Ocean /> */}
-          {/* <Ground /> */}
+
           {/* <Environment preset="city" /> */}
         </Suspense>
         {/* <Svg /> */}
       </Canvas>
-      <div className="options-container">
-        <div
-          style={{
-            textAlign: 'end',
-          }}
-        >
-          <span
-            style={{
-              cursor: 'pointer',
-              padding: '0px',
-              fontSize: '1rem',
-            }}
-            onClick={() =>
-              setOptionsVisibility(
-                optionsVisibility === 'block' ? 'none' : 'block'
-              )
-            }
-          >
-            <button style={{ border: 'none' }}>
-              {optionsVisibility === 'block' ? 'hide' : 'show'}
+
+      <div className="open-menu-container">
+        {optionsVisibility === 'none' ? (
+          <>
+            <button
+              className="glow-on-hover"
+              style={{ marginRight: '10px' }}
+              onClick={() => generateRandomNoun()}
+            >
+              Random Noun
             </button>
-          </span>
-        </div>
+
+            <button
+              onClick={() => setOptionsVisibility('block')}
+              className={'show-menu-button'}
+            >
+              Options
+            </button>
+          </>
+        ) : null}
+      </div>
+
+      <div
+        className={isDesktop ? 'options-container' : 'mobile-menu-container'}
+        style={{ display: optionsVisibility }}
+      >
+        {optionsVisibility === 'block' ? (
+          <Container>
+            <Row>
+              <Col xs={10}>
+                <p style={{ fontSize: '1.2rem' }}>Build your Noun!</p>
+              </Col>
+              <Col xs={{ span: 2 }}>
+                <span
+                  className="menu-x-button"
+                  onClick={() => setOptionsVisibility('none')}
+                  style={{ textAlign: 'right', fontSize: '1.2em' }}
+                >
+                  ❌
+                </span>
+              </Col>
+            </Row>
+          </Container>
+        ) : null}
+
         <div
           className="options-controls"
           style={{ display: optionsVisibility }}
@@ -338,16 +357,20 @@ const NounCanvas = (props) => {
               <Col xs={4}>
                 <label className="white-font">Head</label>
               </Col>
-              <Col xs={4}>
+              <Col xs={8}>
                 <select
                   value={head}
                   onChange={(e) => setHead(e.target.value)}
-                  name="cars"
-                  id="cars"
-                  form="carform"
+                  className="attribute-select-box"
+                  // name="cars"
+                  // id="cars"
+                  // form="carform"
                 >
-                  <option value="crab">Crab</option>
-                  <option value="rabbit">Rabbit</option>
+                  {headAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
                 </select>
               </Col>
             </Row>
@@ -356,16 +379,17 @@ const NounCanvas = (props) => {
               <Col xs={4}>
                 <label className="white-font">Glasses</label>
               </Col>
-              <Col xs={4}>
+              <Col xs={8}>
                 <select
                   value={glasses}
                   onChange={(e) => setGlasses(e.target.value)}
-                  name="cars"
-                  id="cars"
-                  form="carform"
+                  className="attribute-select-box"
                 >
-                  <option value="orange">Orange</option>
-                  <option value="blue">Blue</option>
+                  {glassesAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
                 </select>
               </Col>
             </Row>
@@ -375,16 +399,17 @@ const NounCanvas = (props) => {
               <Col xs={4}>
                 <label className="white-font">Body</label>
               </Col>
-              <Col xs={4}>
+              <Col xs={8}>
                 <select
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
-                  name="cars"
-                  id="cars"
-                  form="carform"
+                  className="attribute-select-box"
                 >
-                  <option value="purple">Purple</option>
-                  <option value="lightblue">Light Blue</option>
+                  {bodyAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
                 </select>
               </Col>
             </Row>
@@ -393,76 +418,122 @@ const NounCanvas = (props) => {
               <Col xs={4}>
                 <label className="white-font">Pants</label>
               </Col>
-              <Col xs={4}>
+              <Col xs={8}>
                 <select
                   value={pants}
                   onChange={(e) => setPants(e.target.value)}
-                  name="cars"
-                  id="cars"
-                  form="carform"
+                  className="attribute-select-box"
                 >
-                  <option value="grey">Grey</option>
-                  <option value="black">Black</option>
+                  {pantsAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
                 </select>
               </Col>
             </Row>
-            {/*  Feet */}
+            {/*  Shoes */}
+            <Row style={{ marginBottom: '10px' }}>
+              <Col xs={4}>
+                <label className="white-font">Shoes</label>
+              </Col>
+              <Col xs={8}>
+                <select
+                  value={shoes}
+                  onChange={(e) => setShoes(e.target.value)}
+                  className="attribute-select-box"
+                >
+                  {shoesAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
+                </select>
+              </Col>
+            </Row>
+            {/* environment */}
             <Row>
               <Col xs={4}>
-                <label className="white-font">Feet</label>
+                <label className="white-font">World</label>
               </Col>
-              <Col xs={4}>
+              <Col xs={8}>
                 <select
-                  value={feet}
-                  onChange={(e) => setFeet(e.target.value)}
-                  name="cars"
-                  id="cars"
-                  form="carform"
+                  value={environment}
+                  onChange={(e) => setEnvironment(e.target.value)}
+                  className="attribute-select-box"
                 >
-                  <option value="white">White</option>
-                  {/* <option value="rabbit">rabbit</option> */}
+                  {environmentAttributes.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
                 </select>
               </Col>
             </Row>
-            <div className="checkbox" style={{ marginTop: '10px' }}>
-              <label>
-                <span className="white-font" style={{ marginRight: '3px' }}>
-                  Auto Rotate
-                </span>
-              </label>
-              <input
-                type="checkbox"
-                id="checkbox1"
-                className="checkbox style-2 pull-right"
-                checked={props.autoRotate}
-                onClick={(e) => props.setAutoRotate(e.target.checked)}
-              />
-            </div>
-            <div style={{ marginTop: '10px' }}>
-              <span>Hold click/ swipe to rotate</span>
-            </div>
-            <div style={{ marginTop: '10px' }}>
-              <span>Scroll/ Pinch to zoom</span>
+            <Row>
+              <Col>
+                <div style={{ marginTop: '15px' }}>
+                  <label>
+                    <span className="white-font" style={{ marginRight: '3px' }}>
+                      Auto
+                      <br />
+                      Rotate
+                    </span>
+                  </label>
+                </div>
+              </Col>
+              <Col>
+                <div style={{ marginTop: '25px' }}>
+                  <input
+                    type="checkbox"
+                    className="toggle"
+                    checked={props.autoRotate}
+                    onChange={(e) => props.setAutoRotate(e.target.checked)}
+                  />
+                </div>
+              </Col>
+            </Row>
+
+            <div style={{ marginTop: '20px' }}>
+              <Row>
+                <Col></Col>
+                <Col>
+                  <button
+                    className="glow-on-hover"
+                    onClick={() => generateRandomNoun()}
+                  >
+                    Random Noun
+                  </button>
+                </Col>
+                <Col></Col>
+              </Row>
             </div>
           </Container>
-          {/* <p>{currentCameraPosition.x}</p>
-          <p>{currentCameraPosition.y}</p>
-          <p>{currentCameraPosition.z}</p> */}
         </div>
       </div>
+
       <div className="logo-container">
-        <img className="nouns-logo" src={logo} alt="NOUNS" />
+        <a href="https://nouns.wtf">
+          <img className="nouns-logo" src={logo} alt="NOUNS" />
+        </a>
       </div>
-      <div className="credit-container">
-        <span style={{ marginRight: '20px' }}>
-          <a href="https://nouns.wtf">nouns.wtf</a> ❤️ by{' '}
-          <a href="https://twitter.com/0xFloyd">0xFloyd</a>
-        </span>
-      </div>
+
+      {!isDesktop && optionsVisibility === 'block' ? null : (
+        <div className="credit-container">
+          <span style={{ marginRight: '20px' }}>
+            <a href="https://nouns.wtf">nouns.wtf</a> ❤️ by{' '}
+            <a href="https://twitter.com/0xFloyd">0xFloyd</a> and{' '}
+            <a href="https://twitter.com/coralorca">CoralOrca</a>
+          </span>
+        </div>
+      )}
     </>
   );
 };
 
+export default NounCanvas;
+
+// Extras
 const Ground = () => {
   const texture_1 = useLoader(TextureLoader, '/grasslight-big.jpg');
   texture_1.wrapS = texture_1.wrapT = THREE.RepeatWrapping;
@@ -478,4 +549,51 @@ const Ground = () => {
   );
 };
 
-export default NounCanvas;
+// Extras
+const Ocean = () => {
+  const ref = useRef();
+
+  // this is the renderer
+  const gl = useThree((state) => state.gl);
+
+  const waterNormals = useLoader(THREE.TextureLoader, '/waternormals.jpeg');
+  waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
+
+  // memoize -->  storing the results of expensive function calls and returning the cached result when the same inputs occur again
+  const geom = useMemo(() => new THREE.PlaneGeometry(1000, 1000), []);
+  const config = useMemo(
+    () => ({
+      textureWidth: 512,
+      textureHeight: 512,
+      waterNormals,
+      sunDirection: new THREE.Vector3(),
+      sunColor: 0xffffff,
+      waterColor: 0x001e0f,
+      distortionScale: 3.7,
+      fog: false,
+      format: gl.encoding,
+    }),
+    [waterNormals]
+  );
+  useFrame(
+    (state, delta) => (ref.current.material.uniforms.time.value += 0.002)
+  );
+
+  // 2nd argument is config which is the material
+  return (
+    <water
+      ref={ref}
+      args={[geom, config]}
+      position={[0, -1, 0]}
+      rotation-x={-Math.PI / 2}
+    />
+  );
+};
+{
+  /* <div style={{ marginTop: '10px' }}>
+              <span>Hold click/ swipe to rotate</span>
+            </div>
+            <div style={{ marginTop: '10px' }}>
+              <span>Scroll/ Pinch to zoom</span>
+            </div> */
+}

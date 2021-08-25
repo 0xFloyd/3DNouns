@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { Col, Container, Dropdown, Navbar, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import './menu.css';
+import './GlowButton.css';
 
 const App = () => {
   const [autoRotate, setAutoRotate] = useState(false);
