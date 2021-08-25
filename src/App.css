@@ -87,6 +87,9 @@ body {
   padding: 5px;
   cursor: pointer;
   width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .attributes-close-container {

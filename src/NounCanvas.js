@@ -184,10 +184,10 @@ const NounCanvas = (props) => {
             args={[
               50,
               200,
-              new THREE.Color(0x282828),
-              new THREE.Color(0x282828),
+              new THREE.Color(0x919191),
+              new THREE.Color(0x919191),
             ]}
-            position={[0, 0, 0]}
+            position={[0, 0.001, 0]}
           />
         )}
         {environment === 'Ocean' && (
@@ -202,8 +202,8 @@ const NounCanvas = (props) => {
         )}
         {environment === 'Ocean' && (
           <gridHelper
-            args={[2, 20, new THREE.Color(0x282828), new THREE.Color(0x282828)]}
-            position={[0, 0, 0]}
+            args={[2, 20, new THREE.Color(0x919191), new THREE.Color(0x919191)]}
+            position={[0, 0.001, 0]}
           />
         )}
 
