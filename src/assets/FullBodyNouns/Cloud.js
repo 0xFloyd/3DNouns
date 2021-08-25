@@ -11,9 +11,9 @@ const Cloud = (props) => {
   const group = useRef();
   const { nodes, materials } = useGLTF('/Cloud.gltf');
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null} castShadow>
       <mesh
-        name='Body-Pride'
+        name="Body-Pride"
         castShadow
         receiveShadow
         geometry={nodes['Body-Pride'].geometry}
@@ -25,7 +25,7 @@ const Cloud = (props) => {
         visible={props.body === 'Body-Pride' ? true : false}
       />
       <mesh
-        name='Shoes-White1'
+        name="Shoes-White1"
         castShadow
         receiveShadow
         geometry={nodes['Shoes-White1'].geometry}
@@ -37,7 +37,7 @@ const Cloud = (props) => {
         visible={props.shoes === 'Shoes-White1' ? true : false}
       />
       <mesh
-        name='Head-Cloud'
+        name="Head-Cloud"
         castShadow
         receiveShadow
         geometry={nodes['Head-Cloud'].geometry}
@@ -49,7 +49,7 @@ const Cloud = (props) => {
         visible={props.head === 'Head-Cloud' ? true : false}
       />
       <mesh
-        name='Pants-LightGrey1'
+        name="Pants-LightGrey1"
         castShadow
         receiveShadow
         geometry={nodes['Pants-LightGrey1'].geometry}
@@ -61,7 +61,7 @@ const Cloud = (props) => {
         visible={props.pants === 'Pants-LightGrey1' ? true : false}
       />
       <mesh
-        name='Glasses4'
+        name="Glasses4"
         castShadow
         receiveShadow
         geometry={nodes.Glasses4.geometry}

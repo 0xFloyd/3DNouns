@@ -1,14 +1,5 @@
 //type: {name: string, value: string}
 
-export const headAttributes = [
-  { name: 'Cloud', value: 'Head-Cloud' },
-  { name: 'Pirate', value: 'Head-Pirate' },
-  { name: 'Computer', value: 'Head-Computer' },
-  { name: 'Crab', value: 'Head-Crab' },
-  { name: 'Mixer', value: 'Head-Mixer' },
-  { name: 'Rabbit', value: 'Head-Rabbit' },
-];
-
 export const headNames = {
   Rabbit: 'Head-Rabbit',
   Cloud: 'Head-Cloud',
@@ -16,7 +7,18 @@ export const headNames = {
   Crab: 'Head-Crab',
   Mixer: 'Head-Mixer',
   Pirate: 'Head-Pirate',
+  Shark: 'SharkHead',
 };
+
+export const headAttributes = [
+  { name: 'Cloud', value: 'Head-Cloud' },
+  { name: 'Pirate', value: 'Head-Pirate' },
+  { name: 'Computer', value: 'Head-Computer' },
+  { name: 'Crab', value: 'Head-Crab' },
+  { name: 'Mixer', value: 'Head-Mixer' },
+  { name: 'Rabbit', value: 'Head-Rabbit' },
+  { name: 'Shark', value: 'SharkHead' },
+];
 
 export const glassesAttributes = [
   { name: 'Pink Purple', value: 'Glasses4' },
@@ -25,6 +27,7 @@ export const glassesAttributes = [
   { name: 'Green Blue', value: 'Glasses5' },
   { name: 'Black', value: 'Glasses2' },
   { name: 'Orange', value: 'Glasses6' },
+  { name: 'Black RGB', value: 'RGBglasses' },
 ];
 
 export const bodyAttributes = [
@@ -34,6 +37,7 @@ export const bodyAttributes = [
   { name: 'Light Blue Noun', value: 'Body-LightBlue' },
   { name: 'Fuchsia Hoodie', value: 'Body-Hoodie' },
   { name: 'Navy Carrot', value: 'BodyNavy' },
+  { name: 'Fuchsia RGB', value: 'Oren_197_part' },
 ];
 
 export const pantsAttributes = [
@@ -61,7 +65,13 @@ export const glassesPosition = {
   Crab: [-0.09, 0.25, 0.03],
   Mixer: [-0.08, 0.25, 0.04],
   Pirate: [-0.09, 0.25, 0.05],
+  Shark: [-0.09, 0.25, 0.04],
 };
+
+export const environmentAttributes = [
+  { name: 'Normal', value: 'Normal' },
+  { name: 'Ocean', value: 'Ocean' },
+];
 
 export const getKeyByValue = (object, value) => {
   return Object.keys(object).find((key) => object[key] === value);

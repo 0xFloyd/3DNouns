@@ -5,6 +5,7 @@ import { Col, Container, Dropdown, Navbar, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import './menu.css';
+import './GlowButton.css';
 
 const App = () => {
   const [autoRotate, setAutoRotate] = useState(false);
@@ -15,7 +16,7 @@ const App = () => {
   const [pants, setPants] = useState('grey'); //black
 
   return (
-    <div className='full-width'>
+    <div className="full-width">
       {/* <Navbar style={{ height: '80px' }} expand="lg">
         <img className="nouns-logo" src={logo} alt="NOUNS" />
       </Navbar> */}
@@ -43,7 +44,7 @@ const App = () => {
           </div>
         </Col>
       </Row> */}
-      <div className='nouns-canvas'>
+      <div className="nouns-canvas">
         <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
       </div>
     </div>

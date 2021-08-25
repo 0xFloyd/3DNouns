@@ -3,46 +3,6 @@ extend({ Water });
 const dummy = new THREE.Vector3();
 const lookAtPos = new THREE.Vector3(0, 2, 0);
 
-const Ocean = () => {
-  const ref = useRef();
-
-  // this is the renderer
-  const gl = useThree((state) => state.gl);
-
-  const waterNormals = useLoader(THREE.TextureLoader, '/waternormals.jpeg');
-  waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
-
-  // memoize -->  storing the results of expensive function calls and returning the cached result when the same inputs occur again
-  const geom = useMemo(() => new THREE.PlaneGeometry(1000, 1000), []);
-  const config = useMemo(
-    () => ({
-      textureWidth: 512,
-      textureHeight: 512,
-      waterNormals,
-      sunDirection: new THREE.Vector3(),
-      sunColor: 0xffffff,
-      waterColor: 0x001e0f,
-      distortionScale: 3.7,
-      fog: false,
-      format: gl.encoding,
-    }),
-    [waterNormals]
-  );
-  useFrame(
-    (state, delta) => (ref.current.material.uniforms.time.value += 0.005)
-  );
-
-  // 2nd argument is config which is the material
-  return (
-    <water
-      ref={ref}
-      args={[geom, config]}
-      position={[0, -1, 0]}
-      rotation-x={-Math.PI / 2}
-    />
-  );
-};
-
 function Thing() {
   const ref = useRef();
   // useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.01));
@@ -124,31 +84,18 @@ function MyCamera(props) {
 //   );
 // }
 
-
-const Ground = () => {
-  const texture_1 = useLoader(TextureLoader, '/grasslight-big.jpg');
-  texture_1.wrapS = texture_1.wrapT = THREE.RepeatWrapping;
-  texture_1.repeat.set(2, 2);
-  texture_1.anisotropy = 16;
-  texture_1.encoding = THREE.sRGBEncoding;
-
-  return (
-    <mesh receiveShadow position={[0, 0.01, 0]} rotation-x={-Math.PI / 2}>
-      <planeBufferGeometry args={[5, 5]} />
-      <meshStandardMaterial map={texture_1} attach="material" />
-    </mesh>
-  );
-};
-
- {/* <ambientLight intensity={0.7} />
+{
+  /* <ambientLight intensity={0.7} />
         <spotLight
           intensity={0.5}
           angle={0.1}
           penumbra={1}
           position={[10, 15, 10]}
           castShadow
-        /> */}
-        {/* <spotLight
+        /> */
+}
+{
+  /* <spotLight
           position={[0, 5, 1]}
           angle={0.5}
           penumbra={1}
@@ -156,13 +103,20 @@ const Ground = () => {
           castShadow
           shadow-mapSize-width={2048}
           shadow-mapSize-height={2048}
-        /> */}
-        {/* <gridHelper
+        /> */
+}
+{
+  /* <gridHelper
           args={[50, 20, new THREE.Color(0xf316bd), new THREE.Color(0xf316bd)]}
           position={[0, -5, 0]}
-        /> */}
-        {/* <mesh receiveShadow position={[0, -5.5, 0]}>
+        /> */
+}
+{
+  /* <mesh receiveShadow position={[0, -5.5, 0]}>
           <boxBufferGeometry args={[30, 1, 30]} />
           <meshStandardMaterial color={new THREE.Color(0x000000)} />
-        </mesh> */}
-        {/* <Thing /> */}
+        </mesh> */
+}
+{
+  /* <Thing /> */
+}
