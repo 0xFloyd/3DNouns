@@ -4,9 +4,9 @@ import {
   useFrame,
   useLoader,
   useThree,
-} from '@react-three/fiber';
-import * as THREE from 'three';
-import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+} from "@react-three/fiber";
+import * as THREE from "three";
+import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import {
   Circle,
   Environment,
@@ -16,10 +16,10 @@ import {
   Sky,
   Stage,
   useGLTF,
-} from '@react-three/drei';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import RabbitModel from 'RabbitModel';
-import CrabModel from 'CrabTest';
+} from "@react-three/drei";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import RabbitModel from "RabbitModel";
+import CrabModel from "CrabTest";
 import {
   Button,
   Col,
@@ -28,22 +28,22 @@ import {
   FormCheck,
   ProgressBar,
   Row,
-} from 'react-bootstrap';
-import logo from './assets/nouns-logo.svg';
-import useReflector from './shaders/useReflector';
-import './shaders/materials/ReflectorMaterial';
-import Svg from './assets/World/Svg';
-import NounsLogo from 'NounsLogo';
-import { Water } from 'three-stdlib';
-import ProgressLoader from 'Loader';
-import { slide as Menu } from 'react-burger-menu';
-import Bonsai from 'assets/FullBodyNouns/Bonsai';
-import Cloud from 'assets/FullBodyNouns/Cloud';
-import Computer from 'assets/FullBodyNouns/Computer';
-import Crab from 'assets/FullBodyNouns/Crab';
-import Mixer from 'assets/FullBodyNouns/Mixer';
-import Pirate from 'assets/FullBodyNouns/Pirate';
-import Rabbit from 'assets/FullBodyNouns/Rabbit';
+} from "react-bootstrap";
+import logo from "./assets/nouns-logo.svg";
+import useReflector from "./shaders/useReflector";
+import "./shaders/materials/ReflectorMaterial";
+import Svg from "./assets/World/Svg";
+import NounsLogo from "NounsLogo";
+import { Water } from "three-stdlib";
+import ProgressLoader from "Loader";
+import { slide as Menu } from "react-burger-menu";
+import Bonsai from "assets/FullBodyNouns/Bonsai";
+import Cloud from "assets/FullBodyNouns/Cloud";
+import Computer from "assets/FullBodyNouns/Computer";
+import Crab from "assets/FullBodyNouns/Crab";
+import Mixer from "assets/FullBodyNouns/Mixer";
+import Pirate from "assets/FullBodyNouns/Pirate";
+import Rabbit from "assets/FullBodyNouns/Rabbit";
 import {
   bodyAttributes,
   glassesAttributes,
@@ -51,20 +51,19 @@ import {
   pantsAttributes,
   shoesAttributes,
   environmentAttributes,
-} from 'attributes';
-import Shark from 'assets/FullBodyNouns/Shark';
-import { TextureLoader } from 'three';
+} from "attributes";
+import Shark from "assets/FullBodyNouns/Shark";
+import { TextureLoader } from "three";
 
 extend({ Water });
 
 const lookAtPos = new THREE.Vector3(0, 2, 0);
 
 const NounCanvas = (props) => {
-  const [optionsVisibility, setOptionsVisibility] = useState('block');
+  const [optionsVisibility, setOptionsVisibility] = useState("none");
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
-  const [menuVisibility, setMenuVisibility] = useState(true);
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 1450);
-  const [environment, setEnvironment] = useState('Normal');
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 1250);
+  const [environment, setEnvironment] = useState("Normal");
   const [head, setHead] = useState(
     headAttributes[Math.floor(Math.random() * headAttributes.length)].value
   );
@@ -90,8 +89,8 @@ const NounCanvas = (props) => {
   };
 
   useEffect(() => {
-    window.addEventListener('resize', updateMedia);
-    return () => window.removeEventListener('resize', updateMedia);
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
   });
 
   const generateRandomNoun = () => {
@@ -142,7 +141,7 @@ const NounCanvas = (props) => {
       </Html> */}
         {/* <Model /> */}
 
-        {environment === 'Normal' && (
+        {environment === "Normal" && (
           <fog attach="fog" args={[0xa0a0a0, 1, 5]} />
         )}
 
@@ -169,7 +168,7 @@ const NounCanvas = (props) => {
           minDistance={0.325}
         />
 
-        {environment === 'Normal' && (
+        {environment === "Normal" && (
           <mesh receiveShadow position={[0, -0.025, 0]}>
             <boxBufferGeometry args={[25, 0.05, 25]} />
             <meshStandardMaterial
@@ -179,7 +178,7 @@ const NounCanvas = (props) => {
             />
           </mesh>
         )}
-        {environment === 'Normal' && (
+        {environment === "Normal" && (
           <gridHelper
             args={[
               50,
@@ -190,7 +189,7 @@ const NounCanvas = (props) => {
             position={[0, 0.001, 0]}
           />
         )}
-        {environment === 'Ocean' && (
+        {environment === "Ocean" && (
           <mesh receiveShadow position={[0, -0.025, 0]}>
             <boxBufferGeometry args={[2, 0.05, 2]} />
             <meshStandardMaterial
@@ -200,7 +199,7 @@ const NounCanvas = (props) => {
             />
           </mesh>
         )}
-        {environment === 'Ocean' && (
+        {environment === "Ocean" && (
           <gridHelper
             args={[2, 20, new THREE.Color(0x919191), new THREE.Color(0x919191)]}
             position={[0, 0.001, 0]}
@@ -231,8 +230,8 @@ const NounCanvas = (props) => {
               .convertSRGBToLinear()}
           /> */}
         <Suspense fallback={<ProgressLoader />}>
-          {environment === 'Ocean' && <Sky sunPosition={[-100, 20, 100]} />}
-          {environment === 'Ocean' && <Ocean />}
+          {environment === "Ocean" && <Sky sunPosition={[-100, 20, 100]} />}
+          {environment === "Ocean" && <Ocean />}
           {/* {environment === 'Ocean' && <Ground />} */}
           {/* <Model position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]} /> */}
 
@@ -301,19 +300,19 @@ const NounCanvas = (props) => {
       </Canvas>
 
       <div className="open-menu-container">
-        {optionsVisibility === 'none' ? (
+        {optionsVisibility === "none" ? (
           <>
             <button
               className="glow-on-hover"
-              style={{ marginRight: '10px' }}
+              style={{ marginRight: "10px" }}
               onClick={() => generateRandomNoun()}
             >
               Random Noun
             </button>
 
             <button
-              onClick={() => setOptionsVisibility('block')}
-              className={'show-menu-button'}
+              onClick={() => setOptionsVisibility("block")}
+              className={"show-menu-button"}
             >
               Options
             </button>
@@ -322,20 +321,20 @@ const NounCanvas = (props) => {
       </div>
 
       <div
-        className={isDesktop ? 'options-container' : 'mobile-menu-container'}
+        className={isDesktop ? "options-container" : "mobile-menu-container"}
         style={{ display: optionsVisibility }}
       >
-        {optionsVisibility === 'block' ? (
+        {optionsVisibility === "block" ? (
           <Container>
             <Row>
               <Col xs={10}>
-                <p style={{ fontSize: '1.2rem' }}>Build your Noun!</p>
+                <p style={{ fontSize: "1.2rem" }}>Build your Noun!</p>
               </Col>
               <Col xs={{ span: 2 }}>
                 <span
                   className="menu-x-button"
-                  onClick={() => setOptionsVisibility('none')}
-                  style={{ textAlign: 'right', fontSize: '1.2em' }}
+                  onClick={() => setOptionsVisibility("none")}
+                  style={{ textAlign: "right", fontSize: "1.2em" }}
                 >
                   ❌
                 </span>
@@ -353,7 +352,7 @@ const NounCanvas = (props) => {
           </h4> */}
           {/*  Head */}
           <Container fluid>
-            <Row style={{ marginBottom: '10px' }}>
+            <Row style={{ marginBottom: "10px" }}>
               <Col xs={4}>
                 <label className="white-font">Head</label>
               </Col>
@@ -375,7 +374,7 @@ const NounCanvas = (props) => {
               </Col>
             </Row>
             {/*  Glasses */}
-            <Row style={{ marginBottom: '10px' }}>
+            <Row style={{ marginBottom: "10px" }}>
               <Col xs={4}>
                 <label className="white-font">Glasses</label>
               </Col>
@@ -395,7 +394,7 @@ const NounCanvas = (props) => {
             </Row>
 
             {/*  Body */}
-            <Row style={{ marginBottom: '10px' }}>
+            <Row style={{ marginBottom: "10px" }}>
               <Col xs={4}>
                 <label className="white-font">Body</label>
               </Col>
@@ -414,7 +413,7 @@ const NounCanvas = (props) => {
               </Col>
             </Row>
             {/*  Pants */}
-            <Row style={{ marginBottom: '10px' }}>
+            <Row style={{ marginBottom: "10px" }}>
               <Col xs={4}>
                 <label className="white-font">Pants</label>
               </Col>
@@ -433,7 +432,7 @@ const NounCanvas = (props) => {
               </Col>
             </Row>
             {/*  Shoes */}
-            <Row style={{ marginBottom: '10px' }}>
+            <Row style={{ marginBottom: "10px" }}>
               <Col xs={4}>
                 <label className="white-font">Shoes</label>
               </Col>
@@ -472,9 +471,9 @@ const NounCanvas = (props) => {
             </Row>
             <Row>
               <Col>
-                <div style={{ marginTop: '15px' }}>
+                <div style={{ marginTop: "15px" }}>
                   <label>
-                    <span className="white-font" style={{ marginRight: '3px' }}>
+                    <span className="white-font" style={{ marginRight: "3px" }}>
                       Auto
                       <br />
                       Rotate
@@ -483,7 +482,7 @@ const NounCanvas = (props) => {
                 </div>
               </Col>
               <Col>
-                <div style={{ marginTop: '25px' }}>
+                <div style={{ marginTop: "25px" }}>
                   <input
                     type="checkbox"
                     className="toggle"
@@ -494,7 +493,7 @@ const NounCanvas = (props) => {
               </Col>
             </Row>
 
-            <div style={{ marginTop: '20px' }}>
+            <div style={{ marginTop: "20px" }}>
               <Row>
                 <Col></Col>
                 <Col>
@@ -518,11 +517,11 @@ const NounCanvas = (props) => {
         </a>
       </div>
 
-      {!isDesktop && optionsVisibility === 'block' ? null : (
+      {!isDesktop && optionsVisibility === "block" ? null : (
         <div className="credit-container">
-          <span style={{ marginRight: '20px' }}>
-            <a href="https://nouns.wtf">nouns.wtf</a> ❤️ by{' '}
-            <a href="https://twitter.com/0xFloyd">0xFloyd</a> and{' '}
+          <span style={{ marginRight: "20px" }}>
+            <a href="https://nouns.wtf">nouns.wtf</a> ❤️ by{" "}
+            <a href="https://twitter.com/0xFloyd">0xFloyd</a> and{" "}
             <a href="https://twitter.com/coralorca">CoralOrca</a>
           </span>
         </div>
@@ -535,7 +534,7 @@ export default NounCanvas;
 
 // Extras
 const Ground = () => {
-  const texture_1 = useLoader(TextureLoader, '/grasslight-big.jpg');
+  const texture_1 = useLoader(TextureLoader, "/grasslight-big.jpg");
   texture_1.wrapS = texture_1.wrapT = THREE.RepeatWrapping;
   texture_1.repeat.set(2, 2);
   texture_1.anisotropy = 16;
@@ -556,7 +555,7 @@ const Ocean = () => {
   // this is the renderer
   const gl = useThree((state) => state.gl);
 
-  const waterNormals = useLoader(THREE.TextureLoader, '/waternormals.jpeg');
+  const waterNormals = useLoader(THREE.TextureLoader, "/waternormals.jpeg");
   waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
 
   // memoize -->  storing the results of expensive function calls and returning the cached result when the same inputs occur again
