@@ -8,6 +8,7 @@ import { useFrame } from '@react-three/fiber';
 
 const NounsLogo = (props) => {
   const group = useRef();
+  const groupTwo = useRef();
   const materialRef = useRef();
   const { nodes, materials } = useGLTF('/nouns-logo-model.gltf');
 
@@ -21,6 +22,8 @@ const NounsLogo = (props) => {
 
   useFrame((state, delta) => {
     group.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1 + 0.25;
+    groupTwo.current.position.y =
+      Math.sin(state.clock.elapsedTime) * 0.1 + 0.25;
     // group.current.rotation.x =
     //   group.current.rotation.y =
     //   group.current.rotation.z +=
@@ -30,49 +33,94 @@ const NounsLogo = (props) => {
 
   testMaterial.color.setHex(0xd63c5e).convertSRGBToLinear();
   return (
-    <group ref={group} {...props} dispose={null}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Curve.geometry}
-        material={testMaterial}
-        rotation={[1.57, 0, 0]}
-        scale={[20, 20, 20]}
-        position={[-0.5, 1.25, -2]}
-        ref={materialRef}
-      >
+    <>
+      <group ref={group} {...props} dispose={null}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Curve001.geometry}
+          geometry={nodes.Curve.geometry}
           material={testMaterial}
-        />
+          rotation={[1.57, 0, 0]}
+          scale={[20, 20, 20]}
+          position={[0.5, 1.25, -2]}
+          ref={materialRef}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve001.geometry}
+            material={testMaterial}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve002.geometry}
+            material={testMaterial}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve003.geometry}
+            material={testMaterial}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve004.geometry}
+            material={testMaterial}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve005.geometry}
+            material={testMaterial}
+          />
+        </mesh>
+      </group>
+      <group ref={groupTwo} {...props} dispose={null}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Curve002.geometry}
+          geometry={nodes.Curve.geometry}
           material={testMaterial}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Curve003.geometry}
-          material={testMaterial}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Curve004.geometry}
-          material={testMaterial}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Curve005.geometry}
-          material={testMaterial}
-        />
-      </mesh>
-    </group>
+          rotation={[1.57, 0, 0]}
+          scale={[20, 20, 20]}
+          position={[-1.5, 1.25, -2]}
+          ref={materialRef}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve001.geometry}
+            material={testMaterial}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve002.geometry}
+            material={testMaterial}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve003.geometry}
+            material={testMaterial}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve004.geometry}
+            material={testMaterial}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve005.geometry}
+            material={testMaterial}
+          />
+        </mesh>
+      </group>
+    </>
   );
 };
 

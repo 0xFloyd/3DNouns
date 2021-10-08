@@ -40,6 +40,11 @@ export const bodyAttributes = [
   { name: 'Fuchsia RGB', value: 'Oren_197_part' },
 ];
 
+export const accessoryAttributes = [
+  { name: 'Carrot', value: 'accessory-carrot' },
+  { name: 'Chain', value: 'accessory-chain-logo' },
+];
+
 export const pantsAttributes = [
   { name: 'Denim Two', value: 'Pants-Denim2' },
   { name: 'Light Grey One', value: 'Pants-LightGrey1' },
