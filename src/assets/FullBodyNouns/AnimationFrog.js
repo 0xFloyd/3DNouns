@@ -1,16 +1,17 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { useGLTF, useAnimations, Plane, useTexture } from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useFrame, useLoader, useThree } from "@react-three/fiber";
-import * as THREE from "three";
-import carrot from "../cropped-carrot.png";
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useGLTF, useAnimations, Plane, useTexture } from '@react-three/drei';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { useFrame, useLoader, useThree } from '@react-three/fiber';
+import * as THREE from 'three';
+import carrot from '../cropped-carrot.png';
 
-export default function AnimationFrog(props) {
+const AnimationFrog = (props) => {
+  const { walkAnimation, nodAnimation } = props;
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/Frog2anim.glb");
+  const { nodes, materials, animations } = useGLTF('/Frog2anim.glb');
   const { ref, mixer, names, actions } = useAnimations(animations, group);
 
-  const [shirtColor, setShirtColor] = useState("black");
+  const [shirtColor, setShirtColor] = useState('black');
 
   const texture = useTexture(carrot);
 
@@ -51,18 +52,27 @@ export default function AnimationFrog(props) {
 
   useEffect(() => {
     // Reset and fade in animation after an index has been changed
-    actions[names[index]].reset().fadeIn(0.5).play();
+    if (walkAnimation) {
+      actions[names[0]].reset().fadeIn(0.5).play();
+    }
+
     //In the clean-up phase, fade it out
-    return () => actions[names[index]].fadeOut(0.5);
-  }, [index, actions, names]);
+    return () => actions[names[0]].fadeOut(0.5);
+  }, [actions, names, walkAnimation]);
+
+  useEffect(() => {
+    // Reset and fade in animation after an index has been changed
+    if (nodAnimation) {
+      actions[names[1]].reset().fadeIn(0.5).play();
+    }
+
+    //In the clean-up phase, fade it out
+    return () => actions[names[1]].fadeOut(0.5);
+  }, [actions, names, nodAnimation]);
 
   // useEffect(() => {
 
   // });
-  setInterval(
-    () => setShirtColor(shirtColor === "purple" ? "black" : "purple"),
-    2000
-  );
 
   // useEffect(() => {
   //   actions?.jump.play();
@@ -124,6 +134,8 @@ export default function AnimationFrog(props) {
       </group>
     </group>
   );
-}
+};
 
-useGLTF.preload("/Frog2anim.glb");
+useGLTF.preload('/Frog2anim.glb');
+
+export default AnimationFrog;
