@@ -16,6 +16,7 @@ import {
   Sky,
   Stage,
   useGLTF,
+  useTexture,
 } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import RabbitModel from "RabbitModel";
@@ -53,7 +54,10 @@ import {
   environmentAttributes,
 } from "attributes";
 import Shark from "assets/FullBodyNouns/Shark";
-import { TextureLoader } from "three";
+import { Plane, TextureLoader } from "three";
+import UvTestNoun from "./assets/FullBodyNouns/UvTestNoun";
+import AnimationFrog from "./assets/FullBodyNouns/AnimationFrog";
+import carrot from "./assets/cropped-carrot.png";
 
 extend({ Water });
 
@@ -112,13 +116,15 @@ const NounCanvas = (props) => {
     );
   };
 
+  // const texture = useTexture(carrot);
+
   return (
     <>
       <Canvas
         shadows
         gl={{ preserveDrawingBuffer: true }}
         dpr={[1, 1.5]}
-        // camera={{ position: [0, 0.5, 0.5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
+        camera={{ position: [0, 0, 0], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
           // do things here
           camera.position.x = 0.2;
@@ -141,9 +147,9 @@ const NounCanvas = (props) => {
       </Html> */}
         {/* <Model /> */}
 
-        {environment === "Normal" && (
+        {/* {environment === "Normal" && (
           <fog attach="fog" args={[0xa0a0a0, 1, 5]} />
-        )}
+        )} */}
 
         <ambientLight intensity={0.8} />
 
@@ -232,9 +238,18 @@ const NounCanvas = (props) => {
         <Suspense fallback={<ProgressLoader />}>
           {environment === "Ocean" && <Sky sunPosition={[-100, 20, 100]} />}
           {environment === "Ocean" && <Ocean />}
+
+          <AnimationFrog />
+
+          {/* <Plane
+            args={[1, 1]}
+            position={[0, 0, 0]}
+            material-map={texture}
+            material-transparent
+          /> */}
           {/* {environment === 'Ocean' && <Ground />} */}
           {/* <Model position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]} /> */}
-
+          {/* <UvTestNoun /> */}
           {/* <Bonsai
             head={head}
             glasses={glasses}
@@ -242,13 +257,14 @@ const NounCanvas = (props) => {
             pants={pants}
             feet={feet}
           /> */}
-          <Cloud
+          {/* <Cloud
             head={head}
             glasses={glasses}
             body={body}
             pants={pants}
             shoes={shoes}
-          />
+          /> */}
+          {/* 
           <Computer
             head={head}
             glasses={glasses}
@@ -283,17 +299,15 @@ const NounCanvas = (props) => {
             body={body}
             pants={pants}
             shoes={shoes}
-          />
+          /> 
           <Shark
             head={head}
             glasses={glasses}
             body={body}
             pants={pants}
             shoes={shoes}
-          />
-
+          />*/}
           <NounsLogo />
-
           {/* <Environment preset="city" /> */}
         </Suspense>
         {/* <Svg /> */}
