@@ -58,6 +58,8 @@ import { Plane, TextureLoader } from 'three';
 import UvTestNoun from './assets/FullBodyNouns/UvTestNoun';
 import AnimationFrog from './assets/FullBodyNouns/AnimationFrog';
 import carrot from './assets/cropped-carrot.png';
+import Wizardhat from 'assets/FullBodyNouns/Wizardhat';
+import CombinedHeadTest from 'assets/FullBodyNouns/AnimationFrogAndWizard_combined';
 
 extend({ Water });
 
@@ -174,8 +176,8 @@ const NounCanvas = (props) => {
           autoRotate={props.autoRotate}
           enablePan={false}
           enableDamping={true}
-          maxPolarAngle={Math.PI / 2.05}
-          maxDistance={5}
+          // maxPolarAngle={Math.PI / 2.05}
+          // maxDistance={5}
           minDistance={0.325}
         />
 
@@ -248,6 +250,11 @@ const NounCanvas = (props) => {
             walkAnimation={walkAnimation}
             nodAnimation={nodAnimation}
           />
+
+          {/* <CombinedHeadTest
+            walkAnimation={walkAnimation}
+            nodAnimation={nodAnimation}
+          /> */}
 
           {/* <Plane
             args={[1, 1]}
