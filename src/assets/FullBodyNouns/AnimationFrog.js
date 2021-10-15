@@ -1,39 +1,40 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useGLTF, useAnimations, Plane, useTexture } from '@react-three/drei';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { useFrame, useLoader, useThree } from '@react-three/fiber';
-import * as THREE from 'three';
-import carrot from '../cropped-carrot.png';
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useGLTF, useAnimations, Plane, useTexture } from "@react-three/drei";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useFrame, useLoader, useThree } from "@react-three/fiber";
+import * as THREE from "three";
+import carrot from "../cropped-carrot.png";
 // import Wizardhat from './Wizardhat';
-import { SkeletonUtils } from 'three-stdlib';
-import uvMappedTexture from '../frogTpose.png';
-import uvGOOD from '../UVgood.png';
-import outUVw from '../outUVw.png';
+import { SkeletonUtils } from "three-stdlib";
+import uvMappedTexture from "../frogTpose.png";
+import uvGOOD from "../UVgood.png";
+import outUVw from "../outUVw.png";
+import transparentSmiley from "../outUVTransparentSmiley.png";
 
 const AnimationFrog = (props) => {
   const { walkAnimation, nodAnimation } = props;
   const group = useRef();
   const skinnedMeshRef = useRef();
-  const { nodes, materials, animations } = useGLTF('/MagicHatGLB.glb');
+  const { nodes, materials, animations } = useGLTF("/MagicHatGLB.glb");
 
   // const uvMapTexture = useTexture(uvMappedTexture);
   // const uvMapTexture = useLoader(THREE.TextureLoader, uvMappedTexture);
 
-  const texture = useLoader(THREE.TextureLoader, outUVw);
+  const texture = useLoader(THREE.TextureLoader, transparentSmiley);
 
   // const wizardHat = useGLTF('/wizardhat.glb');
 
   const { ref, mixer, names, actions } = useAnimations(animations, group);
 
-  const [shirtColor, setShirtColor] = useState('black');
+  const [shirtColor, setShirtColor] = useState("black");
   // const texture = useTexture(carrot);
 
   const [index, setIndex] = useState(0);
-  let skeleton = nodes.NounHead.skeleton;
-  let boneHead = nodes.NounHead.geometry;
-  let huh = nodes.mixamorigHips.children[0];
+  // let skeleton = nodes.NounHead.skeleton;
+  // let boneHead = nodes.NounHead.geometry;
+  // let huh = nodes.mixamorigHips.children[0];
 
-  const whatIsMaterial = nodes.NounGlasses.material;
+  // const whatIsMaterial = nodes.NounGlasses.material;
 
   useMemo(() => {
     // texture.generateMipmaps = true;
@@ -152,8 +153,8 @@ const AnimationFrog = (props) => {
   );
 };
 
-useGLTF.preload('/Frog2anim.glb');
-useGLTF.preload('/wizardhat.glb');
+useGLTF.preload("/Frog2anim.glb");
+useGLTF.preload("/wizardhat.glb");
 
 export default AnimationFrog;
 
