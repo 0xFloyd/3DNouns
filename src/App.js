@@ -34,6 +34,16 @@ const App = () => {
 
   const [showSplashScreen, setShowSplashSscreen] = useState(true);
 
+  const [clicked, setClicked] = useState(false);
+  const [ready, setReady] = useState(false);
+
+  const loadScene = () => {
+    setClicked(true);
+    setTimeout(() => setReady(true), 3000);
+  };
+
+  const store = { clicked, setClicked, ready, setReady, loadScene };
+
   return (
     <div className="full-width">
       {/* <Navbar style={{ height: '80px' }} expand="lg">
@@ -63,12 +73,16 @@ const App = () => {
           </div>
         </Col>
       </Row> */}
-      <div className="splash-screen">
-        <SplashScreen />
-      </div>
-      {/* <div className="nouns-canvas">
+      {!ready && (
+        <div
+          className={`splash-screen ${clicked ? ' elementToFadeInAndOut' : ''}`}
+        >
+          <SplashScreen {...store} />
+        </div>
+      )}
+      <div className="nouns-canvas">
         <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
-      </div> */}
+      </div>
     </div>
   );
 };

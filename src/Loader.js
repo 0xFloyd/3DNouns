@@ -12,6 +12,7 @@ const ProgressLoader = () => {
           width: '100%',
           position: 'fixed',
           top: 0,
+          left: 0,
           zIndex: 2147483647,
           justifyContent: 'center',
           alignItems: 'center',
@@ -20,12 +21,11 @@ const ProgressLoader = () => {
       >
         <div
           style={{
-            width: '640px',
-            height: 'auto',
             margin: '0 auto',
             padding: '10px',
           }}
         >
+          <h2>Loading 3D Nouns...</h2>
           <ProgressBar
             now={progress && Math.round(progress)}
             label={`${progress && Math.round(progress)}%`}

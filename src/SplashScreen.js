@@ -1,6 +1,6 @@
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import React, { Suspense, useEffect, useRef, useState } from "react";
-import * as THREE from "three";
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
 import {
   bodyAttributes,
   glassesAttributes,
@@ -8,14 +8,16 @@ import {
   pantsAttributes,
   shoesAttributes,
   environmentAttributes,
-} from "attributes";
-import ProgressLoader from "./Loader";
-import Cloud from "./assets/FullBodyNouns/Cloud";
-import Computer from "./assets/FullBodyNouns/Computer";
-import Crab from "./assets/FullBodyNouns/Crab";
-import Mixer from "./assets/FullBodyNouns/Mixer";
-import TestComputer from "./assets/FullBodyNouns/TestComputer";
-import { DepthOfField, EffectComposer } from "@react-three/postprocessing";
+} from 'attributes';
+import ProgressLoader from './Loader';
+import Cloud from './assets/FullBodyNouns/Cloud';
+import Computer from './assets/FullBodyNouns/Computer';
+import Crab from './assets/FullBodyNouns/Crab';
+import Mixer from './assets/FullBodyNouns/Mixer';
+import TestComputer from './assets/FullBodyNouns/TestComputer';
+import { DepthOfField, EffectComposer } from '@react-three/postprocessing';
+import { Html, useProgress } from '@react-three/drei';
+import Text from './Text';
 
 const isDesktop = () => {
   const ua = navigator.userAgent;
@@ -86,7 +88,7 @@ const Box = ({ z }) => {
   return <TestComputer ref={ref} />;
 };
 
-function Intro() {
+function Intro({ ready, setReady, clicked, setClicked }) {
   const [vec] = useState(() => new THREE.Vector3());
 
   return useFrame((state) => {
@@ -98,13 +100,39 @@ function Intro() {
   });
 }
 
-const SplashScreen = ({ count = 150 }) => {
+function Jumbo() {
+  const ref = useRef();
+  useFrame(
+    ({ clock }) =>
+      (ref.current.rotation.x =
+        ref.current.rotation.y =
+        ref.current.rotation.z =
+          Math.cos(clock.getElapsedTime()) * 0.05)
+  );
+  return (
+    <group ref={ref}>
+      <Text hAlign="right" position={[-2.5, 5.5, 1]} children="3D" />
+      <Text hAlign="right" position={[-7.5, 2, 1]} children="NOUNS" />
+    </group>
+  );
+}
+
+const SplashScreen = (store) => {
   const desktop = isDesktop();
+
+  const { progress } = useProgress();
 
   return (
     <>
+      {progress === 100 && (
+        <div className="starting-screen-container">
+          <button className="ready-button" onClick={() => store.loadScene()}>
+            Enter
+          </button>
+        </div>
+      )}
       <Canvas gl={{ alpha: false }} camera={{ near: 0.01, far: 175 }}>
-        <color attach="background" args={["#ffbf40"]} />
+        <color attach="background" args={['#ffbf40']} />
         <ambientLight intensity={0.5} />
         {/* <spotLight position={[10, 10, 10]} intensity={0.1} /> */}
         <directionalLight
@@ -114,11 +142,12 @@ const SplashScreen = ({ count = 150 }) => {
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
         />
-        <Intro />
+        <Intro {...store} />
         <Suspense fallback={<ProgressLoader />}>
           {Array.from({ length: desktop ? 150 : 50 }, (_, i) => (
             <Box key={i} z={-i} />
           ))}
+          <Jumbo />
           <EffectComposer>
             <DepthOfField
               target={[0, 0, 30]}
