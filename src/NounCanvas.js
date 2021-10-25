@@ -16,6 +16,7 @@ import {
   Sky,
   Stage,
   useGLTF,
+  useTexture,
 } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import RabbitModel from 'RabbitModel';
@@ -54,8 +55,16 @@ import {
   environmentAttributes,
 } from 'attributes';
 import Shark from 'assets/FullBodyNouns/Shark';
-import { TextureLoader } from 'three';
 import Accessory from 'assets/Accessory';
+import { Plane, TextureLoader } from 'three';
+import UvTestNoun from './assets/FullBodyNouns/UvTestNoun';
+import AnimationFrog from './assets/FullBodyNouns/AnimationFrog';
+import carrot from './assets/cropped-carrot.png';
+import Wizardhat from 'assets/FullBodyNouns/Wizardhat';
+import CombinedHeadTest from 'assets/FullBodyNouns/AnimationFrogAndWizard_combined';
+import SeperateHeadBody from './assets/FullBodyNouns/SeperateHeadAndBodyTest';
+import TuesdayFrog from './assets/FullBodyNouns/TuesdayFrogHead';
+import TuesdayWizard from './assets/FullBodyNouns/TuesdayWizard';
 
 extend({ Water });
 
@@ -63,9 +72,14 @@ const lookAtPos = new THREE.Vector3(0, 2, 0);
 
 const NounCanvas = (props) => {
   const [optionsVisibility, setOptionsVisibility] = useState('none');
+
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 1250);
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 1200);
   const [environment, setEnvironment] = useState('Normal');
+
+  const [walkAnimation, setWalkAnimation] = useState(false);
+  const [nodAnimation, setNodAnimation] = useState(false);
+
   const [head, setHead] = useState(
     headAttributes[Math.floor(Math.random() * headAttributes.length)].value
   );
@@ -120,6 +134,26 @@ const NounCanvas = (props) => {
     );
   };
 
+  // const texture = useTexture(carrot);
+
+  const bodyTextureTest = [
+    { name: 'Rust', value: 'bodyRustTexture' },
+    { name: 'Slimegreen', value: 'bodySlimegreenTexture' },
+  ];
+  const accessoryTextureTest = [
+    { name: 'Blue Stripes', value: 'accessoryStripesBlueMedTexture' },
+    { name: 'Red Stripes', value: 'accessoryStripesRedColdTexture' },
+  ];
+
+  const [bodyTexTest, setBodyTexTest] = useState(
+    bodyTextureTest[Math.floor(Math.random() * bodyTextureTest.length)].value
+  );
+  const [accessoryTexTest, setAccessoryTexTest] = useState(
+    accessoryTextureTest[
+      Math.floor(Math.random() * accessoryTextureTest.length)
+    ].value
+  );
+
   return (
     <>
       <Canvas
@@ -173,12 +207,12 @@ const NounCanvas = (props) => {
           enableDamping={true}
           maxPolarAngle={Math.PI / 2.05}
           maxDistance={5}
-          minDistance={0.325}
+          minDistance={0.5}
         />
 
         {environment === 'Normal' && (
           <mesh receiveShadow position={[0, -0.025, 0]}>
-            <boxBufferGeometry args={[25, 0.05, 25]} />
+            <boxBufferGeometry args={[50, 0.05, 50]} />
             <meshStandardMaterial
               color={new THREE.Color(0xffffff)
                 .setHex(0xffffff)
@@ -240,9 +274,40 @@ const NounCanvas = (props) => {
         <Suspense fallback={<ProgressLoader />}>
           {environment === 'Ocean' && <Sky sunPosition={[-100, 20, 100]} />}
           {environment === 'Ocean' && <Ocean />}
+
+          {/* <TuesdayFrog
+            walkAnimation={walkAnimation}
+            nodAnimation={nodAnimation}
+          /> */}
+          <TuesdayWizard
+            walkAnimation={walkAnimation}
+            nodAnimation={nodAnimation}
+          />
+          <SeperateHeadBody
+            walkAnimation={walkAnimation}
+            nodAnimation={nodAnimation}
+            bodyTexture={bodyTexTest}
+            accessoryTexture={accessoryTexTest}
+          />
+          {/* <AnimationFrog
+            walkAnimation={walkAnimation}
+            nodAnimation={nodAnimation}
+          /> */}
+
+          {/* <CombinedHeadTest
+            walkAnimation={walkAnimation}
+            nodAnimation={nodAnimation}
+          /> */}
+
+          {/* <Plane
+            args={[1, 1]}
+            position={[0, 0, 0]}
+            material-map={texture}
+            material-transparent
+          /> */}
           {/* {environment === 'Ocean' && <Ground />} */}
           {/* <Model position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]} /> */}
-
+          {/* <UvTestNoun /> */}
           {/* <Bonsai
             head={head}
             glasses={glasses}
@@ -258,6 +323,7 @@ const NounCanvas = (props) => {
             pants={pants}
             shoes={shoes}
           />
+          {/* 
           <Computer
             head={head}
             glasses={glasses}
@@ -292,17 +358,15 @@ const NounCanvas = (props) => {
             body={body}
             pants={pants}
             shoes={shoes}
-          />
+          /> 
           <Shark
             head={head}
             glasses={glasses}
             body={body}
             pants={pants}
             shoes={shoes}
-          />
-
+          />*/}
           <NounsLogo />
-
           {/* <Environment preset="city" /> */}
         </Suspense>
         {/* <Svg /> */}
@@ -498,6 +562,47 @@ const NounCanvas = (props) => {
                 </select>
               </Col>
             </Row>
+            {/*  */}
+
+            <Row style={{ marginTop: '30px' }}>
+              <Col xs={4}>
+                <label className="white-font">Body Tex</label>
+              </Col>
+              <Col xs={8}>
+                <select
+                  value={bodyTexTest}
+                  onChange={(e) => setBodyTexTest(e.target.value)}
+                  className="attribute-select-box"
+                >
+                  {bodyTextureTest.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
+                </select>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col xs={4}>
+                <label className="white-font">Accessory Tex</label>
+              </Col>
+              <Col xs={8}>
+                <select
+                  value={accessoryTexTest}
+                  onChange={(e) => setAccessoryTexTest(e.target.value)}
+                  className="attribute-select-box"
+                >
+                  {accessoryTextureTest.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
+                </select>
+              </Col>
+            </Row>
+
+            {/*  */}
             <Row>
               <Col>
                 <div style={{ marginTop: '15px' }}>
@@ -517,6 +622,50 @@ const NounCanvas = (props) => {
                     className="toggle"
                     checked={props.autoRotate}
                     onChange={(e) => props.setAutoRotate(e.target.checked)}
+                  />
+                </div>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <div style={{ marginTop: '15px' }}>
+                  <label>
+                    <span className="white-font" style={{ marginRight: '3px' }}>
+                      Walk
+                    </span>
+                  </label>
+                </div>
+              </Col>
+              <Col>
+                <div style={{ marginTop: '25px' }}>
+                  <input
+                    type="checkbox"
+                    className="toggle"
+                    checked={walkAnimation}
+                    onChange={(e) => setWalkAnimation(e.target.checked)}
+                  />
+                </div>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <div style={{ marginTop: '15px' }}>
+                  <label>
+                    <span className="white-font" style={{ marginRight: '3px' }}>
+                      Nod
+                    </span>
+                  </label>
+                </div>
+              </Col>
+              <Col>
+                <div style={{ marginTop: '25px' }}>
+                  <input
+                    type="checkbox"
+                    className="toggle"
+                    checked={nodAnimation}
+                    onChange={(e) => setNodAnimation(e.target.checked)}
                   />
                 </div>
               </Col>

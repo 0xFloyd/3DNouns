@@ -4,34 +4,48 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useFrame, useLoader, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import carrot from '../cropped-carrot.png';
+// import Wizardhat from './Wizardhat';
+import { SkeletonUtils } from 'three-stdlib';
+import uvMappedTexture from '../frogTpose.png';
+import uvGOOD from '../UVgood.png';
+import outUVw from '../outUVw.png';
+import transparentSmiley from '../outUVTransparentSmiley.png';
 
 const AnimationFrog = (props) => {
   const { walkAnimation, nodAnimation } = props;
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF('/Frog2anim.glb');
+  const skinnedMeshRef = useRef();
+  const { nodes, materials, animations } = useGLTF('/MagicHatGLB.glb');
+
+  // const uvMapTexture = useTexture(uvMappedTexture);
+  // const uvMapTexture = useLoader(THREE.TextureLoader, uvMappedTexture);
+
+  const texture = useLoader(THREE.TextureLoader, transparentSmiley);
+
+  // const wizardHat = useGLTF('/wizardhat.glb');
+
   const { ref, mixer, names, actions } = useAnimations(animations, group);
 
-  const wizardHat = useGLTF('/hatNounOpaque.glb');
-
   const [shirtColor, setShirtColor] = useState('black');
-
-  const texture = useTexture(carrot);
+  // const texture = useTexture(carrot);
 
   const [index, setIndex] = useState(0);
+  // let skeleton = nodes.NounHead.skeleton;
+  // let boneHead = nodes.NounHead.geometry;
+  // let huh = nodes.mixamorigHips.children[0];
 
-  // let huh = actions[names[index]];
-  // let more = names[index];
-
-  // let meow = animations[0];
-
-  // let why = actions["rope"];
+  // const whatIsMaterial = nodes.NounGlasses.material;
 
   useMemo(() => {
-    texture.generateMipmaps = true;
+    // texture.generateMipmaps = true;
     // texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
     texture.needsUpdate = true;
     texture.magFilter = THREE.NearestFilter;
     texture.minFilter = THREE.NearestFilter;
+    texture.repeat = new THREE.Vector2(1, 1);
+    texture.wrapS = THREE.MirroredRepeatWrapping;
+    texture.wrapT = THREE.MirroredRepeatWrapping;
+    texture.flipY = false;
     // texture.anisotropy = gl.capabilities.getMaxAnisotropy();
   }, [
     texture.generateMipmaps,
@@ -73,44 +87,30 @@ const AnimationFrog = (props) => {
   }, [actions, names, nodAnimation]);
 
   // useEffect(() => {
-
-  // });
-
-  // useEffect(() => {
-  //   actions?.jump.play();
-  // });
-
-  // useEffect(() => {
   //   actions.rope.play();
   // });
 
   return (
     <group ref={group} {...props} dispose={null} scale={[0.01, 0.01, 0.01]}>
-      <Plane
+      {/* <Plane
         args={[8, 8]}
         material-map={texture}
         material-transparent
         position={[0, 15, 2.01]}
-      />
-
-      {/* <mesh
-        castShadow
-        receiveShadow
-        geometry={wizardHat.nodes.MagicHead.geometry}
-        material={wizardHat.materials.Material_0}
-        // position={[-12, 21, -9]}
       /> */}
 
       <group rotation={[Math.PI / 2, 0, 0]}>
         <primitive object={nodes.mixamorigHips} />
-
+        {/* <WizardHat /> */}
         <skinnedMesh
           name="body"
           geometry={nodes.NounBody.geometry}
           // material={nodes.NounBody.material}
-          material-color={shirtColor}
+          // material-color={shirtColor}
           skeleton={nodes.NounBody.skeleton}
-        />
+        >
+          <meshStandardMaterial map={texture} />
+        </skinnedMesh>
         <skinnedMesh
           name="glasses"
           geometry={nodes.NounGlasses.geometry}
@@ -123,6 +123,13 @@ const AnimationFrog = (props) => {
           material={nodes.NounHands.material}
           skeleton={nodes.NounHands.skeleton}
         />
+        {/* <skinnedMesh
+          name="head"
+          geometry={wizardHat.nodes.MagicHead.geometry}
+          material={wizardHat.nodes.MagicHead.material}
+          skeleton={nodes.NounHead.skeleton}
+        /> */}
+
         <skinnedMesh
           name="head"
           geometry={nodes.NounHead.geometry}
@@ -147,5 +154,28 @@ const AnimationFrog = (props) => {
 };
 
 useGLTF.preload('/Frog2anim.glb');
+useGLTF.preload('/wizardhat.glb');
 
 export default AnimationFrog;
+
+// const WizardHat = () => {
+//   useEffect(() => {
+//     if (skinnedMeshRef && skinnedMeshRef.current && skeleton) {
+//       skinnedMeshRef.current.bind(skeleton);
+//     }
+//   });
+
+//   return (
+//     <group>
+//       <skinnedMesh
+//         name="head"
+//         geometry={wizardHat.nodes.MagicHead.geometry}
+//         material={wizardHat.materials.Material_0}
+//         position={[-12, -9, -21]}
+//         skeleton={nodes.NounHead.skeleton}
+//         ref={skinnedMeshRef}
+//         rotation={[-Math.PI / 2, 0, 0]}
+//       />
+//     </group>
+//   );
+// };
