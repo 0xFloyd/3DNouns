@@ -7,44 +7,13 @@ import {
 } from '@react-three/fiber';
 import * as THREE from 'three';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import {
-  Circle,
-  Environment,
-  Html,
-  Loader,
-  OrbitControls,
-  Sky,
-  Stage,
-  useGLTF,
-  useTexture,
-} from '@react-three/drei';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import RabbitModel from 'RabbitModel';
-import CrabModel from 'CrabTest';
-import {
-  Button,
-  Col,
-  Container,
-  Form,
-  FormCheck,
-  ProgressBar,
-  Row,
-} from 'react-bootstrap';
+import { OrbitControls } from '@react-three/drei';
+import { Col, Container, Row } from 'react-bootstrap';
 import logo from './assets/nouns-logo.svg';
-import useReflector from './shaders/useReflector';
 import './shaders/materials/ReflectorMaterial';
-import Svg from './assets/World/Svg';
 import NounsLogo from 'NounsLogo';
 import { Water } from 'three-stdlib';
 import ProgressLoader from 'Loader';
-import { slide as Menu } from 'react-burger-menu';
-import Bonsai from 'assets/FullBodyNouns/Bonsai';
-import Cloud from 'assets/FullBodyNouns/Cloud';
-import Computer from 'assets/FullBodyNouns/Computer';
-import Crab from 'assets/FullBodyNouns/Crab';
-import Mixer from 'assets/FullBodyNouns/Mixer';
-import Pirate from 'assets/FullBodyNouns/Pirate';
-import Rabbit from 'assets/FullBodyNouns/Rabbit';
 import {
   bodyAttributes,
   accessoryAttributes,
@@ -54,19 +23,11 @@ import {
   shoesAttributes,
   environmentAttributes,
 } from 'attributes';
-import Shark from 'assets/FullBodyNouns/Shark';
-import Accessory from 'assets/Accessory';
-import { Plane, TextureLoader } from 'three';
-import UvTestNoun from './assets/FullBodyNouns/UvTestNoun';
-import AnimationFrog from './assets/FullBodyNouns/AnimationFrog';
-import carrot from './assets/cropped-carrot.png';
-import Wizardhat from 'assets/FullBodyNouns/Wizardhat';
-import CombinedHeadTest from 'assets/FullBodyNouns/AnimationFrogAndWizard_combined';
+import { TextureLoader } from 'three';
 import SeperateHeadBody from './assets/FullBodyNouns/SeperateHeadAndBodyTest';
-import TuesdayFrog from './assets/FullBodyNouns/TuesdayFrogHead';
 import TuesdayWizard from './assets/FullBodyNouns/TuesdayWizard';
-
-extend({ Water });
+import NormalEnvironment from 'assets/World/NormalEnvironment';
+import OceanEnvironment from 'assets/World/OceanEnvironment';
 
 const lookAtPos = new THREE.Vector3(0, 2, 0);
 
@@ -181,11 +142,8 @@ const NounCanvas = (props) => {
           <button onClick={() => setFarAway(!farAway)}>click</button>
         </div>
       </Html> */}
-        {/* <Model /> */}
 
-        {environment === 'Normal' && (
-          <fog attach="fog" args={[0xa0a0a0, 1, 15]} />
-        )}
+        {environment === 'Normal' && <NormalEnvironment />}
 
         <ambientLight intensity={0.8} />
 
@@ -210,56 +168,6 @@ const NounCanvas = (props) => {
           minDistance={0.5}
         />
 
-        {environment === 'Normal' && (
-          <mesh receiveShadow position={[0, -0.025, 0]}>
-            <boxBufferGeometry args={[50, 0.05, 50]} />
-            <meshStandardMaterial
-              color={new THREE.Color(0xffffff)
-                .setHex(0xffffff)
-                .convertSRGBToLinear()}
-            />
-          </mesh>
-        )}
-        {environment === 'Normal' && (
-          <gridHelper
-            args={[
-              50,
-              200,
-              new THREE.Color(0x919191),
-              new THREE.Color(0x919191),
-            ]}
-            position={[0, 0.001, 0]}
-          />
-        )}
-        {environment === 'Ocean' && (
-          <mesh receiveShadow position={[0, -0.025, 0]}>
-            <boxBufferGeometry args={[2, 0.05, 2]} />
-            <meshStandardMaterial
-              color={new THREE.Color(0xf6e4ad)
-                .setHex(0xf6e4ad)
-                .convertSRGBToLinear()}
-            />
-          </mesh>
-        )}
-        {environment === 'Ocean' && (
-          <gridHelper
-            args={[2, 20, new THREE.Color(0x919191), new THREE.Color(0x919191)]}
-            position={[0, 0.001, 0]}
-          />
-        )}
-
-        {/* 
-        {environment === 'Ocean' && (
-          <mesh receiveShadow position={[0, -0.5, 0]}>
-            <cylinderBufferGeometry args={[1, 1, 1, 32]} />
-            <meshStandardMaterial
-              color={new THREE.Color('#d63c5e')
-                .setHex(0xd63c5e)
-                .convertSRGBToLinear()}
-            />
-          </mesh>
-        )} */}
-
         {/* <cylinderBufferGeometry args={[2, 1, 20, 32]} /> */}
         {/* <meshStandardMaterial
             color={new THREE.Color('#d63c5e')
@@ -272,8 +180,7 @@ const NounCanvas = (props) => {
               .convertSRGBToLinear()}
           /> */}
         <Suspense fallback={<ProgressLoader />}>
-          {environment === 'Ocean' && <Sky sunPosition={[-100, 20, 100]} />}
-          {environment === 'Ocean' && <Ocean />}
+          {environment === 'Ocean' && <OceanEnvironment />}
 
           {/* <TuesdayFrog
             walkAnimation={walkAnimation}
@@ -289,15 +196,6 @@ const NounCanvas = (props) => {
             bodyTexture={bodyTexTest}
             accessoryTexture={accessoryTexTest}
           />
-          {/* <AnimationFrog
-            walkAnimation={walkAnimation}
-            nodAnimation={nodAnimation}
-          /> */}
-
-          {/* <CombinedHeadTest
-            walkAnimation={walkAnimation}
-            nodAnimation={nodAnimation}
-          /> */}
 
           {/* <Plane
             args={[1, 1]}
@@ -306,70 +204,9 @@ const NounCanvas = (props) => {
             material-transparent
           /> */}
           {/* {environment === 'Ocean' && <Ground />} */}
-          {/* <Model position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]} /> */}
-          {/* <UvTestNoun /> */}
-          {/* <Bonsai
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            feet={feet}
-          /> */}
-          <Accessory accessoryName={accessory} />
-          <Cloud
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          {/* 
-          <Computer
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Crab
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Mixer
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Pirate
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Rabbit
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          /> 
-          <Shark
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />*/}
+
           <NounsLogo />
-          {/* <Environment preset="city" /> */}
         </Suspense>
-        {/* <Svg /> */}
       </Canvas>
 
       <div className="open-menu-container">
@@ -725,52 +562,3 @@ const Ground = () => {
     </mesh>
   );
 };
-
-// Extras
-const Ocean = () => {
-  const ref = useRef();
-
-  // this is the renderer
-  const gl = useThree((state) => state.gl);
-
-  const waterNormals = useLoader(THREE.TextureLoader, '/waternormals.jpeg');
-  waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
-
-  // memoize -->  storing the results of expensive function calls and returning the cached result when the same inputs occur again
-  const geom = useMemo(() => new THREE.PlaneGeometry(1000, 1000), []);
-  const config = useMemo(
-    () => ({
-      textureWidth: 512,
-      textureHeight: 512,
-      waterNormals,
-      sunDirection: new THREE.Vector3(),
-      sunColor: 0xffffff,
-      waterColor: 0x001e0f,
-      distortionScale: 3.7,
-      fog: false,
-      format: gl.encoding,
-    }),
-    [waterNormals]
-  );
-  useFrame(
-    (state, delta) => (ref.current.material.uniforms.time.value += 0.002)
-  );
-
-  // 2nd argument is config which is the material
-  return (
-    <water
-      ref={ref}
-      args={[geom, config]}
-      position={[0, -1, 0]}
-      rotation-x={-Math.PI / 2}
-    />
-  );
-};
-{
-  /* <div style={{ marginTop: '10px' }}>
-              <span>Hold click/ swipe to rotate</span>
-            </div>
-            <div style={{ marginTop: '10px' }}>
-              <span>Scroll/ Pinch to zoom</span>
-            </div> */
-}

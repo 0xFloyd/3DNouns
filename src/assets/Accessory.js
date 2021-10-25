@@ -1,9 +1,9 @@
 import { Plane, useTexture } from '@react-three/drei';
 import React, { useMemo } from 'react';
 import * as THREE from 'three';
-import carrot from './accessories/cropped-carrot.png';
-import eye from './accessories/cropped-eye.png';
-import blingGoldIngot from './accessories/cropped-gold-chain.png';
+import carrot from './Accessories/cropped-carrot.png';
+import eye from './Accessories/cropped-eye.png';
+import blingGoldIngot from './Accessories/cropped-gold-chain.png';
 
 const Accessory = (props) => {
   const { accessoryName } = props;

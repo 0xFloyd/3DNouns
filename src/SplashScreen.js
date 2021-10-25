@@ -124,13 +124,13 @@ const SplashScreen = (store) => {
 
   return (
     <>
-      {/* {progress === 100 && (
+      {progress === 100 && (
         <div className="starting-screen-container">
           <button className="ready-button" onClick={() => store.loadScene()}>
             Enter
           </button>
         </div>
-      )} */}
+      )}
       <Canvas gl={{ alpha: false }} camera={{ near: 0.01, far: 175 }}>
         <color attach="background" args={['#000000']} />
         <ambientLight intensity={0.5} />
@@ -147,7 +147,7 @@ const SplashScreen = (store) => {
           {Array.from({ length: desktop ? 150 : 50 }, (_, i) => (
             <Box key={i} z={-i} />
           ))}
-          {/* <Jumbo /> */}
+          <Jumbo />
           {/* <EffectComposer>
             <DepthOfField
               target={[0, 0, 30]}
