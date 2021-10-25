@@ -1,16 +1,21 @@
-import React, { useEffect, useMemo, useRef } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
-import transparentSmiley from "../outUVTransparentSmiley.png";
-import { useLoader } from "@react-three/fiber";
-import * as THREE from "three";
-import { BodyMesh } from "./BodyMesh";
-import solidBlue from "../solidBlue.png";
+import React, { useEffect, useMemo, useRef } from 'react';
+import { useGLTF, useAnimations } from '@react-three/drei';
+import transparentSmiley from '../outUVTransparentSmiley.png';
+import { useLoader } from '@react-three/fiber';
+import * as THREE from 'three';
+import { BodyMesh } from './BodyMesh';
+import solidBlue from '../solidBlue.png';
+import THEBODY from '../../Models/untitled.glb';
 
-export default function TuesdayBody(props) {
-  const { walkAnimation, nodAnimation } = props;
+export default function SeperateHeadBody({
+  walkAnimation,
+  nodAnimation,
+  bodyTexture,
+  accessoryTexture,
+}) {
   const group = useRef();
   const shaderRef = useRef();
-  const { nodes, materials, animations } = useGLTF("/TuesdayBody.glb");
+  const { nodes, materials, animations } = useGLTF(THEBODY);
   const { ref, mixer, names, actions } = useAnimations(animations, group);
 
   const smileyTexture = useLoader(THREE.TextureLoader, transparentSmiley);
@@ -56,7 +61,7 @@ export default function TuesdayBody(props) {
   ]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} dispose={null}>
       <group scale={[0.01, 0.01, 0.01]}>
         <primitive object={nodes.MagicTestANIMmixamorigHips} />
         <skinnedMesh
@@ -69,7 +74,11 @@ export default function TuesdayBody(props) {
           // material={materials.body_material}
           skeleton={nodes.BodyUVed.skeleton}
         >
-          <BodyMesh />
+          <BodyMesh
+            skeletonParts={nodes.BodyUVed.skeleton}
+            bodyTexture={bodyTexture}
+            accessoryTexture={accessoryTexture}
+          />
           {/* <imageFadeMaterial
             ref={shaderRef}
             tex={smileyTexture}
@@ -83,7 +92,6 @@ export default function TuesdayBody(props) {
         geometry={nodes.Pants.geometry}
         material={nodes.Pants.material}
         position={[-0.04, 0.01, -0.02]}
-        rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
       />
       <mesh
@@ -92,11 +100,10 @@ export default function TuesdayBody(props) {
         geometry={nodes.Shoes.geometry}
         material={nodes.Shoes.material}
         position={[-0.04, 0, -0.02]}
-        rotation={[Math.PI / 2, 0, 0]}
         scale={[0.01, 0.01, 0.01]}
       />
     </group>
   );
 }
 
-useGLTF.preload("/TuesdayBody.glb");
+useGLTF.preload('/TuesdayBody.glb');

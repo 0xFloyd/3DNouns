@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
-export default function TuesdayWizard(props) {
+export default function TuesdayFrog(props) {
   const { walkAnimation, nodAnimation } = props;
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/TuesdayMagicHat.glb");
+  const { nodes, materials, animations } = useGLTF("/TuesdayFrog.glb");
   const { ref, mixer, names, actions } = useAnimations(animations, group);
 
   useEffect(() => {
@@ -26,7 +26,6 @@ export default function TuesdayWizard(props) {
     //In the clean-up phase, fade it out
     return () => actions[names[1]].fadeOut(0.5);
   }, [actions, names, nodAnimation]);
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[Math.PI / 2, 0, 0]} scale={[0.01, 0.01, 0.01]}>
@@ -37,13 +36,13 @@ export default function TuesdayWizard(props) {
           skeleton={nodes.Glasses.skeleton}
         />
         <skinnedMesh
-          geometry={nodes.HeadMagic.geometry}
-          material={nodes.HeadMagic.material}
-          skeleton={nodes.HeadMagic.skeleton}
+          geometry={nodes.HeadFrog.geometry}
+          material={nodes.HeadFrog.material}
+          skeleton={nodes.HeadFrog.skeleton}
         />
       </group>
     </group>
   );
 }
 
-useGLTF.preload("/TuesdayMagicHat.glb");
+useGLTF.preload("/TuesdayFrog.glb");
