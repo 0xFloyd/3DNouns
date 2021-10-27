@@ -17,6 +17,11 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
   const bodyRustTexture = useLoader(THREE.TextureLoader, bodyRust);
   const bodySlimegreenTexture = useLoader(THREE.TextureLoader, bodySlimegreen);
 
+  const bodyTex = useLoader(
+    THREE.TextureLoader,
+    require`../Body/${bodyTexture}`
+  );
+
   const accessoryStripesBlueMedTexture = useLoader(
     THREE.TextureLoader,
     accessoryStripesBlueMed
@@ -122,11 +127,11 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
       // custom uniforms (your textures)
 
       tex: { type: 't', value: lookupAccessoryTexture(accessoryTexture) },
-      tex2: { type: 't', value: lookupBodyTexture(bodyTexture) },
+      tex2: { type: 't', value: bodyTex },
       // tex: { type: 't', value: accessoryStripesBlueMedTexture },
       // tex2: { type: 't', value: bodySlimegreenTexture },
     }),
-    []
+    [accessoryTexture, bodyTex]
   );
 
   let huh = skeletonParts;
@@ -160,6 +165,7 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
       transparent={true}
       attach="material"
       args={[bodyFragmentShader]}
+      needsUpdate={true}
     />
   );
 };

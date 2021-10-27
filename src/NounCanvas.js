@@ -28,10 +28,12 @@ import SeperateHeadBody from './assets/FullBodyNouns/SeperateHeadAndBodyTest';
 import TuesdayWizard from './assets/FullBodyNouns/TuesdayWizard';
 import NormalEnvironment from 'assets/World/NormalEnvironment';
 import OceanEnvironment from 'assets/World/OceanEnvironment';
+import Menu from 'Menu';
+import data from './data.json';
 
 const lookAtPos = new THREE.Vector3(0, 2, 0);
 
-const NounCanvas = (props) => {
+const NounCanvas = ({ autoRotate, setAutoRotate }) => {
   const [optionsVisibility, setOptionsVisibility] = useState('none');
 
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
@@ -42,26 +44,24 @@ const NounCanvas = (props) => {
   const [nodAnimation, setNodAnimation] = useState(false);
 
   const [head, setHead] = useState(
-    headAttributes[Math.floor(Math.random() * headAttributes.length)].value
+    data.head[Math.floor(Math.random() * data.head.length)].value
   );
   const [glasses, setGlasses] = useState(
-    glassesAttributes[Math.floor(Math.random() * glassesAttributes.length)]
-      .value
+    data.glasses[Math.floor(Math.random() * data.glasses.length)].value
   );
   const [body, setBody] = useState(
-    bodyAttributes[Math.floor(Math.random() * bodyAttributes.length)].value
+    data.body[Math.floor(Math.random() * data.body.length)].value
   );
 
   const [accessory, setAccessory] = useState(
-    accessoryAttributes[Math.floor(Math.random() * accessoryAttributes.length)]
-      .value
+    data.accessory[Math.floor(Math.random() * data.accessory.length)].value
   );
 
   const [pants, setPants] = useState(
-    pantsAttributes[Math.floor(Math.random() * pantsAttributes.length)].value
+    data.pants[Math.floor(Math.random() * data.pants.length)].value
   );
   const [shoes, setShoes] = useState(
-    shoesAttributes[Math.floor(Math.random() * shoesAttributes.length)].value
+    data.shoes[Math.floor(Math.random() * data.shoes.length)].value
   );
 
   const orbitControls = useRef();
@@ -77,22 +77,16 @@ const NounCanvas = (props) => {
   });
 
   const generateRandomNoun = () => {
-    setHead(
-      headAttributes[Math.floor(Math.random() * headAttributes.length)].value
-    );
+    setHead(data.head[Math.floor(Math.random() * data.head.length)].value);
     setGlasses(
-      glassesAttributes[Math.floor(Math.random() * glassesAttributes.length)]
-        .value
+      data.glasses[Math.floor(Math.random() * data.glasses.length)].value
     );
-    setBody(
-      bodyAttributes[Math.floor(Math.random() * bodyAttributes.length)].value
+    setBody(data.body[Math.floor(Math.random() * data.body.length)].value);
+    setAccessory(
+      data.accessory[Math.floor(Math.random() * data.accessory.length)].value
     );
-    setPants(
-      pantsAttributes[Math.floor(Math.random() * pantsAttributes.length)].value
-    );
-    setShoes(
-      shoesAttributes[Math.floor(Math.random() * shoesAttributes.length)].value
-    );
+    setPants(data.pants[Math.floor(Math.random() * data.pants.length)].value);
+    setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].value);
   };
 
   // const texture = useTexture(carrot);
@@ -160,7 +154,7 @@ const NounCanvas = (props) => {
         <OrbitControls
           target={[0, 0.2, 0]}
           ref={orbitControls}
-          autoRotate={props.autoRotate}
+          autoRotate={autoRotate}
           enablePan={false}
           enableDamping={true}
           maxPolarAngle={Math.PI / 2.05}
@@ -230,301 +224,28 @@ const NounCanvas = (props) => {
         ) : null}
       </div>
 
-      <div
-        className={isDesktop ? 'options-container' : 'mobile-menu-container'}
-        style={{ display: optionsVisibility }}
-      >
-        {optionsVisibility === 'block' ? (
-          <Container>
-            <Row>
-              <Col xs={10}>
-                <p style={{ fontSize: '1.2rem' }}>Build your Noun!</p>
-              </Col>
-              <Col xs={{ span: 2 }}>
-                <span
-                  className="menu-x-button"
-                  onClick={() => setOptionsVisibility('none')}
-                  style={{ textAlign: 'right', fontSize: '1.2em' }}
-                >
-                  ❌
-                </span>
-              </Col>
-            </Row>
-          </Container>
-        ) : null}
-
-        <div
-          className="options-controls"
-          style={{ display: optionsVisibility }}
-        >
-          {/* <h4 className="white-font" style={{ textAlign: 'center' }}>
-            Settings
-          </h4> */}
-          {/*  Head */}
-          <Container fluid>
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Head</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={head}
-                  onChange={(e) => setHead(e.target.value)}
-                  className="attribute-select-box"
-                  // name="cars"
-                  // id="cars"
-                  // form="carform"
-                >
-                  {headAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-            {/*  Glasses */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Glasses</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={glasses}
-                  onChange={(e) => setGlasses(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {glassesAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-
-            {/*  Body */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Body</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={body}
-                  onChange={(e) => setBody(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {bodyAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-
-            {/*  Accessory */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Accessory</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={accessory}
-                  onChange={(e) => setAccessory(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {accessoryAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-            {/*  Pants */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Pants</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={pants}
-                  onChange={(e) => setPants(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {pantsAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-            {/*  Shoes */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Shoes</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={shoes}
-                  onChange={(e) => setShoes(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {shoesAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-            {/* environment */}
-            <Row>
-              <Col xs={4}>
-                <label className="white-font">World</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={environment}
-                  onChange={(e) => setEnvironment(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {environmentAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-            {/*  */}
-
-            <Row style={{ marginTop: '30px' }}>
-              <Col xs={4}>
-                <label className="white-font">Body Tex</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={bodyTexTest}
-                  onChange={(e) => setBodyTexTest(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {bodyTextureTest.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xs={4}>
-                <label className="white-font">Accessory Tex</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={accessoryTexTest}
-                  onChange={(e) => setAccessoryTexTest(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {accessoryTextureTest.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-
-            {/*  */}
-            <Row>
-              <Col>
-                <div style={{ marginTop: '15px' }}>
-                  <label>
-                    <span className="white-font" style={{ marginRight: '3px' }}>
-                      Auto
-                      <br />
-                      Rotate
-                    </span>
-                  </label>
-                </div>
-              </Col>
-              <Col>
-                <div style={{ marginTop: '25px' }}>
-                  <input
-                    type="checkbox"
-                    className="toggle"
-                    checked={props.autoRotate}
-                    onChange={(e) => props.setAutoRotate(e.target.checked)}
-                  />
-                </div>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col>
-                <div style={{ marginTop: '15px' }}>
-                  <label>
-                    <span className="white-font" style={{ marginRight: '3px' }}>
-                      Walk
-                    </span>
-                  </label>
-                </div>
-              </Col>
-              <Col>
-                <div style={{ marginTop: '25px' }}>
-                  <input
-                    type="checkbox"
-                    className="toggle"
-                    checked={walkAnimation}
-                    onChange={(e) => setWalkAnimation(e.target.checked)}
-                  />
-                </div>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col>
-                <div style={{ marginTop: '15px' }}>
-                  <label>
-                    <span className="white-font" style={{ marginRight: '3px' }}>
-                      Nod
-                    </span>
-                  </label>
-                </div>
-              </Col>
-              <Col>
-                <div style={{ marginTop: '25px' }}>
-                  <input
-                    type="checkbox"
-                    className="toggle"
-                    checked={nodAnimation}
-                    onChange={(e) => setNodAnimation(e.target.checked)}
-                  />
-                </div>
-              </Col>
-            </Row>
-
-            <div style={{ marginTop: '20px' }}>
-              <Row>
-                <Col></Col>
-                <Col>
-                  <button
-                    className="glow-on-hover"
-                    onClick={() => generateRandomNoun()}
-                  >
-                    Random Noun
-                  </button>
-                </Col>
-                <Col></Col>
-              </Row>
-            </div>
-          </Container>
-        </div>
-      </div>
+      <Menu
+        isDesktop={isDesktop}
+        optionsVisibility={optionsVisibility}
+        setOptionsVisibility={setOptionsVisibility}
+        head={head}
+        setHead={setHead}
+        body={body}
+        setBody={setBody}
+        accessory={accessory}
+        setAccessory={setAccessory}
+        pants={pants}
+        setPants={setPants}
+        glasses={glasses}
+        setGlasses={setGlasses}
+        shoes={shoes}
+        setShoes={setShoes}
+        environment={environment}
+        setEnvironment={setEnvironment}
+        autoRotate={autoRotate}
+        setAutoRotate={setAutoRotate}
+        generateRandomNoun={generateRandomNoun}
+      />
 
       <div className="logo-container">
         <a href="https://nouns.wtf">
