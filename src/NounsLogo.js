@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-const NounsLogo = (props) => {
+const NounsLogo = ({ environment }) => {
   const group = useRef();
   const materialRef = useRef();
   const { nodes, materials } = useGLTF('/nouns-logo-model.gltf');
@@ -20,7 +20,7 @@ const NounsLogo = (props) => {
   });
 
   useFrame((state, delta) => {
-    group.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1 + 0.25;
+    group.current.position.y = Math.sin(state.clock.elapsedTime) * 5 + 2.5;
     // group.current.rotation.x =
     //   group.current.rotation.y =
     //   group.current.rotation.z +=
@@ -30,15 +30,15 @@ const NounsLogo = (props) => {
 
   testMaterial.color.setHex(0xd63c5e).convertSRGBToLinear();
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} dispose={null}>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Curve.geometry}
         material={testMaterial}
         rotation={[1.57, 0, 0]}
-        scale={[20, 20, 20]}
-        position={[-0.5, 1.25, -2]}
+        scale={[1000, 1000, 1000]}
+        position={getPosition(environment)}
         ref={materialRef}
       >
         <mesh
@@ -79,3 +79,16 @@ const NounsLogo = (props) => {
 useGLTF.preload('/nouns-logo-model.gltf');
 
 export default NounsLogo;
+
+const getPosition = (environment) => {
+  switch (environment) {
+    case 'Normal':
+      return new THREE.Vector3(0, 100, -100);
+
+    case 'Ocean':
+      return new THREE.Vector3(-50, 100, -100);
+
+    default:
+      return new THREE.Vector3(0, 100, -100);
+  }
+};

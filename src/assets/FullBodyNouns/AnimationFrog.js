@@ -9,7 +9,6 @@ import { SkeletonUtils } from 'three-stdlib';
 import uvMappedTexture from '../frogTpose.png';
 import uvGOOD from '../UVgood.png';
 import outUVw from '../outUVw.png';
-import transparentSmiley from '../outUVTransparentSmiley.png';
 
 const AnimationFrog = (props) => {
   const { walkAnimation, nodAnimation } = props;
@@ -19,8 +18,6 @@ const AnimationFrog = (props) => {
 
   // const uvMapTexture = useTexture(uvMappedTexture);
   // const uvMapTexture = useLoader(THREE.TextureLoader, uvMappedTexture);
-
-  const texture = useLoader(THREE.TextureLoader, transparentSmiley);
 
   // const wizardHat = useGLTF('/wizardhat.glb');
 
@@ -36,24 +33,24 @@ const AnimationFrog = (props) => {
 
   // const whatIsMaterial = nodes.NounGlasses.material;
 
-  useMemo(() => {
-    // texture.generateMipmaps = true;
-    // texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
-    texture.needsUpdate = true;
-    texture.magFilter = THREE.NearestFilter;
-    texture.minFilter = THREE.NearestFilter;
-    texture.repeat = new THREE.Vector2(1, 1);
-    texture.wrapS = THREE.MirroredRepeatWrapping;
-    texture.wrapT = THREE.MirroredRepeatWrapping;
-    texture.flipY = false;
-    // texture.anisotropy = gl.capabilities.getMaxAnisotropy();
-  }, [
-    texture.generateMipmaps,
-    texture.wrapS,
-    texture.wrapT,
-    texture.minFilter,
-    texture.needsUpdate,
-  ]);
+  // useMemo(() => {
+  //   // texture.generateMipmaps = true;
+  //   // texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
+  //   texture.needsUpdate = true;
+  //   texture.magFilter = THREE.NearestFilter;
+  //   texture.minFilter = THREE.NearestFilter;
+  //   texture.repeat = new THREE.Vector2(1, 1);
+  //   texture.wrapS = THREE.MirroredRepeatWrapping;
+  //   texture.wrapT = THREE.MirroredRepeatWrapping;
+  //   texture.flipY = false;
+  //   // texture.anisotropy = gl.capabilities.getMaxAnisotropy();
+  // }, [
+  //   texture.generateMipmaps,
+  //   texture.wrapS,
+  //   texture.wrapT,
+  //   texture.minFilter,
+  //   texture.needsUpdate,
+  // ]);
 
   const { scene } = useThree();
 
@@ -109,7 +106,7 @@ const AnimationFrog = (props) => {
           // material-color={shirtColor}
           skeleton={nodes.NounBody.skeleton}
         >
-          <meshStandardMaterial map={texture} />
+          {/* <meshStandardMaterial map={texture} /> */}
         </skinnedMesh>
         <skinnedMesh
           name="glasses"

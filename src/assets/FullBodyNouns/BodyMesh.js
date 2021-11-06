@@ -1,120 +1,12 @@
 import { useLoader } from '@react-three/fiber';
-import React, { useMemo } from 'react';
-import transparentSmiley from '../outUVTransparentSmiley.png';
-import solidBlue from '../solidBlue.png';
+import React, { useMemo, useState } from 'react';
+// import transparentSmiley from '../outUVTransparentSmiley.png';
+// import solidBlue from '../solidBlue.png';
 import * as THREE from 'three';
 // import "./ImageFadeMaterial";
-import bodyRust from '../Body/body-rust.png';
-import bodySlimegreen from '../Body/body-slimegreen.png';
-
-import accessoryStripesBlueMed from '../Accessories/accessory-stripes-blue-med.png';
-import accessoryStripesRedCold from '../Accessories/accessory-stripes-red-cold.png';
+import data from '../../data.json';
 
 export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
-  const smileyTexture = useLoader(THREE.TextureLoader, transparentSmiley);
-  const solidTexture = useLoader(THREE.TextureLoader, solidBlue);
-
-  const bodyRustTexture = useLoader(THREE.TextureLoader, bodyRust);
-  const bodySlimegreenTexture = useLoader(THREE.TextureLoader, bodySlimegreen);
-
-  const bodyTex = useLoader(
-    THREE.TextureLoader,
-    require`../Body/${bodyTexture}`
-  );
-
-  const accessoryStripesBlueMedTexture = useLoader(
-    THREE.TextureLoader,
-    accessoryStripesBlueMed
-  );
-  const accessoryStripesRedColdTexture = useLoader(
-    THREE.TextureLoader,
-    accessoryStripesRedCold
-  );
-
-  accessoryStripesBlueMedTexture.flipY = false;
-  accessoryStripesBlueMedTexture.magFilter = THREE.NearestFilter;
-  accessoryStripesBlueMedTexture.minFilter = THREE.NearestFilter;
-
-  accessoryStripesRedColdTexture.flipY = false;
-  accessoryStripesRedColdTexture.magFilter = THREE.NearestFilter;
-  accessoryStripesRedColdTexture.minFilter = THREE.NearestFilter;
-
-  let bodyArray = [
-    { name: 'bodyRustTexture', value: bodyRustTexture },
-    { name: 'bodySlimegreenTexture', value: bodySlimegreenTexture },
-  ];
-
-  let accessoryArray = [
-    {
-      name: 'accessoryStripesBlueMedTexture',
-      value: accessoryStripesBlueMedTexture,
-    },
-    {
-      name: 'accessoryStripesRedColdTexture',
-      value: accessoryStripesRedColdTexture,
-    },
-  ];
-
-  const lookupBodyTexture = (bodyTextureParam) => {
-    let result = bodyArray.find((obj) => {
-      return obj.name === bodyTextureParam;
-    });
-    if (result) {
-      return result.value;
-    } else {
-      return null;
-    }
-  };
-
-  const lookupAccessoryTexture = (accessoryTextureParam) => {
-    let result = accessoryArray.find((obj) => {
-      return obj.name === accessoryTextureParam;
-    });
-    if (result) {
-      return result.value;
-    } else {
-      return null;
-    }
-  };
-
-  // useMemo(() => {
-  //   solidTexture.generateMipmaps = true;
-  //   // texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
-  //   solidTexture.needsUpdate = true;
-  //   solidTexture.magFilter = THREE.NearestFilter;
-  //   solidTexture.minFilter = THREE.NearestFilter;
-  //   // texture.repeat = new THREE.Vector2(1, 1);
-  //   // texture.wrapS = THREE.MirroredRepeatWrapping;
-  //   // texture.wrapT = THREE.MirroredRepeatWrapping;
-  //   solidTexture.flipY = false;
-  //   // texture.anisotropy = gl.capabilities.getMaxAnisotropy();
-  // }, [
-  //   solidTexture.generateMipmaps,
-  //   solidTexture.wrapS,
-  //   solidTexture.wrapT,
-  //   solidTexture.minFilter,
-  //   solidTexture.needsUpdate,
-  // ]);
-  // useMemo(() => {
-  //   smileyTexture.generateMipmaps = true;
-  //   // texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
-  //   smileyTexture.needsUpdate = true;
-  //   smileyTexture.magFilter = THREE.NearestFilter;
-  //   smileyTexture.minFilter = THREE.NearestFilter;
-  //   // texture.repeat = new THREE.Vector2(1, 1);
-  //   // texture.wrapS = THREE.MirroredRepeatWrapping;
-  //   // texture.wrapT = THREE.MirroredRepeatWrapping;
-  //   smileyTexture.flipY = false;
-
-  //   // texture.anisotropy = gl.capabilities.getMaxAnisotropy();
-  // }, [
-  //   smileyTexture.generateMipmaps,
-  //   smileyTexture.wrapS,
-  //   smileyTexture.wrapT,
-  //   smileyTexture.minFilter,
-  //   smileyTexture.needsUpdate,
-  // ]);
-
   // https://codesandbox.io/s/shadermaterials-1g4qq?from-embed=&file=/src/ImageFadeMaterial.js
   // https://spectrum.chat/react-three-fiber/general/using-custom-shader~7f670df0-82ba-45ac-9618-c9038260b806
   // var vertShader = document.getElementById("vertex_shh").innerHTML;
@@ -126,24 +18,39 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
     () => ({
       // custom uniforms (your textures)
 
-      tex: { type: 't', value: lookupAccessoryTexture(accessoryTexture) },
-      tex2: { type: 't', value: bodyTex },
+      tex: {
+        type: 't',
+        value: accessoryTexture,
+      },
+      tex2: {
+        type: 't',
+        value: bodyTexture,
+      },
       // tex: { type: 't', value: accessoryStripesBlueMedTexture },
       // tex2: { type: 't', value: bodySlimegreenTexture },
     }),
-    [accessoryTexture, bodyTex]
+    [bodyTexture, accessoryTexture]
   );
-
-  let huh = skeletonParts;
 
   // https://threejs.org/docs/#api/en/renderers/webgl/WebGLProgram
   let bodyFragmentShader = {
     uniforms: uniforms,
     vertexShader: [
       'varying vec2 vUv;',
+      THREE.ShaderChunk['common'],
+      THREE.ShaderChunk['lights_pars'],
+      THREE.ShaderChunk['shadowmap_pars_vertex'],
+      THREE.ShaderChunk['morphtarget_pars_vertex'],
+      THREE.ShaderChunk['skinning_pars_vertex'],
       'void main() {',
       'vUv = uv;',
       'gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 0.01);',
+
+      THREE.ShaderChunk['skinbase_vertex'],
+      THREE.ShaderChunk['begin_vertex'],
+      THREE.ShaderChunk['morphtarget_vertex'],
+      THREE.ShaderChunk['skinning_vertex'],
+      THREE.ShaderChunk['project_vertex'],
       '}',
     ].join('\n'),
     fragmentShader: [
@@ -166,13 +73,52 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
       attach="material"
       args={[bodyFragmentShader]}
       needsUpdate={true}
+      skinning={true}
     />
   );
 };
 
+// OLD COPY from inside component 11/5/21
+// const bodyRustTexture = useLoader(THREE.TextureLoader, bodyRust);
+// const bodySlimegreenTexture = useLoader(THREE.TextureLoader, bodySlimegreen);
+
+// const accessoryStripesBlueMedTexture = useLoader(
+//   THREE.TextureLoader,
+//   accessoryStripesBlueMed
+// );
+// const accessoryStripesRedColdTexture = useLoader(
+//   THREE.TextureLoader,
+//   accessoryStripesRedCold
+// );
+
+// accessoryStripesBlueMedTexture.flipY = false;
+// accessoryStripesBlueMedTexture.magFilter = THREE.NearestFilter;
+// accessoryStripesBlueMedTexture.minFilter = THREE.NearestFilter;
+
+// accessoryStripesRedColdTexture.flipY = false;
+// accessoryStripesRedColdTexture.magFilter = THREE.NearestFilter;
+// accessoryStripesRedColdTexture.minFilter = THREE.NearestFilter;
+
+// let bodyArray = [
+//   { name: 'bodyRustTexture', value: bodyRustTexture },
+//   { name: 'bodySlimegreenTexture', value: bodySlimegreenTexture },
+// ];
+
+// let accessoryArray = [
+//   {
+//     name: 'accessoryStripesBlueMedTexture',
+//     value: accessoryStripesBlueMedTexture,
+//   },
+//   {
+//     name: 'accessoryStripesRedColdTexture',
+//     value: accessoryStripesRedColdTexture,
+//   },
+// ];
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Working 10/15/21
 /* 
-
  let bodyFragmentShader = {
     uniforms: uniforms,
     vertexShader: [
@@ -195,6 +141,70 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
       '}',
     ].join('\n'),
   };
+*/
 
+// FINAL  11/2/21
+/*
+import { useLoader } from "@react-three/fiber"
+import React, { useMemo } from "react"
+import * as THREE from "three"
 
+export const BodyTexture = ({ skeletonParts, bodyTexture, patternTexture }) => {
+ 
+
+  let patternTex = useLoader(THREE.TextureLoader, `/assets/${patternTexture}`)
+  patternTex.flipY = false
+  patternTex.magFilter = patternTex.minFilter = THREE.NearestFilter
+
+  let bodyTex = useLoader(THREE.TextureLoader, `/assets/${bodyTexture}`)
+  bodyTex.flipY = false
+  bodyTex.magFilter = bodyTex.minFilter = THREE.NearestFilter
+
+  console.log('skeletonParts: ', skeletonParts)
+
+  const uniforms = useMemo(
+    () => ({
+      tex: { type: "t", value: patternTex },
+      tex2: { type: "t", value: bodyTex }
+    }),
+    [bodyTex, patternTex]
+  )
+
+  // https://threejs.org/docs/#api/en/renderers/webgl/WebGLProgram
+  let bodyFragmentShader = {
+    uniforms: uniforms,
+    vertexShader: [
+      "varying vec2 vUv;",
+      THREE.ShaderChunk[ "common" ],
+      THREE.ShaderChunk[ "lights_pars" ],
+      THREE.ShaderChunk[ "shadowmap_pars_vertex" ],
+      THREE.ShaderChunk[ "morphtarget_pars_vertex" ],
+      THREE.ShaderChunk[ "skinning_pars_vertex" ],
+      "void main() {",
+      "vUv = uv;",
+      "gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1);",
+
+      THREE.ShaderChunk[ "skinbase_vertex" ],
+      THREE.ShaderChunk[ "begin_vertex" ],
+      THREE.ShaderChunk[ "morphtarget_vertex" ],
+      THREE.ShaderChunk[ "skinning_vertex" ],
+      THREE.ShaderChunk[ "project_vertex" ],
+      "}"
+    ].join("\n"),
+    fragmentShader: [
+      "varying vec2 vUv;",
+      "uniform sampler2D tex;",
+      "uniform sampler2D tex2;",
+      "void main(void) {",
+      "vec3 c;",
+      "vec4 Ca = texture2D(tex, vUv);",
+      "vec4 Cb = texture2D(tex2, vUv);",
+      "c = Ca.rgb * Ca.a + Cb.rgb * Cb.a * (1.0 - Ca.a);",
+      "gl_FragColor= vec4(c, 1.0);",
+      "}"
+    ].join("\n")
+  }
+
+  return <shaderMaterial skinning={true} transparent={true} attach="material" args={[bodyFragmentShader]} needsUpdate={true} />
+}
 */

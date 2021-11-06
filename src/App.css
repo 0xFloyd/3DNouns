@@ -1,11 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
 
 /* noun color: #d63c5e */
 * {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Londrina Solid';
+  font-size: 1rem;
 }
 
 body {
@@ -89,8 +88,8 @@ body {
   bottom: 0;
   right: 0;
   padding: 0px;
-  margin: 0px;
-  font-size: 0.7em;
+  margin: 0px 10px 0px 0px;
+  font-size: 1em;
 }
 
 .white-font {
@@ -110,6 +109,34 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  font-family: 'Londrina Solid';
+}
+
+.attribute-select-box:hover {
+  border-radius: 10px;
+  display: inline-block;
+  overflow: hidden;
+  background: #d8234b;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.attribute-select-box > option {
+  background: #d63c5e;
+  color: white;
+  cursor: pointer;
+  font-family: 'Londrina Solid';
+}
+
+.attribute-select-box option:hover {
+  background: #d63c5e;
+  color: white;
+  cursor: pointer;
 }
 
 .attributes-close-container {

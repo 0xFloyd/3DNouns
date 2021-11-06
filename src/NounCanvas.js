@@ -7,7 +7,7 @@ import {
 } from '@react-three/fiber';
 import * as THREE from 'three';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Stats } from '@react-three/drei';
 import { Col, Container, Row } from 'react-bootstrap';
 import logo from './assets/nouns-logo.svg';
 import './shaders/materials/ReflectorMaterial';
@@ -26,14 +26,32 @@ import {
 import { TextureLoader } from 'three';
 import SeperateHeadBody from './assets/FullBodyNouns/SeperateHeadAndBodyTest';
 import TuesdayWizard from './assets/FullBodyNouns/TuesdayWizard';
-import NormalEnvironment from 'assets/World/NormalEnvironment';
-import OceanEnvironment from 'assets/World/OceanEnvironment';
+import NormalEnvironment from 'World/NormalEnvironment';
+import OceanEnvironment from 'World/OceanEnvironment';
 import Menu from 'Menu';
 import data from './data.json';
+import FINALBODY from 'assets/FullBodyNouns/FinalPipelineTest';
+import FINALHEAD from 'assets/FullBodyNouns/FINALHEAD';
+import ModelHead from 'assets/FullBodyNouns/FINALHEAD';
+import HeadComponents from 'assets/FullBodyNouns/FINALHEAD';
+import { headComponents } from 'utils/AllHeadModels';
+import PreloadBodyTextures from 'utils/PreloadBodyTextures';
 
-const lookAtPos = new THREE.Vector3(0, 2, 0);
+const lookAtPos = new THREE.Vector3(0, 5, 0);
 
 const NounCanvas = ({ autoRotate, setAutoRotate }) => {
+  // 11/5/21 DELETE WHEN ALL ACCESSORIES
+  let tempAccessories = [
+    {
+      name: 'accessory-stripes-blue-med',
+      value: 'accessory-stripes-blue-med.png',
+    },
+    {
+      name: 'accessory-stripes-red-cold',
+      value: 'accessory-stripes-red-cold.png',
+    },
+  ];
+
   const [optionsVisibility, setOptionsVisibility] = useState('none');
 
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
@@ -43,19 +61,29 @@ const NounCanvas = ({ autoRotate, setAutoRotate }) => {
   const [walkAnimation, setWalkAnimation] = useState(false);
   const [nodAnimation, setNodAnimation] = useState(false);
 
+  // 0 = idle  1 = run  2 = t pose  3 = walk
+  const [animationState, setAnimationState] = useState(false);
+  const [animationValue, setAnimationValue] = useState({
+    index: 999,
+    name: 'none',
+  });
+
   const [head, setHead] = useState(
-    data.head[Math.floor(Math.random() * data.head.length)].value
+    data.head[Math.floor(Math.random() * data.head.length)].name
   );
   const [glasses, setGlasses] = useState(
     data.glasses[Math.floor(Math.random() * data.glasses.length)].value
   );
   const [body, setBody] = useState(
-    data.body[Math.floor(Math.random() * data.body.length)].value
+    data.body[Math.floor(Math.random() * data.body.length)].name
   );
 
   const [accessory, setAccessory] = useState(
-    data.accessory[Math.floor(Math.random() * data.accessory.length)].value
+    tempAccessories[Math.floor(Math.random() * tempAccessories.length)].name
   );
+  // const [accessory, setAccessory] = useState(
+  //   data.accessory[Math.floor(Math.random() * data.accessory.length)].value
+  // );
 
   const [pants, setPants] = useState(
     data.pants[Math.floor(Math.random() * data.pants.length)].value
@@ -77,50 +105,38 @@ const NounCanvas = ({ autoRotate, setAutoRotate }) => {
   });
 
   const generateRandomNoun = () => {
-    setHead(data.head[Math.floor(Math.random() * data.head.length)].value);
+    setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
     setGlasses(
       data.glasses[Math.floor(Math.random() * data.glasses.length)].value
     );
-    setBody(data.body[Math.floor(Math.random() * data.body.length)].value);
+    setBody(data.body[Math.floor(Math.random() * data.body.length)].name);
     setAccessory(
-      data.accessory[Math.floor(Math.random() * data.accessory.length)].value
+      tempAccessories[Math.floor(Math.random() * tempAccessories.length)].name
     );
+    // setAccessory(
+    //   data.accessory[Math.floor(Math.random() * data.accessory.length)].value
+    // );
     setPants(data.pants[Math.floor(Math.random() * data.pants.length)].value);
     setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].value);
   };
 
-  // const texture = useTexture(carrot);
-
-  const bodyTextureTest = [
-    { name: 'Rust', value: 'bodyRustTexture' },
-    { name: 'Slimegreen', value: 'bodySlimegreenTexture' },
-  ];
-  const accessoryTextureTest = [
-    { name: 'Blue Stripes', value: 'accessoryStripesBlueMedTexture' },
-    { name: 'Red Stripes', value: 'accessoryStripesRedColdTexture' },
-  ];
-
-  const [bodyTexTest, setBodyTexTest] = useState(
-    bodyTextureTest[Math.floor(Math.random() * bodyTextureTest.length)].value
-  );
-  const [accessoryTexTest, setAccessoryTexTest] = useState(
-    accessoryTextureTest[
-      Math.floor(Math.random() * accessoryTextureTest.length)
-    ].value
-  );
+  const HeadComponents = headComponents.map((obj) => {
+    const Component = obj.value;
+    return <Component headProp={head} glassesProp={glasses} />;
+  });
 
   return (
     <>
       <Canvas
         shadows
-        gl={{ preserveDrawingBuffer: true }}
+        gl={{ preserveDrawingBuffer: true, antialias: false }}
         dpr={[1, 1.5]}
         // camera={{ position: [5, 5, 5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
           // do things here
-          camera.position.x = 0.2;
-          camera.position.y = 0.4;
-          camera.position.z = 0.4;
+          camera.position.x = 24;
+          camera.position.y = 32;
+          camera.position.z = 48;
           camera.lookAt(lookAtPos);
           camera.updateProjectionMatrix();
           // camera.fov =
@@ -152,14 +168,14 @@ const NounCanvas = ({ autoRotate, setAutoRotate }) => {
         />
 
         <OrbitControls
-          target={[0, 0.2, 0]}
+          target={[0, 20, 0]}
           ref={orbitControls}
           autoRotate={autoRotate}
           enablePan={false}
           enableDamping={true}
-          maxPolarAngle={Math.PI / 2.05}
-          maxDistance={5}
-          minDistance={0.5}
+          maxPolarAngle={Math.PI / 1.85}
+          maxDistance={150}
+          minDistance={10}
         />
 
         {/* <cylinderBufferGeometry args={[2, 1, 20, 32]} /> */}
@@ -176,53 +192,21 @@ const NounCanvas = ({ autoRotate, setAutoRotate }) => {
         <Suspense fallback={<ProgressLoader />}>
           {environment === 'Ocean' && <OceanEnvironment />}
 
-          {/* <TuesdayFrog
-            walkAnimation={walkAnimation}
-            nodAnimation={nodAnimation}
-          /> */}
-          <TuesdayWizard
-            walkAnimation={walkAnimation}
-            nodAnimation={nodAnimation}
-          />
-          <SeperateHeadBody
-            walkAnimation={walkAnimation}
-            nodAnimation={nodAnimation}
-            bodyTexture={bodyTexTest}
-            accessoryTexture={accessoryTexTest}
+          <PreloadBodyTextures />
+          {HeadComponents}
+          <FINALBODY
+            animationState={animationState}
+            animationValue={animationValue}
+            pantsProp={pants}
+            accessoryProp={accessory}
+            bodyProp={body}
+            shoeProp={shoes}
           />
 
-          {/* <Plane
-            args={[1, 1]}
-            position={[0, 0, 0]}
-            material-map={texture}
-            material-transparent
-          /> */}
-          {/* {environment === 'Ocean' && <Ground />} */}
-
-          <NounsLogo />
+          <NounsLogo environment={environment} />
         </Suspense>
+        <Stats showPanel={0} className="stats" />
       </Canvas>
-
-      <div className="open-menu-container">
-        {optionsVisibility === 'none' ? (
-          <>
-            <button
-              className="glow-on-hover"
-              style={{ marginRight: '10px' }}
-              onClick={() => generateRandomNoun()}
-            >
-              Random Noun
-            </button>
-
-            <button
-              onClick={() => setOptionsVisibility('block')}
-              className={'show-menu-button'}
-            >
-              Options
-            </button>
-          </>
-        ) : null}
-      </div>
 
       <Menu
         isDesktop={isDesktop}
@@ -255,10 +239,24 @@ const NounCanvas = ({ autoRotate, setAutoRotate }) => {
 
       {!isDesktop && optionsVisibility === 'block' ? null : (
         <div className="credit-container">
-          <span style={{ marginRight: '20px' }}>
-            <a href="https://nouns.wtf">nouns.wtf</a> ❤️ by{' '}
-            <a href="https://twitter.com/0xFloyd">0xFloyd</a> and{' '}
-            <a href="https://twitter.com/coralorca">CoralOrca</a>
+          <span className="credit-container-text">
+            <a className="credit-container-link" href="https://nouns.wtf">
+              nouns.wtf
+            </a>{' '}
+            ❤️ by{' '}
+            <a
+              className="credit-container-link"
+              href="https://twitter.com/0xFloyd"
+            >
+              0xFloyd
+            </a>{' '}
+            and{' '}
+            <a
+              className="credit-container-link"
+              href="https://twitter.com/coralorca"
+            >
+              CoralOrca
+            </a>
           </span>
         </div>
       )}

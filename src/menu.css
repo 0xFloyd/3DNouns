@@ -72,3 +72,7 @@
   width: 7vw;
   height: 7vh;
 }
+
+.attribute-label {
+  font-size: 1.125em;
+}

@@ -25,6 +25,17 @@ const Menu = ({
   setAutoRotate,
   generateRandomNoun,
 }) => {
+  let tempAccessories = [
+    {
+      name: 'accessory-stripes-blue-med',
+      value: 'accessory-stripes-blue-med.png',
+    },
+    {
+      name: 'accessory-stripes-red-cold',
+      value: 'accessory-stripes-red-cold.png',
+    },
+  ];
+
   return (
     <>
       <div
@@ -54,16 +65,16 @@ const Menu = ({
           className="options-controls"
           style={{ display: optionsVisibility }}
         >
-          {/* <h4 className="white-font" style={{ textAlign: 'center' }}>
+          {/* <h3 className="white-font attribute-label" style={{ textAlign: 'center' }}>
             Settings
-          </h4> */}
+          </h3> */}
           {/*  Head */}
           <Container fluid>
             <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Head</label>
+              <Col xs={3}>
+                <label className="white-font attribute-label">Head</label>
               </Col>
-              <Col xs={8}>
+              <Col xs={9}>
                 <select
                   value={head}
                   onChange={(e) => setHead(e.target.value)}
@@ -73,7 +84,7 @@ const Menu = ({
                   // form="carform"
                 >
                   {data.head.map((head) => (
-                    <option key={head.value} value={head.value}>
+                    <option key={head.value} value={head.name}>
                       {head.name}
                     </option>
                   ))}
@@ -82,10 +93,10 @@ const Menu = ({
             </Row>
             {/*  Glasses */}
             <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Glasses</label>
+              <Col xs={3}>
+                <label className="white-font attribute-label">Glasses</label>
               </Col>
-              <Col xs={8}>
+              <Col xs={9}>
                 <select
                   value={glasses}
                   onChange={(e) => setGlasses(e.target.value)}
@@ -102,17 +113,19 @@ const Menu = ({
 
             {/*  Body */}
             <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Body</label>
+              <Col>
+                <label className="white-font attribute-label attribute-label">
+                  Body
+                </label>
               </Col>
-              <Col xs={8}>
+              <Col xs={9}>
                 <select
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
                   className="attribute-select-box"
                 >
-                  {data.body.map((body) => (
-                    <option key={body.value} value={body.value}>
+                  {data.body.map((body, index) => (
+                    <option key={index} value={body.name}>
                       {body.name}
                     </option>
                   ))}
@@ -122,11 +135,22 @@ const Menu = ({
 
             {/*  Accessory */}
             <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Accessory</label>
+              <Col xs={3}>
+                <label className="white-font attribute-label">Accessory</label>
               </Col>
-              <Col xs={8}>
+              <Col xs={9}>
                 <select
+                  value={accessory}
+                  onChange={(e) => setAccessory(e.target.value)}
+                  className="attribute-select-box"
+                >
+                  {tempAccessories.map((accessory, index) => (
+                    <option key={index} value={accessory.name}>
+                      {accessory.name}
+                    </option>
+                  ))}
+                </select>
+                {/* <select
                   value={accessory}
                   onChange={(e) => setAccessory(e.target.value)}
                   className="attribute-select-box"
@@ -136,15 +160,15 @@ const Menu = ({
                       {accessory.name}
                     </option>
                   ))}
-                </select>
+                </select> */}
               </Col>
             </Row>
             {/*  Pants */}
             <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Pants</label>
+              <Col xs={3}>
+                <label className="white-font attribute-label">Pants</label>
               </Col>
-              <Col xs={8}>
+              <Col xs={9}>
                 <select
                   value={pants}
                   onChange={(e) => setPants(e.target.value)}
@@ -160,10 +184,10 @@ const Menu = ({
             </Row>
             {/*  Shoes */}
             <Row style={{ marginBottom: '10px' }}>
-              <Col xs={4}>
-                <label className="white-font">Shoes</label>
+              <Col xs={3}>
+                <label className="white-font attribute-label">Shoes</label>
               </Col>
-              <Col xs={8}>
+              <Col xs={9}>
                 <select
                   value={shoes}
                   onChange={(e) => setShoes(e.target.value)}
@@ -179,10 +203,10 @@ const Menu = ({
             </Row>
             {/* environment */}
             <Row>
-              <Col xs={4}>
-                <label className="white-font">World</label>
+              <Col xs={3}>
+                <label className="white-font attribute-label">World</label>
               </Col>
-              <Col xs={8}>
+              <Col xs={9}>
                 <select
                   value={environment}
                   onChange={(e) => setEnvironment(e.target.value)}
@@ -199,10 +223,10 @@ const Menu = ({
             {/*  */}
 
             {/* <Row style={{ marginTop: '30px' }}>
-              <Col xs={4}>
-                <label className="white-font">Body Tex</label>
+              <Col xs={3}>
+                <label className="white-font attribute-label">Body Tex</label>
               </Col>
-              <Col xs={8}>
+              <Col xs={9}>
                 <select
                   value={bodyTexTest}
                   onChange={(e) => setBodyTexTest(e.target.value)}
@@ -218,10 +242,10 @@ const Menu = ({
             </Row>
 
             <Row>
-              <Col xs={4}>
-                <label className="white-font">Accessory Tex</label>
+              <Col xs={3}>
+                <label className="white-font attribute-label">Accessory Tex</label>
               </Col>
-              <Col xs={8}>
+              <Col xs={9}>
                 <select
                   value={accessoryTexTest}
                   onChange={(e) => setAccessoryTexTest(e.target.value)}
@@ -241,7 +265,10 @@ const Menu = ({
               <Col>
                 <div style={{ marginTop: '15px' }}>
                   <label>
-                    <span className="white-font" style={{ marginRight: '3px' }}>
+                    <span
+                      className="white-font attribute-label"
+                      style={{ marginRight: '3px' }}
+                    >
                       Auto
                       <br />
                       Rotate
@@ -265,7 +292,7 @@ const Menu = ({
               <Col>
                 <div style={{ marginTop: '15px' }}>
                   <label>
-                    <span className="white-font" style={{ marginRight: '3px' }}>
+                    <span className="white-font attribute-label" style={{ marginRight: '3px' }}>
                       Walk
                     </span>
                   </label>
@@ -287,7 +314,7 @@ const Menu = ({
               <Col>
                 <div style={{ marginTop: '15px' }}>
                   <label>
-                    <span className="white-font" style={{ marginRight: '3px' }}>
+                    <span className="white-font attribute-label" style={{ marginRight: '3px' }}>
                       Nod
                     </span>
                   </label>
@@ -321,6 +348,26 @@ const Menu = ({
             </div>
           </Container>
         </div>
+      </div>
+      <div className="open-menu-container">
+        {optionsVisibility === 'none' ? (
+          <>
+            <button
+              className="glow-on-hover"
+              style={{ marginRight: '10px' }}
+              onClick={() => generateRandomNoun()}
+            >
+              Random Noun
+            </button>
+
+            <button
+              onClick={() => setOptionsVisibility('block')}
+              className={'show-menu-button'}
+            >
+              Options
+            </button>
+          </>
+        ) : null}
       </div>
     </>
   );
