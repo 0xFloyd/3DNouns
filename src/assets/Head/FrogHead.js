@@ -4,8 +4,14 @@ import FrogModel from '../Models/Heads/FrogHead.glb';
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import glassesTexture from '../Textures/Glasses/glasses-square-fullblack.png';
+import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 
-export default function FrogHead({ headProp, glassesProp }) {
+export default function FrogHead({
+  headProp,
+  glassesProp,
+  animationState,
+  animationValue,
+}) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(FrogModel);
   const { ref, mixer, names, actions } = useAnimations(animations, group);
@@ -19,17 +25,14 @@ export default function FrogHead({ headProp, glassesProp }) {
   glassesTest.magFilter = glassesTest.minFilter = THREE.NearestFilter;
 
   useEffect(() => {
-    // Reset and fade in animation after an index has been changed
-
-    actions[names[3]].reset().fadeIn(0.5).play();
-
-    // if (walkAnimation) {
-    //   actions[names[0]].reset().fadeIn(0.5).play();
-    // }
-
-    //In the clean-up phase, fade it out
-    return () => actions[names[3]].fadeOut(0.5);
-  }, [actions, names]);
+    if (animationState) {
+      actions[names[lookupAnimation(animationValue)]]
+        .reset()
+        .fadeIn(0.5)
+        .play();
+      return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.5);
+    }
+  }, [actions, names, animationState, animationValue]);
 
   return (
     <group

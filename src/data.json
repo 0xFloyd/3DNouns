@@ -620,6 +620,15 @@
   "shoes": [
     { "name": "black", "value": "shoes-black.png" },
     { "name": "white", "value": "shoes-white.png" },
-    { "name": "grey", "value": "shoes-grey.png" }
+    { "name": "fog-grey", "value": "shoes-fog-grey.png" },
+    { "name": "gold", "value": "shoes-gold.png" },
+    { "name": "teal", "value": "shoes-teal-light.png" },
+    { "name": "dark-brown", "value": "shoes-dark-brown.png" }
+  ],
+  "animations": [
+    { "name": "none", "value": 9999 },
+    { "name": "idle", "value": 0 },
+    { "name": "walk", "value": 3 },
+    { "name": "run", "value": 1 }
   ]
 }

@@ -3,8 +3,14 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import PineappleModel from '../Models/Heads/PinaHead.glb';
+import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 
-export default function PineappleHead({ headProp, glassesProp }) {
+export default function PineappleHead({
+  headProp,
+  glassesProp,
+  animationState,
+  animationValue,
+}) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(PineappleModel);
   const { ref, mixer, names, actions } = useAnimations(animations, group);
@@ -18,17 +24,14 @@ export default function PineappleHead({ headProp, glassesProp }) {
   glassesTest.magFilter = glassesTest.minFilter = THREE.NearestFilter;
 
   useEffect(() => {
-    // Reset and fade in animation after an index has been changed
-
-    actions[names[3]].reset().fadeIn(0.5).play();
-
-    // if (walkAnimation) {
-    //   actions[names[0]].reset().fadeIn(0.5).play();
-    // }
-
-    //In the clean-up phase, fade it out
-    return () => actions[names[3]].fadeOut(0.5);
-  }, [actions, names]);
+    if (animationState) {
+      actions[names[lookupAnimation(animationValue)]]
+        .reset()
+        .fadeIn(0.5)
+        .play();
+      return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.5);
+    }
+  }, [actions, names, animationState, animationValue]);
 
   return (
     <group

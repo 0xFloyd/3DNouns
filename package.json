@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-spring/three": "^9.3.0",
     "@react-three/drei": "^7.4.0",
     "@react-three/fiber": "^7.0.9",
     "@react-three/postprocessing": "^2.0.5",
@@ -21,6 +22,7 @@
     "three-stdlib": "^2.4.2"
   },
   "scripts": {
+    "start": "react-scripts start",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

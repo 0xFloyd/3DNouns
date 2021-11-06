@@ -18,14 +18,14 @@ export default function Text({
   const config = useMemo(
     () => ({
       font,
-      size: 20,
-      height: 15,
+      size: 15,
+      height: 6,
       curveSegments: 16,
       //   bevelEnabled: true,
       bevelThickness: 3,
       bevelSize: 1.25,
       bevelOffset: 0,
-      bevelSegments: 4,
+      bevelSegments: 10,
     }),
     [font]
   );
@@ -43,7 +43,7 @@ export default function Text({
     <group {...props} scale={[0.1 * size, 0.1 * size, 0.1]}>
       <mesh ref={mesh}>
         <textGeometry args={[children, config]} />
-        <meshNormalMaterial />
+        <meshStandardMaterial attach="material" color={'#d63c5e'} />
       </mesh>
     </group>
   );
