@@ -420,3 +420,5 @@ data.shoes.forEach((shoeObj) => {
 data.glasses.forEach((glassesObj) => {
   useTexture.preload(`/textures/glasses/${glassesObj.value}`);
 });
+
+let test;
