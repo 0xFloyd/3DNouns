@@ -315,12 +315,13 @@ export default function FINALBODY({
   // }, [actions, names]);
 
   return (
-    <group ref={group} dispose={null}>
+    <group ref={group} dispose={null} castShadow>
       <primitive object={nodes.BodyAnimationSkeletonsJob_006Hipsd} />
       <skinnedMesh
         geometry={nodes.hands.geometry}
         material={materials.handsMAT}
         skeleton={nodes.hands.skeleton}
+        castShadow
       />
       <skinnedMesh
         geometry={nodes.body.geometry}
@@ -337,11 +338,13 @@ export default function FINALBODY({
         geometry={nodes.pants.geometry}
         material={materials.pantsMAT}
         skeleton={nodes.pants.skeleton}
+        castShadow
       />
       <skinnedMesh
         geometry={nodes.shoes.geometry}
         // material={materials.shoesMAT}
         skeleton={nodes.shoes.skeleton}
+        castShadow
       >
         <meshStandardMaterial map={shoeTextureFound} attach="material" />
       </skinnedMesh>

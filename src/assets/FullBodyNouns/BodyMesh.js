@@ -39,7 +39,6 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
       'varying vec2 vUv;',
       THREE.ShaderChunk['common'],
       THREE.ShaderChunk['lights_pars'],
-      THREE.ShaderChunk['shadowmap_pars_vertex'],
       THREE.ShaderChunk['morphtarget_pars_vertex'],
       THREE.ShaderChunk['skinning_pars_vertex'],
       'void main() {',

@@ -76,3 +76,87 @@
 .attribute-label {
   font-size: 1.125em;
 }
+
+.attribute-row {
+}
+
+.attribute-column {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.trait-dropdown-container {
+  width: 100%;
+}
+
+.trait-select-box {
+  padding-left: 50px;
+  height: 40px;
+  color: white;
+  position: relative;
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  -webkit-box-shadow: none;
+  background-color: #d63c5e;
+  border: none;
+  cursor: pointer;
+  text-indent: 80px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  text-overflow: '';
+}
+
+.trait-select-box:focus {
+  outline: none;
+}
+
+.trait-select-box-label {
+  position: absolute;
+  font-size: 1em;
+  z-index: 1;
+  border-radius: 10px;
+  color: white;
+  height: 40px;
+  line-height: 40px;
+  text-indent: 20px;
+  background-color: #d63c5e;
+  /* border-right: 1px solid black; */
+  padding-right: 40px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  user-select: none;
+  text-overflow: '';
+}
+
+.trait-divider {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  top: 0px;
+  left: 100px;
+  background: white;
+}
+
+.random-trait-icon {
+  color: #d63c5e;
+  font-size: 1.125em;
+  margin-right: 5px;
+  margin: 5px 20px 5px 0px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.random-trait-icon:hover {
+  color: #d8234b;
+  cursor: pointer;
+  transform: rotate(360deg);
+}
+
+.invisible-icon {
+  visibility: hidden;
+  font-size: 1.125em;
+  margin-right: 5px;
+  margin: 5px 20px 5px 0px;
+}

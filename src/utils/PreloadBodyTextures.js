@@ -18,7 +18,7 @@ const PreloadBodyTextures = () => {
     });
   }, []);
 
-  return <></>;
+  return null;
 };
 
 export default PreloadBodyTextures;

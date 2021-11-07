@@ -7,7 +7,7 @@ import {
 } from '@react-three/fiber';
 import * as THREE from 'three';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import { OrbitControls, Stats } from '@react-three/drei';
+import { OrbitControls, Stats, useHelper } from '@react-three/drei';
 import { Col, Container, Row } from 'react-bootstrap';
 import logo from './assets/nouns-logo.svg';
 import './shaders/materials/ReflectorMaterial';
@@ -23,7 +23,7 @@ import {
   shoesAttributes,
   environmentAttributes,
 } from 'attributes';
-import { TextureLoader } from 'three';
+import { DirectionalLightHelper, SpotLightHelper, TextureLoader } from 'three';
 import SeperateHeadBody from './assets/FullBodyNouns/SeperateHeadAndBodyTest';
 import TuesdayWizard from './assets/FullBodyNouns/TuesdayWizard';
 import NormalEnvironment from 'World/NormalEnvironment';
@@ -39,7 +39,7 @@ import PreloadBodyTextures from 'utils/PreloadBodyTextures';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
-const NounCanvas = ({ autoRotate, setAutoRotate }) => {
+const NounCanvas = () => {
   // 11/5/21 DELETE WHEN ALL ACCESSORIES
   let tempAccessories = [
     { name: 'accessory-1n', value: 'accessory-1n.png' },
@@ -233,7 +233,7 @@ const NounCanvas = ({ autoRotate, setAutoRotate }) => {
   ];
 
   const [optionsVisibility, setOptionsVisibility] = useState('none');
-
+  const [autoRotate, setAutoRotate] = useState('false');
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
   const [isDesktop, setDesktop] = useState(window.innerWidth > 1200);
   const [environment, setEnvironment] = useState('Normal');
@@ -303,6 +303,10 @@ const NounCanvas = ({ autoRotate, setAutoRotate }) => {
     setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
   };
 
+  useEffect(() => {
+    document.body.style.cursor = 'auto';
+  }, []);
+
   const HeadComponents = headComponents.map((obj) => {
     const Component = obj.value;
     return (
@@ -315,11 +319,42 @@ const NounCanvas = ({ autoRotate, setAutoRotate }) => {
     );
   });
 
+  const Lights = () => {
+    const light = useRef();
+    const spotLight = useRef();
+    useHelper(light, DirectionalLightHelper, 'cyan');
+    useHelper(spotLight, SpotLightHelper, 'red');
+    return (
+      <group>
+        <ambientLight intensity={0.7} />
+        {/* <spotLight
+          intensity={0.1}
+          ref={spotLight}
+          position={[-10, 100, 200]}
+          castShadow
+        /> */}
+        <directionalLight
+          ref={light}
+          position={[-5, 100, 100]}
+          castShadow
+          intensity={0.5}
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+        />
+      </group>
+    );
+  };
+
   return (
     <>
       <Canvas
         shadows
-        gl={{ preserveDrawingBuffer: true, antialias: false }}
+        // shadowMap
+        gl={{
+          preserveDrawingBuffer: true,
+          antialias: false,
+          // physicallyCorrectLights: true,
+        }}
         dpr={[1, 1.5]}
         // camera={{ position: [5, 5, 5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
@@ -345,22 +380,13 @@ const NounCanvas = ({ autoRotate, setAutoRotate }) => {
 
         {environment === 'Normal' && <NormalEnvironment />}
 
-        <ambientLight intensity={0.8} />
-
         {/* <spotLight position={[0, 2, 2]} intensity={0.3} castShadow /> */}
 
-        <directionalLight
-          position={[0, 0.5, 0.2]}
-          castShadow
-          intensity={0.5}
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-        />
-
+        <Lights />
         <OrbitControls
           target={[0, 20, 0]}
           ref={orbitControls}
-          autoRotate={autoRotate}
+          autoRotate={JSON.parse(autoRotate)}
           enablePan={false}
           enableDamping={true}
           maxPolarAngle={Math.PI / 1.85}

@@ -70,7 +70,7 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
-
+  touch-action: manipulation;
   font-size: 1rem;
 }
 
@@ -124,6 +124,22 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.random-noun-button {
+  width: 9em;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #d63c5e;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-size: 1em;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 .attribute-select-box > option {
@@ -226,13 +242,14 @@ a {
 
 .mobile-menu-container {
   position: fixed;
-  height: 35vh;
+  height: 30vh;
   bottom: 0;
   overflow-y: auto;
   width: 100vw;
   background-color: rgba(255, 255, 255, 0.5);
   z-index: 99 !important;
   padding: 10px;
+  touch-action: manipulation;
 }
 
 .mobile-show-menu-button {

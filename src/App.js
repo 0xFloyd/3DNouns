@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { Col, Container, Dropdown, Navbar, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import './menu.css';
 import './GlowButton.css';
 import SplashScreen from './SplashScreen';
 
@@ -23,8 +22,6 @@ const deviceType = () => {
 };
 
 const App = () => {
-  const [autoRotate, setAutoRotate] = useState(false);
-
   const [head, setHead] = useState('rabbit'); //crab
   const [glasses, setGlasses] = useState('orange'); //blue
   const [body, setBody] = useState('purple'); //lightblue
@@ -81,7 +78,7 @@ const App = () => {
         </div>
       )}
       <div className="nouns-canvas">
-        <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
+        <NounCanvas />
       </div>
     </div>
   );

@@ -2,6 +2,8 @@ import { environmentAttributes } from 'attributes';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import data from './data.json';
+import './menu.css';
+import { FiRefreshCw } from 'react-icons/fi';
 
 const Menu = ({
   isDesktop,
@@ -220,6 +222,11 @@ const Menu = ({
     { name: 'Frog', value: 'head-frog' },
   ];
 
+  const rotateOptions = [
+    { name: 'OFF', value: 'false' },
+    { name: 'ON', value: 'true' },
+  ];
+
   return (
     <>
       <div
@@ -254,23 +261,40 @@ const Menu = ({
           </h3> */}
           {/*  Head */}
           <Container fluid>
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={3}>
-                <label className="white-font attribute-label">Head</label>
+            {/* test */}
+            <Row className="attribute-row">
+              <Col xs={12} className="attribute-column">
+                <FiRefreshCw
+                  size={30}
+                  className="random-trait-icon"
+                  onClick={() =>
+                    setHead(
+                      tempHeads[Math.floor(Math.random() * tempHeads.length)]
+                        .name
+                    )
+                  }
+                />
+                <div className="trait-dropdown-container">
+                  <label className="trait-select-box-label">
+                    Head
+                    <span className="trait-divider"></span>
+                  </label>
+
+                  <select
+                    value={head}
+                    onChange={(e) => setHead(e.target.value)}
+                    className="trait-select-box"
+                  >
+                    {tempHeads.map((head) => (
+                      <option key={head.value} value={head.name}>
+                        {head.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </Col>
-              <Col xs={9}>
-                <select
-                  value={head}
-                  onChange={(e) => setHead(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {tempHeads.map((head) => (
-                    <option key={head.value} value={head.name}>
-                      {head.name}
-                    </option>
-                  ))}
-                </select>
-                {/* <select
+
+              {/* <select
                   value={head}
                   onChange={(e) => setHead(e.target.value)}
                   className="attribute-select-box"
@@ -281,67 +305,104 @@ const Menu = ({
                     </option>
                   ))}
                 </select> */}
-              </Col>
             </Row>
+
             {/*  Glasses */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={3}>
-                <label className="white-font attribute-label">Glasses</label>
-              </Col>
-              <Col xs={9}>
-                <select
-                  value={glasses}
-                  onChange={(e) => setGlasses(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {data.glasses.map((glasses) => (
-                    <option key={glasses.value} value={glasses.value}>
-                      {glasses.name}
-                    </option>
-                  ))}
-                </select>
+            <Row className="attribute-row">
+              <Col xs={12} className="attribute-column">
+                <FiRefreshCw
+                  size={30}
+                  className="random-trait-icon"
+                  onClick={() =>
+                    setGlasses(
+                      data.glasses[
+                        Math.floor(Math.random() * data.glasses.length)
+                      ].value
+                    )
+                  }
+                />
+                <div className="trait-dropdown-container">
+                  <label className="trait-select-box-label">
+                    Glasses<span className="trait-divider"></span>
+                  </label>
+
+                  <select
+                    value={glasses}
+                    onChange={(e) => setGlasses(e.target.value)}
+                    className="trait-select-box"
+                  >
+                    {data.glasses.map((glasses) => (
+                      <option key={glasses.value} value={glasses.value}>
+                        {glasses.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </Col>
             </Row>
 
             {/*  Body */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col>
-                <label className="white-font attribute-label attribute-label">
-                  Body
-                </label>
-              </Col>
-              <Col xs={9}>
-                <select
-                  value={body}
-                  onChange={(e) => setBody(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {data.body.map((body, index) => (
-                    <option key={index} value={body.name}>
-                      {body.name}
-                    </option>
-                  ))}
-                </select>
+            <Row className="attribute-row">
+              <Col xs={12} className="attribute-column">
+                <FiRefreshCw
+                  size={30}
+                  className="random-trait-icon"
+                  onClick={() =>
+                    setBody(
+                      data.body[Math.floor(Math.random() * data.body.length)]
+                        .name
+                    )
+                  }
+                />
+                <div className="trait-dropdown-container">
+                  <label className="trait-select-box-label">
+                    Body<span className="trait-divider"></span>
+                  </label>
+                  <select
+                    value={body}
+                    onChange={(e) => setBody(e.target.value)}
+                    className="trait-select-box"
+                  >
+                    {data.body.map((body, index) => (
+                      <option key={index} value={body.name}>
+                        {body.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </Col>
             </Row>
 
             {/*  Accessory */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={3}>
-                <label className="white-font attribute-label">Accessory</label>
-              </Col>
-              <Col xs={9}>
-                <select
-                  value={accessory}
-                  onChange={(e) => setAccessory(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {tempAccessories.map((accessory, index) => (
-                    <option key={index} value={accessory.name}>
-                      {accessory.name}
-                    </option>
-                  ))}
-                </select>
+            <Row className="attribute-row">
+              <Col xs={12} className="attribute-column">
+                <FiRefreshCw
+                  size={30}
+                  className="random-trait-icon"
+                  onClick={() =>
+                    setAccessory(
+                      tempAccessories[
+                        Math.floor(Math.random() * tempAccessories.length)
+                      ].name
+                    )
+                  }
+                />
+                <div className="trait-dropdown-container">
+                  <label className="trait-select-box-label">
+                    Accessory<span className="trait-divider"></span>
+                  </label>
+                  <select
+                    value={accessory}
+                    onChange={(e) => setAccessory(e.target.value)}
+                    className="trait-select-box"
+                  >
+                    {tempAccessories.map((accessory, index) => (
+                      <option key={index} value={accessory.name}>
+                        {accessory.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                 {/* <select
                   value={accessory}
                   onChange={(e) => setAccessory(e.target.value)}
@@ -356,88 +417,145 @@ const Menu = ({
               </Col>
             </Row>
             {/*  Pants */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={3}>
-                <label className="white-font attribute-label">Pants</label>
-              </Col>
-              <Col xs={9}>
-                <select
-                  value={pants}
-                  onChange={(e) => setPants(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {data.pants.map((pants) => (
-                    <option key={pants.value} value={pants.value}>
-                      {pants.name}
-                    </option>
-                  ))}
-                </select>
+            <Row className="attribute-row">
+              <Col xs={12} className="attribute-column">
+                <FiRefreshCw
+                  size={30}
+                  className="random-trait-icon"
+                  onClick={() =>
+                    setPants(
+                      data.pants[Math.floor(Math.random() * data.pants.length)]
+                        .value
+                    )
+                  }
+                />
+                <div className="trait-dropdown-container">
+                  <label className="trait-select-box-label">
+                    Pants<span className="trait-divider"></span>
+                  </label>
+                  <select
+                    value={pants}
+                    onChange={(e) => setPants(e.target.value)}
+                    className="trait-select-box"
+                  >
+                    {data.pants.map((pants) => (
+                      <option key={pants.value} value={pants.value}>
+                        {pants.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </Col>
             </Row>
             {/*  Shoes */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={3}>
-                <label className="white-font attribute-label">Shoes</label>
-              </Col>
-              <Col xs={9}>
-                <select
-                  value={shoes}
-                  onChange={(e) => setShoes(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {data.shoes.map((shoes) => (
-                    <option key={shoes.value} value={shoes.name}>
-                      {shoes.name}
-                    </option>
-                  ))}
-                </select>
+            <Row className="attribute-row">
+              <Col xs={12} className="attribute-column">
+                <FiRefreshCw
+                  size={30}
+                  className="random-trait-icon"
+                  onClick={() =>
+                    setShoes(
+                      data.shoes[Math.floor(Math.random() * data.shoes.length)]
+                        .name
+                    )
+                  }
+                />
+                <div className="trait-dropdown-container">
+                  <label className="trait-select-box-label">
+                    Shoes<span className="trait-divider"></span>
+                  </label>
+
+                  <select
+                    value={shoes}
+                    onChange={(e) => setShoes(e.target.value)}
+                    className="trait-select-box"
+                  >
+                    {data.shoes.map((shoes) => (
+                      <option key={shoes.value} value={shoes.name}>
+                        {shoes.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </Col>
             </Row>
             {/* environment */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={3}>
-                <label className="white-font attribute-label">World</label>
-              </Col>
-              <Col xs={9}>
-                <select
-                  value={environment}
-                  onChange={(e) => setEnvironment(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {environmentAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
+            <Row className="attribute-row">
+              <Col xs={12} className="attribute-column">
+                <FiRefreshCw size={30} className="invisible-icon" />
+                <div className="trait-dropdown-container">
+                  <label className="trait-select-box-label">
+                    World<span className="trait-divider"></span>
+                  </label>
+                  <select
+                    value={environment}
+                    onChange={(e) => setEnvironment(e.target.value)}
+                    className="trait-select-box"
+                  >
+                    {environmentAttributes.map((arrayValue) => (
+                      <option key={arrayValue.value} value={arrayValue.value}>
+                        {arrayValue.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </Col>
             </Row>
 
             {/*  Animation */}
-            <Row style={{ marginBottom: '10px' }}>
-              <Col xs={3}>
-                <label className="white-font attribute-label">Animation</label>
+            <Row className="attribute-row">
+              <Col xs={12} className="attribute-column">
+                <FiRefreshCw size={30} className="invisible-icon" />
+                <div className="trait-dropdown-container">
+                  <label className="trait-select-box-label">
+                    Animation<span className="trait-divider"></span>
+                  </label>
+                  <select
+                    value={animationValue.name}
+                    onChange={(e) => {
+                      if (e.target.value === 'none') {
+                        setAnimationState(false);
+                        setAnimationValue(e.target.value);
+                      } else {
+                        setAnimationState(true);
+                        setAnimationValue(e.target.value);
+                      }
+                    }}
+                    className="trait-select-box"
+                  >
+                    {data.animations.map((animationObj) => (
+                      <option
+                        key={animationObj.value}
+                        value={animationObj.name}
+                      >
+                        {animationObj.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </Col>
-              <Col xs={9}>
-                <select
-                  value={animationValue.name}
-                  onChange={(e) => {
-                    if (e.target.value === 'none') {
-                      setAnimationState(false);
-                      setAnimationValue(e.target.value);
-                    } else {
-                      setAnimationState(true);
-                      setAnimationValue(e.target.value);
-                    }
-                  }}
-                  className="attribute-select-box"
-                >
-                  {data.animations.map((animationObj) => (
-                    <option key={animationObj.value} value={animationObj.name}>
-                      {animationObj.name}
-                    </option>
-                  ))}
-                </select>
+            </Row>
+
+            {/*  Rotate */}
+            <Row className="attribute-row">
+              <Col xs={12} className="attribute-column">
+                <FiRefreshCw size={30} className="invisible-icon" />
+                <div className="trait-dropdown-container">
+                  <label className="trait-select-box-label">
+                    Rotate<span className="trait-divider"></span>
+                  </label>
+                  <select
+                    value={autoRotate}
+                    onChange={(e) => setAutoRotate(e.target.value)}
+                    className="trait-select-box"
+                  >
+                    {rotateOptions.map((rotateObj, index) => (
+                      <option key={index} value={rotateObj.value}>
+                        {rotateObj.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </Col>
             </Row>
             {/*  */}
@@ -479,34 +597,6 @@ const Menu = ({
                 </select>
               </Col>
             </Row> */}
-
-            {/*  */}
-            <Row>
-              <Col>
-                <div style={{ marginTop: '15px' }}>
-                  <label>
-                    <span
-                      className="white-font attribute-label"
-                      style={{ marginRight: '3px' }}
-                    >
-                      Auto
-                      <br />
-                      Rotate
-                    </span>
-                  </label>
-                </div>
-              </Col>
-              <Col>
-                <div style={{ marginTop: '25px' }}>
-                  <input
-                    type="checkbox"
-                    className="toggle"
-                    checked={autoRotate}
-                    onChange={(e) => setAutoRotate(e.target.checked)}
-                  />
-                </div>
-              </Col>
-            </Row>
 
             {/* <Row>
               <Col>
@@ -557,7 +647,7 @@ const Menu = ({
                 <Col></Col>
                 <Col>
                   <button
-                    className="glow-on-hover"
+                    className="random-noun-button"
                     onClick={() => generateRandomNoun()}
                   >
                     Random Noun
@@ -573,7 +663,7 @@ const Menu = ({
         {optionsVisibility === 'none' ? (
           <>
             <button
-              className="glow-on-hover"
+              className="random-noun-button"
               style={{ marginRight: '10px' }}
               onClick={() => generateRandomNoun()}
             >
