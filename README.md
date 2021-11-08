@@ -2,6 +2,8 @@
 
 3D Nouns was created by @0xFloyd and @CoralOrca and funded by NounsDAO under Proposal 2.
 
+// shadows: https://discourse.threejs.org/t/hello-i-am-facing-the-problem-with-shadow-stripes-on-model/18065/2
+
 // add in to vetrtex: THREE.ShaderChunk['shadowmap_pars_vertex']
 
 <shaderMaterial

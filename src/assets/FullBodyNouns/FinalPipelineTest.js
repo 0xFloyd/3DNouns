@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useGLTF, useAnimations, useTexture } from '@react-three/drei';
 import finalBody from '../Models/FINALBODY.glb';
 import shoeTexture from '../Textures/Shoes/shoes-teal-light.png';
-import { useLoader } from '@react-three/fiber';
+import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import data from 'data.json';
 import { BodyMesh } from './BodyMesh';
@@ -354,7 +354,7 @@ export default function FINALBODY({
 
 useGLTF.preload('/FINALBODY.glb');
 
-const lookupBodyTexture = (bodyTextureParam, preLoadedBodyTextures) => {
+export const lookupBodyTexture = (bodyTextureParam, preLoadedBodyTextures) => {
   let result = preLoadedBodyTextures.find((obj) => {
     return obj.name === bodyTextureParam;
   });
@@ -365,7 +365,7 @@ const lookupBodyTexture = (bodyTextureParam, preLoadedBodyTextures) => {
   }
 };
 
-const lookupAccessoryTexture = (
+export const lookupAccessoryTexture = (
   accessoryTextureParam,
   preLoadedAccessoryTextures
 ) => {
@@ -379,7 +379,7 @@ const lookupAccessoryTexture = (
   }
 };
 
-const lookupShoeTexture = (shoeTextureParam, preLoadedShoeTextures) => {
+export const lookupShoeTexture = (shoeTextureParam, preLoadedShoeTextures) => {
   let result = preLoadedShoeTextures.find((obj) => {
     return obj.name === shoeTextureParam;
   });

@@ -40,6 +40,7 @@ export default function FrogHead({
       dispose={null}
       visible={headProp === 'Frog' ? true : false}
       castShadow
+      receiveShadow
     >
       <primitive object={nodes.BodyAnimationSkeletonsJob_006Hipsd} />
       <skinnedMesh
@@ -47,14 +48,15 @@ export default function FrogHead({
         material={materials.headMAT}
         skeleton={nodes.FrogHead.skeleton}
         castShadow
+        receiveShadow
       />
       <skinnedMesh
         geometry={nodes.glasses.geometry}
         // material={materials.glassesMAT}
         skeleton={nodes.glasses.skeleton}
         castShadow
+        receiveShadow
       >
-        {' '}
         <meshStandardMaterial map={glassesTest} attach="material" />
       </skinnedMesh>
     </group>

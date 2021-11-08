@@ -23,7 +23,12 @@ import {
   shoesAttributes,
   environmentAttributes,
 } from 'attributes';
-import { DirectionalLightHelper, SpotLightHelper, TextureLoader } from 'three';
+import {
+  DirectionalLightHelper,
+  HemisphereLightHelper,
+  SpotLightHelper,
+  TextureLoader,
+} from 'three';
 import SeperateHeadBody from './assets/FullBodyNouns/SeperateHeadAndBodyTest';
 import TuesdayWizard from './assets/FullBodyNouns/TuesdayWizard';
 import NormalEnvironment from 'World/NormalEnvironment';
@@ -36,6 +41,7 @@ import ModelHead from 'assets/FullBodyNouns/FINALHEAD';
 import HeadComponents from 'assets/FullBodyNouns/FINALHEAD';
 import { headComponents } from 'utils/AllHeadModels';
 import PreloadBodyTextures from 'utils/PreloadBodyTextures';
+import Stacy from 'Stacy';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -322,34 +328,76 @@ const NounCanvas = () => {
   const Lights = () => {
     const light = useRef();
     const spotLight = useRef();
+    const hemiLight = useRef();
     useHelper(light, DirectionalLightHelper, 'cyan');
     useHelper(spotLight, SpotLightHelper, 'red');
+    useHelper(hemiLight, HemisphereLightHelper, 'blue');
+
+    let huh = new THREE.SpotLight();
+
+    const d = 5;
+
     return (
       <group>
-        <ambientLight intensity={0.7} />
+        <ambientLight intensity={0.25} />
         {/* <spotLight
-          intensity={0.1}
+          intensity={0.8}
           ref={spotLight}
-          position={[-10, 100, 200]}
+          position={[-10, 300, 300]}
           castShadow
-        /> */}
+          color={new THREE.Color(0xffa95c)}
+          shadow-mapSize-width={4096}
+          shadow-mapSize-height={4096}
+        />
+        <hemisphereLight
+          skyColor={new THREE.Color(0xffffbb)}
+          groundColor={new THREE.Color(0x080820)}
+          intensity={0.75}
+          castShadow
+        />
         <directionalLight
           ref={light}
-          position={[-5, 100, 100]}
+          color={new THREE.Color(0xffa95c)}
+          position={[-5, 50, 100]}
           castShadow
           intensity={0.5}
-          shadow-mapSize-width={1024}
+          shadow-mapSize-width={4096}
+          shadow-mapSize-height={4096}
+        /> */}
+        <hemisphereLight
+          skyColor={'black'}
+          groundColor={0xffffff}
+          intensity={0.5}
+          position={[0, 500, 0]}
+          ref={hemiLight}
+        />
+        <directionalLight
+          ref={light}
+          intensity={0.5}
+          position={[-500, 500, 500]}
+          shadow-camera-left={d * -100}
+          shadow-camera-bottom={d * -100}
+          shadow-camera-right={d * 100}
+          shadow-camera-top={d * 100}
+          shadow-camera-near={0.1}
+          shadow-camera-far={5000}
+          shadow-bias={-0.0005}
           shadow-mapSize-height={1024}
+          shadow-mapSize-width={2048}
+          castShadow
         />
       </group>
     );
   };
 
+  const mouse = useRef({ x: 0, y: 0 });
+
   return (
     <>
       <Canvas
         shadows
-        // shadowMap
+        shadowMap
+        colorManagement
         gl={{
           preserveDrawingBuffer: true,
           antialias: false,
@@ -418,6 +466,12 @@ const NounCanvas = () => {
             bodyProp={body}
             shoeProp={shoes}
           />
+
+          {/* <Stacy
+            mouse={mouse}
+            position={[0, 0, 0]}
+            scale={[0.08, 0.08, 0.08]}
+          /> */}
 
           <NounsLogo environment={environment} />
         </Suspense>

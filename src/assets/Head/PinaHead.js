@@ -39,6 +39,7 @@ export default function PineappleHead({
       dispose={null}
       visible={headProp === 'Pineapple' ? true : false}
       castShadow
+      receiveShadow
     >
       <primitive object={nodes.BodyAnimationSkeletonsJob_006Hipsd} />
       <skinnedMesh
@@ -46,15 +47,17 @@ export default function PineappleHead({
         // material={materials.glassesMAT}
         skeleton={nodes.glasses.skeleton}
         castShadow
+        receiveShadow
       >
         <meshStandardMaterial map={glassesTest} attach="material" />
       </skinnedMesh>
       <skinnedMesh
         castShadow
+        receiveShadow
         geometry={nodes.Pinapple.geometry}
         material={materials.PinappleMAT}
         skeleton={nodes.Pinapple.skeleton}
-      />
+      ></skinnedMesh>
     </group>
   );
 }
