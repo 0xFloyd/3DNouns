@@ -16,6 +16,9 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
 
   const uniforms = useMemo(
     () => ({
+      // THREE.UniformsUtils.merge([
+      //   THREE.UniformsLib.lights,
+
       // custom uniforms (your textures)
 
       tex: {
@@ -29,24 +32,28 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
       // tex: { type: 't', value: accessoryStripesBlueMedTexture },
       // tex2: { type: 't', value: bodySlimegreenTexture },
     }),
+    // ]),
     [bodyTexture, accessoryTexture]
   );
 
   // https://threejs.org/docs/#api/en/renderers/webgl/WebGLProgram
   let bodyFragmentShader = {
     uniforms: uniforms,
+    // lights: true,
     vertexShader: [
       'varying vec2 vUv;',
       THREE.ShaderChunk['common'],
-      THREE.ShaderChunk['lights_pars'],
+      THREE.ShaderChunk['lights_pars_begin'],
+      THREE.ShaderChunk['lights_pars_maps'],
       THREE.ShaderChunk['morphtarget_pars_vertex'],
       THREE.ShaderChunk['skinning_pars_vertex'],
+      // THREE.ShaderChunk['shadowmap_pars_vertex'],
       'void main() {',
       'vUv = uv;',
       'gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 0.01);',
 
-      THREE.ShaderChunk['skinbase_vertex'],
       THREE.ShaderChunk['begin_vertex'],
+      THREE.ShaderChunk['skinbase_vertex'],
       THREE.ShaderChunk['morphtarget_vertex'],
       THREE.ShaderChunk['skinning_vertex'],
       THREE.ShaderChunk['project_vertex'],
@@ -56,6 +63,10 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
       'varying vec2 vUv;',
       'uniform sampler2D tex;',
       'uniform sampler2D tex2;',
+      THREE.ShaderChunk['common'],
+      // THREE.ShaderChunk['lights_pars_begin'],
+      // THREE.ShaderChunk['lights_pars_maps'],
+      // THREE.ShaderChunk['lights_pars_end'],
       'void main(void) {',
       'vec3 c;',
       'vec4 Ca = texture2D(tex, vUv);',
@@ -73,6 +84,7 @@ export const BodyMesh = ({ skeletonParts, bodyTexture, accessoryTexture }) => {
       args={[bodyFragmentShader]}
       needsUpdate={true}
       skinning={true}
+      // lights={true}
     />
   );
 };

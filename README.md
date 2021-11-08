@@ -4,6 +4,8 @@
 
 // shadows: https://discourse.threejs.org/t/hello-i-am-facing-the-problem-with-shadow-stripes-on-model/18065/2
 
+// https://stackoverflow.com/questions/43621274/how-to-correctly-set-lighting-for-custom-shader-material
+
 // add in to vetrtex: THREE.ShaderChunk['shadowmap_pars_vertex']
 
 <shaderMaterial

@@ -7,7 +7,12 @@ import {
 } from '@react-three/fiber';
 import * as THREE from 'three';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import { OrbitControls, Stats, useHelper } from '@react-three/drei';
+import {
+  BakeShadows,
+  OrbitControls,
+  Stats,
+  useHelper,
+} from '@react-three/drei';
 import { Col, Container, Row } from 'react-bootstrap';
 import logo from './assets/nouns-logo.svg';
 import './shaders/materials/ReflectorMaterial';
@@ -395,12 +400,11 @@ const NounCanvas = () => {
   return (
     <>
       <Canvas
-        shadows
-        shadowMap
-        colorManagement
+        shadows={{ type: 'BasicShadowMap' }}
         gl={{
           preserveDrawingBuffer: true,
           antialias: false,
+          // shadowMap:  THREE.PCFSoftShadowMap
           // physicallyCorrectLights: true,
         }}
         dpr={[1, 1.5]}
@@ -455,7 +459,7 @@ const NounCanvas = () => {
           /> */}
         <Suspense fallback={<ProgressLoader />}>
           {environment === 'Ocean' && <OceanEnvironment />}
-
+          {/* <BakeShadows /> */}
           <PreloadBodyTextures />
           {HeadComponents}
           <FINALBODY
