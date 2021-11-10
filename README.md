@@ -8,6 +8,8 @@
 
 // add in to vetrtex: THREE.ShaderChunk['shadowmap_pars_vertex']
 
+https://www.youtube.com/watch?v=C8Cuwq1eqDw
+
 <shaderMaterial
 // transparent={true}
 // lights={true}

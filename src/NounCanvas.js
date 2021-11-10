@@ -47,6 +47,9 @@ import HeadComponents from 'assets/FullBodyNouns/FINALHEAD';
 import { headComponents } from 'utils/AllHeadModels';
 import PreloadBodyTextures from 'utils/PreloadBodyTextures';
 import Stacy from 'Stacy';
+import MasterHead from 'assets/Head/MasterHead';
+import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
+import RANDOMIZER from 'RANDOMIZER';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -239,8 +242,8 @@ const NounCanvas = () => {
   ];
 
   let tempHeads = [
-    { name: 'Pineapple', value: 'head-pineapple' },
-    { name: 'Frog', value: 'head-frog' },
+    { name: 'Bonsai', value: 'head-pineapple' },
+    { name: 'Pineapple', value: 'head-frog' },
   ];
 
   const [optionsVisibility, setOptionsVisibility] = useState('none');
@@ -400,7 +403,7 @@ const NounCanvas = () => {
   return (
     <>
       <Canvas
-        shadows={{ type: 'BasicShadowMap' }}
+        shadows
         gl={{
           preserveDrawingBuffer: true,
           antialias: false,
@@ -461,8 +464,25 @@ const NounCanvas = () => {
           {environment === 'Ocean' && <OceanEnvironment />}
           {/* <BakeShadows /> */}
           <PreloadBodyTextures />
-          {HeadComponents}
-          <FINALBODY
+          {/* {HeadComponents} */}
+          <MasterHead
+            headProp={head}
+            glassesProp={glasses}
+            animationState={animationState}
+            animationValue={animationValue}
+          />
+
+          {/* <RANDOMIZER setBody={setBody} setAccessory={setAccessory} /> */}
+
+          {/* <FINALBODY
+            animationState={animationState}
+            animationValue={animationValue}
+            pantsProp={pants}
+            accessoryProp={accessory}
+            bodyProp={body}
+            shoeProp={shoes}
+          /> */}
+          <FINALBODY119
             animationState={animationState}
             animationValue={animationValue}
             pantsProp={pants}

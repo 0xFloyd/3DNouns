@@ -218,8 +218,8 @@ const Menu = ({
   ];
 
   let tempHeads = [
-    { name: 'Pineapple', value: 'head-pineapple' },
-    { name: 'Frog', value: 'head-frog' },
+    { name: 'Bonsai', value: 'head-pineapple' },
+    { name: 'Pineapple', value: 'head-frog' },
   ];
 
   const rotateOptions = [

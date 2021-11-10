@@ -627,8 +627,14 @@
   ],
   "animations": [
     { "name": "none", "value": 9999 },
-    { "name": "idle", "value": 0 },
-    { "name": "walk", "value": 3 },
-    { "name": "run", "value": 1 }
+    { "name": "apose", "value": 0 },
+    { "name": "dance1", "value": 1 },
+    { "name": "dance2", "value": 2 },
+    { "name": "idle", "value": 3 },
+    { "name": "jump", "value": 4 },
+    { "name": "run", "value": 5 },
+    { "name": "swim", "value": 6 },
+    { "name": "tpose", "value": 7 },
+    { "name": "walk", "value": 8 }
   ]
 }
