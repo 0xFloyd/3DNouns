@@ -22,6 +22,7 @@ import {
   Stars,
   useGLTF,
   useProgress,
+  useTexture,
 } from '@react-three/drei';
 import Text from './Text';
 import { FontLoader } from 'utils/FontLoader';
@@ -582,3 +583,30 @@ const SplashScreen = (store) => {
 };
 
 export default SplashScreen;
+
+data.body.forEach((bodyObj) => {
+  useTexture.preload(`/textures/body/${bodyObj.value}`);
+});
+
+data.tempHeads.forEach((headData) => {
+  useGLTF.preload(`/headModels/${headData.filePath}`);
+});
+
+data.accessory.forEach((accessoryObj) => {
+  useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
+});
+data.accessory.forEach((accessoryObj) => {
+  useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
+});
+
+data.pants.forEach((pantsObj) => {
+  useTexture.preload(`/textures/pants/${pantsObj.value}`);
+});
+
+data.shoes.forEach((shoeObj) => {
+  useTexture.preload(`/textures/shoes/${shoeObj.value}`);
+});
+
+data.glasses.forEach((glassesObj) => {
+  useTexture.preload(`/textures/glasses/${glassesObj.value}`);
+});

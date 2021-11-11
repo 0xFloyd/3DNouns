@@ -636,5 +636,24 @@
     { "name": "swim", "value": 6 },
     { "name": "tpose", "value": 7 },
     { "name": "walk", "value": 8 }
+  ],
+  "tempHeads": [
+    { "name": "Crab", "value": "head-crab", "filePath": "crabHead.glb" },
+    {
+      "name": "Pirateship",
+      "value": "head-pirateship",
+      "filePath": "pirateshipHead.glb"
+    },
+    {
+      "name": "Skateboard",
+      "value": "head-skateboard",
+      "filePath": "skateHead.glb"
+    },
+    {
+      "name": "Trashcan",
+      "value": "head-trashcan",
+      "filePath": "trashcanHead.glb"
+    },
+    { "name": "Shark", "value": "head-shark", "filePath": "sharkHead.glb" }
   ]
 }

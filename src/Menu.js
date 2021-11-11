@@ -217,11 +217,6 @@ const Menu = ({
     { name: 'body-ice-cold', value: 'body-ice-cold.png' },
   ];
 
-  let tempHeads = [
-    { name: 'Bonsai', value: 'head-pineapple' },
-    { name: 'Pineapple', value: 'head-frog' },
-  ];
-
   const rotateOptions = [
     { name: 'OFF', value: 'false' },
     { name: 'ON', value: 'true' },
@@ -269,8 +264,9 @@ const Menu = ({
                   className="random-trait-icon"
                   onClick={() =>
                     setHead(
-                      tempHeads[Math.floor(Math.random() * tempHeads.length)]
-                        .name
+                      data.tempHeads[
+                        Math.floor(Math.random() * data.tempHeads.length)
+                      ]
                     )
                   }
                 />
@@ -285,8 +281,8 @@ const Menu = ({
                     onChange={(e) => setHead(e.target.value)}
                     className="trait-select-box"
                   >
-                    {tempHeads.map((head) => (
-                      <option key={head.value} value={head.name}>
+                    {data.tempHeads.map((head) => (
+                      <option key={head.value} value={head}>
                         {head.name}
                       </option>
                     ))}

@@ -314,8 +314,6 @@ export default function FINALBODY119({
   //   return () => actions[names[3]].fadeOut(0.5);
   // }, [actions, names]);
 
-  console.log('body animations:', animations);
-
   return (
     <group ref={group} dispose={null} castShadow>
       <primitive object={nodes.BodyAnimationSkeletonsJob_006Hipsd} />
@@ -408,25 +406,29 @@ export const lookupAnimation = (animationState) => {
   }
 };
 
-data.body.forEach((bodyObj) => {
-  useTexture.preload(`/textures/body/${bodyObj.value}`);
-});
+// data.body.forEach((bodyObj) => {
+//   useTexture.preload(`/textures/body/${bodyObj.value}`);
+// });
 
-data.accessory.forEach((accessoryObj) => {
-  useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
-});
-data.accessory.forEach((accessoryObj) => {
-  useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
-});
+// data.tempHeads.forEach((headData) => {
+//   useGLTF.preload(`/headModels/${headData.filePath}`);
+// });
 
-data.pants.forEach((pantsObj) => {
-  useTexture.preload(`/textures/pants/${pantsObj.value}`);
-});
+// data.accessory.forEach((accessoryObj) => {
+//   useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
+// });
+// data.accessory.forEach((accessoryObj) => {
+//   useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
+// });
 
-data.shoes.forEach((shoeObj) => {
-  useTexture.preload(`/textures/shoes/${shoeObj.value}`);
-});
+// data.pants.forEach((pantsObj) => {
+//   useTexture.preload(`/textures/pants/${pantsObj.value}`);
+// });
 
-data.glasses.forEach((glassesObj) => {
-  useTexture.preload(`/textures/glasses/${glassesObj.value}`);
-});
+// data.shoes.forEach((shoeObj) => {
+//   useTexture.preload(`/textures/shoes/${shoeObj.value}`);
+// });
+
+// data.glasses.forEach((glassesObj) => {
+//   useTexture.preload(`/textures/glasses/${glassesObj.value}`);
+// });

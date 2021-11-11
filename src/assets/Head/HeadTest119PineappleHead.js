@@ -10,7 +10,7 @@ const HeadTest119PineappleHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/pipeline1110/pinappleHeadNoBound.glb');
+  const { nodes, materials } = useGLTF('/pipeline1110/sharkHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -45,8 +45,8 @@ const HeadTest119PineappleHead = ({
         castShadow
         receiveShadow
       >
-        <primitive object={nodes.HeadPinapple.geometry} attach="geometry" />
-        <primitive object={materials.PinappleMAT} attach="material" />
+        <primitive object={nodes.HeadFrog.geometry} attach="geometry" />
+        <primitive object={materials.headMAT} attach="material" />
       </skinnedMesh>
       <skinnedMesh
         // geometry={masterHeadModel.nodes.Glasses.geometry}
@@ -55,13 +55,13 @@ const HeadTest119PineappleHead = ({
         castShadow
         receiveShadow
       >
-        <primitive object={nodes.Glasses.geometry} attach="geometry" />
+        <primitive object={nodes.GlassesUV.geometry} attach="geometry" />
         <meshStandardMaterial map={glassesProp} attach="material" />
       </skinnedMesh>
     </group>
   );
 };
 
-useGLTF.preload('/pipeline1110/pinappleHeadNoBound.glb');
+useGLTF.preload('/pipeline1110/sharkHead.glb');
 
 export default HeadTest119PineappleHead;

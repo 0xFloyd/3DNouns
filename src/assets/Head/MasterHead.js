@@ -1,10 +1,15 @@
-import { useGLTF } from '@react-three/drei';
+import { useGLTF, useProgress, useTexture } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import CrabHead from './CrabHead';
+import FrogHead from './FrogHead';
 import HeadTest119BonsaiHead from './HeadTest119BonsaiHead';
 import HeadTest119PineappleHead from './HeadTest119PineappleHead';
+import PlaceHolderHead from './PlaceholderHead';
+import SharkHead from './SharkHead';
+import data from 'data.json';
 
 const MasterHead = ({
   headProp,
@@ -35,6 +40,21 @@ const MasterHead = ({
   */
 
   // console.log('MasterHead: ', MasterHead.animations);
+
+  // const HeadComponents = data.tempHeads.map((headData, index) => {
+  //   return (
+  //     <PlaceHolderHead
+  //       currentHead={headProp}
+  //       glassesProp={glassesTest}
+  //       animationState={animationState}
+  //       animationValue={animationValue}
+  //       masterHeadModel={MasterHead}
+  //       headData={headData}
+  //       key={index}
+  //     />
+  //   );
+  // });
+
   return (
     <>
       <HeadTest119BonsaiHead
@@ -44,13 +64,40 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <HeadTest119PineappleHead
+      {/* {HeadComponents} */}
+
+      {data.tempHeads.map((headData, index) => (
+        <PlaceHolderHead
+          currentHead={headProp}
+          glassesProp={glassesTest}
+          animationState={animationState}
+          animationValue={animationValue}
+          masterHeadModel={MasterHead}
+          headData={headData}
+          key={index}
+        />
+      ))}
+      {/* <FrogHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
+      <CrabHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <SharkHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      /> */}
     </>
   );
 };
@@ -58,3 +105,26 @@ const MasterHead = ({
 export default MasterHead;
 
 useGLTF.preload('/pipeline1110/headAnim.glb');
+
+// data.tempHeads.forEach((headData) => {
+//   useGLTF.preload(`/headModels/${headData.filePath}`);
+// });
+
+// data.accessory.forEach((accessoryObj) => {
+//   useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
+// });
+// data.accessory.forEach((accessoryObj) => {
+//   useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
+// });
+
+// data.pants.forEach((pantsObj) => {
+//   useTexture.preload(`/textures/pants/${pantsObj.value}`);
+// });
+
+// data.shoes.forEach((shoeObj) => {
+//   useTexture.preload(`/textures/shoes/${shoeObj.value}`);
+// });
+
+// data.glasses.forEach((glassesObj) => {
+//   useTexture.preload(`/textures/glasses/${glassesObj.value}`);
+// });

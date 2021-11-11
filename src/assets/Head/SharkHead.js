@@ -1,22 +1,17 @@
 import React, { useEffect, useRef } from 'react';
-import { useGLTF, useAnimations } from '@react-three/drei';
-import FrogModel from '../Models/Heads/FrogHead.glb';
-import { useLoader } from '@react-three/fiber';
-import * as THREE from 'three';
-import glassesTexture from '../Textures/Glasses/glasses-square-fullblack.png';
+import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 
-export default function FrogHead({
+const SharkHead = ({
   headProp,
   glassesProp,
   animationState,
   animationValue,
   masterHeadModel,
-}) {
+}) => {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF(
-    '/pipeline1110/frogHead.glb'
-  );
+  const { nodes, materials } = useGLTF('/pipeline1110/sharkHead.glb');
+
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
     group
@@ -32,21 +27,11 @@ export default function FrogHead({
     }
   }, [actions, names, animationState, animationValue]);
 
-  useEffect(() => {
-    if (animationState) {
-      actions[names[lookupAnimation(animationValue)]]
-        .reset()
-        .fadeIn(0.5)
-        .play();
-      return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.5);
-    }
-  }, [actions, names, animationState, animationValue]);
-
   return (
     <group
       ref={group}
       dispose={null}
-      visible={headProp === 'Frog' ? true : false}
+      visible={headProp === 'Shark' ? true : false}
       castShadow
       receiveShadow
     >
@@ -54,18 +39,18 @@ export default function FrogHead({
         object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd}
       />
       <skinnedMesh
-        // geometry={nodes.FrogHead.geometry}
-        // material={materials.headMAT}
+        // geometry={masterHeadModel.nodes.HeadBonsai.geometry}
+        // material={masterHeadModel.materials.bonzaiNoun_material}
         skeleton={masterHeadModel.nodes.HeadBonsai.skeleton}
         castShadow
         receiveShadow
       >
-        <primitive object={nodes.HeadFrog.geometry} attach="geometry" />
-        <primitive object={materials.headMAT} attach="material" />
+        <primitive object={nodes.HeadShark.geometry} attach="geometry" />
+        <primitive object={materials.HeadShark_material1} attach="material" />
       </skinnedMesh>
       <skinnedMesh
-        // geometry={nodes.GlassesUV.geometryy}
-        // material={materials.glassesMAT}
+        // geometry={masterHeadModel.nodes.Glasses.geometry}
+        //  material={materials.HeadRabbit_material}
         skeleton={masterHeadModel.nodes.GlassesUV.skeleton}
         castShadow
         receiveShadow
@@ -75,6 +60,8 @@ export default function FrogHead({
       </skinnedMesh>
     </group>
   );
-}
+};
 
-useGLTF.preload('/pipeline1110/frogHead.glb');
+useGLTF.preload('/pipeline1110/sharkHead.glb');
+
+export default SharkHead;

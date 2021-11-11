@@ -11,7 +11,10 @@ import {
   BakeShadows,
   OrbitControls,
   Stats,
+  useGLTF,
   useHelper,
+  useProgress,
+  useTexture,
 } from '@react-three/drei';
 import { Col, Container, Row } from 'react-bootstrap';
 import logo from './assets/nouns-logo.svg';
@@ -55,6 +58,7 @@ const lookAtPos = new THREE.Vector3(0, 5, 0);
 
 const NounCanvas = () => {
   // 11/5/21 DELETE WHEN ALL ACCESSORIES
+
   let tempAccessories = [
     { name: 'accessory-1n', value: 'accessory-1n.png' },
     { name: 'accessory-aardvark', value: 'accessory-aardvark.png' },
@@ -241,11 +245,6 @@ const NounCanvas = () => {
     { name: 'body-ice-cold', value: 'body-ice-cold.png' },
   ];
 
-  let tempHeads = [
-    { name: 'Bonsai', value: 'head-pineapple' },
-    { name: 'Pineapple', value: 'head-frog' },
-  ];
-
   const [optionsVisibility, setOptionsVisibility] = useState('none');
   const [autoRotate, setAutoRotate] = useState('false');
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
@@ -262,7 +261,7 @@ const NounCanvas = () => {
   );
 
   const [head, setHead] = useState(
-    tempHeads[Math.floor(Math.random() * tempHeads.length)].name
+    data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)]
   );
   // const [head, setHead] = useState(
   //   data.head[Math.floor(Math.random() * data.head.length)].name
@@ -301,7 +300,7 @@ const NounCanvas = () => {
   });
 
   const generateRandomNoun = () => {
-    setHead(tempHeads[Math.floor(Math.random() * tempHeads.length)].name);
+    setHead(data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)]);
     // setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
     setGlasses(
       data.glasses[Math.floor(Math.random() * data.glasses.length)].value
@@ -465,6 +464,7 @@ const NounCanvas = () => {
           {/* <BakeShadows /> */}
           <PreloadBodyTextures />
           {/* {HeadComponents} */}
+
           <MasterHead
             headProp={head}
             glassesProp={glasses}
@@ -579,3 +579,26 @@ const Ground = () => {
     </mesh>
   );
 };
+
+data.tempHeads.forEach((headData) => {
+  useGLTF.preload(`/headModels/${headData.filePath}`);
+});
+
+data.accessory.forEach((accessoryObj) => {
+  useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
+});
+data.accessory.forEach((accessoryObj) => {
+  useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
+});
+
+data.pants.forEach((pantsObj) => {
+  useTexture.preload(`/textures/pants/${pantsObj.value}`);
+});
+
+data.shoes.forEach((shoeObj) => {
+  useTexture.preload(`/textures/shoes/${shoeObj.value}`);
+});
+
+data.glasses.forEach((glassesObj) => {
+  useTexture.preload(`/textures/glasses/${glassesObj.value}`);
+});
