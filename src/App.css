@@ -215,3 +215,19 @@ a {
     font-size: 1rem;
   }
 } */
+
+.splash-screen {
+  z-index: 999;
+  padding: 0px;
+  margin: 0px;
+  /* font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif; */
+  /* background-color: #e2e1de; */
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: #a0a0a0;
+  top: 0;
+  left: 0;
+}

@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import './menu.css';
 import './GlowButton.css';
+import ComingSoon from 'ComingSoon';
 
 const App = () => {
   const [autoRotate, setAutoRotate] = useState(false);
@@ -44,9 +45,12 @@ const App = () => {
           </div>
         </Col>
       </Row> */}
-      <div className="nouns-canvas">
-        <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
+      <div className={`splash-screen`}>
+        <ComingSoon />
       </div>
+      {/* <div className="nouns-canvas">
+        <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
+      </div> */}
     </div>
   );
 };
