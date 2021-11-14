@@ -15,7 +15,7 @@ const PirateshipHead = ({
 }) => {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(
-    '/pipeline1110/frogHead.glb'
+    '/headModels/pirateshipHead.glb'
   );
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -32,7 +32,41 @@ const PirateshipHead = ({
     }
   }, [actions, names, animationState, animationValue]);
 
-  return <></>;
+  return (
+    <group
+      ref={group}
+      dispose={null}
+      visible={headProp === 'Pirateship' ? true : false}
+      castShadow
+      receiveShadow
+    >
+      <primitive
+        object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd}
+      />
+      <skinnedMesh
+        // geometry={masterHeadModel.nodes.HeadBonsai.geometry}
+        // material={masterHeadModel.materials.bonzaiNoun_material}
+        skeleton={masterHeadModel.nodes.HeadBonsai.skeleton}
+        castShadow
+        receiveShadow
+      >
+        <primitive object={nodes.Head.geometry} attach="geometry" />
+        <primitive object={materials.headMAT} attach="material" />
+      </skinnedMesh>
+      <skinnedMesh
+        // geometry={masterHeadModel.nodes.Glasses.geometry}
+        //  material={materials.HeadRabbit_material}
+        skeleton={masterHeadModel.nodes.GlassesUV.skeleton}
+        castShadow
+        receiveShadow
+      >
+        <primitive object={nodes.GlassesUV.geometry} attach="geometry" />
+        <meshStandardMaterial map={glassesProp} attach="material" />
+      </skinnedMesh>
+    </group>
+  );
 };
+
+useGLTF.preload('/headModels/pirateshipHead.glb');
 
 export default PirateshipHead;

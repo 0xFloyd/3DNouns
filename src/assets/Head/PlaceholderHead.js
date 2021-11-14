@@ -25,11 +25,6 @@ export default function PlaceHolderHead({
     group
   );
 
-  // useEffect(() => {
-  //   if (nodes && progress === 100) {
-  //   }
-  // }, [nodes]);
-
   useEffect(() => {
     if (animationState) {
       actions[names[lookupAnimation(animationValue)]]
@@ -40,12 +35,14 @@ export default function PlaceHolderHead({
     }
   }, [actions, names, animationState, animationValue]);
 
+  console.count('placeholder rendered');
+
   return (
     <>
       <group
         ref={group}
         dispose={null}
-        visible={currentHead.name === headData.name ? true : false}
+        visible={currentHead === headData.name ? true : false}
         castShadow
         receiveShadow
       >

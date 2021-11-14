@@ -148,6 +148,15 @@
   transition: transform 0.5s ease-in-out;
 }
 
+.disabled-random-trait-icon {
+  font-size: 1.125em;
+  margin-right: 5px;
+  margin: 5px 20px 5px 0px;
+  /* transition: transform 0.5s ease-in-out; */
+  color: #c75c73;
+  cursor: wait !important;
+}
+
 .random-trait-icon:hover {
   color: #d8234b;
   cursor: pointer;
@@ -159,4 +168,18 @@
   font-size: 1.125em;
   margin-right: 5px;
   margin: 5px 20px 5px 0px;
+}
+
+.no-style-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }

@@ -10,7 +10,7 @@ const SharkHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/pipeline1110/sharkHead.glb');
+  const { nodes, materials } = useGLTF('/headModels/sharkHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -45,8 +45,8 @@ const SharkHead = ({
         castShadow
         receiveShadow
       >
-        <primitive object={nodes.HeadShark.geometry} attach="geometry" />
-        <primitive object={materials.HeadShark_material1} attach="material" />
+        <primitive object={nodes.Head} attach="geometry" />
+        <primitive object={materials.headMAT} attach="material" />
       </skinnedMesh>
       <skinnedMesh
         // geometry={masterHeadModel.nodes.Glasses.geometry}
@@ -62,6 +62,6 @@ const SharkHead = ({
   );
 };
 
-useGLTF.preload('/pipeline1110/sharkHead.glb');
+useGLTF.preload('/headModels/sharkHead.glb');
 
 export default SharkHead;

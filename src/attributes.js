@@ -76,7 +76,8 @@ export const glassesPosition = {
 
 export const environmentAttributes = [
   { name: 'Normal', value: 'Normal' },
-  { name: 'Ocean', value: 'Ocean' },
+  { name: 'Island', value: 'Island' },
+  { name: 'Matrix', value: 'Matrix' },
 ];
 
 export const getKeyByValue = (object, value) => {

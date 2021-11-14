@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
-import FrogModel from '../Models/Heads/FrogHead.glb';
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import glassesTexture from '../Textures/Glasses/glasses-square-fullblack.png';
@@ -67,4 +66,4 @@ export default function HeadTest119BonsaiHead({
   );
 }
 
-useGLTF.preload('/headtesting119/BonsaiHead8Clips.glb');
+useGLTF.preload('/pipeline1110/headAnim.glb');

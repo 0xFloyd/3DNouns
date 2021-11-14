@@ -10,7 +10,7 @@ const CrabHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/pipeline1110/crabHead.glb');
+  const { nodes, materials } = useGLTF('/headModels/crabHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -45,8 +45,8 @@ const CrabHead = ({
         castShadow
         receiveShadow
       >
-        <primitive object={nodes.HeadCrab.geometry} attach="geometry" />
-        <primitive object={materials.HeadCrab_material} attach="material" />
+        <primitive object={nodes.Head} attach="geometry" />
+        <primitive object={materials.headMAT} attach="material" />
       </skinnedMesh>
       <skinnedMesh
         // geometry={masterHeadModel.nodes.Glasses.geometry}
@@ -62,6 +62,6 @@ const CrabHead = ({
   );
 };
 
-useGLTF.preload('/pipeline1110/crabHead.glb');
+useGLTF.preload('/headModels/crabHead.glb');
 
 export default CrabHead;

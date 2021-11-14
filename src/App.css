@@ -126,7 +126,7 @@ body {
   appearance: none;
 }
 
-.random-noun-button {
+.noun-button {
   width: 9em;
   height: 40px;
   border: none;
@@ -140,6 +140,40 @@ body {
   font-size: 1em;
   touch-action: manipulation;
   user-select: none;
+}
+
+.disabled-random-noun-button {
+  width: 9em;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #c75c73;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-size: 1em;
+  touch-action: manipulation;
+  user-select: none;
+  cursor: wait !important;
+}
+
+.disabled {
+  width: 9em;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #c75c73;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-size: 1em;
+  touch-action: manipulation;
+  user-select: none;
+  cursor: wait !important;
 }
 
 .attribute-select-box > option {

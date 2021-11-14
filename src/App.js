@@ -70,13 +70,14 @@ const App = () => {
           </div>
         </Col>
       </Row> */}
-      {!ready && (
+      {/* {!ready && (
         <div
           className={`splash-screen ${clicked ? ' elementToFadeInAndOut' : ''}`}
         >
           <SplashScreen {...store} />
         </div>
-      )}
+      )} */}
+
       <div className="nouns-canvas">
         <NounCanvas />
       </div>
