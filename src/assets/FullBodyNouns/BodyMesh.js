@@ -31,6 +31,7 @@ const BodyMesh = React.memo(function ({
   const canvasTexture = new THREE.CanvasTexture(canvas);
   canvasTexture.flipY = false;
   canvasTexture.minFilter = canvasTexture.magFilter = THREE.NearestFilter;
+  canvasTexture.encoding = THREE.sRGBEncoding;
 
   let toLoad = 2;
   function onLoaded() {

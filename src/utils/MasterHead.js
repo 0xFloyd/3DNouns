@@ -82,6 +82,24 @@ const MasterHead = ({
     );
   });
 
+  // const HeadComponent = () => {
+  //   let foundHead = headComponents.find((obj, index) => obj.name === headProp);
+  //   let Component = foundHead?.value;
+  //   if (Component) {
+  //     return (
+  //       <Component
+  //         headProp={headProp}
+  //         glassesProp={glassesTest}
+  //         animationState={animationState}
+  //         animationValue={animationValue}
+  //         masterHeadModel={MasterHead}
+  //       />
+  //     );
+  //   } else {
+  //     return null;
+  //   }
+  // };
+
   return (
     <>
       <HeadTest119BonsaiHead
@@ -92,14 +110,8 @@ const MasterHead = ({
         masterHeadModel={MasterHead}
       />
       {/* {MasterHead.nodes && allHeadComponents} */}
+      {/* <ExportHead/> */}
       <BeerHead
-        headProp={headProp}
-        glassesProp={glassesTest}
-        animationState={animationState}
-        animationValue={animationValue}
-        masterHeadModel={MasterHead}
-      />
-      <BoatHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
@@ -113,6 +125,15 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
+
+      <BoatHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+
       <CloudHead
         headProp={headProp}
         glassesProp={glassesTest}

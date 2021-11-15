@@ -552,7 +552,7 @@ const Menu = ({
               </Row>
             </div>
 
-            {/* <div style={{ marginTop: '20px' }}>
+            <div style={{ marginTop: '20px' }}>
               <Row>
                 <Col></Col>
                 <Col>
@@ -565,7 +565,7 @@ const Menu = ({
                 </Col>
                 <Col></Col>
               </Row>
-            </div> */}
+            </div>
           </Container>
         </div>
       </div>

@@ -1,19 +1,22 @@
 import { useThree } from '@react-three/fiber';
 import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
 import MasterHead from 'utils/MasterHead';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, forwardRef } from 'react';
 
-const NounHolder = ({
-  headProp,
-  glassesProp,
-  animationState,
-  animationValue,
-  pantsProp,
-  accessoryProp,
-  bodyProp,
-  shoeProp,
-  setSceneState,
-}) => {
+const NounHolder = (
+  {
+    headProp,
+    glassesProp,
+    animationState,
+    animationValue,
+    pantsProp,
+    accessoryProp,
+    bodyProp,
+    shoeProp,
+    setSceneState,
+  },
+  ref
+) => {
   const modelDownloadMesh = useRef();
   const scene = useThree();
 
@@ -32,7 +35,7 @@ const NounHolder = ({
   ]);
 
   return (
-    <group ref={modelDownloadMesh} name="nounGroupHolder">
+    <group ref={ref} name="nounGroupHolder">
       <MasterHead
         headProp={headProp}
         glassesProp={glassesProp}
@@ -52,4 +55,4 @@ const NounHolder = ({
   );
 };
 
-export default NounHolder;
+export default forwardRef(NounHolder);

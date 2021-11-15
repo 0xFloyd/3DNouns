@@ -53,9 +53,11 @@ import MasterHead from 'utils/MasterHead';
 import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
 import RANDOMIZER from 'RANDOMIZER';
 import MatrixEnvironment from 'World/Matrix';
-import { GLTFExporter } from 'three-stdlib';
+// import { GLTFExporter } from 'three-stdlib';
 import NounHolder from 'NounHolder';
 import HorizontalNounsLogo from 'World/HorizontalNounsLogo';
+import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
+import DownloadNoun from 'DownloadNoun';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -77,8 +79,6 @@ const NounCanvas = () => {
     data.animations.find((animation) => animation.name === 'idle').name
   );
   const [sceneState, setSceneState] = useState(null);
-
-  const modelDownloadMesh = useRef();
 
   const [head, setHead] = useState(
     data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name
@@ -293,25 +293,27 @@ const NounCanvas = () => {
   const downloadModel = () => {
     const gltfExporter = new GLTFExporter();
 
-    const huh = sceneState;
+    const fullScene = sceneState;
+    let hiddenDownloadNoun = temporaryModel.current;
+    let currentTest = modelDownloadMeshForward.current;
+    // console.log('fule scene: ', holder);
+    console.log('current group object: ', fullScene);
 
-    // let holder = modelDownloadMesh.current;
-    console.log(holder);
+    let currentNoun = fullScene?.scene?.children[1];
     let animations = [];
-    for (let i = 0; i < holder.children.length; i++) {
-      const a = holder.children[i].animations;
-      if (a) {
-        animations = animations.concat(a);
-        console.log('animation found!');
-      }
-    }
+    // for (let i = 0; i < fullScene.children.length; i++) {
+    //   const a = fullScene.children[i].animations;
+    //   if (a) {
+    //     animations = animations.concat(a);
+    //     console.log('animation found!');
+    //   }
+    // }
     // Only download the visible objects, since there are invisible based on user selection
     const options = {
-      onlyVisible: true,
-      animations,
+      onlyVisible: false,
     };
     gltfExporter.parse(
-      holder,
+      hiddenDownloadNoun,
       function (result) {
         // saveArrayBuffer(result, "Model.glb")
 
@@ -325,6 +327,10 @@ const NounCanvas = () => {
       options
     );
   };
+
+  const modelDownloadMeshForward = useRef();
+
+  const temporaryModel = useRef();
 
   return (
     <>
@@ -373,7 +379,7 @@ const NounCanvas = () => {
             args={[environment === 'Matrix' ? 0x000000 : 0xa0a0a0, 1, 500]}
           />
           {/* <BakeShadows /> */}
-          <PreloadBodyTextures />
+          {/* <PreloadBodyTextures /> */}
           {/* {HeadComponents} */}
 
           {/* <RANDOMIZER setBody={setBody} setAccessory={setAccessory} /> */}
@@ -397,6 +403,20 @@ const NounCanvas = () => {
             bodyProp={body}
             shoeProp={shoes}
             setSceneState={setSceneState}
+            ref={modelDownloadMeshForward}
+          />
+
+          <DownloadNoun
+            headProp={head}
+            glassesProp={glasses}
+            animationState={animationState}
+            animationValue={animationValue}
+            pantsProp={pants}
+            accessoryProp={accessory}
+            bodyProp={body}
+            shoeProp={shoes}
+            setSceneState={setSceneState}
+            ref={temporaryModel}
           />
 
           {/* <group ref={modelDownloadMesh}>
@@ -418,7 +438,7 @@ const NounCanvas = () => {
           <HorizontalNounsLogo environment={environment} />
           <NounsLogo environment={environment} />
         </Suspense>
-        {/* <Stats showPanel={0} className="stats" /> */}
+        <Stats showPanel={0} className="stats" />
       </Canvas>
 
       <Menu
