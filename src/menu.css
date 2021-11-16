@@ -105,7 +105,7 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  text-overflow: "";
+  text-overflow: '';
 }
 
 .trait-select-box:focus {
@@ -128,7 +128,7 @@
   -webkit-appearance: none;
   appearance: none;
   user-select: none;
-  text-overflow: "";
+  text-overflow: '';
 }
 
 .trait-divider {
@@ -186,7 +186,7 @@
 
 .inline-option-row {
   display: grid;
-  grid-template-columns: 1fr 12fr;
+  grid-template-columns: 1fr 12fr 1fr;
 }
 .inline-select-wrap {
   padding: 0 5px 0px;
@@ -210,4 +210,9 @@
   height: 50px;
   font-size: 16px;
   padding-top: 15px;
+}
+
+.trait-checkbox {
+  font-size: 30px;
+  color: grey;
 }

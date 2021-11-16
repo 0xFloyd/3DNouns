@@ -10,7 +10,6 @@ export default function DownloadHead({
   glassesProp,
   animationState,
   animationValue,
-  masterHeadModel,
 }) {
   // const group = useRef();
   const { nodes, materials } = useGLTF(`/headModels/${getHeadPath(headProp)}`);
@@ -25,33 +24,33 @@ export default function DownloadHead({
       // ref={group}
       dispose={null}
       //   visible={headProp === 'Bonsai' ? true : false}
-      castShadow
-      receiveShadow
+      // castShadow
+      // receiveShadow
       //   position={[0, 1, 0]}
     >
-      <primitive
+      {/* <primitive
         object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd}
-      />
-      <skinnedMesh
-        // geometry={masterHeadModel.nodes.HeadBonsai.geometry}
-        // material={masterHeadModel.materials.bonzaiNoun_material}
-        skeleton={masterHeadModel.nodes.HeadBonsai.skeleton}
-        castShadow
-        receiveShadow
+      /> */}
+      <mesh
+      // geometry={masterHeadModel.nodes.HeadBonsai.geometry}
+      // material={masterHeadModel.materials.bonzaiNoun_material}
+      // skeleton={masterHeadModel.nodes.HeadBonsai.skeleton}
+      // castShadow
+      // receiveShadow
       >
         <primitive object={nodes.Head.geometry} attach="geometry" />
         <primitive object={materials.headMAT} attach="material" />
-      </skinnedMesh>
-      <skinnedMesh
-        // geometry={masterHeadModel.nodes.GlassesUV.geometry}
-        //  material={materials.HeadRabbit_material}
-        skeleton={masterHeadModel.nodes.GlassesUV.skeleton}
-        castShadow
-        receiveShadow
+      </mesh>
+      <mesh
+      // geometry={masterHeadModel.nodes.GlassesUV.geometry}
+      //  material={materials.HeadRabbit_material}
+      // skeleton={masterHeadModel.nodes.GlassesUV.skeleton}
+      // castShadow
+      // receiveShadow
       >
         <primitive object={nodes.GlassesUV.geometry} attach="geometry" />
         <meshStandardMaterial map={glassesProp} attach="material" />
-      </skinnedMesh>
+      </mesh>
     </group>
   );
 }

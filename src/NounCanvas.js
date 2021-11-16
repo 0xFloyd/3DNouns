@@ -78,6 +78,15 @@ const NounCanvas = () => {
   const [animationValue, setAnimationValue] = useState(
     data.animations.find((animation) => animation.name === 'idle').name
   );
+  const [downloadingModel, setDownloadingModel] = useState(false);
+  const [lockedTraits, setLockedTraits] = useState({
+    head: false,
+    glasses: false,
+    body: false,
+    accessory: false,
+    pants: false,
+    shoes: false,
+  });
   const [sceneState, setSceneState] = useState(null);
 
   const [head, setHead] = useState(
@@ -322,6 +331,9 @@ const NounCanvas = () => {
         } else {
           const output = JSON.stringify(result, null, 2);
           saveString(output, 'Model.gltf');
+          setDownloadingModel(false);
+          setAnimationState(false);
+          setAnimationValue('none');
         }
       },
       options
@@ -467,6 +479,10 @@ const NounCanvas = () => {
         setAnimationState={setAnimationState}
         setAnimationValue={setAnimationValue}
         downloadModel={downloadModel}
+        downloadingModel={downloadingModel}
+        setDownloadingModel={setDownloadingModel}
+        lockedTraits={lockedTraits}
+        setLockedTraits={setLockedTraits}
       />
 
       <div className="logo-container">

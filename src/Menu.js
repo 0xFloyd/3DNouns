@@ -1,11 +1,11 @@
-import { environmentAttributes } from "attributes";
-import React, { useState } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
-import data from "./data.json";
-import "./menu.css";
-import { FiRefreshCw } from "react-icons/fi";
-import RandomNounButton from "RandomNounButton";
-import { useThree } from "@react-three/fiber";
+import { environmentAttributes } from 'attributes';
+import React, { useState } from 'react';
+import { Col, Container, Form, Row, Spinner } from 'react-bootstrap';
+import data from './data.json';
+import './menu.css';
+import { FiRefreshCw, FiLock, FiUnlock } from 'react-icons/fi';
+import RandomNounButton from 'RandomNounButton';
+import { useThree } from '@react-three/fiber';
 
 const Menu = ({
   isDesktop,
@@ -33,10 +33,14 @@ const Menu = ({
   setAnimationState,
   setAnimationValue,
   downloadModel,
+  downloadingModel,
+  setDownloadingModel,
+  lockedTraits,
+  setLockedTraits,
 }) => {
   const rotateOptions = [
-    { name: "OFF", value: "false" },
-    { name: "ON", value: "true" },
+    { name: 'OFF', value: 'false' },
+    { name: 'ON', value: 'true' },
   ];
 
   const [disabledButtonState, setDisabledButtonState] = useState(false);
@@ -52,20 +56,20 @@ const Menu = ({
   return (
     <>
       <div
-        className={isDesktop ? "options-container" : "mobile-menu-container"}
+        className={isDesktop ? 'options-container' : 'mobile-menu-container'}
         style={{ display: optionsVisibility }}
       >
-        {optionsVisibility === "block" ? (
+        {optionsVisibility === 'block' ? (
           <Container>
             <Row>
               <Col xs={10}>
-                <p style={{ fontSize: "1.2rem" }}>Build your Noun!</p>
+                <p style={{ fontSize: '1.2rem' }}>Build your Noun!</p>
               </Col>
               <Col xs={{ span: 2 }}>
                 <span
                   className="menu-x-button"
-                  onClick={() => setOptionsVisibility("none")}
-                  style={{ textAlign: "right", fontSize: "1.2em" }}
+                  onClick={() => setOptionsVisibility('none')}
+                  style={{ textAlign: 'right', fontSize: '1.2em' }}
                 >
                   ❌
                 </span>
@@ -102,8 +106,8 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? "disabled-random-trait-icon"
-                        : "random-trait-icon"
+                        ? 'disabled-random-trait-icon'
+                        : 'random-trait-icon'
                     }
                     // onClick={() =>
                     //   setHead(
@@ -166,10 +170,10 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? "disabled-random-trait-icon"
-                        : "random-trait-icon"
+                        ? 'disabled-random-trait-icon'
+                        : 'random-trait-icon'
                     }
-                  />{" "}
+                  />{' '}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
@@ -210,10 +214,10 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? "disabled-random-trait-icon"
-                        : "random-trait-icon"
+                        ? 'disabled-random-trait-icon'
+                        : 'random-trait-icon'
                     }
-                  />{" "}
+                  />{' '}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
@@ -253,10 +257,10 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? "disabled-random-trait-icon"
-                        : "random-trait-icon"
+                        ? 'disabled-random-trait-icon'
+                        : 'random-trait-icon'
                     }
-                  />{" "}
+                  />{' '}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
@@ -305,8 +309,8 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? "disabled-random-trait-icon"
-                        : "random-trait-icon"
+                        ? 'disabled-random-trait-icon'
+                        : 'random-trait-icon'
                     }
                   />
                 </button>
@@ -346,10 +350,10 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? "disabled-random-trait-icon"
-                        : "random-trait-icon"
+                        ? 'disabled-random-trait-icon'
+                        : 'random-trait-icon'
                     }
-                  />{" "}
+                  />{' '}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
@@ -404,7 +408,7 @@ const Menu = ({
                   <select
                     value={animationValue.name}
                     onChange={(e) => {
-                      if (e.target.value === "none") {
+                      if (e.target.value === 'none') {
                         setAnimationState(false);
                         setAnimationValue(e.target.value);
                       } else {
@@ -451,95 +455,13 @@ const Menu = ({
             </Row>
             {/*  */}
 
-            {/* <Row style={{ marginTop: '30px' }}>
-              <Col xs={3}>
-                <label className="white-font attribute-label">Body Tex</label>
-              </Col>
-              <Col xs={9}>
-                <select
-                  value={bodyTexTest}
-                  onChange={(e) => setBodyTexTest(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {bodyTextureTest.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xs={3}>
-                <label className="white-font attribute-label">Accessory Tex</label>
-              </Col>
-              <Col xs={9}>
-                <select
-                  value={accessoryTexTest}
-                  onChange={(e) => setAccessoryTexTest(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {accessoryTextureTest.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row> */}
-
-            {/* <Row>
-              <Col>
-                <div style={{ marginTop: '15px' }}>
-                  <label>
-                    <span className="white-font attribute-label" style={{ marginRight: '3px' }}>
-                      Walk
-                    </span>
-                  </label>
-                </div>
-              </Col>
-              <Col>
-                <div style={{ marginTop: '25px' }}>
-                  <input
-                    type="checkbox"
-                    className="toggle"
-                    checked={walkAnimation}
-                    onChange={(e) => setWalkAnimation(e.target.checked)}
-                  />
-                </div>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col>
-                <div style={{ marginTop: '15px' }}>
-                  <label>
-                    <span className="white-font attribute-label" style={{ marginRight: '3px' }}>
-                      Nod
-                    </span>
-                  </label>
-                </div>
-              </Col>
-              <Col>
-                <div style={{ marginTop: '25px' }}>
-                  <input
-                    type="checkbox"
-                    className="toggle"
-                    checked={nodAnimation}
-                    onChange={(e) => setNodAnimation(e.target.checked)}
-                  />
-                </div>
-              </Col>
-            </Row> */}
-
-            <div style={{ marginTop: "20px" }}>
+            <div style={{ marginTop: '20px' }}>
               <Row>
                 <Col></Col>
                 <Col>
                   {/* <RandomNounButton generateRandomNoun={generateRandomNoun} /> */}
                   <button
-                    className={disabledButtonState ? "disabled" : "noun-button"}
+                    className={disabledButtonState ? 'disabled' : 'noun-button'}
                     onClick={() => {
                       generateRandomNoun();
                       throttleClicks();
@@ -553,41 +475,81 @@ const Menu = ({
               </Row>
             </div>
 
-            <div style={{ marginTop: "20px" }}>
+            <div style={{ marginTop: '20px' }}>
               <Row>
                 <Col></Col>
                 <Col>
                   <button
                     className="noun-button"
-                    onClick={() => downloadModel()}
+                    onClick={() => {
+                      //   { "name": "tpose", "value": 7 },
+                      setAnimationState(true);
+                      setAnimationValue('tpose');
+                      setDownloadingModel(true);
+                      setTimeout(() => {
+                        downloadModel();
+                      }, 1500);
+                    }}
                   >
                     Download Noun
+                    {downloadingModel && <Spinner animation="border" />}
                   </button>
                 </Col>
                 <Col></Col>
               </Row>
             </div>
+            {/* HEAD */}
             <div className="inline-option-row">
-              <FiRefreshCw />
+              <Form.Check
+                className="trait-checkbox"
+                type="checkbox"
+                size={50}
+              />
               <div className="inline-select-wrap">
-                <label>Label</label>
-                <select className="trait-select">
-                  {data.animations.map((animationObj) => (
-                    <option key={animationObj.value} value={animationObj.name}>
-                      {animationObj.name}
+                <label>Head</label>
+                <select value={head} className="trait-select">
+                  {data.tempHeads.map((head) => (
+                    <option key={head.value} value={head.name}>
+                      {head.name}
                     </option>
                   ))}
                 </select>
               </div>
+              <button
+                onClick={() => {
+                  setHead(
+                    data.tempHeads[
+                      Math.floor(Math.random() * data.tempHeads.length)
+                    ].name
+                  );
+                  setLockedTraits({
+                    ...lockedTraits,
+                    head: false,
+                  });
+                  throttleClicks();
+                }}
+                disabled={disabledButtonState}
+                className="no-style-button"
+              >
+                <FiRefreshCw
+                  className={
+                    disabledButtonState
+                      ? 'disabled-random-trait-icon'
+                      : 'random-trait-icon'
+                  }
+                  size={30}
+                />
+              </button>
             </div>
+            {/* END HEAD */}
           </Container>
         </div>
       </div>
       <div className="open-menu-container">
-        {optionsVisibility === "none" ? (
+        {optionsVisibility === 'none' ? (
           <>
             <button
-              className={disabledButtonState ? "disabled" : "noun-button"}
+              className={disabledButtonState ? 'disabled' : 'noun-button'}
               onClick={() => {
                 generateRandomNoun();
                 throttleClicks();
@@ -597,9 +559,9 @@ const Menu = ({
               Random Noun
             </button>
             <button
-              onClick={() => setOptionsVisibility("block")}
-              className={"show-menu-button"}
-              style={{ marginLeft: "10px" }}
+              onClick={() => setOptionsVisibility('block')}
+              className={'show-menu-button'}
+              style={{ marginLeft: '10px' }}
             >
               Options
             </button>

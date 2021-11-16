@@ -1,11 +1,13 @@
-import { useLoader } from '@react-three/fiber';
+import { useGraph, useLoader } from '@react-three/fiber';
 import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import { headComponents } from 'utils/AllHeadModels';
 import * as THREE from 'three';
 import HeadTest119BonsaiHead from 'assets/Head/HeadTest119BonsaiHead';
 import { useGLTF } from '@react-three/drei';
 import DownloadHead from 'DownloadHead';
+import { SkeletonUtils } from 'three/examples/jsm/utils/SkeletonUtils';
+import DownloadBody from 'DownloadBody';
 
 export const DownloadNoun = (
   {
@@ -21,7 +23,7 @@ export const DownloadNoun = (
   },
   ref
 ) => {
-  const MasterHead = useGLTF('/pipeline1110/headAnim.glb');
+  // const MasterHead = useGLTF('/pipeline1110/headAnim.glb');
 
   const glassesTest = useLoader(
     THREE.TextureLoader,
@@ -52,9 +54,8 @@ export const DownloadNoun = (
         glassesProp={glassesTest}
         animationState={animationState}
         animationValue={animationValue}
-        masterHeadModel={MasterHead}
       />
-      <FINALBODY119
+      <DownloadBody
         headProp={headProp}
         animationState={animationState}
         animationValue={animationValue}
