@@ -1,11 +1,11 @@
-import { environmentAttributes } from 'attributes';
-import React, { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import data from './data.json';
-import './menu.css';
-import { FiRefreshCw } from 'react-icons/fi';
-import RandomNounButton from 'RandomNounButton';
-import { useThree } from '@react-three/fiber';
+import { environmentAttributes } from "attributes";
+import React, { useState } from "react";
+import { Col, Container, Form, Row } from "react-bootstrap";
+import data from "./data.json";
+import "./menu.css";
+import { FiRefreshCw } from "react-icons/fi";
+import RandomNounButton from "RandomNounButton";
+import { useThree } from "@react-three/fiber";
 
 const Menu = ({
   isDesktop,
@@ -35,8 +35,8 @@ const Menu = ({
   downloadModel,
 }) => {
   const rotateOptions = [
-    { name: 'OFF', value: 'false' },
-    { name: 'ON', value: 'true' },
+    { name: "OFF", value: "false" },
+    { name: "ON", value: "true" },
   ];
 
   const [disabledButtonState, setDisabledButtonState] = useState(false);
@@ -52,20 +52,20 @@ const Menu = ({
   return (
     <>
       <div
-        className={isDesktop ? 'options-container' : 'mobile-menu-container'}
+        className={isDesktop ? "options-container" : "mobile-menu-container"}
         style={{ display: optionsVisibility }}
       >
-        {optionsVisibility === 'block' ? (
+        {optionsVisibility === "block" ? (
           <Container>
             <Row>
               <Col xs={10}>
-                <p style={{ fontSize: '1.2rem' }}>Build your Noun!</p>
+                <p style={{ fontSize: "1.2rem" }}>Build your Noun!</p>
               </Col>
               <Col xs={{ span: 2 }}>
                 <span
                   className="menu-x-button"
-                  onClick={() => setOptionsVisibility('none')}
-                  style={{ textAlign: 'right', fontSize: '1.2em' }}
+                  onClick={() => setOptionsVisibility("none")}
+                  style={{ textAlign: "right", fontSize: "1.2em" }}
                 >
                   ❌
                 </span>
@@ -102,8 +102,8 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
+                        ? "disabled-random-trait-icon"
+                        : "random-trait-icon"
                     }
                     // onClick={() =>
                     //   setHead(
@@ -166,10 +166,10 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
+                        ? "disabled-random-trait-icon"
+                        : "random-trait-icon"
                     }
-                  />{' '}
+                  />{" "}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
@@ -188,6 +188,7 @@ const Menu = ({
                     ))}
                   </select>
                 </div>
+                <Form></Form>
               </Col>
             </Row>
 
@@ -209,10 +210,10 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
+                        ? "disabled-random-trait-icon"
+                        : "random-trait-icon"
                     }
-                  />{' '}
+                  />{" "}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
@@ -252,10 +253,10 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
+                        ? "disabled-random-trait-icon"
+                        : "random-trait-icon"
                     }
-                  />{' '}
+                  />{" "}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
@@ -304,8 +305,8 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
+                        ? "disabled-random-trait-icon"
+                        : "random-trait-icon"
                     }
                   />
                 </button>
@@ -345,10 +346,10 @@ const Menu = ({
                     size={30}
                     className={
                       disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
+                        ? "disabled-random-trait-icon"
+                        : "random-trait-icon"
                     }
-                  />{' '}
+                  />{" "}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
@@ -403,7 +404,7 @@ const Menu = ({
                   <select
                     value={animationValue.name}
                     onChange={(e) => {
-                      if (e.target.value === 'none') {
+                      if (e.target.value === "none") {
                         setAnimationState(false);
                         setAnimationValue(e.target.value);
                       } else {
@@ -532,13 +533,13 @@ const Menu = ({
               </Col>
             </Row> */}
 
-            <div style={{ marginTop: '20px' }}>
+            <div style={{ marginTop: "20px" }}>
               <Row>
                 <Col></Col>
                 <Col>
                   {/* <RandomNounButton generateRandomNoun={generateRandomNoun} /> */}
                   <button
-                    className={disabledButtonState ? 'disabled' : 'noun-button'}
+                    className={disabledButtonState ? "disabled" : "noun-button"}
                     onClick={() => {
                       generateRandomNoun();
                       throttleClicks();
@@ -552,7 +553,7 @@ const Menu = ({
               </Row>
             </div>
 
-            <div style={{ marginTop: '20px' }}>
+            <div style={{ marginTop: "20px" }}>
               <Row>
                 <Col></Col>
                 <Col>
@@ -566,14 +567,27 @@ const Menu = ({
                 <Col></Col>
               </Row>
             </div>
+            <div className="inline-option-row">
+              <FiRefreshCw />
+              <div className="inline-select-wrap">
+                <label>Label</label>
+                <select className="trait-select">
+                  {data.animations.map((animationObj) => (
+                    <option key={animationObj.value} value={animationObj.name}>
+                      {animationObj.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
           </Container>
         </div>
       </div>
       <div className="open-menu-container">
-        {optionsVisibility === 'none' ? (
+        {optionsVisibility === "none" ? (
           <>
             <button
-              className={disabledButtonState ? 'disabled' : 'noun-button'}
+              className={disabledButtonState ? "disabled" : "noun-button"}
               onClick={() => {
                 generateRandomNoun();
                 throttleClicks();
@@ -583,9 +597,9 @@ const Menu = ({
               Random Noun
             </button>
             <button
-              onClick={() => setOptionsVisibility('block')}
-              className={'show-menu-button'}
-              style={{ marginLeft: '10px' }}
+              onClick={() => setOptionsVisibility("block")}
+              className={"show-menu-button"}
+              style={{ marginLeft: "10px" }}
             >
               Options
             </button>

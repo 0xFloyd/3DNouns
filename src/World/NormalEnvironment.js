@@ -1,5 +1,5 @@
-import React from 'react';
-import * as THREE from 'three';
+import React from "react";
+import * as THREE from "three";
 
 const NormalEnvironment = () => {
   // color="#101010"
@@ -13,6 +13,8 @@ const NormalEnvironment = () => {
         <boxBufferGeometry args={[1500, 0.05, 1500]} />
         <meshStandardMaterial
           color={new THREE.Color(0xffffff).setHex(0xffffff)}
+          // roughness={0.1}
+          // metalness={0}
         />
       </mesh>
       <gridHelper
