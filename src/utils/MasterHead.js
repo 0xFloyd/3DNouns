@@ -49,6 +49,23 @@ import SnowmobileHead from '../HeadFilesGenerated/SnowmobileHead';
 import ToasterHead from '../HeadFilesGenerated/ToasterHead';
 import WaveHead from '../HeadFilesGenerated/WaveHead';
 import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
+import BootHead from '../HeadFilesGenerated/BootHead';
+import CassetteHead from '../HeadFilesGenerated/CassetteHead';
+import CatHead from '../HeadFilesGenerated/CatHead';
+import CdHead from '../HeadFilesGenerated/CdHead';
+import DuckyHead from '../HeadFilesGenerated/DuckyHead';
+import FoxHead from '../HeadFilesGenerated/FoxHead';
+import GnomeHead from '../HeadFilesGenerated/GnomeHead';
+import HeartHead from '../HeadFilesGenerated/HeartHead';
+import IcepopHead from '../HeadFilesGenerated/IcepopHead';
+import MicrowaveHead from '../HeadFilesGenerated/MicrowaveHead';
+import MushroomHead from '../HeadFilesGenerated/MushroomHead';
+import PaperclipHead from '../HeadFilesGenerated/PaperclipHead';
+import PhoneHead from '../HeadFilesGenerated/PhoneHead';
+import PorkbaoHead from '../HeadFilesGenerated/PorkbaoHead';
+import RangefinderHead from '../HeadFilesGenerated/RangefinderHead';
+import RobotHead from '../HeadFilesGenerated/RobotHead';
+import WeedHead from '../HeadFilesGenerated/WeedHead';
 
 const MasterHead = ({
   headProp,
@@ -366,6 +383,125 @@ const MasterHead = ({
         masterHeadModel={MasterHead}
       />
       <WizardhatHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <BootHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <CassetteHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <CatHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <CdHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <DuckyHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <FoxHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <GnomeHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <HeartHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <IcepopHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <MicrowaveHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <MushroomHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <PaperclipHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <PhoneHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <PorkbaoHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <RangefinderHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <RobotHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <WeedHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}

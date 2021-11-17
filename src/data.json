@@ -1,35 +1,35 @@
 {
   "body": [
-    { "name": "body-bege-bsod", "value": "body-bege-bsod.png" },
-    { "name": "body-bege-crt", "value": "body-bege-crt.png" },
-    { "name": "body-blue-sky", "value": "body-blue-sky.png" },
-    { "name": "body-bluegrey", "value": "body-bluegrey.png" },
-    { "name": "body-cold", "value": "body-cold.png" },
-    { "name": "body-computerblue", "value": "body-computerblue.png" },
-    { "name": "body-darkbrown", "value": "body-darkbrown.png" },
-    { "name": "body-darkpink", "value": "body-darkpink.png" },
-    { "name": "body-foggrey", "value": "body-foggrey.png" },
-    { "name": "body-gold", "value": "body-gold.png" },
-    { "name": "body-grayscale-1", "value": "body-grayscale-1.png" },
-    { "name": "body-grayscale-7", "value": "body-grayscale-7.png" },
-    { "name": "body-grayscale-8", "value": "body-grayscale-8.png" },
-    { "name": "body-grayscale-9", "value": "body-grayscale-9.png" },
-    { "name": "body-green", "value": "body-green.png" },
-    { "name": "body-gunk", "value": "body-gunk.png" },
-    { "name": "body-hotbrown", "value": "body-hotbrown.png" },
-    { "name": "body-magenta", "value": "body-magenta.png" },
-    { "name": "body-orange-yellow", "value": "body-orange-yellow.png" },
-    { "name": "body-orange", "value": "body-orange.png" },
-    { "name": "body-peachy-B", "value": "body-peachy-B.png" },
-    { "name": "body-peachy-a", "value": "body-peachy-a.png" },
-    { "name": "body-purple", "value": "body-purple.png" },
-    { "name": "body-red", "value": "body-red.png" },
-    { "name": "body-redpinkish", "value": "body-redpinkish.png" },
-    { "name": "body-rust", "value": "body-rust.png" },
-    { "name": "body-slimegreen", "value": "body-slimegreen.png" },
-    { "name": "body-teal-light", "value": "body-teal-light.png" },
-    { "name": "body-teal", "value": "body-teal.png" },
-    { "name": "body-yellow", "value": "body-yellow.png" }
+    { "name": "bege-bsod", "value": "body-bege-bsod.png" },
+    { "name": "bege-crt", "value": "body-bege-crt.png" },
+    { "name": "blue-sky", "value": "body-blue-sky.png" },
+    { "name": "bluegrey", "value": "body-bluegrey.png" },
+    { "name": "cold", "value": "body-cold.png" },
+    { "name": "computerblue", "value": "body-computerblue.png" },
+    { "name": "darkbrown", "value": "body-darkbrown.png" },
+    { "name": "darkpink", "value": "body-darkpink.png" },
+    { "name": "foggrey", "value": "body-foggrey.png" },
+    { "name": "gold", "value": "body-gold.png" },
+    { "name": "grayscale-1", "value": "body-grayscale-1.png" },
+    { "name": "grayscale-7", "value": "body-grayscale-7.png" },
+    { "name": "grayscale-8", "value": "body-grayscale-8.png" },
+    { "name": "grayscale-9", "value": "body-grayscale-9.png" },
+    { "name": "green", "value": "body-green.png" },
+    { "name": "gunk", "value": "body-gunk.png" },
+    { "name": "hotbrown", "value": "body-hotbrown.png" },
+    { "name": "magenta", "value": "body-magenta.png" },
+    { "name": "orange-yellow", "value": "body-orange-yellow.png" },
+    { "name": "orange", "value": "body-orange.png" },
+    { "name": "peachy-B", "value": "body-peachy-B.png" },
+    { "name": "peachy-a", "value": "body-peachy-a.png" },
+    { "name": "purple", "value": "body-purple.png" },
+    { "name": "red", "value": "body-red.png" },
+    { "name": "redpinkish", "value": "body-redpinkish.png" },
+    { "name": "rust", "value": "body-rust.png" },
+    { "name": "slimegreen", "value": "body-slimegreen.png" },
+    { "name": "teal-light", "value": "body-teal-light.png" },
+    { "name": "teal", "value": "body-teal.png" },
+    { "name": "yellow", "value": "body-yellow.png" }
   ],
   "accessory": [
     { "name": "accessory-1n", "value": "accessory-1n.png" },
@@ -557,58 +557,43 @@
     { "name": "Zebra", "value": "head-zebra" }
   ],
   "glasses": [
-    { "name": "glasses-hip-rose", "value": "glasses-hip-rose.png" },
+    { "name": "hip-rose", "value": "glasses-hip-rose.png" },
     {
-      "name": "glasses-square-black-eyes-red",
+      "name": "square-black-eyes-red",
       "value": "glasses-square-black-eyes-red.png"
     },
+    { "name": "square-black-rgb", "value": "glasses-square-black-rgb.png" },
+    { "name": "square-black", "value": "glasses-square-black.png" },
     {
-      "name": "glasses-square-black-rgb",
-      "value": "glasses-square-black-rgb.png"
-    },
-    { "name": "glasses-square-black", "value": "glasses-square-black.png" },
-    {
-      "name": "glasses-square-blue-med-saturated",
+      "name": "square-blue-med-saturated",
       "value": "glasses-square-blue-med-saturated.png"
     },
-    { "name": "glasses-square-blue", "value": "glasses-square-blue.png" },
+    { "name": "square-blue", "value": "glasses-square-blue.png" },
+    { "name": "square-frog-green", "value": "glasses-square-frog-green.png" },
+    { "name": "square-fullblack", "value": "glasses-square-fullblack.png" },
     {
-      "name": "glasses-square-frog-green",
-      "value": "glasses-square-frog-green.png"
-    },
-    {
-      "name": "glasses-square-fullblack",
-      "value": "glasses-square-fullblack.png"
-    },
-    {
-      "name": "glasses-square-green-blue-multi",
+      "name": "square-green-blue-multi",
       "value": "glasses-square-green-blue-multi.png"
     },
+    { "name": "square-grey-light", "value": "glasses-square-grey-light.png" },
+    { "name": "square-guava", "value": "glasses-square-guava.png" },
+    { "name": "square-honey", "value": "glasses-square-honey.png" },
+    { "name": "square-magenta", "value": "glasses-square-magenta.png" },
+    { "name": "square-orange", "value": "glasses-square-orange.png" },
     {
-      "name": "glasses-square-grey-light",
-      "value": "glasses-square-grey-light.png"
-    },
-    { "name": "glasses-square-guava", "value": "glasses-square-guava.png" },
-    { "name": "glasses-square-honey", "value": "glasses-square-honey.png" },
-    { "name": "glasses-square-magenta", "value": "glasses-square-magenta.png" },
-    { "name": "glasses-square-orange", "value": "glasses-square-orange.png" },
-    {
-      "name": "glasses-square-pink-purple-multi",
+      "name": "square-pink-purple-multi",
       "value": "glasses-square-pink-purple-multi.png"
     },
-    { "name": "glasses-square-red", "value": "glasses-square-red.png" },
-    { "name": "glasses-square-smoke", "value": "glasses-square-smoke.png" },
-    { "name": "glasses-square-teal", "value": "glasses-square-teal.png" },
+    { "name": "square-red", "value": "glasses-square-red.png" },
+    { "name": "square-smoke", "value": "glasses-square-smoke.png" },
+    { "name": "square-teal", "value": "glasses-square-teal.png" },
+    { "name": "square-watermelon", "value": "glasses-square-watermelon.png" },
     {
-      "name": "glasses-square-watermelon",
-      "value": "glasses-square-watermelon.png"
-    },
-    {
-      "name": "glasses-square-yellow-orange-multi",
+      "name": "square-yellow-orange-multi",
       "value": "glasses-square-yellow-orange-multi.png"
     },
     {
-      "name": "glasses-square-yellow-saturated",
+      "name": "square-yellow-saturated",
       "value": "glasses-square-yellow-saturated.png"
     }
   ],
@@ -650,462 +635,165 @@
   ],
 
   "tempAccessories": [
+    { "name": "1n", "value": "accessory-1n.png" },
+    { "name": "aardvark", "value": "accessory-aardvark.png" },
+    { "name": "axe", "value": "accessory-axe.png" },
+    { "name": "belly-chameleon", "value": "accessory-belly-chameleon.png" },
+    { "name": "bird-flying", "value": "accessory-bird-flying.png" },
+    { "name": "bird-side", "value": "accessory-bird-side.png" },
+    { "name": "blind-anchor", "value": "accessory-blind-anchor.png" },
+    { "name": "bling-anvil", "value": "accessory-bling-anvil.png" },
+    { "name": "bling-arrow", "value": "accessory-bling-arrow.png" },
+    { "name": "bling-cheese", "value": "accessory-bling-cheese.png" },
+    { "name": "bling-gold-ingot", "value": "accessory-bling-gold-ingot.png" },
+    { "name": "bling-love", "value": "accessory-bling-love.png" },
+    { "name": "bling-mask", "value": "accessory-bling-mask.png" },
+    { "name": "bling-ring", "value": "accessory-bling-ring.png" },
+    { "name": "bling-scissors", "value": "accessory-bling-scissors.png" },
+    { "name": "bling-sparkles", "value": "accessory-bling-sparkles.png" },
     {
-      "name": "accessory-1n",
-      "value": "accessory-1n.png"
-    },
-    {
-      "name": "accessory-aardvark",
-      "value": "accessory-aardvark.png"
-    },
-    {
-      "name": "accessory-axe",
-      "value": "accessory-axe.png"
-    },
-    {
-      "name": "accessory-belly-chameleon",
-      "value": "accessory-belly-chameleon.png"
-    },
-    {
-      "name": "accessory-bird-flying",
-      "value": "accessory-bird-flying.png"
-    },
-    {
-      "name": "accessory-bird-side",
-      "value": "accessory-bird-side.png"
-    },
-    {
-      "name": "accessory-blind-anchor",
-      "value": "accessory-blind-anchor.png"
-    },
-    {
-      "name": "accessory-bling-anvil",
-      "value": "accessory-bling-anvil.png"
-    },
-    {
-      "name": "accessory-bling-arrow",
-      "value": "accessory-bling-arrow.png"
-    },
-    {
-      "name": "accessory-bling-cheese",
-      "value": "accessory-bling-cheese.png"
-    },
-    {
-      "name": "accessory-bling-gold-ingot",
-      "value": "accessory-bling-gold-ingot.png"
-    },
-    {
-      "name": "accessory-bling-love",
-      "value": "accessory-bling-love.png"
-    },
-    {
-      "name": "accessory-bling-mask",
-      "value": "accessory-bling-mask.png"
-    },
-    {
-      "name": "accessory-bling-ring",
-      "value": "accessory-bling-ring.png"
-    },
-    {
-      "name": "accessory-bling-scissors",
-      "value": "accessory-bling-scissors.png"
-    },
-    {
-      "name": "accessory-bling-sparkles",
-      "value": "accessory-bling-sparkles.png"
-    },
-    {
-      "name": "accessory-body-gradient-checkerdisco",
+      "name": "body-gradient-checkerdisco",
       "value": "accessory-body-gradient-checkerdisco.png"
     },
     {
-      "name": "accessory-body-gradient-dawn",
+      "name": "body-gradient-dawn",
       "value": "accessory-body-gradient-dawn.png"
     },
     {
-      "name": "accessory-body-gradient-dusk",
+      "name": "body-gradient-dusk",
       "value": "accessory-body-gradient-dusk.png"
     },
     {
-      "name": "accessory-body-gradient-glacier",
+      "name": "body-gradient-glacier",
       "value": "accessory-body-gradient-glacier.png"
     },
+    { "name": "body-gradient-ice", "value": "accessory-body-gradient-ice.png" },
     {
-      "name": "accessory-body-gradient-ice",
-      "value": "accessory-body-gradient-ice.png"
-    },
-    {
-      "name": "accessory-body-gradient-pride",
+      "name": "body-gradient-pride",
       "value": "accessory-body-gradient-pride.png"
     },
     {
-      "name": "accessory-body-gradient-redpink",
+      "name": "body-gradient-redpink",
       "value": "accessory-body-gradient-redpink.png"
     },
     {
-      "name": "accessory-body-gradient-sunset",
+      "name": "body-gradient-sunset",
       "value": "accessory-body-gradient-sunset.png"
     },
+    { "name": "carrot", "value": "accessory-carrot.png" },
+    { "name": "chain", "value": "accessory-chain.png" },
     {
-      "name": "accessory-carrot",
-      "value": "accessory-carrot.png"
-    },
-    {
-      "name": "accessory-chain",
-      "value": "accessory-chain.png"
-    },
-    {
-      "name": "accessory-checker-bigwalk-blue-prime",
+      "name": "checker-bigwalk-blue-prime",
       "value": "accessory-checker-bigwalk-blue-prime.png"
     },
     {
-      "name": "accessory-checker-bigwalk-greylight",
+      "name": "checker-bigwalk-greylight",
       "value": "accessory-checker-bigwalk-greylight.png"
     },
     {
-      "name": "accessory-checker-bigwalk-rainbow",
+      "name": "checker-bigwalk-rainbow",
       "value": "accessory-checker-bigwalk-rainbow.png"
     },
+    { "name": "checker-RGB", "value": "accessory-checker-RGB.png" },
+    { "name": "cloud", "value": "accessory-cloud.png" },
+    { "name": "clover", "value": "accessory-clover.png" },
+    { "name": "collar-sunset", "value": "accessory-collar-sunset.png" },
+    { "name": "cow", "value": "accessory-cow.png" },
+    { "name": "dinosaur", "value": "accessory-dinosaur.png" },
+    { "name": "dollar-bling", "value": "accessory-dollar-bling.png" },
+    { "name": "dragon", "value": "accessory-dragon.png" },
+    { "name": "ducky", "value": "accessory-ducky.png" },
+    { "name": "eth", "value": "accessory-eth.png" },
+    { "name": "eye", "value": "accessory-eye.png" },
+    { "name": "flash", "value": "accessory-flash.png" },
+    { "name": "fries", "value": "accessory-fries.png" },
+    { "name": "glasses-logo-sun", "value": "accessory-glasses-logo-sun.png" },
+    { "name": "glasses-logo", "value": "accessory-glasses-logo.png" },
+    { "name": "glasses", "value": "accessory-glasses.png" },
+    { "name": "heart", "value": "accessory-heart.png" },
     {
-      "name": "accessory-checker-RGB",
-      "value": "accessory-checker-RGB.png"
-    },
-    {
-      "name": "accessory-cloud",
-      "value": "accessory-cloud.png"
-    },
-    {
-      "name": "accessory-clover",
-      "value": "accessory-clover.png"
-    },
-    {
-      "name": "accessory-collar-sunset",
-      "value": "accessory-collar-sunset.png"
-    },
-    {
-      "name": "accessory-cow",
-      "value": "accessory-cow.png"
-    },
-    {
-      "name": "accessory-dinosaur",
-      "value": "accessory-dinosaur.png"
-    },
-    {
-      "name": "accessory-dollar-bling",
-      "value": "accessory-dollar-bling.png"
-    },
-    {
-      "name": "accessory-dragon",
-      "value": "accessory-dragon.png"
-    },
-    {
-      "name": "accessory-ducky",
-      "value": "accessory-ducky.png"
-    },
-    {
-      "name": "accessory-eth",
-      "value": "accessory-eth.png"
-    },
-    {
-      "name": "accessory-eye",
-      "value": "accessory-eye.png"
-    },
-    {
-      "name": "accessory-flash",
-      "value": "accessory-flash.png"
-    },
-    {
-      "name": "accessory-fries",
-      "value": "accessory-fries.png"
-    },
-    {
-      "name": "accessory-glasses-logo-sun",
-      "value": "accessory-glasses-logo-sun.png"
-    },
-    {
-      "name": "accessory-glasses-logo",
-      "value": "accessory-glasses-logo.png"
-    },
-    {
-      "name": "accessory-glasses",
-      "value": "accessory-glasses.png"
-    },
-    {
-      "name": "accessory-heart",
-      "value": "accessory-heart.png"
-    },
-    {
-      "name": "accessory-hoodiestrings-uneven",
+      "name": "hoodiestrings-uneven",
       "value": "accessory-hoodiestrings-uneven.png"
     },
+    { "name": "id", "value": "accessory-id.png" },
+    { "name": "infinity", "value": "accessory-infinity.png" },
+    { "name": "insignia", "value": "accessory-insignia.png" },
+    { "name": "leaf", "value": "accessory-leaf.png" },
+    { "name": "lightbulb", "value": "accessory-lightbulb.png" },
+    { "name": "lp", "value": "accessory-lp.png" },
+    { "name": "marsface", "value": "accessory-marsface.png" },
+    { "name": "matrix", "value": "accessory-matrix.png" },
+    { "name": "moon-block", "value": "accessory-moon-block.png" },
+    { "name": "pizza-bling", "value": "accessory-pizza-bling.png" },
+    { "name": "pocket-pencil", "value": "accessory-pocket-pencil.png" },
+    { "name": "rain", "value": "accessory-rain.png" },
+    { "name": "rgb", "value": "accessory-rgb.png" },
+    { "name": "scarf-clown", "value": "accessory-scarf-clown.png" },
+    { "name": "secret-x", "value": "accessory-secret-x.png" },
+    { "name": "shirt-black", "value": "accessory-shirt-black.png" },
+    { "name": "shrimp", "value": "accessory-shrimp.png" },
+    { "name": "slimesplat", "value": "accessory-slimesplat.png" },
+    { "name": "small-bling", "value": "accessory-small-bling.png" },
+    { "name": "snowflake", "value": "accessory-snowflake.png" },
+    { "name": "stains-blood", "value": "accessory-stains-blood.png" },
+    { "name": "stains-zombie", "value": "accessory-stains-zombie.png" },
     {
-      "name": "accessory-id",
-      "value": "accessory-id.png"
-    },
-    {
-      "name": "accessory-infinity",
-      "value": "accessory-infinity.png"
-    },
-    {
-      "name": "accessory-insignia",
-      "value": "accessory-insignia.png"
-    },
-    {
-      "name": "accessory-leaf",
-      "value": "accessory-leaf.png"
-    },
-    {
-      "name": "accessory-lightbulb",
-      "value": "accessory-lightbulb.png"
-    },
-    {
-      "name": "accessory-lp",
-      "value": "accessory-lp.png"
-    },
-    {
-      "name": "accessory-marsface",
-      "value": "accessory-marsface.png"
-    },
-    {
-      "name": "accessory-matrix",
-      "value": "accessory-matrix.png"
-    },
-    {
-      "name": "accessory-moon-block",
-      "value": "accessory-moon-block.png"
-    },
-    {
-      "name": "accessory-pizza-bling",
-      "value": "accessory-pizza-bling.png"
-    },
-    {
-      "name": "accessory-pocket-pencil",
-      "value": "accessory-pocket-pencil.png"
-    },
-    {
-      "name": "accessory-rain",
-      "value": "accessory-rain.png"
-    },
-    {
-      "name": "accessory-rgb",
-      "value": "accessory-rgb.png"
-    },
-    {
-      "name": "accessory-scarf-clown",
-      "value": "accessory-scarf-clown.png"
-    },
-    {
-      "name": "accessory-secret-x",
-      "value": "accessory-secret-x.png"
-    },
-    {
-      "name": "accessory-shirt-black",
-      "value": "accessory-shirt-black.png"
-    },
-    {
-      "name": "accessory-shrimp",
-      "value": "accessory-shrimp.png"
-    },
-    {
-      "name": "accessory-slimesplat",
-      "value": "accessory-slimesplat.png"
-    },
-    {
-      "name": "accessory-small-bling",
-      "value": "accessory-small-bling.png"
-    },
-    {
-      "name": "accessory-snowflake",
-      "value": "accessory-snowflake.png"
-    },
-    {
-      "name": "accessory-stains-blood",
-      "value": "accessory-stains-blood.png"
-    },
-    {
-      "name": "accessory-stains-zombie",
-      "value": "accessory-stains-zombie.png"
-    },
-    {
-      "name": "accessory-stripes-and-checks",
+      "name": "stripes-and-checks",
       "value": "accessory-stripes-and-checks.png"
     },
+    { "name": "stripes-big-red", "value": "accessory-stripes-big-red.png" },
+    { "name": "stripes-blit", "value": "accessory-stripes-blit.png" },
+    { "name": "stripes-blue-med", "value": "accessory-stripes-blue-med.png" },
+    { "name": "stripes-brown", "value": "accessory-stripes-brown.png" },
+    { "name": "stripes-olive", "value": "accessory-stripes-olive.png" },
+    { "name": "stripes-red-cold", "value": "accessory-stripes-red-cold.png" },
+    { "name": "sunset", "value": "accessory-sunset.png" },
+    { "name": "taxi-checkers", "value": "accessory-taxi-checkers.png" },
+    { "name": "text-yolo", "value": "accessory-text-yolo.png" },
+    { "name": "think", "value": "accessory-think.png" },
     {
-      "name": "accessory-stripes-big-red",
-      "value": "accessory-stripes-big-red.png"
-    },
-    {
-      "name": "accessory-stripes-blit",
-      "value": "accessory-stripes-blit.png"
-    },
-    {
-      "name": "accessory-stripes-blue-med",
-      "value": "accessory-stripes-blue-med.png"
-    },
-    {
-      "name": "accessory-stripes-brown",
-      "value": "accessory-stripes-brown.png"
-    },
-    {
-      "name": "accessory-stripes-olive",
-      "value": "accessory-stripes-olive.png"
-    },
-    {
-      "name": "accessory-stripes-red-cold",
-      "value": "accessory-stripes-red-cold.png"
-    },
-    {
-      "name": "accessory-sunset",
-      "value": "accessory-sunset.png"
-    },
-    {
-      "name": "accessory-taxi-checkers",
-      "value": "accessory-taxi-checkers.png"
-    },
-    {
-      "name": "accessory-text-yolo",
-      "value": "accessory-text-yolo.png"
-    },
-    {
-      "name": "accessory-think",
-      "value": "accessory-think.png"
-    },
-    {
-      "name": "accessory-tie-black-on-white",
+      "name": "tie-black-on-white",
       "value": "accessory-tie-black-on-white.png"
     },
+    { "name": "tie-dye", "value": "accessory-tie-dye.png" },
     {
-      "name": "accessory-tie-dye",
-      "value": "accessory-tie-dye.png"
-    },
-    {
-      "name": "accessory-tie-purple-on-white",
+      "name": "tie-purple-on-white",
       "value": "accessory-tie-purple-on-white.png"
     },
+    { "name": "tie-red", "value": "accessory-tie-red.png" },
+    { "name": "txt-a2+b2", "value": "accessory-txt-a2+b2.png" },
+    { "name": "txt-cc", "value": "accessory-txt-cc.png" },
+    { "name": "txt-cc2", "value": "accessory-txt-cc2.png" },
+    { "name": "txt-copy", "value": "accessory-txt-copy.png" },
+    { "name": "txt-dao", "value": "accessory-txt-dao.png" },
+    { "name": "txt-doom", "value": "accessory-txt-doom.png" },
+    { "name": "txt-dope-text", "value": "accessory-txt-dope-text.png" },
+    { "name": "txt-foo-black", "value": "accessory-txt-foo-black.png" },
+    { "name": "txt-ico", "value": "accessory-txt-ico.png" },
+    { "name": "txt-io", "value": "accessory-txt-io.png" },
+    { "name": "txt-lmao", "value": "accessory-txt-lmao.png" },
+    { "name": "txt-lol", "value": "accessory-txt-lol.png" },
+    { "name": "txt-mint", "value": "accessory-txt-mint.png" },
+    { "name": "txt-nil-grey-dark", "value": "accessory-txt-nil-grey-dark.png" },
+    { "name": "txt-noun-f0f", "value": "accessory-txt-noun-f0f.png" },
+    { "name": "txt-noun-green", "value": "accessory-txt-noun-green.png" },
     {
-      "name": "accessory-tie-red",
-      "value": "accessory-tie-red.png"
-    },
-    {
-      "name": "accessory-txt-a2+b2",
-      "value": "accessory-txt-a2+b2.png"
-    },
-    {
-      "name": "accessory-txt-cc",
-      "value": "accessory-txt-cc.png"
-    },
-    {
-      "name": "accessory-txt-cc2",
-      "value": "accessory-txt-cc2.png"
-    },
-    {
-      "name": "accessory-txt-copy",
-      "value": "accessory-txt-copy.png"
-    },
-    {
-      "name": "accessory-txt-dao",
-      "value": "accessory-txt-dao.png"
-    },
-    {
-      "name": "accessory-txt-doom",
-      "value": "accessory-txt-doom.png"
-    },
-    {
-      "name": "accessory-txt-dope-text",
-      "value": "accessory-txt-dope-text.png"
-    },
-    {
-      "name": "accessory-txt-foo-black",
-      "value": "accessory-txt-foo-black.png"
-    },
-    {
-      "name": "accessory-txt-ico",
-      "value": "accessory-txt-ico.png"
-    },
-    {
-      "name": "accessory-txt-io",
-      "value": "accessory-txt-io.png"
-    },
-    {
-      "name": "accessory-txt-lmao",
-      "value": "accessory-txt-lmao.png"
-    },
-    {
-      "name": "accessory-txt-lol",
-      "value": "accessory-txt-lol.png"
-    },
-    {
-      "name": "accessory-txt-mint",
-      "value": "accessory-txt-mint.png"
-    },
-    {
-      "name": "accessory-txt-nil-grey-dark",
-      "value": "accessory-txt-nil-grey-dark.png"
-    },
-    {
-      "name": "accessory-txt-noun-f0f",
-      "value": "accessory-txt-noun-f0f.png"
-    },
-    {
-      "name": "accessory-txt-noun-green",
-      "value": "accessory-txt-noun-green.png"
-    },
-    {
-      "name": "accessory-txt-noun-multicolor",
+      "name": "txt-noun-multicolor",
       "value": "accessory-txt-noun-multicolor.png"
     },
-    {
-      "name": "accessory-txt-noun",
-      "value": "accessory-txt-noun.png"
-    },
-    {
-      "name": "accessory-txt-pi",
-      "value": "accessory-txt-pi.png"
-    },
-    {
-      "name": "accessory-txt-pop",
-      "value": "accessory-txt-pop.png"
-    },
-    {
-      "name": "accessory-txt-rofl",
-      "value": "accessory-txt-rofl.png"
-    },
-    {
-      "name": "accessory-txt-we",
-      "value": "accessory-txt-we.png"
-    },
-    {
-      "name": "accessory-txt-yay",
-      "value": "accessory-txt-yay.png"
-    },
-    {
-      "name": "accessory-wave",
-      "value": "accessory-wave.png"
-    },
-    {
-      "name": "accessory-wet-money",
-      "value": "accessory-wet-money.png"
-    },
-    {
-      "name": "accessory-yingyang",
-      "value": "accessory-yingyang.png"
-    },
-    {
-      "name": "body-bege",
-      "value": "body-bege.png"
-    },
-    {
-      "name": "body-gray-scale-1",
-      "value": "body-gray-scale-1.png"
-    },
-    {
-      "name": "body-gray-scale-9",
-      "value": "body-gray-scale-9.png"
-    },
-    {
-      "name": "body-ice-cold",
-      "value": "body-ice-cold.png"
-    }
+    { "name": "txt-noun", "value": "accessory-txt-noun.png" },
+    { "name": "txt-pi", "value": "accessory-txt-pi.png" },
+    { "name": "txt-pop", "value": "accessory-txt-pop.png" },
+    { "name": "txt-rofl", "value": "accessory-txt-rofl.png" },
+    { "name": "txt-we", "value": "accessory-txt-we.png" },
+    { "name": "txt-yay", "value": "accessory-txt-yay.png" },
+    { "name": "wave", "value": "accessory-wave.png" },
+    { "name": "wet-money", "value": "accessory-wet-money.png" },
+    { "name": "yingyang", "value": "accessory-yingyang.png" },
+    { "name": "body-bege", "value": "body-bege.png" },
+    { "name": "body-gray-scale-1", "value": "body-gray-scale-1.png" },
+    { "name": "body-gray-scale-9", "value": "body-gray-scale-9.png" },
+    { "name": "body-ice-cold", "value": "body-ice-cold.png" }
   ],
   "tempHeads": [
     {
@@ -1366,6 +1054,125 @@
       "filePath": "WizardHatHead.glb",
       "componentName": "WizardhatHead",
       "color": "0x476cd7"
+    },
+    {
+      "name": "Boot",
+      "value": "head-boot",
+      "filePath": "bootHead.glb",
+      "componentName": "BootHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Cassette",
+      "value": "head-cassette",
+      "filePath": "cassetteHead.glb",
+      "componentName": "CassetteHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Cat",
+      "value": "head-cat",
+      "filePath": "catHead.glb",
+      "componentName": "CatHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Cd",
+      "value": "head-cd",
+      "filePath": "cdHead.glb",
+      "componentName": "CdHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Ducky",
+      "value": "head-ducky",
+      "filePath": "duckyHead.glb",
+      "componentName": "DuckyHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Fox",
+      "value": "head-Fox",
+      "filePath": "FoxHead.glb",
+      "componentName": "FoxHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Gnome",
+      "value": "head-gnome",
+      "filePath": "gnomeHead.glb",
+      "componentName": "GnomeHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Heart",
+      "value": "head-heart",
+      "filePath": "heartHead.glb",
+      "componentName": "HeartHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Icepop",
+      "value": "head-icepop",
+      "filePath": "icepopHead.glb",
+      "componentName": "IcepopHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Microwave",
+      "value": "head-microwave",
+      "filePath": "microwaveHead.glb",
+      "componentName": "MicrowaveHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Mushroom",
+      "value": "head-mushroom",
+      "filePath": "mushroomHead.glb",
+      "componentName": "MushroomHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Paperclip",
+      "value": "head-paperclip",
+      "filePath": "paperclipHead.glb",
+      "componentName": "PaperclipHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Phone",
+      "value": "head-phone",
+      "filePath": "phoneHead.glb",
+      "componentName": "PhoneHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Porkbao",
+      "value": "head-porkbao",
+      "filePath": "porkbaoHead.glb",
+      "componentName": "PorkbaoHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Rangefinder",
+      "value": "head-rangefinder",
+      "filePath": "rangefinderHead.glb",
+      "componentName": "RangefinderHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Robot",
+      "value": "head-robot",
+      "filePath": "robotHead.glb",
+      "componentName": "RobotHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Weed",
+      "value": "head-weed",
+      "filePath": "weedHead.glb",
+      "componentName": "WeedHead",
+      "color": "0xFFFFFF"
     }
   ]
 }

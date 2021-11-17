@@ -12,6 +12,7 @@ import {
 import data from './data.json';
 import './menu.css';
 import { FiRefreshCw, FiLock, FiUnlock } from 'react-icons/fi';
+import { SiTwitter } from 'react-icons/si';
 import RandomNounButton from 'RandomNounButton';
 import { useThree } from '@react-three/fiber';
 import CoralPicture from './assets/coral.jpg';
@@ -85,7 +86,10 @@ const MenuTwo = ({
             <div className="header-randomize-container">
               <button
                 className={
-                  disabledButtonState ? 'menu-button-disabled' : 'menu-button'
+                  // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
+                  disabledButtonState
+                    ? 'rainbow-button-disabled'
+                    : 'rainbow-button'
                 }
                 onClick={() => {
                   generateRandomNoun();
@@ -93,7 +97,7 @@ const MenuTwo = ({
                 }}
                 disabled={disabledButtonState}
               >
-                RANDOMIZE
+                GENERATE
               </button>
             </div>
             <button
@@ -867,10 +871,26 @@ const InformationModal = (props) => {
         <div className="margin-auto">
           <img className="profile-picture" src={FloydPicture} />
           <p className="bio-header">Software Engineer</p>
+          <SiTwitter className="twitter-logo" size={30} color="#1DA1F2" />{' '}
+          <a
+            className="social-link"
+            href="https://twitter.com/0xFloyd"
+            target="_blank"
+          >
+            0xFloyd
+          </a>
         </div>
         <div className="margin-auto">
           <img className="profile-picture" src={CoralPicture} />
           <p className="bio-header">Designer/ Artist</p>
+          <SiTwitter className="twitter-logo" size={30} color="#1DA1F2" />
+          <a
+            className="social-link"
+            href="https://twitter.com/coralorca"
+            target="_blank"
+          >
+            CoralOrca
+          </a>
         </div>
       </div>
       {/* <div className="credit-container">
@@ -924,6 +944,7 @@ const MintModal = (props) => {
           We're currently looking into options that would let community members
           mint their own 3D Noun as part of a larger 3D Nouns collection. If
           this interests you, reach out and let us know on twitter{' '}
+          <SiTwitter className="mint-twitter-logo" size={25} color="#1DA1F2" />{' '}
           <a
             href="https://twitter.com/3dnouns"
             target="_blank"

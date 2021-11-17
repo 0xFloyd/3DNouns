@@ -10,11 +10,6 @@ import {
   environmentAttributes,
 } from 'attributes';
 import ProgressLoader from './Loader';
-import Cloud from './assets/FullBodyNouns/Cloud';
-import Computer from './assets/FullBodyNouns/Computer';
-import Crab from './assets/FullBodyNouns/Crab';
-import Mixer from './assets/FullBodyNouns/Mixer';
-import TestComputer from './assets/FullBodyNouns/TestComputer';
 import { DepthOfField, EffectComposer } from '@react-three/postprocessing';
 import {
   Html,

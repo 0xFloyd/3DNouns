@@ -35,6 +35,23 @@ import SnowmobileHead from '../HeadFilesGenerated/SnowmobileHead';
 import ToasterHead from '../HeadFilesGenerated/ToasterHead';
 import WaveHead from '../HeadFilesGenerated/WaveHead';
 import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
+import BootHead from '../HeadFilesGenerated/BootHead';
+import CassetteHead from '../HeadFilesGenerated/CassetteHead';
+import CatHead from '../HeadFilesGenerated/CatHead';
+import CdHead from '../HeadFilesGenerated/CdHead';
+import DuckyHead from '../HeadFilesGenerated/DuckyHead';
+import FoxHead from '../HeadFilesGenerated/FoxHead';
+import GnomeHead from '../HeadFilesGenerated/GnomeHead';
+import HeartHead from '../HeadFilesGenerated/HeartHead';
+import IcepopHead from '../HeadFilesGenerated/IcepopHead';
+import MicrowaveHead from '../HeadFilesGenerated/MicrowaveHead';
+import MushroomHead from '../HeadFilesGenerated/MushroomHead';
+import PaperclipHead from '../HeadFilesGenerated/PaperclipHead';
+import PhoneHead from '../HeadFilesGenerated/PhoneHead';
+import PorkbaoHead from '../HeadFilesGenerated/PorkbaoHead';
+import RangefinderHead from '../HeadFilesGenerated/RangefinderHead';
+import RobotHead from '../HeadFilesGenerated/RobotHead';
+import WeedHead from '../HeadFilesGenerated/WeedHead';
 
 export const headComponents = [
   { name: 'Beer', value: BeerHead },
@@ -74,4 +91,21 @@ export const headComponents = [
   { name: 'Toaster', value: ToasterHead },
   { name: 'Wave', value: WaveHead },
   { name: 'Wizardhat', value: WizardhatHead },
+  { name: 'Boot', value: BootHead },
+  { name: 'Cassette', value: CassetteHead },
+  { name: 'Cat', value: CatHead },
+  { name: 'Cd', value: CdHead },
+  { name: 'Ducky', value: DuckyHead },
+  { name: 'Fox', value: FoxHead },
+  { name: 'Gnome', value: GnomeHead },
+  { name: 'Heart', value: HeartHead },
+  { name: 'Icepop', value: IcepopHead },
+  { name: 'Microwave', value: MicrowaveHead },
+  { name: 'Mushroom', value: MushroomHead },
+  { name: 'Paperclip', value: PaperclipHead },
+  { name: 'Phone', value: PhoneHead },
+  { name: 'Porkbao', value: PorkbaoHead },
+  { name: 'Rangefinder', value: RangefinderHead },
+  { name: 'Robot', value: RobotHead },
+  { name: 'Weed', value: WeedHead },
 ];

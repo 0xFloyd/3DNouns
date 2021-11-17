@@ -45,7 +45,6 @@ import {
   TextureLoader,
 } from 'three';
 import SeperateHeadBody from './assets/FullBodyNouns/SeperateHeadAndBodyTest';
-import TuesdayWizard from './assets/FullBodyNouns/TuesdayWizard';
 import NormalEnvironment from 'World/NormalEnvironment';
 import OceanEnvironment from 'World/OceanEnvironment';
 import Menu from 'Menu';
