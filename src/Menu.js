@@ -500,11 +500,22 @@ const Menu = ({
             </div>
             {/* HEAD */}
             <div className="inline-option-row">
-              <Form.Check
-                className="trait-checkbox"
-                type="checkbox"
-                size={50}
-              />
+              <button
+                onClick={() => {
+                  setLockedTraits({
+                    ...lockedTraits,
+                    head: !lockedTraits.head,
+                  });
+                }}
+                disabled={disabledButtonState}
+                className="no-style-button"
+              >
+                {lockedTraits.head ? (
+                  <FiLock color={'red'} size={40} />
+                ) : (
+                  <FiUnlock color={'green'} size={40} />
+                )}
+              </button>
               <div className="inline-select-wrap">
                 <label>Head</label>
                 <select value={head} className="trait-select">

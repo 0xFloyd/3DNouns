@@ -142,6 +142,10 @@ body {
   user-select: none;
 }
 
+.noun-button:hover {
+  background: #c03453;
+}
+
 .disabled-random-noun-button {
   width: 9em;
   height: 40px;
@@ -166,7 +170,6 @@ body {
   outline: none;
   color: #fff;
   background: #c75c73;
-  cursor: pointer;
   position: relative;
   z-index: 0;
   border-radius: 10px;
@@ -205,11 +208,6 @@ body {
   border: 1px solid #d63c5e;
   color: white;
   padding: 8px;
-}
-
-.menu-x-button {
-  cursor: pointer;
-  padding: '0px';
 }
 
 .toggle {
@@ -262,28 +260,6 @@ body {
 
 a {
   color: #d63c5e;
-}
-
-.options-container {
-  z-index: 99 !important;
-  position: fixed;
-  padding: 10px;
-  top: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  font-size: 1rem;
-}
-
-.mobile-menu-container {
-  position: fixed;
-  height: 30vh;
-  bottom: 0;
-  overflow-y: auto;
-  width: 100vw;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 99 !important;
-  padding: 10px;
-  touch-action: manipulation;
 }
 
 .mobile-show-menu-button {

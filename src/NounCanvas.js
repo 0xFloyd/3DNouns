@@ -6,7 +6,14 @@ import {
   useThree,
 } from '@react-three/fiber';
 import * as THREE from 'three';
-import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import {
   Environment,
   OrbitControls,
@@ -58,6 +65,8 @@ import NounHolder from 'NounHolder';
 import HorizontalNounsLogo from 'World/HorizontalNounsLogo';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
 import DownloadNoun from 'DownloadNoun';
+import MenuTwo from 'MenuTwo';
+import { isDesktop } from 'react-device-detect';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -69,7 +78,7 @@ const NounCanvas = () => {
   const [optionsVisibility, setOptionsVisibility] = useState('none');
   const [autoRotate, setAutoRotate] = useState('false');
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 1200);
+  const [deviceState, setDeviceState] = useState(isDesktop);
   const [environment, setEnvironment] = useState('Normal');
   const [wireframeOption, setWireframeOption] = useState(null);
   const [walkAnimation, setWalkAnimation] = useState(false);
@@ -120,35 +129,49 @@ const NounCanvas = () => {
 
   const orbitControls = useRef();
 
-  // FUNCTIONS
-  const updateMedia = () => {
-    setDesktop(window.innerWidth > 1450);
-  };
-
   useEffect(() => {
+    function updateMedia() {
+      setDeviceState(isDesktop);
+    }
+
     window.addEventListener('resize', updateMedia);
     return () => window.removeEventListener('resize', updateMedia);
   });
 
   const generateRandomNoun = () => {
-    setHead(
-      data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name
-    );
-    // setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
-    setGlasses(
-      data.glasses[Math.floor(Math.random() * data.glasses.length)].value
-    );
-    setBody(data.body[Math.floor(Math.random() * data.body.length)].name);
-    setAccessory(
-      data.tempAccessories[
-        Math.floor(Math.random() * data.tempAccessories.length)
-      ].name
-    );
-    // setAccessory(
-    //   data.accessory[Math.floor(Math.random() * data.accessory.length)].value
-    // );
-    setPants(data.pants[Math.floor(Math.random() * data.pants.length)].name);
-    setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
+    if (!lockedTraits.head) {
+      setHead(
+        data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name
+      );
+      // setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
+    }
+
+    if (!lockedTraits.glasses) {
+      setGlasses(
+        data.glasses[Math.floor(Math.random() * data.glasses.length)].value
+      );
+    }
+    if (!lockedTraits.body) {
+      setBody(data.body[Math.floor(Math.random() * data.body.length)].name);
+    }
+
+    if (!lockedTraits.accessory) {
+      setAccessory(
+        data.tempAccessories[
+          Math.floor(Math.random() * data.tempAccessories.length)
+        ].name
+      );
+      // setAccessory(
+      //   data.accessory[Math.floor(Math.random() * data.accessory.length)].value
+      // );
+    }
+
+    if (!lockedTraits.pants) {
+      setPants(data.pants[Math.floor(Math.random() * data.pants.length)].name);
+    }
+    if (!lockedTraits.shoes) {
+      setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
+    }
   };
 
   useEffect(() => {
@@ -453,8 +476,8 @@ const NounCanvas = () => {
         <Stats showPanel={0} className="stats" />
       </Canvas>
 
-      <Menu
-        isDesktop={isDesktop}
+      <MenuTwo
+        isDesktop={deviceState}
         optionsVisibility={optionsVisibility}
         setOptionsVisibility={setOptionsVisibility}
         head={head}
