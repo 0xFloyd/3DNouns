@@ -236,7 +236,7 @@ const MenuTwo = ({
             </button> */}
             <span />
             <div className="inline-select-wrap">
-              <label>Glasses</label>
+              <label className="trait-label">Glasses</label>
 
               <select
                 value={glasses}
@@ -330,7 +330,7 @@ const MenuTwo = ({
             </button> */}
             <span />
             <div className="inline-select-wrap">
-              <label>Body</label>
+              <label className="trait-label">Body</label>
               <select
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
@@ -420,7 +420,7 @@ const MenuTwo = ({
             </button> */}
             <span />
             <div className="inline-select-wrap">
-              <label>Accessory</label>
+              <label className="trait-label">Accessory</label>
               <select
                 value={accessory}
                 onChange={(e) => setAccessory(e.target.value)}
@@ -514,7 +514,7 @@ const MenuTwo = ({
             </button> */}
             <span />
             <div className="inline-select-wrap">
-              <label>Pants</label>
+              <label className="trait-label">Pants</label>
               <select
                 value={pants}
                 onChange={(e) => setPants(e.target.value)}
@@ -605,7 +605,7 @@ const MenuTwo = ({
             </button> */}
             <span />
             <div className="inline-select-wrap">
-              <label>Shoes</label>
+              <label className="trait-label">Shoes</label>
 
               <select
                 value={shoes}
@@ -701,7 +701,7 @@ const MenuTwo = ({
           <div className="inline-option-row">
             <span />
             <div className="inline-select-wrap">
-              <label>Animation</label>
+              <label className="trait-label">Animation</label>
               <select
                 value={animationValue.name}
                 onChange={(e) => {
@@ -729,7 +729,7 @@ const MenuTwo = ({
           <div className="inline-option-row">
             <span />
             <div className="inline-select-wrap">
-              <label>Rotate View</label>
+              <label className="trait-label">Rotate View</label>
               <select
                 value={autoRotate}
                 onChange={(e) => setAutoRotate(e.target.value)}
