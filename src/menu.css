@@ -404,6 +404,7 @@
   padding: 50px;
   overflow-y: auto;
   scrollbar-width: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .modal-box-popup::-webkit-scrollbar {
   display: none; /* Safari and Chrome */

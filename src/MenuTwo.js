@@ -1,4 +1,3 @@
-import { environmentAttributes } from 'attributes';
 import React, { useState } from 'react';
 import {
   Button,
@@ -57,8 +56,8 @@ const MenuTwo = ({
   saveAsImage,
 }) => {
   const rotateOptions = [
-    { name: 'OFF', value: 'false' },
-    { name: 'ON', value: 'true' },
+    { name: 'Off', value: 'false' },
+    { name: 'On', value: 'true' },
   ];
 
   const [disabledButtonState, setDisabledButtonState] = useState(false);
@@ -697,7 +696,7 @@ const MenuTwo = ({
                   onChange={(e) => setEnvironment(e.target.value)}
                   className="trait-select"
                 >
-                  {environmentAttributes.map((arrayValue) => (
+                  {data.world.map((arrayValue) => (
                     <option key={arrayValue.value} value={arrayValue.value}>
                       {arrayValue.name}
                     </option>
@@ -727,7 +726,7 @@ const MenuTwo = ({
                 >
                   {data.animations.map((animationObj) => (
                     <option key={animationObj.value} value={animationObj.name}>
-                      {animationObj.name}
+                      {animationName(animationObj.name)}
                     </option>
                   ))}
                 </select>
@@ -1120,3 +1119,41 @@ const truncateString = (str) => {
     return str;
   }
 };
+
+const animationName = (name) => {
+  switch (name) {
+    case 'none':
+      return 'None';
+    case 'walk':
+      return 'Walk';
+    case 'run':
+      return 'Run';
+
+    case 'dance1':
+      return 'Dance 1';
+
+    case 'dance2':
+      return 'Dance 2';
+
+    case 'idle':
+      return 'Idle';
+
+    case 'jump':
+      return 'Jump';
+    case 'tpose':
+      return 'T-Pose';
+
+    default:
+      break;
+  }
+};
+
+// { "name": "none", "value": 9999 },
+// { "name": "dance1", "value": 1 },
+// { "name": "dance2", "value": 2 },
+// { "name": "idle", "value": 3 },
+// { "name": "jump", "value": 4 },
+// { "name": "run", "value": 5 },
+// { "name": "swim", "value": 6 },
+// { "name": "tpose", "value": 7 },
+// { "name": "walk", "value": 8 }

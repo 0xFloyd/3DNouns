@@ -430,7 +430,11 @@ const NounCanvas = () => {
           {environment === 'Matrix' && <MatrixEnvironment />}
           <fog
             attach="fog"
-            args={[environment === 'Matrix' ? 0x000000 : 0xa0a0a0, 1, 500]}
+            args={[
+              environment === 'Matrix' ? 0x000000 : 0xffffff,
+              1,
+              environment === 'Matrix' ? 500 : 1500,
+            ]}
           />
           {/* <BakeShadows /> */}
           {/* <PreloadBodyTextures /> */}
