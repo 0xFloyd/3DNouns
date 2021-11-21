@@ -21,7 +21,7 @@ body {
 .nouns-canvas {
   height: 100%;
   width: 100%;
-  background-color: #a0a0a0;
+  /* background-color: #a0a0a0; */
   position: fixed;
   top: 0;
   left: 0;
@@ -55,8 +55,8 @@ body {
 }
 
 .nouns-logo {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 85%;
+  max-height: 85%;
   padding: 10px;
 }
 
@@ -332,5 +332,48 @@ a {
   }
   100% {
     opacity: 0;
+  }
+}
+
+.directions-popup {
+  z-index: 100 !important;
+  position: fixed;
+  padding: 10px;
+  top: 12.5%;
+  right: 37.5%;
+  width: 25vw;
+  max-height: 75vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 25px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  text-align: center;
+}
+
+.close-directions-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .directions-popup {
+    z-index: 100 !important;
+    position: fixed;
+    padding: 10px;
+    top: 15%;
+    right: 6.25%;
+    text-align: center;
+    width: 87.5vw;
+    max-height: 65vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 25px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    overflow-x: hidden;
   }
 }

@@ -1049,13 +1049,6 @@
       "color": "0x4057e7"
     },
     {
-      "name": "Wizardhat",
-      "value": "head-WizardHat",
-      "filePath": "WizardHatHead.glb",
-      "componentName": "WizardhatHead",
-      "color": "0x476cd7"
-    },
-    {
       "name": "Boot",
       "value": "head-boot",
       "filePath": "bootHead.glb",
@@ -1172,6 +1165,314 @@
       "value": "head-weed",
       "filePath": "weedHead.glb",
       "componentName": "WeedHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Bagpipe",
+      "value": "head-BagPipe",
+      "filePath": "HeadBagPipe.glb",
+      "componentName": "BagpipeHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Banana",
+      "value": "head-Banana",
+      "filePath": "HeadBanana.glb",
+      "componentName": "BananaHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Bank",
+      "value": "head-Bank",
+      "filePath": "HeadBank.glb",
+      "componentName": "BankHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Bat",
+      "value": "head-Bat",
+      "filePath": "HeadBat.glb",
+      "componentName": "BatHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Bday",
+      "value": "head-BDay",
+      "filePath": "HeadBDay.glb",
+      "componentName": "BdayHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Camcorder",
+      "value": "head-Camcorder",
+      "filePath": "HeadCamcorder.glb",
+      "componentName": "CamcorderHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Car",
+      "value": "head-Car",
+      "filePath": "HeadCar.glb",
+      "componentName": "CarHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Cashregister",
+      "value": "head-CashRegister",
+      "filePath": "HeadCashRegister.glb",
+      "componentName": "CashregisterHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Chili",
+      "value": "head-Chili",
+      "filePath": "HeadChili.glb",
+      "componentName": "ChiliHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Cone",
+      "value": "head-Cone",
+      "filePath": "HeadCone.glb",
+      "componentName": "ConeHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Diamondblue",
+      "value": "head-DiamondBlue",
+      "filePath": "HeadDiamondBlue.glb",
+      "componentName": "DiamondblueHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Diamondred",
+      "value": "head-DiamondRed",
+      "filePath": "HeadDiamondRed.glb",
+      "componentName": "DiamondredHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Dictionary",
+      "value": "head-Dictionary",
+      "filePath": "HeadDictionary.glb",
+      "componentName": "DictionaryHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Dino",
+      "value": "head-Dino",
+      "filePath": "HeadDino.glb",
+      "componentName": "DinoHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Eggs",
+      "value": "head-Eggs",
+      "filePath": "HeadEggs.glb",
+      "componentName": "EggsHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Factory",
+      "value": "head-Factory",
+      "filePath": "HeadFactory.glb",
+      "componentName": "FactoryHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Filmreel",
+      "value": "head-FilmReel",
+      "filePath": "HeadFilmReel.glb",
+      "componentName": "FilmreelHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Filmstrip",
+      "value": "head-FilmStrip",
+      "filePath": "HeadFilmStrip.glb",
+      "componentName": "FilmstripHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Flamingo",
+      "value": "head-Flamingo",
+      "filePath": "HeadFlamingo.glb",
+      "componentName": "FlamingoHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Ghettoblaster",
+      "value": "head-GhettoBlaster",
+      "filePath": "HeadGhettoBlaster.glb",
+      "componentName": "GhettoblasterHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Glasses",
+      "value": "head-Glasses",
+      "filePath": "HeadGlasses.glb",
+      "componentName": "GlassesHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Handheld",
+      "value": "head-Handheld",
+      "filePath": "HeadHandheld.glb",
+      "componentName": "HandheldHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "House",
+      "value": "head-House",
+      "filePath": "HeadHouse.glb",
+      "componentName": "HouseHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Jellyfish",
+      "value": "head-JellyFish",
+      "filePath": "HeadJellyFish.glb",
+      "componentName": "JellyfishHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Lock",
+      "value": "head-Lock",
+      "filePath": "HeadLock.glb",
+      "componentName": "LockHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Magichat",
+      "value": "head-MagicHat",
+      "filePath": "HeadMagicHat.glb",
+      "componentName": "MagichatHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Maze",
+      "value": "head-Maze",
+      "filePath": "HeadMaze.glb",
+      "componentName": "MazeHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Mirror",
+      "value": "head-Mirror",
+      "filePath": "HeadMirror.glb",
+      "componentName": "MirrorHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Mustard",
+      "value": "head-Mustard",
+      "filePath": "HeadMustard.glb",
+      "componentName": "MustardHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Orca",
+      "value": "head-Orca",
+      "filePath": "HeadOrca.glb",
+      "componentName": "OrcaHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Panda",
+      "value": "head-Panda",
+      "filePath": "HeadPanda.glb",
+      "componentName": "PandaHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Pill",
+      "value": "head-Pill",
+      "filePath": "HeadPill.glb",
+      "componentName": "PillHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Plane",
+      "value": "head-Plane",
+      "filePath": "HeadPlane.glb",
+      "componentName": "PlaneHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Popsoda",
+      "value": "head-PopSoda",
+      "filePath": "HeadPopSoda.glb",
+      "componentName": "PopsodaHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Rose",
+      "value": "head-Rose",
+      "filePath": "HeadRose.glb",
+      "componentName": "RoseHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Saguaro",
+      "value": "head-Saguaro",
+      "filePath": "HeadSaguaro.glb",
+      "componentName": "SaguaroHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Saw",
+      "value": "head-Saw",
+      "filePath": "HeadSaw.glb",
+      "componentName": "SawHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Tooth",
+      "value": "head-Tooth",
+      "filePath": "HeadTooth.glb",
+      "componentName": "ToothHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Tunacan",
+      "value": "head-TunaCan",
+      "filePath": "HeadTunaCan.glb",
+      "componentName": "TunacanHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Turing",
+      "value": "head-Turing",
+      "filePath": "HeadTuring.glb",
+      "componentName": "TuringHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Ufo",
+      "value": "head-UFO",
+      "filePath": "HeadUFO.glb",
+      "componentName": "UfoHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Vent",
+      "value": "head-vent",
+      "filePath": "Headvent.glb",
+      "componentName": "VentHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Volcano",
+      "value": "head-Volcano",
+      "filePath": "HeadVolcano.glb",
+      "componentName": "VolcanoHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Wallsafe",
+      "value": "head-WallSafe",
+      "filePath": "HeadWallSafe.glb",
+      "componentName": "WallsafeHead",
       "color": "0xFFFFFF"
     }
   ]

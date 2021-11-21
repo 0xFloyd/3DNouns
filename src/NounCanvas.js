@@ -66,6 +66,7 @@ import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
 import DownloadNoun from 'DownloadNoun';
 import MenuTwo from 'MenuTwo';
 import { isDesktop } from 'react-device-detect';
+import ThreeDLogo from 'ThreeDNounsLogo';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -74,7 +75,7 @@ const NounCanvas = () => {
 
   preloadAllAssets();
 
-  const [optionsVisibility, setOptionsVisibility] = useState('none');
+  const [optionsVisibility, setOptionsVisibility] = useState('block');
   const [autoRotate, setAutoRotate] = useState('false');
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
   const [deviceState, setDeviceState] = useState(isDesktop);
@@ -83,6 +84,7 @@ const NounCanvas = () => {
   const [walkAnimation, setWalkAnimation] = useState(false);
   const [nodAnimation, setNodAnimation] = useState(false);
   const [animationState, setAnimationState] = useState(false);
+  const [showDirections, setShowDirections] = useState(true);
   const [animationValue, setAnimationValue] = useState(
     data.animations.find((animation) => animation.name === 'idle').name
   );
@@ -175,6 +177,9 @@ const NounCanvas = () => {
 
   useEffect(() => {
     document.body.style.cursor = 'auto';
+    setTimeout(() => {
+      setShowDirections(false);
+    }, 10000);
   }, []);
 
   const HeadComponents = headComponents.map((obj) => {
@@ -278,12 +283,11 @@ const NounCanvas = () => {
           shadow-mapSize-width={2048}
           shadow-mapSize-height={2048}
         /> */}
-          {/* <hemisphereLight
-          skyColor={new THREE.Color(0xffffbb)}
-          groundColor={new THREE.Color(0x080820)}
-          intensity={0.75}
-          castShadow
-        /> */}
+          <hemisphereLight
+            skyColor={new THREE.Color(0xffffbb)}
+            groundColor={new THREE.Color(0x080820)}
+            intensity={0.5}
+          />
           {/* <directionalLight
           ref={light}
           color={new THREE.Color(0xffa95c)}
@@ -349,10 +353,10 @@ const NounCanvas = () => {
         // saveArrayBuffer(result, "Model.glb")
 
         if (result instanceof ArrayBuffer) {
-          saveArrayBuffer(result, 'Model.glb');
+          saveArrayBuffer(result, 'NounModel.glb');
         } else {
           const output = JSON.stringify(result, null, 2);
-          saveString(output, 'Model.gltf');
+          saveString(output, 'NounModel.gltf');
           setDownloadingModel(false);
           setAnimationState(false);
           setAnimationValue('none');
@@ -360,6 +364,22 @@ const NounCanvas = () => {
       },
       options
     );
+  };
+
+  const saveAsImage = () => {
+    var imgData, imgNode;
+    try {
+      var strMime = 'image/jpeg';
+      imgData = sceneState.gl.domElement.toDataURL(strMime);
+
+      saveScreenshot(
+        imgData.replace(strMime, 'image/octet-stream'),
+        '3DNoun.jpg'
+      );
+    } catch (e) {
+      console.log(e);
+      return;
+    }
   };
 
   const modelDownloadMeshForward = useRef();
@@ -372,7 +392,9 @@ const NounCanvas = () => {
         shadows
         gl={{
           preserveDrawingBuffer: true,
-          antialias: false,
+          // antialias: false,
+          // pixelRatio: window.devicePixelRatio * 2,
+          // premultipliedAlpha: true,
           // shadowMap:  THREE.PCFSoftShadowMap
           // physicallyCorrectLights: true,
         }}
@@ -388,8 +410,6 @@ const NounCanvas = () => {
           // camera.fov =
         }}
       >
-        {environment === 'Normal' && <NormalEnvironment />}
-
         {/* <Lights /> */}
         <VideoLights />
 
@@ -405,9 +425,9 @@ const NounCanvas = () => {
         />
 
         <Suspense fallback={<ProgressLoader />}>
+          {environment === 'Normal' && <NormalEnvironment />}
           {environment === 'Island' && <OceanEnvironment />}
           {environment === 'Matrix' && <MatrixEnvironment />}
-
           <fog
             attach="fog"
             args={[environment === 'Matrix' ? 0x000000 : 0xa0a0a0, 1, 500]}
@@ -415,9 +435,7 @@ const NounCanvas = () => {
           {/* <BakeShadows /> */}
           {/* <PreloadBodyTextures /> */}
           {/* {HeadComponents} */}
-
           {/* <RANDOMIZER setBody={setBody} setAccessory={setAccessory} /> */}
-
           {/* <FINALBODY
             animationState={animationState}
             animationValue={animationValue}
@@ -469,10 +487,11 @@ const NounCanvas = () => {
               shoeProp={shoes}
             />
           </group> */}
-          <HorizontalNounsLogo environment={environment} />
-          <NounsLogo environment={environment} />
+          {/* <HorizontalNounsLogo environment={environment} /> */}
+          {/* <NounsLogo environment={environment} /> */}
+          <ThreeDLogo />
         </Suspense>
-        <Stats showPanel={0} className="stats" />
+        {/* <Stats showPanel={0} className="stats" /> */}
       </Canvas>
 
       <MenuTwo
@@ -505,7 +524,23 @@ const NounCanvas = () => {
         setDownloadingModel={setDownloadingModel}
         lockedTraits={lockedTraits}
         setLockedTraits={setLockedTraits}
+        saveAsImage={saveAsImage}
       />
+      {showDirections && (
+        <div className="directions-popup">
+          <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
+          <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
+          <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
+          <div className="close-directions-container">
+            <button
+              className="menu-button"
+              onClick={() => setShowDirections(false)}
+            >
+              CLOSE
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="logo-container">
         <a href="https://nouns.wtf">
@@ -599,6 +634,17 @@ function save(blob, filename) {
   link.click();
   // URL.revokeObjectURL( url ); breaks Firefox...
 }
+
+const saveScreenshot = (strData, filename) => {
+  var link = document.createElement('a');
+  if (typeof link.download === 'string') {
+    document.body.appendChild(link); //Firefox requires the link to be in the body
+    link.download = filename;
+    link.href = strData;
+    link.click();
+    document.body.removeChild(link); //remove the link when done
+  }
+};
 
 {
   /* <MyCamera
