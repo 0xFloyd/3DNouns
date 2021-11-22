@@ -286,7 +286,7 @@ const NounCanvas = () => {
         {/* <color attach="background" args={['#101010']} /> */}
         {/* <fog attach="fog" args={['#101010', 1, 500]} /> */}
         <group>
-          <ambientLight intensity={1.25} />
+          <ambientLight intensity={1.35} />
           {/* <spotLight
             intensity={0.8}
             ref={logoLight}
@@ -300,7 +300,7 @@ const NounCanvas = () => {
           <hemisphereLight
             skyColor={new THREE.Color(0xffffbb)}
             groundColor={new THREE.Color(0x080820)}
-            intensity={1.75}
+            intensity={1.85}
           />
           {/* <primitive
             ref={logoLightRef}
@@ -328,7 +328,7 @@ const NounCanvas = () => {
           <directionalLight
             // color={0xffffbb}
             ref={light}
-            intensity={1.25}
+            intensity={1.35}
             position={[-100, 500, 500]}
             shadow-camera-left={d * -100}
             shadow-camera-bottom={d * -100}
@@ -438,6 +438,7 @@ const NounCanvas = () => {
           // pixelRatio: window.devicePixelRatio * 2,
           // premultipliedAlpha: true,
           // shadowMap:  THREE.PCFSoftShadowMap
+          // outputEncoding: THREE.sRGBEncoding,
           physicallyCorrectLights: true,
         }}
         dpr={[1, 1.5]}
@@ -473,7 +474,7 @@ const NounCanvas = () => {
           <fog
             attach="fog"
             args={[
-              environment === "Matrix" ? 0x000000 : 0xffffff,
+              environment === "Matrix" ? 0x181818 : 0xffffff,
               1,
               environment === "Matrix" ? 1000 : 1500,
             ]}
