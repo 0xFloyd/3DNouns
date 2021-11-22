@@ -1,14 +1,34 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap");
 
 /* noun color: #d63c5e */
 * {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Londrina Solid";
+  font-size: 1rem;
 }
 
 body {
+  padding: 0px;
+  margin: 0px;
+  /* font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif; */
+  /* background: linear-gradient(red, yellow); */
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.nouns-canvas {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(#87ceeb, white 30%);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.splash-screen {
+  z-index: 999;
   padding: 0px;
   margin: 0px;
   /* font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
@@ -17,17 +37,16 @@ body {
   overflow-x: hidden;
   height: 100%;
   width: 100%;
-}
-
-.full-width {
-  height: 100vh;
-  width: 100vw;
-}
-
-.nouns-canvas {
-  height: 100%;
-  width: 100%;
+  position: fixed;
   background-color: #a0a0a0;
+  top: 0;
+  left: 0;
+}
+
+.ready-button {
+  position: fixed;
+  top: 50%;
+  left: 50%;
 }
 
 .no-padding-margin {
@@ -36,9 +55,12 @@ body {
 }
 
 .nouns-logo {
+  /* width: 100%;
+  height: 100%; */
   max-width: 100%;
   max-height: 100%;
-  padding: 10px;
+  margin-left: 20px;
+  margin-top: -10px;
 }
 
 .nouns-logo-container {
@@ -51,7 +73,7 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
-
+  touch-action: manipulation;
   font-size: 1rem;
 }
 
@@ -69,8 +91,8 @@ body {
   bottom: 0;
   right: 0;
   padding: 0px;
-  margin: 0px;
-  font-size: 0.7em;
+  margin: 0px 10px 0px 0px;
+  font-size: 1em;
 }
 
 .white-font {
@@ -90,6 +112,87 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  font-family: "Londrina Solid";
+}
+
+.attribute-select-box:hover {
+  border-radius: 10px;
+  display: inline-block;
+  overflow: hidden;
+  background: #d8234b;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.noun-button {
+  width: 9em;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #d63c5e;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-size: 1em;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.noun-button:hover {
+  background: #c03453;
+}
+
+.disabled-random-noun-button {
+  width: 9em;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #c75c73;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-size: 1em;
+  touch-action: manipulation;
+  user-select: none;
+  cursor: wait !important;
+}
+
+.disabled {
+  width: 9em;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #c75c73;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-size: 1em;
+  touch-action: manipulation;
+  user-select: none;
+  cursor: wait !important;
+}
+
+.attribute-select-box > option {
+  background: #d63c5e;
+  color: white;
+  cursor: pointer;
+  font-family: "Londrina Solid";
+}
+
+.attribute-select-box option:hover {
+  background: #d63c5e;
+  color: white;
+  cursor: pointer;
 }
 
 .attributes-close-container {
@@ -110,11 +213,6 @@ body {
   padding: 8px;
 }
 
-.menu-x-button {
-  cursor: pointer;
-  padding: '0px';
-}
-
 .toggle {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -133,7 +231,7 @@ body {
 }
 
 .toggle:before {
-  content: 'on off';
+  content: "on off";
   display: block;
   position: absolute;
   z-index: 2;
@@ -167,27 +265,6 @@ a {
   color: #d63c5e;
 }
 
-.options-container {
-  z-index: 99 !important;
-  position: fixed;
-  padding: 10px;
-  top: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  font-size: 1rem;
-}
-
-.mobile-menu-container {
-  position: fixed;
-  height: 35vh;
-  bottom: 0;
-  overflow-y: auto;
-  width: 100vw;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 99 !important;
-  padding: 10px;
-}
-
 .mobile-show-menu-button {
   position: fixed;
   bottom: 10px;
@@ -216,18 +293,102 @@ a {
   }
 } */
 
-.splash-screen {
-  z-index: 999;
-  padding: 0px;
-  margin: 0px;
-  /* font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif; */
-  /* background-color: #e2e1de; */
-  overflow-x: hidden;
-  height: 100%;
-  width: 100%;
+.starting-screen-container {
+  background-color: red;
   position: fixed;
-  background-color: #a0a0a0;
-  top: 0;
-  left: 0;
+  z-index: 2147483648;
+  /* left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+.progress {
+  width: 300px;
+}
+
+.elementToFadeInAndOut {
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  -webkit-animation: fadeinout 2s linear forwards;
+  animation: fadeinout 2s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.progress-bar {
+  background-color: #000000 !important;
+}
+
+.directions-popup {
+  z-index: 100 !important;
+  position: fixed;
+  padding: 10px;
+  top: 12.5%;
+  right: 37.5%;
+  width: 25vw;
+  max-height: 75vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 25px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  text-align: center;
+}
+
+.close-directions-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .directions-popup {
+    z-index: 100 !important;
+    position: fixed;
+    padding: 10px;
+    top: 15%;
+    right: 6.25%;
+    text-align: center;
+    width: 87.5vw;
+    max-height: 65vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 25px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    overflow-x: hidden;
+  }
+  .nouns-logo {
+    /* width: 100%;
+  height: 100%; */
+    max-width: 90%;
+    max-height: 90%;
+    margin-left: 10px;
+    margin-top: -10px;
+  }
 }

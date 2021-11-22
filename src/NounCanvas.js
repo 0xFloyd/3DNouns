@@ -6,526 +6,631 @@ import {
   useThree,
 } from "@react-three/fiber";
 import * as THREE from "three";
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
-  Circle,
   Environment,
-  Html,
-  Loader,
   OrbitControls,
-  Sky,
   Stage,
+  Stats,
   useGLTF,
+  useHelper,
+  useProgress,
+  useTexture,
 } from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import RabbitModel from "RabbitModel";
-import CrabModel from "CrabTest";
-import {
-  Button,
-  Col,
-  Container,
-  Form,
-  FormCheck,
-  ProgressBar,
-  Row,
-} from "react-bootstrap";
-import logo from "./assets/nouns-logo.svg";
-import useReflector from "./shaders/useReflector";
+import { Col, Container, Row } from "react-bootstrap";
+import logo from "./assets/3DNounsLogoSVG.svg";
 import "./shaders/materials/ReflectorMaterial";
-import Svg from "./assets/World/Svg";
-import NounsLogo from "NounsLogo";
-import { Water } from "three-stdlib";
+import NounsLogo from "World/NounsLogo";
 import ProgressLoader from "Loader";
-import { slide as Menu } from "react-burger-menu";
-import Bonsai from "assets/FullBodyNouns/Bonsai";
-import Cloud from "assets/FullBodyNouns/Cloud";
-import Computer from "assets/FullBodyNouns/Computer";
-import Crab from "assets/FullBodyNouns/Crab";
-import Mixer from "assets/FullBodyNouns/Mixer";
-import Pirate from "assets/FullBodyNouns/Pirate";
-import Rabbit from "assets/FullBodyNouns/Rabbit";
 import {
   bodyAttributes,
+  accessoryAttributes,
   glassesAttributes,
   headAttributes,
   pantsAttributes,
   shoesAttributes,
   environmentAttributes,
 } from "attributes";
-import Shark from "assets/FullBodyNouns/Shark";
-import { TextureLoader } from "three";
+import {
+  DirectionalLightHelper,
+  HemisphereLightHelper,
+  SpotLightHelper,
+  TextureLoader,
+} from "three";
+import SeperateHeadBody from "./assets/FullBodyNouns/SeperateHeadAndBodyTest";
+import NormalEnvironment from "World/NormalEnvironment";
+import OceanEnvironment from "World/OceanEnvironment";
+import Menu from "Menu";
+import data from "./data.json";
+import FINALBODY from "assets/FullBodyNouns/FinalPipelineTest";
+import FINALHEAD from "assets/FullBodyNouns/FINALHEAD";
+import ModelHead from "assets/FullBodyNouns/FINALHEAD";
+import HeadComponents from "assets/FullBodyNouns/FINALHEAD";
+import { headComponents } from "utils/AllHeadModels";
+import PreloadBodyTextures from "utils/PreloadBodyTextures";
+import MasterHead from "utils/MasterHead";
+import FINALBODY119 from "assets/FullBodyNouns/FINALBODY119";
+import RANDOMIZER from "RANDOMIZER";
+import MatrixEnvironment from "World/Matrix";
+// import { GLTFExporter } from 'three-stdlib';
+import NounHolder from "NounHolder";
+import HorizontalNounsLogo from "World/HorizontalNounsLogo";
+import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter.js";
+import DownloadNoun from "DownloadNoun";
+import MenuTwo from "MenuTwo";
+import { isDesktop } from "react-device-detect";
+import ThreeDLogo from "ThreeDNounsLogo";
+import BillBoard from "BillBoard";
+import SandboxItems from "./SandboxItems";
 
-extend({ Water });
+const lookAtPos = new THREE.Vector3(0, 5, 0);
 
-const lookAtPos = new THREE.Vector3(0, 2, 0);
+const NounCanvas = () => {
+  // 11/5/21 DELETE WHEN ALL ACCESSORIES
 
-const NounCanvas = (props) => {
-  const [optionsVisibility, setOptionsVisibility] = useState("none");
+  preloadAllAssets();
+
+  const [optionsVisibility, setOptionsVisibility] = useState("block");
+  const [autoRotate, setAutoRotate] = useState("false");
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 1250);
+  const [deviceState, setDeviceState] = useState(isDesktop);
   const [environment, setEnvironment] = useState("Normal");
-  const [head, setHead] = useState(
-    headAttributes[Math.floor(Math.random() * headAttributes.length)].value
+  const [wireframeOption, setWireframeOption] = useState(null);
+  const [walkAnimation, setWalkAnimation] = useState(false);
+  const [nodAnimation, setNodAnimation] = useState(false);
+  const [animationState, setAnimationState] = useState(false);
+  const [showDirections, setShowDirections] = useState(true);
+  const [randomizerOn, setRandomizerOn] = useState(false);
+  const [animationValue, setAnimationValue] = useState(
+    data.animations.find((animation) => animation.name === "none").name
   );
+  const [downloadingModel, setDownloadingModel] = useState(false);
+  const [lockedTraits, setLockedTraits] = useState({
+    head: false,
+    glasses: false,
+    body: false,
+    accessory: false,
+    pants: false,
+    shoes: false,
+  });
+  const [sceneState, setSceneState] = useState(null);
+
+  const [head, setHead] = useState(
+    data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name
+  );
+  // const [head, setHead] = useState(
+  //   data.head[Math.floor(Math.random() * data.head.length)].name
+  // );
   const [glasses, setGlasses] = useState(
-    glassesAttributes[Math.floor(Math.random() * glassesAttributes.length)]
-      .value
+    data.glasses[Math.floor(Math.random() * data.glasses.length)].value
   );
   const [body, setBody] = useState(
-    bodyAttributes[Math.floor(Math.random() * bodyAttributes.length)].value
+    data.body[Math.floor(Math.random() * data.body.length)].name
   );
+
+  const [accessory, setAccessory] = useState(
+    data.tempAccessories[
+      Math.floor(Math.random() * data.tempAccessories.length)
+    ].name
+  );
+  // const [accessory, setAccessory] = useState(
+  //   data.accessory[Math.floor(Math.random() * data.accessory.length)].value
+  // );
+
   const [pants, setPants] = useState(
-    pantsAttributes[Math.floor(Math.random() * pantsAttributes.length)].value
+    data.pants[Math.floor(Math.random() * data.pants.length)].name
   );
   const [shoes, setShoes] = useState(
-    shoesAttributes[Math.floor(Math.random() * shoesAttributes.length)].value
+    data.shoes[Math.floor(Math.random() * data.shoes.length)].name
   );
 
   const orbitControls = useRef();
 
-  // FUNCTIONS
-  const updateMedia = () => {
-    setDesktop(window.innerWidth > 1450);
-  };
-
   useEffect(() => {
+    function updateMedia() {
+      setDeviceState(isDesktop);
+    }
+
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);
   });
 
   const generateRandomNoun = () => {
-    setHead(
-      headAttributes[Math.floor(Math.random() * headAttributes.length)].value
+    if (!lockedTraits.head) {
+      setHead(
+        data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name
+      );
+      // setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
+    }
+
+    if (!lockedTraits.glasses) {
+      setGlasses(
+        data.glasses[Math.floor(Math.random() * data.glasses.length)].value
+      );
+    }
+    if (!lockedTraits.body) {
+      setBody(data.body[Math.floor(Math.random() * data.body.length)].name);
+    }
+
+    if (!lockedTraits.accessory) {
+      setAccessory(
+        data.tempAccessories[
+          Math.floor(Math.random() * data.tempAccessories.length)
+        ].name
+      );
+      // setAccessory(
+      //   data.accessory[Math.floor(Math.random() * data.accessory.length)].value
+      // );
+    }
+
+    if (!lockedTraits.pants) {
+      setPants(data.pants[Math.floor(Math.random() * data.pants.length)].name);
+    }
+    if (!lockedTraits.shoes) {
+      setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
+    }
+  };
+
+  useEffect(() => {
+    document.body.style.cursor = "auto";
+    setTimeout(() => {
+      setShowDirections(false);
+    }, 10000);
+  }, []);
+
+  const HeadComponents = headComponents.map((obj) => {
+    const Component = obj.value;
+    return (
+      <Component
+        headProp={head}
+        glassesProp={glasses}
+        animationState={animationState}
+        animationValue={animationValue}
+      />
     );
-    setGlasses(
-      glassesAttributes[Math.floor(Math.random() * glassesAttributes.length)]
-        .value
-    );
-    setBody(
-      bodyAttributes[Math.floor(Math.random() * bodyAttributes.length)].value
-    );
-    setPants(
-      pantsAttributes[Math.floor(Math.random() * pantsAttributes.length)].value
-    );
-    setShoes(
-      shoesAttributes[Math.floor(Math.random() * shoesAttributes.length)].value
+  });
+
+  const Lights = () => {
+    const light = useRef();
+    const spotLight = useRef();
+    const hemiLight = useRef();
+    // useHelper(light, DirectionalLightHelper, 'cyan');
+    // useHelper(spotLight, SpotLightHelper, 'red');
+    // useHelper(hemiLight, HemisphereLightHelper, 'blue');
+
+    let huh = new THREE.SpotLight();
+
+    const d = 5;
+
+    return (
+      <group>
+        <ambientLight intensity={0.25} />
+        {/* <spotLight
+          intensity={0.8}
+          ref={spotLight}
+          position={[-10, 300, 300]}
+          castShadow
+          color={new THREE.Color(0xffa95c)}
+          shadow-mapSize-width={4096}
+          shadow-mapSize-height={4096}
+        />
+        <hemisphereLight
+          skyColor={new THREE.Color(0xffffbb)}
+          groundColor={new THREE.Color(0x080820)}
+          intensity={0.75}
+          castShadow
+        />
+        <directionalLight
+          ref={light}
+          color={new THREE.Color(0xffa95c)}
+          position={[-5, 50, 100]}
+          castShadow
+          intensity={0.5}
+          shadow-mapSize-width={4096}
+          shadow-mapSize-height={4096}
+        /> */}
+        <hemisphereLight
+          skyColor={"black"}
+          groundColor={0xffffff}
+          intensity={0.5}
+          position={[0, 500, 0]}
+          ref={hemiLight}
+        />
+        <directionalLight
+          ref={light}
+          intensity={0.5}
+          position={[-500, 500, 500]}
+          shadow-camera-left={d * -100}
+          shadow-camera-bottom={d * -100}
+          shadow-camera-right={d * 100}
+          shadow-camera-top={d * 100}
+          shadow-camera-near={0.1}
+          shadow-camera-far={5000}
+          shadow-bias={-0.0005}
+          shadow-mapSize-height={1024}
+          shadow-mapSize-width={2048}
+          castShadow
+        />
+      </group>
     );
   };
+
+  const VideoLights = (ref) => {
+    const light = useRef();
+    const spotLight = useRef();
+    const logoLightRef = useRef();
+
+    // const logoLight = new THREE.SpotLight(0xffffff);
+    // logoLight.intensity = 3;
+    // useHelper(refTwo, DirectionalLightHelper, 'cyan');
+    // useHelper(logoLightRef, SpotLightHelper, 'red');
+    // useHelper(hemiLight, HemisphereLightHelper, 'blue');
+    const d = 5;
+
+    // useEffect(() => {
+    //   if (logoLight.current && GlassesLogo.current) {
+    //     logoLight.current.target = ref.current;
+    //     // helper.current.update();
+    //   }
+    // }, [logoLight, ref]);
+
+    return (
+      <>
+        {/* <color attach="background" args={['#101010']} /> */}
+        {/* <fog attach="fog" args={['#101010', 1, 500]} /> */}
+        <group>
+          <ambientLight intensity={1.35} />
+          {/* <spotLight
+            intensity={0.8}
+            ref={logoLight}
+            position={[100, 0, 200]}
+            castShadow
+            color={new THREE.Color(0xffa95c)}
+            // lookAt={[100, 0, -200]}
+            shadow-mapSize-width={2048}
+            shadow-mapSize-height={2048}
+          /> */}
+          <hemisphereLight
+            skyColor={new THREE.Color(0xffffbb)}
+            groundColor={new THREE.Color(0x080820)}
+            intensity={1.85}
+          />
+          {/* <primitive
+            ref={logoLightRef}
+            object={logoLight}
+            position={[75, 10, -75]}
+            // rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
+          />
+          <primitive object={logoLight.target} position={[150, 10, -150]} /> */}
+          {/* <directionalLight
+          ref={light}
+          color={new THREE.Color(0xffa95c)}
+          position={[-5, 50, 100]}
+          castShadow
+          intensity={0.5}
+          shadow-mapSize-width={4096}
+          shadow-mapSize-height={4096}
+        /> */}
+          {/* <hemisphereLight
+          skyColor={'black'}
+          groundColor={0xffffff}
+          intensity={0.5}
+          position={[0, 500, 0]}
+          ref={hemiLight}
+        /> */}
+          <directionalLight
+            // color={0xffffbb}
+            ref={light}
+            intensity={1.35}
+            position={[-100, 500, 500]}
+            shadow-camera-left={d * -100}
+            shadow-camera-bottom={d * -100}
+            shadow-camera-right={d * 100}
+            shadow-camera-top={d * 100}
+            shadow-camera-near={10}
+            shadow-camera-far={5000}
+            shadow-bias={-0.0001}
+            shadow-mapSize-height={4096}
+            shadow-mapSize-width={4096}
+            castShadow
+          />
+
+          {/* <directionalLight
+            // color={0xffffbb}
+
+            ref={logoLight}
+            intensity={0.55}
+            position={[0, 30, -100]}
+            shadow-camera-left={d * -100}
+            shadow-camera-bottom={d * -100}
+            shadow-camera-right={d * 100}
+            shadow-camera-top={d * 100}
+            shadow-camera-near={10}
+            shadow-camera-far={5000}
+            shadow-bias={-0.0001}
+            shadow-mapSize-height={4096}
+            shadow-mapSize-width={4096}
+            castShadow
+          /> */}
+        </group>
+      </>
+    );
+  };
+
+  const downloadModel = () => {
+    const gltfExporter = new GLTFExporter();
+
+    const fullScene = sceneState;
+    let hiddenDownloadNoun = temporaryModel.current;
+    let currentTest = modelDownloadMeshForward.current;
+    // console.log('fule scene: ', holder);
+    console.log("current group object: ", fullScene);
+
+    let currentNoun = fullScene?.scene?.children[1];
+    let animations = [];
+    // for (let i = 0; i < fullScene.children.length; i++) {
+    //   const a = fullScene.children[i].animations;
+    //   if (a) {
+    //     animations = animations.concat(a);
+    //     console.log('animation found!');
+    //   }
+    // }
+    // Only download the visible objects, since there are invisible based on user selection
+    const options = {
+      onlyVisible: false,
+    };
+    gltfExporter.parse(
+      hiddenDownloadNoun,
+      function (result) {
+        // saveArrayBuffer(result, "Model.glb")
+
+        if (result instanceof ArrayBuffer) {
+          saveArrayBuffer(result, "NounModel.glb");
+        } else {
+          const output = JSON.stringify(result, null, 2);
+          saveString(output, "NounModel.gltf");
+          setDownloadingModel(false);
+          setAnimationState(false);
+          setAnimationValue("none");
+        }
+      },
+      options
+    );
+  };
+
+  const saveAsImage = () => {
+    var imgData, imgNode;
+    try {
+      var strMime = "image/jpeg";
+      imgData = sceneState.gl.domElement.toDataURL(strMime);
+
+      saveScreenshot(
+        imgData.replace(strMime, "image/octet-stream"),
+        "3DNoun.jpg"
+      );
+    } catch (e) {
+      console.log(e);
+      return;
+    }
+  };
+
+  const modelDownloadMeshForward = useRef();
+
+  const temporaryModel = useRef();
+
+  const GlassesLogo = useRef();
 
   return (
     <>
       <Canvas
         shadows
-        gl={{ preserveDrawingBuffer: true }}
+        gl={{
+          preserveDrawingBuffer: true,
+          // logarithmicDepthBuffer: true,
+          // antialias: false,
+          // pixelRatio: window.devicePixelRatio * 2,
+          // premultipliedAlpha: true,
+          // shadowMap:  THREE.PCFSoftShadowMap
+          // outputEncoding: THREE.sRGBEncoding,
+          physicallyCorrectLights: true,
+        }}
         dpr={[1, 1.5]}
-        // camera={{ position: [0, 0.5, 0.5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
+        // camera={{ position: [5, 5, 5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
           // do things here
-          camera.position.x = 0.2;
-          camera.position.y = 0.4;
-          camera.position.z = 0.4;
+          camera.position.x = 24;
+          camera.position.y = 32;
+          camera.position.z = 48;
           camera.lookAt(lookAtPos);
           camera.updateProjectionMatrix();
           // camera.fov =
         }}
       >
-        {/* <MyCamera
-          setCurrentCameraPosition={setCurrentCameraPosition}
-          orbitControls={orbitControls}
-        /> */}
-        {/* <Html>
-        <div style={{ position: "absolute", top: 200, left: 200 }}>
-          {" "}
-          <button onClick={() => setFarAway(!farAway)}>click</button>
-        </div>
-      </Html> */}
-        {/* <Model /> */}
-
-        {environment === "Normal" && (
-          <fog attach="fog" args={[0xa0a0a0, 1, 5]} />
-        )}
-
-        <ambientLight intensity={0.8} />
-
-        {/* <spotLight position={[0, 2, 2]} intensity={0.3} castShadow /> */}
-
-        <directionalLight
-          position={[0, 0.5, 0.2]}
-          castShadow
-          intensity={0.5}
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-        />
+        {/* <Lights /> */}
+        <VideoLights GlassesLogo={GlassesLogo} />
 
         <OrbitControls
-          target={[0, 0.2, 0]}
+          target={[0, 20, 0]}
           ref={orbitControls}
-          autoRotate={props.autoRotate}
+          autoRotate={JSON.parse(autoRotate)}
           enablePan={false}
           enableDamping={true}
-          maxPolarAngle={Math.PI / 2.05}
-          maxDistance={5}
-          minDistance={0.325}
+          maxPolarAngle={Math.PI / 1.85}
+          maxDistance={150}
+          minDistance={20}
         />
 
-        {environment === "Normal" && (
-          <mesh receiveShadow position={[0, -0.025, 0]}>
-            <boxBufferGeometry args={[25, 0.05, 25]} />
-            <meshStandardMaterial
-              color={new THREE.Color(0xffffff)
-                .setHex(0xffffff)
-                .convertSRGBToLinear()}
-            />
-          </mesh>
-        )}
-        {environment === "Normal" && (
-          <gridHelper
-            args={[
-              50,
-              200,
-              new THREE.Color(0x919191),
-              new THREE.Color(0x919191),
-            ]}
-            position={[0, 0.001, 0]}
-          />
-        )}
-        {environment === "Ocean" && (
-          <mesh receiveShadow position={[0, -0.025, 0]}>
-            <boxBufferGeometry args={[2, 0.05, 2]} />
-            <meshStandardMaterial
-              color={new THREE.Color(0xf6e4ad)
-                .setHex(0xf6e4ad)
-                .convertSRGBToLinear()}
-            />
-          </mesh>
-        )}
-        {environment === "Ocean" && (
-          <gridHelper
-            args={[2, 20, new THREE.Color(0x919191), new THREE.Color(0x919191)]}
-            position={[0, 0.001, 0]}
-          />
-        )}
-
-        {/* 
-        {environment === 'Ocean' && (
-          <mesh receiveShadow position={[0, -0.5, 0]}>
-            <cylinderBufferGeometry args={[1, 1, 1, 32]} />
-            <meshStandardMaterial
-              color={new THREE.Color('#d63c5e')
-                .setHex(0xd63c5e)
-                .convertSRGBToLinear()}
-            />
-          </mesh>
-        )} */}
-
-        {/* <cylinderBufferGeometry args={[2, 1, 20, 32]} /> */}
-        {/* <meshStandardMaterial
-            color={new THREE.Color('#d63c5e')
-              .setHex(0xd63c5e)
-              .convertSRGBToLinear()}
-          /> */}
-        {/* <meshPhysicalMaterial
-            color={new THREE.Color('#d63c5e')
-              .setHex(0xd63c5e)
-              .convertSRGBToLinear()}
-          /> */}
         <Suspense fallback={<ProgressLoader />}>
-          {environment === "Ocean" && <Sky sunPosition={[-100, 20, 100]} />}
-          {environment === "Ocean" && <Ocean />}
-          {/* {environment === 'Ocean' && <Ground />} */}
-          {/* <Model position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]} /> */}
-
-          {/* <Bonsai
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            feet={feet}
+          {environment === "Normal" && <NormalEnvironment />}
+          {environment === "Island" && <OceanEnvironment />}
+          {environment === "Matrix" && <MatrixEnvironment />}
+          <fog
+            attach="fog"
+            args={[
+              environment === "Matrix" ? 0x181818 : 0xffffff,
+              1,
+              environment === "Matrix" ? 1000 : 1500,
+            ]}
+          />
+          {/* <BakeShadows /> */}
+          {/* <PreloadBodyTextures /> */}
+          {/* {HeadComponents} */}
+          {randomizerOn && (
+            <RANDOMIZER
+              setBody={setBody}
+              setAccessory={setAccessory}
+              setHead={setHead}
+              setGlasses={setGlasses}
+              setPants={setPants}
+              setShoes={setShoes}
+            />
+          )}
+          {/* <FINALBODY
+            animationState={animationState}
+            animationValue={animationValue}
+            pantsProp={pants}
+            accessoryProp={accessory}
+            bodyProp={body}
+            shoeProp={shoes}
           /> */}
-          <Cloud
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Computer
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Crab
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Mixer
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Pirate
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Rabbit
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
-          />
-          <Shark
-            head={head}
-            glasses={glasses}
-            body={body}
-            pants={pants}
-            shoes={shoes}
+
+          <SandboxItems />
+
+          <NounHolder
+            headProp={head}
+            glassesProp={glasses}
+            animationState={animationState}
+            animationValue={animationValue}
+            pantsProp={pants}
+            accessoryProp={accessory}
+            bodyProp={body}
+            shoeProp={shoes}
+            setSceneState={setSceneState}
+            ref={modelDownloadMeshForward}
           />
 
-          <NounsLogo />
+          <DownloadNoun
+            headProp={head}
+            glassesProp={glasses}
+            animationState={animationState}
+            animationValue={animationValue}
+            pantsProp={pants}
+            accessoryProp={accessory}
+            bodyProp={body}
+            shoeProp={shoes}
+            setSceneState={setSceneState}
+            ref={temporaryModel}
+          />
 
-          {/* <Environment preset="city" /> */}
+          {/* <group ref={modelDownloadMesh}>
+            <MasterHead
+              headProp={head}
+              glassesProp={glasses}
+              animationState={animationState}
+              animationValue={animationValue}
+            />
+            <FINALBODY119
+              animationState={animationState}
+              animationValue={animationValue}
+              pantsProp={pants}
+              accessoryProp={accessory}
+              bodyProp={body}
+              shoeProp={shoes}
+            />
+          </group> */}
+          {/* <HorizontalNounsLogo environment={environment} /> */}
+          {/* <NounsLogo environment={environment} /> */}
+          <ThreeDLogo ref={GlassesLogo} />
         </Suspense>
-        {/* <Svg /> */}
+        {/* <Stats showPanel={0} className="stats" /> */}
       </Canvas>
 
-      <div className="open-menu-container">
-        {optionsVisibility === "none" ? (
-          <>
+      <MenuTwo
+        isDesktop={deviceState}
+        optionsVisibility={optionsVisibility}
+        setOptionsVisibility={setOptionsVisibility}
+        head={head}
+        setHead={setHead}
+        body={body}
+        setBody={setBody}
+        accessory={accessory}
+        setAccessory={setAccessory}
+        pants={pants}
+        setPants={setPants}
+        glasses={glasses}
+        setGlasses={setGlasses}
+        shoes={shoes}
+        setShoes={setShoes}
+        environment={environment}
+        setEnvironment={setEnvironment}
+        autoRotate={autoRotate}
+        setAutoRotate={setAutoRotate}
+        generateRandomNoun={generateRandomNoun}
+        animationState={animationState}
+        animationValue={animationValue}
+        setAnimationState={setAnimationState}
+        setAnimationValue={setAnimationValue}
+        downloadModel={downloadModel}
+        downloadingModel={downloadingModel}
+        setDownloadingModel={setDownloadingModel}
+        lockedTraits={lockedTraits}
+        setLockedTraits={setLockedTraits}
+        saveAsImage={saveAsImage}
+        randomizerOn={randomizerOn}
+        setRandomizerOn={setRandomizerOn}
+      />
+      {showDirections && (
+        <div className="directions-popup">
+          <h2 style={{ color: "#d63c5e" }}>Directions: </h2>
+          <h4>{`${isDesktop ? "CLICK" : "TOUCH"} AND DRAG TO ROTATE`}</h4>
+          <h4>{`${isDesktop ? "SCROLL WHEEL" : "PINCH"} TO ZOOM`}</h4>
+          <div className="close-directions-container">
             <button
-              className="glow-on-hover"
-              style={{ marginRight: "10px" }}
-              onClick={() => generateRandomNoun()}
+              className="menu-button"
+              onClick={() => setShowDirections(false)}
             >
-              Random Noun
+              CLOSE
             </button>
-
-            <button
-              onClick={() => setOptionsVisibility("block")}
-              className={"show-menu-button"}
-            >
-              Options
-            </button>
-          </>
-        ) : null}
-      </div>
-
-      <div
-        className={isDesktop ? "options-container" : "mobile-menu-container"}
-        style={{ display: optionsVisibility }}
-      >
-        {optionsVisibility === "block" ? (
-          <Container>
-            <Row>
-              <Col xs={10}>
-                <p style={{ fontSize: "1.2rem" }}>Build your Noun!</p>
-              </Col>
-              <Col xs={{ span: 2 }}>
-                <span
-                  className="menu-x-button"
-                  onClick={() => setOptionsVisibility("none")}
-                  style={{ textAlign: "right", fontSize: "1.2em" }}
-                >
-                  ❌
-                </span>
-              </Col>
-            </Row>
-          </Container>
-        ) : null}
-
-        <div
-          className="options-controls"
-          style={{ display: optionsVisibility }}
-        >
-          {/* <h4 className="white-font" style={{ textAlign: 'center' }}>
-            Settings
-          </h4> */}
-          {/*  Head */}
-          <Container fluid>
-            <Row style={{ marginBottom: "10px" }}>
-              <Col xs={4}>
-                <label className="white-font">Head</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={head}
-                  onChange={(e) => setHead(e.target.value)}
-                  className="attribute-select-box"
-                  // name="cars"
-                  // id="cars"
-                  // form="carform"
-                >
-                  {headAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-            {/*  Glasses */}
-            <Row style={{ marginBottom: "10px" }}>
-              <Col xs={4}>
-                <label className="white-font">Glasses</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={glasses}
-                  onChange={(e) => setGlasses(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {glassesAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-
-            {/*  Body */}
-            <Row style={{ marginBottom: "10px" }}>
-              <Col xs={4}>
-                <label className="white-font">Body</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={body}
-                  onChange={(e) => setBody(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {bodyAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-            {/*  Pants */}
-            <Row style={{ marginBottom: "10px" }}>
-              <Col xs={4}>
-                <label className="white-font">Pants</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={pants}
-                  onChange={(e) => setPants(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {pantsAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-            {/*  Shoes */}
-            <Row style={{ marginBottom: "10px" }}>
-              <Col xs={4}>
-                <label className="white-font">Shoes</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={shoes}
-                  onChange={(e) => setShoes(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {shoesAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-            {/* environment */}
-            <Row>
-              <Col xs={4}>
-                <label className="white-font">World</label>
-              </Col>
-              <Col xs={8}>
-                <select
-                  value={environment}
-                  onChange={(e) => setEnvironment(e.target.value)}
-                  className="attribute-select-box"
-                >
-                  {environmentAttributes.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <div style={{ marginTop: "15px" }}>
-                  <label>
-                    <span className="white-font" style={{ marginRight: "3px" }}>
-                      Auto
-                      <br />
-                      Rotate
-                    </span>
-                  </label>
-                </div>
-              </Col>
-              <Col>
-                <div style={{ marginTop: "25px" }}>
-                  <input
-                    type="checkbox"
-                    className="toggle"
-                    checked={props.autoRotate}
-                    onChange={(e) => props.setAutoRotate(e.target.checked)}
-                  />
-                </div>
-              </Col>
-            </Row>
-
-            <div style={{ marginTop: "20px" }}>
-              <Row>
-                <Col></Col>
-                <Col>
-                  <button
-                    className="glow-on-hover"
-                    onClick={() => generateRandomNoun()}
-                  >
-                    Random Noun
-                  </button>
-                </Col>
-                <Col></Col>
-              </Row>
-            </div>
-          </Container>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="logo-container">
-        <a href="https://nouns.wtf">
+        <a href="https://3dnouns.com">
           <img className="nouns-logo" src={logo} alt="NOUNS" />
         </a>
       </div>
 
-      {!isDesktop && optionsVisibility === "block" ? null : (
+      {/* {!isDesktop && optionsVisibility === 'block' ? null : (
         <div className="credit-container">
-          <span style={{ marginRight: "20px" }}>
-            <a href="https://nouns.wtf">nouns.wtf</a> ❤️ by{" "}
-            <a href="https://twitter.com/0xFloyd">0xFloyd</a> and{" "}
-            <a href="https://twitter.com/coralorca">CoralOrca</a>
+          <span className="credit-container-text">
+            <a className="credit-container-link" href="https://nouns.wtf">
+              nouns.wtf
+            </a>{' '}
+            ❤️ by{' '}
+            <a
+              className="credit-container-link"
+              href="https://twitter.com/0xFloyd"
+            >
+              0xFloyd
+            </a>{' '}
+            and{' '}
+            <a
+              className="credit-container-link"
+              href="https://twitter.com/coralorca"
+            >
+              CoralOrca
+            </a>
           </span>
         </div>
-      )}
+      )} */}
     </>
   );
 };
@@ -548,51 +653,88 @@ const Ground = () => {
   );
 };
 
-// Extras
-const Ocean = () => {
-  const ref = useRef();
+const preloadAllAssets = () => {
+  data.tempHeads.forEach((headData) => {
+    useGLTF.preload(`/headModels/${headData.filePath}`);
+  });
 
-  // this is the renderer
-  const gl = useThree((state) => state.gl);
+  data.body.forEach((bodyObj) => {
+    useTexture.preload(`/textures/body/${bodyObj.value}`);
+  });
+  data.accessory.forEach((accessoryObj) => {
+    useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
+  });
 
-  const waterNormals = useLoader(THREE.TextureLoader, "/waternormals.jpeg");
-  waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
+  data.pants.forEach((pantsObj) => {
+    useTexture.preload(`/textures/pants/${pantsObj.value}`);
+  });
 
-  // memoize -->  storing the results of expensive function calls and returning the cached result when the same inputs occur again
-  const geom = useMemo(() => new THREE.PlaneGeometry(1000, 1000), []);
-  const config = useMemo(
-    () => ({
-      textureWidth: 512,
-      textureHeight: 512,
-      waterNormals,
-      sunDirection: new THREE.Vector3(),
-      sunColor: 0xffffff,
-      waterColor: 0x001e0f,
-      distortionScale: 3.7,
-      fog: false,
-      format: gl.encoding,
-    }),
-    [waterNormals]
-  );
-  useFrame(
-    (state, delta) => (ref.current.material.uniforms.time.value += 0.002)
-  );
+  data.shoes.forEach((shoeObj) => {
+    useTexture.preload(`/textures/shoes/${shoeObj.value}`);
+  });
 
-  // 2nd argument is config which is the material
-  return (
-    <water
-      ref={ref}
-      args={[geom, config]}
-      position={[0, -1, 0]}
-      rotation-x={-Math.PI / 2}
-    />
-  );
+  data.glasses.forEach((glassesObj) => {
+    useTexture.preload(`/textures/glasses/${glassesObj.value}`);
+  });
 };
+
+// functions from threejs repo --> https://github.com/mrdoob/three.js/blob/b5c272cf408cb33153190fa715d81581bd95ee47/examples/misc_exporter_gltf.html#L105
+function saveArrayBuffer(buffer, filename) {
+  save(new Blob([buffer], { type: "application/octet-stream" }), filename);
+}
+function saveString(text, filename) {
+  save(new Blob([text], { type: "text/plain" }), filename);
+}
+function save(blob, filename) {
+  let link = document.createElement("a");
+  link.style.display = "none";
+  document.body.appendChild(link); // Firefox workaround, see #6594
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  link.click();
+  // URL.revokeObjectURL( url ); breaks Firefox...
+}
+
+const saveScreenshot = (strData, filename) => {
+  var link = document.createElement("a");
+  if (typeof link.download === "string") {
+    document.body.appendChild(link); //Firefox requires the link to be in the body
+    link.download = filename;
+    link.href = strData;
+    link.click();
+    document.body.removeChild(link); //remove the link when done
+  }
+};
+
 {
-  /* <div style={{ marginTop: '10px' }}>
-              <span>Hold click/ swipe to rotate</span>
-            </div>
-            <div style={{ marginTop: '10px' }}>
-              <span>Scroll/ Pinch to zoom</span>
-            </div> */
+  /* <MyCamera
+          setCurrentCameraPosition={setCurrentCameraPosition}
+          orbitControls={orbitControls}
+        /> */
+}
+{
+  /* <Html>
+        <div style={{ position: "absolute", top: 200, left: 200 }}>
+          {" "}
+          <button onClick={() => setFarAway(!farAway)}>click</button>
+        </div>
+      </Html> */
+}
+
+{
+  /* <cylinderBufferGeometry args={[2, 1, 20, 32]} /> */
+}
+{
+  /* <meshStandardMaterial
+            color={new THREE.Color('#d63c5e')
+              .setHex(0xd63c5e)
+              .convertSRGBToLinear()}
+          /> */
+}
+{
+  /* <meshPhysicalMaterial
+            color={new THREE.Color('#d63c5e')
+              .setHex(0xd63c5e)
+              .convertSRGBToLinear()}
+          /> */
 }

@@ -1,0 +1,1453 @@
+{
+  "world": [
+    { "name": "Normal", "value": "Normal" },
+    { "name": "Dark", "value": "Matrix" }
+  ],
+  "body": [
+    { "name": "Bege-Bsod", "value": "body-bege-bsod.png" },
+    { "name": "Bege-Crt", "value": "body-bege-crt.png" },
+    { "name": "Blue-Sky", "value": "body-blue-sky.png" },
+    { "name": "Bluegrey", "value": "body-bluegrey.png" },
+    { "name": "Cold", "value": "body-cold.png" },
+    { "name": "Computerblue", "value": "body-computerblue.png" },
+    { "name": "Darkbrown", "value": "body-darkbrown.png" },
+    { "name": "Darkpink", "value": "body-darkpink.png" },
+    { "name": "Foggrey", "value": "body-foggrey.png" },
+    { "name": "Gold", "value": "body-gold.png" },
+    { "name": "Grayscale-1", "value": "body-grayscale-1.png" },
+    { "name": "Grayscale-7", "value": "body-grayscale-7.png" },
+    { "name": "Grayscale-8", "value": "body-grayscale-8.png" },
+    { "name": "Grayscale-9", "value": "body-grayscale-9.png" },
+    { "name": "Green", "value": "body-green.png" },
+    { "name": "Gunk", "value": "body-gunk.png" },
+    { "name": "Hotbrown", "value": "body-hotbrown.png" },
+    { "name": "Magenta", "value": "body-magenta.png" },
+    { "name": "Orange-Yellow", "value": "body-orange-yellow.png" },
+    { "name": "Orange", "value": "body-orange.png" },
+    { "name": "Peachy-B", "value": "body-peachy-B.png" },
+    { "name": "Peachy-A", "value": "body-peachy-a.png" },
+    { "name": "Purple", "value": "body-purple.png" },
+    { "name": "Red", "value": "body-red.png" },
+    { "name": "Redpinkish", "value": "body-redpinkish.png" },
+    { "name": "Rust", "value": "body-rust.png" },
+    { "name": "Slimegreen", "value": "body-slimegreen.png" },
+    { "name": "Teal-Light", "value": "body-teal-light.png" },
+    { "name": "Teal", "value": "body-teal.png" },
+    { "name": "Yellow", "value": "body-yellow.png" }
+  ],
+  "accessory": [
+    { "name": "accessory-1n", "value": "accessory-1n.png" },
+    { "name": "accessory-aardvark", "value": "accessory-aardvark.png" },
+    { "name": "accessory-axe", "value": "accessory-axe.png" },
+    {
+      "name": "accessory-belly-chameleon",
+      "value": "accessory-belly-chameleon.png"
+    },
+    { "name": "accessory-bird-flying", "value": "accessory-bird-flying.png" },
+    { "name": "accessory-bird-side", "value": "accessory-bird-side.png" },
+    { "name": "accessory-bling-anchor", "value": "accessory-bling-anchor.png" },
+    { "name": "accessory-bling-anvil", "value": "accessory-bling-anvil.png" },
+    { "name": "accessory-bling-arrow", "value": "accessory-bling-arrow.png" },
+    { "name": "accessory-bling-cheese", "value": "accessory-bling-cheese.png" },
+    {
+      "name": "accessory-bling-gold-ingot",
+      "value": "accessory-bling-gold-ingot.png"
+    },
+    { "name": "accessory-bling-love", "value": "accessory-bling-love.png" },
+    { "name": "accessory-bling-mask", "value": "accessory-bling-mask.png" },
+    { "name": "accessory-bling-rings", "value": "accessory-bling-rings.png" },
+    {
+      "name": "accessory-bling-scissors",
+      "value": "accessory-bling-scissors.png"
+    },
+    {
+      "name": "accessory-body-gradient-checkerdisco",
+      "value": "accessory-body-gradient-checkerdisco.png"
+    },
+    {
+      "name": "accessory-body-gradient-dawn",
+      "value": "accessory-body-gradient-dawn.png"
+    },
+    {
+      "name": "accessory-body-gradient-dusk",
+      "value": "accessory-body-gradient-dusk.png"
+    },
+    {
+      "name": "accessory-body-gradient-glacier",
+      "value": "accessory-body-gradient-glacier.png"
+    },
+    {
+      "name": "accessory-body-gradient-ice",
+      "value": "accessory-body-gradient-ice.png"
+    },
+    {
+      "name": "accessory-body-gradient-pride",
+      "value": "accessory-body-gradient-pride.png"
+    },
+    {
+      "name": "accessory-body-gradient-redpink",
+      "value": "accessory-body-gradient-redpink.png"
+    },
+    {
+      "name": "accessory-body-gradient-sunset",
+      "value": "accessory-body-gradient-sunset.png"
+    },
+    { "name": "accessory-carrot", "value": "accessory-carrot.png" },
+    { "name": "accessory-chain-logo", "value": "accessory-chain-logo.png" },
+    { "name": "accessory-checker-RGB", "value": "accessory-checker-RGB.png" },
+    {
+      "name": "accessory-checker-bigwalk-blue-prime",
+      "value": "accessory-checker-bigwalk-blue-prime.png"
+    },
+    {
+      "name": "accessory-checker-bigwalk-greylight",
+      "value": "accessory-checker-bigwalk-greylight.png"
+    },
+    {
+      "name": "accessory-checker-bigwalk-rainbow",
+      "value": "accessory-checker-bigwalk-rainbow.png"
+    },
+    {
+      "name": "accessory-checker-spaced-black",
+      "value": "accessory-checker-spaced-black.png"
+    },
+    {
+      "name": "accessory-checker-spaced-white",
+      "value": "accessory-checker-spaced-white.png"
+    },
+    {
+      "name": "accessory-checker-vibrant",
+      "value": "accessory-checker-vibrant.png"
+    },
+    {
+      "name": "accessory-checkers-big-green",
+      "value": "accessory-checkers-big-green.png"
+    },
+    {
+      "name": "accessory-checkers-big-red-cold",
+      "value": "accessory-checkers-big-red-cold.png"
+    },
+    {
+      "name": "accessory-checkers-black",
+      "value": "accessory-checkers-black.png"
+    },
+    {
+      "name": "accessory-checkers-blue",
+      "value": "accessory-checkers-blue.png"
+    },
+    {
+      "name": "accessory-checkers-magenta-80",
+      "value": "accessory-checkers-magenta-80.png"
+    },
+    { "name": "accessory-chicken", "value": "accessory-chicken.png" },
+    { "name": "accessory-cloud", "value": "accessory-cloud.png" },
+    { "name": "accessory-clover", "value": "accessory-clover.png" },
+    {
+      "name": "accessory-collar-sunset",
+      "value": "accessory-collar-sunset.png"
+    },
+    { "name": "accessory-cow", "value": "accessory-cow.png" },
+    {
+      "name": "accessory-decay-gray-dark",
+      "value": "accessory-decay-gray-dark.png"
+    },
+    { "name": "accessory-decay-pride", "value": "accessory-decay-pride.png" },
+    { "name": "accessory-dinosaur", "value": "accessory-dinosaur.png" },
+    { "name": "accessory-dollar-bling", "value": "accessory-dollar-bling.png" },
+    { "name": "accessory-dragon", "value": "accessory-dragon.png" },
+    { "name": "accessory-ducky", "value": "accessory-ducky.png" },
+    { "name": "accessory-eth", "value": "accessory-eth.png" },
+    { "name": "accessory-eye", "value": "accessory-eye.png" },
+    { "name": "accessory-flash", "value": "accessory-flash.png" },
+    { "name": "accessory-fries", "value": "accessory-fries.png" },
+    {
+      "name": "accessory-glasses-logo-sun",
+      "value": "accessory-glasses-logo-sun.png"
+    },
+    { "name": "accessory-glasses-logo", "value": "accessory-glasses-logo.png" },
+    { "name": "accessory-glasses", "value": "accessory-glasses.png" },
+    {
+      "name": "accessory-grid-simple-bege",
+      "value": "accessory-grid-simple-bege.png"
+    },
+    { "name": "accessory-heart", "value": "accessory-heart.png" },
+    {
+      "name": "accessory-hoodiestrings-uneven",
+      "value": "accessory-hoodiestrings-uneven.png"
+    },
+    { "name": "accessory-id", "value": "accessory-id.png" },
+    { "name": "accessory-infinity", "value": "accessory-infinity.png" },
+    { "name": "accessory-insignia", "value": "accessory-insignia.png" },
+    { "name": "accessory-leaf", "value": "accessory-leaf.png" },
+    { "name": "accessory-lightbulb", "value": "accessory-lightbulb.png" },
+    {
+      "name": "accessory-lines-45-greens",
+      "value": "accessory-lines-45-greens.png"
+    },
+    {
+      "name": "accessory-lines-45-rose",
+      "value": "accessory-lines-45-rose.png"
+    },
+    { "name": "accessory-lp", "value": "accessory-lp.png" },
+    { "name": "accessory-marsface", "value": "accessory-marsface.png" },
+    { "name": "accessory-matrix-white", "value": "accessory-matrix-white.png" },
+    { "name": "accessory-moon-block", "value": "accessory-moon-block.png" },
+    { "name": "accessory-none", "value": "accessory-none.png" },
+    { "name": "accessory-oldshirt", "value": "accessory-oldshirt.png" },
+    { "name": "accessory-pizza-bling", "value": "accessory-pizza-bling.png" },
+    {
+      "name": "accessory-pocket-pencil",
+      "value": "accessory-pocket-pencil.png"
+    },
+    { "name": "accessory-rain", "value": "accessory-rain.png" },
+    {
+      "name": "accessory-rainbow-steps",
+      "value": "accessory-rainbow-steps.png"
+    },
+    { "name": "accessory-rgb", "value": "accessory-rgb.png" },
+    { "name": "accessory-robot", "value": "accessory-robot.png" },
+    { "name": "accessory-safety-vest", "value": "accessory-safety-vest.png" },
+    { "name": "accessory-scarf-clown", "value": "accessory-scarf-clown.png" },
+    { "name": "accessory-secret-x", "value": "accessory-secret-x.png" },
+    { "name": "accessory-shirt-black", "value": "accessory-shirt-black.png" },
+    { "name": "accessory-shrimp", "value": "accessory-shrimp.png" },
+    { "name": "accessory-slimesplat", "value": "accessory-slimesplat.png" },
+    { "name": "accessory-small-bling", "value": "accessory-small-bling.png" },
+    { "name": "accessory-snowflake", "value": "accessory-snowflake.png" },
+    { "name": "accessory-stains-blood", "value": "accessory-stains-blood.png" },
+    {
+      "name": "accessory-stains-zombie",
+      "value": "accessory-stains-zombie.png"
+    },
+    {
+      "name": "accessory-stripes-and-checks",
+      "value": "accessory-stripes-and-checks.png"
+    },
+    {
+      "name": "accessory-stripes-big-red",
+      "value": "accessory-stripes-big-red.png"
+    },
+    { "name": "accessory-stripes-blit", "value": "accessory-stripes-blit.png" },
+    {
+      "name": "accessory-stripes-blue-med",
+      "value": "accessory-stripes-blue-med.png"
+    },
+    {
+      "name": "accessory-stripes-brown",
+      "value": "accessory-stripes-brown.png"
+    },
+    {
+      "name": "accessory-stripes-olive",
+      "value": "accessory-stripes-olive.png"
+    },
+    {
+      "name": "accessory-stripes-red-cold",
+      "value": "accessory-stripes-red-cold.png"
+    },
+    { "name": "accessory-sunset", "value": "accessory-sunset.png" },
+    {
+      "name": "accessory-taxi-checkers",
+      "value": "accessory-taxi-checkers.png"
+    },
+    { "name": "accessory-tee-yo", "value": "accessory-tee-yo.png" },
+    { "name": "accessory-text-yolo", "value": "accessory-text-yolo.png" },
+    { "name": "accessory-think", "value": "accessory-think.png" },
+    {
+      "name": "accessory-tie-black-on-white",
+      "value": "accessory-tie-black-on-white.png"
+    },
+    { "name": "accessory-tie-dye", "value": "accessory-tie-dye.png" },
+    {
+      "name": "accessory-tie-purple-on-white",
+      "value": "accessory-tie-purple-on-white.png"
+    },
+    { "name": "accessory-tie-red", "value": "accessory-tie-red.png" },
+    { "name": "accessory-txt-a2+b2", "value": "accessory-txt-a2+b2.png" },
+    { "name": "accessory-txt-cc", "value": "accessory-txt-cc.png" },
+    { "name": "accessory-txt-cc2", "value": "accessory-txt-cc2.png" },
+    { "name": "accessory-txt-copy", "value": "accessory-txt-copy.png" },
+    {
+      "name": "accessory-txt-dao-black",
+      "value": "accessory-txt-dao-black.png"
+    },
+    { "name": "accessory-txt-doom", "value": "accessory-txt-doom.png" },
+    {
+      "name": "accessory-txt-dope-text",
+      "value": "accessory-txt-dope-text.png"
+    },
+    {
+      "name": "accessory-txt-foo-black",
+      "value": "accessory-txt-foo-black.png"
+    },
+    { "name": "accessory-txt-ico", "value": "accessory-txt-ico.png" },
+    { "name": "accessory-txt-io", "value": "accessory-txt-io.png" },
+    { "name": "accessory-txt-lmao", "value": "accessory-txt-lmao.png" },
+    { "name": "accessory-txt-lol", "value": "accessory-txt-lol.png" },
+    { "name": "accessory-txt-mint", "value": "accessory-txt-mint.png" },
+    {
+      "name": "accessory-txt-nil-grey-dark",
+      "value": "accessory-txt-nil-grey-dark.png"
+    },
+    { "name": "accessory-txt-noun-f0f", "value": "accessory-txt-noun-f0f.png" },
+    {
+      "name": "accessory-txt-noun-green",
+      "value": "accessory-txt-noun-green.png"
+    },
+    {
+      "name": "accessory-txt-noun-multicolor",
+      "value": "accessory-txt-noun-multicolor.png"
+    },
+    { "name": "accessory-txt-noun", "value": "accessory-txt-noun.png" },
+    { "name": "accessory-txt-pi", "value": "accessory-txt-pi.png" },
+    { "name": "accessory-txt-pop", "value": "accessory-txt-pop.png" },
+    { "name": "accessory-txt-rofl", "value": "accessory-txt-rofl.png" },
+    { "name": "accessory-txt-we", "value": "accessory-txt-we.png" },
+    { "name": "accessory-txt-yay", "value": "accessory-txt-yay.png" },
+    { "name": "accessory-wall", "value": "accessory-wall.png" },
+    { "name": "accessory-wave", "value": "accessory-wave.png" },
+    { "name": "accessory-wet-money", "value": "accessory-wet-money.png" },
+    {
+      "name": "accessory-woolweave-bicolor",
+      "value": "accessory-woolweave-bicolor.png"
+    },
+    {
+      "name": "accessory-woolweave-dirt",
+      "value": "accessory-woolweave-dirt.png"
+    },
+    { "name": "accessory-yingyang", "value": "accessory-yingyang.png" },
+    { "name": "body-bege", "value": "body-bege.png" },
+    { "name": "body-gray-scale-1", "value": "body-gray-scale-1.png" },
+    { "name": "body-gray-scale-9", "value": "body-gray-scale-9.png" },
+    { "name": "body-ice-cold", "value": "body-ice-cold.png" }
+  ],
+  "head": [
+    { "name": "Aardvark", "value": "head-aardvark" },
+    { "name": "Abstract", "value": "head-abstract" },
+    { "name": "Ape", "value": "head-ape" },
+    { "name": "Bag", "value": "head-bag" },
+    { "name": "Bagpipe", "value": "head-bagpipe" },
+    { "name": "Banana", "value": "head-banana" },
+    { "name": "Bank", "value": "head-bank" },
+    { "name": "Baseball-gameball", "value": "head-baseball-gameball" },
+    { "name": "Basketball", "value": "head-basketball" },
+    { "name": "Bat", "value": "head-bat" },
+    { "name": "Bear", "value": "head-bear" },
+    { "name": "Beer", "value": "head-beer" },
+    { "name": "Beet", "value": "head-beet" },
+    { "name": "Bell", "value": "head-bell" },
+    { "name": "Bigfoot-yeti", "value": "head-bigfoot-yeti" },
+    { "name": "Bigfoot", "value": "head-bigfoot" },
+    { "name": "Blackhole", "value": "head-blackhole" },
+    { "name": "Blueberry", "value": "head-blueberry" },
+    { "name": "Bomb", "value": "head-bomb" },
+    { "name": "Bonsai", "value": "head-bonsai" },
+    { "name": "Boombox", "value": "head-boombox" },
+    { "name": "Boot", "value": "head-boot" },
+    { "name": "Box", "value": "head-box" },
+    { "name": "Boxingglove", "value": "head-boxingglove" },
+    { "name": "Brain", "value": "head-brain" },
+    { "name": "Bubble-speech", "value": "head-bubble-speech" },
+    { "name": "Bubblegum", "value": "head-bubblegum" },
+    { "name": "Burger-dollarmenu", "value": "head-burger-dollarmenu" },
+    { "name": "Cake", "value": "head-cake" },
+    { "name": "Calculator", "value": "head-calculator" },
+    { "name": "Calendar", "value": "head-calendar" },
+    { "name": "Camcorder", "value": "head-camcorder" },
+    { "name": "Cannedham", "value": "head-cannedham" },
+    { "name": "Car", "value": "head-car" },
+    { "name": "Cash-register", "value": "head-cash-register" },
+    { "name": "Cassettetape", "value": "head-cassettetape" },
+    { "name": "Cat", "value": "head-cat" },
+    { "name": "Cd", "value": "head-cd" },
+    { "name": "Chain", "value": "head-chain" },
+    { "name": "Chainsaw", "value": "head-chainsaw" },
+    { "name": "Chameleon", "value": "head-chameleon" },
+    { "name": "Chart-bars", "value": "head-chart-bars" },
+    { "name": "Cheese", "value": "head-cheese" },
+    { "name": "Chefhat", "value": "head-chefhat" },
+    { "name": "Cherry", "value": "head-cherry" },
+    { "name": "Chicken", "value": "head-chicken" },
+    { "name": "Chilli", "value": "head-chilli" },
+    { "name": "Chipboard", "value": "head-chipboard" },
+    { "name": "Chips", "value": "head-chips" },
+    { "name": "Chocolate", "value": "head-chocolate" },
+    { "name": "Cloud", "value": "head-cloud" },
+    { "name": "Clover", "value": "head-clover" },
+    { "name": "Clutch", "value": "head-clutch" },
+    { "name": "Coffeebean", "value": "head-coffeebean" },
+    { "name": "Cone", "value": "head-cone" },
+    { "name": "Console-handheld", "value": "head-console-handheld" },
+    { "name": "Cookie", "value": "head-cookie" },
+    { "name": "Cordlessphone", "value": "head-cordlessphone" },
+    { "name": "Cottonball", "value": "head-cottonball" },
+    { "name": "Cow", "value": "head-cow" },
+    { "name": "Crab", "value": "head-crab" },
+    { "name": "Crane", "value": "head-crane" },
+    { "name": "Croc-hat", "value": "head-croc-hat" },
+    { "name": "Crown", "value": "head-crown" },
+    { "name": "Crt-bsod", "value": "head-crt-bsod" },
+    { "name": "Crystalball", "value": "head-crystalball" },
+    { "name": "Diamond-blue", "value": "head-diamond-blue" },
+    { "name": "Diamond-red", "value": "head-diamond-red" },
+    { "name": "Dictionary", "value": "head-dictionary" },
+    { "name": "Dino", "value": "head-dino" },
+    { "name": "Dna", "value": "head-dna" },
+    { "name": "Dog", "value": "head-dog" },
+    { "name": "Doughnut", "value": "head-doughnut" },
+    { "name": "Drill", "value": "head-drill" },
+    { "name": "Duck", "value": "head-duck" },
+    { "name": "Ducky", "value": "head-ducky" },
+    { "name": "Earth", "value": "head-earth" },
+    { "name": "Egg", "value": "head-egg" },
+    { "name": "Faberge", "value": "head-faberge" },
+    { "name": "Factory-dark", "value": "head-factory-dark" },
+    { "name": "Fan", "value": "head-fan" },
+    { "name": "Fence", "value": "head-fence" },
+    { "name": "Film-35mm", "value": "head-film-35mm" },
+    { "name": "Film-strip", "value": "head-film-strip" },
+    { "name": "Fir", "value": "head-fir" },
+    { "name": "Firehydrant", "value": "head-firehydrant" },
+    { "name": "Flamingo", "value": "head-flamingo" },
+    { "name": "Flower", "value": "head-flower" },
+    { "name": "Fox", "value": "head-fox" },
+    { "name": "Frog", "value": "head-frog" },
+    { "name": "Garlic", "value": "head-garlic" },
+    { "name": "Gavel", "value": "head-gavel" },
+    { "name": "Ghost-b", "value": "head-ghost-B" },
+    { "name": "Glasses-big", "value": "head-glasses-big" },
+    { "name": "Gnome", "value": "head-gnome" },
+    { "name": "Goat", "value": "head-goat" },
+    { "name": "Goldcoin", "value": "head-goldcoin" },
+    { "name": "Goldfish", "value": "head-goldfish" },
+    { "name": "Grouper", "value": "head-grouper" },
+    { "name": "Hair", "value": "head-hair" },
+    { "name": "Hardhat", "value": "head-hardhat" },
+    { "name": "Heart", "value": "head-heart" },
+    { "name": "Helicopter", "value": "head-helicopter" },
+    { "name": "Highheel", "value": "head-highheel" },
+    { "name": "Hockeypuck", "value": "head-hockeypuck" },
+    { "name": "Horse-deepfried", "value": "head-horse-deepfried" },
+    { "name": "Hotdog", "value": "head-hotdog" },
+    { "name": "House", "value": "head-house" },
+    { "name": "Icepop-b", "value": "head-icepop-b" },
+    { "name": "Igloo", "value": "head-igloo" },
+    { "name": "Island", "value": "head-island" },
+    { "name": "Jellyfish", "value": "head-jellyfish" },
+    { "name": "Jupiter", "value": "head-jupiter" },
+    { "name": "Kangaroo", "value": "head-kangaroo" },
+    { "name": "Ketchup", "value": "head-ketchup" },
+    { "name": "Laptop", "value": "head-laptop" },
+    { "name": "Lightning-bolt", "value": "head-lightning-bolt" },
+    { "name": "Lint", "value": "head-lint" },
+    { "name": "Lips", "value": "head-lips" },
+    { "name": "Lipstick2", "value": "head-lipstick2" },
+    { "name": "Lock", "value": "head-lock" },
+    { "name": "Macaroni", "value": "head-macaroni" },
+    { "name": "Mailbox", "value": "head-mailbox" },
+    { "name": "Maze", "value": "head-maze" },
+    { "name": "Microwave", "value": "head-microwave" },
+    { "name": "Milk", "value": "head-milk" },
+    { "name": "Mirror", "value": "head-mirror" },
+    { "name": "Mixer", "value": "head-mixer" },
+    { "name": "Moon", "value": "head-moon" },
+    { "name": "Moose", "value": "head-moose" },
+    { "name": "Mosquito", "value": "head-mosquito" },
+    { "name": "Mountain-snowcap", "value": "head-mountain-snowcap" },
+    { "name": "Mouse", "value": "head-mouse" },
+    { "name": "Mug", "value": "head-mug" },
+    { "name": "Mushroom", "value": "head-mushroom" },
+    { "name": "Mustard", "value": "head-mustard" },
+    { "name": "Nigiri", "value": "head-nigiri" },
+    { "name": "Noodles", "value": "head-noodles" },
+    { "name": "Onion", "value": "head-onion" },
+    { "name": "Orangutan", "value": "head-orangutan" },
+    { "name": "Orca", "value": "head-orca" },
+    { "name": "Otter", "value": "head-otter" },
+    { "name": "Outlet", "value": "head-outlet" },
+    { "name": "Owl", "value": "head-owl" },
+    { "name": "Oyster", "value": "head-oyster" },
+    { "name": "Paintbrush", "value": "head-paintbrush" },
+    { "name": "Panda", "value": "head-panda" },
+    { "name": "Paperclip", "value": "head-paperclip" },
+    { "name": "Peanut", "value": "head-peanut" },
+    { "name": "Pencil-tip", "value": "head-pencil-tip" },
+    { "name": "Peyote", "value": "head-peyote" },
+    { "name": "Piano", "value": "head-piano" },
+    { "name": "Pickle", "value": "head-pickle" },
+    { "name": "Pie", "value": "head-pie" },
+    { "name": "Piggybank", "value": "head-piggybank" },
+    { "name": "Pill", "value": "head-pill" },
+    { "name": "Pillow", "value": "head-pillow" },
+    { "name": "Pineapple", "value": "head-pineapple" },
+    { "name": "Pipe", "value": "head-pipe" },
+    { "name": "Pirateship", "value": "head-pirateship" },
+    { "name": "Pizza", "value": "head-pizza" },
+    { "name": "Plane", "value": "head-plane" },
+    { "name": "Pop", "value": "head-pop" },
+    { "name": "Porkbao", "value": "head-porkbao" },
+    { "name": "Potato", "value": "head-potato" },
+    { "name": "Pufferfish", "value": "head-pufferfish" },
+    { "name": "Pumpkin", "value": "head-pumpkin" },
+    { "name": "Pyramid", "value": "head-pyramid" },
+    { "name": "Queencrown", "value": "head-queencrown" },
+    { "name": "Rabbit", "value": "head-rabbit" },
+    { "name": "Rainbow", "value": "head-rainbow" },
+    { "name": "Rangefinder", "value": "head-rangefinder" },
+    { "name": "Raven", "value": "head-raven" },
+    { "name": "Retainer", "value": "head-retainer" },
+    { "name": "Rgb", "value": "head-rgb" },
+    { "name": "Ring", "value": "head-ring" },
+    { "name": "Road", "value": "head-road" },
+    { "name": "Robot", "value": "head-robot" },
+    { "name": "Rock", "value": "head-rock" },
+    { "name": "Rosebud", "value": "head-rosebud" },
+    { "name": "Ruler-triangular", "value": "head-ruler-triangular" },
+    { "name": "Saguaro", "value": "head-saguaro" },
+    { "name": "Sailboat", "value": "head-sailboat" },
+    { "name": "Sandwich", "value": "head-sandwich" },
+    { "name": "Saturn", "value": "head-saturn" },
+    { "name": "Saw", "value": "head-saw" },
+    { "name": "Scorpion", "value": "head-scorpion" },
+    { "name": "Shark", "value": "head-shark" },
+    { "name": "Shower", "value": "head-shower" },
+    { "name": "Skateboard", "value": "head-skateboard" },
+    { "name": "Skeleton-hat", "value": "head-skeleton-hat" },
+    { "name": "Skilift", "value": "head-skilift" },
+    { "name": "Smile", "value": "head-smile" },
+    { "name": "Snowglobe", "value": "head-snowglobe" },
+    { "name": "Snowmobile", "value": "head-snowmobile" },
+    { "name": "Spaghetti", "value": "head-spaghetti" },
+    { "name": "Sponge", "value": "head-sponge" },
+    { "name": "Squid", "value": "head-squid" },
+    { "name": "Stapler", "value": "head-stapler" },
+    { "name": "Star-sparkles", "value": "head-star-sparkles" },
+    { "name": "Steak", "value": "head-steak" },
+    { "name": "Sunset", "value": "head-sunset" },
+    { "name": "Taco-classic", "value": "head-taco-classic" },
+    { "name": "Taxi", "value": "head-taxi" },
+    { "name": "Thumbsup", "value": "head-thumbsup" },
+    { "name": "Toaster", "value": "head-toaster" },
+    { "name": "Toiletpaper-full", "value": "head-toiletpaper-full" },
+    { "name": "Tooth", "value": "head-tooth" },
+    { "name": "Toothbrush-fresh", "value": "head-toothbrush-fresh" },
+    { "name": "Tornado", "value": "head-tornado" },
+    { "name": "Trashcan", "value": "head-trashcan" },
+    { "name": "Turing", "value": "head-turing" },
+    { "name": "Ufo", "value": "head-ufo" },
+    { "name": "Undead", "value": "head-undead" },
+    { "name": "Unicorn", "value": "head-unicorn" },
+    { "name": "Vent", "value": "head-vent" },
+    { "name": "Void", "value": "head-void" },
+    { "name": "Volcano", "value": "head-volcano" },
+    { "name": "Volleyball", "value": "head-volleyball" },
+    { "name": "Wall", "value": "head-wall" },
+    { "name": "Wallet", "value": "head-wallet" },
+    { "name": "Wallsafe", "value": "head-wallsafe" },
+    { "name": "Washingmachine", "value": "head-washingmachine" },
+    { "name": "Watch", "value": "head-watch" },
+    { "name": "Watermelon", "value": "head-watermelon" },
+    { "name": "Wave", "value": "head-wave" },
+    { "name": "Weed", "value": "head-weed" },
+    { "name": "Weight", "value": "head-weight" },
+    { "name": "Werewolf", "value": "head-werewolf" },
+    { "name": "Whale-alive", "value": "head-whale-alive" },
+    { "name": "Whale", "value": "head-whale" },
+    { "name": "Wine", "value": "head-wine" },
+    { "name": "Wizardhat", "value": "head-wizardhat" },
+    { "name": "Zebra", "value": "head-zebra" }
+  ],
+  "glasses": [
+    { "name": "Black-Eyes-Red", "value": "glasses-square-black-eyes-red.png" },
+    { "name": "Black-Rgb", "value": "glasses-square-black-rgb.png" },
+    { "name": "Black", "value": "glasses-square-black.png" },
+    {
+      "name": "Blue-Med-Saturated",
+      "value": "glasses-square-blue-med-saturated.png"
+    },
+    { "name": "Blue", "value": "glasses-square-blue.png" },
+    { "name": "Frog-Green", "value": "glasses-square-frog-green.png" },
+    { "name": "Fullblack", "value": "glasses-square-fullblack.png" },
+    {
+      "name": "Green-Blue-Multi",
+      "value": "glasses-square-green-blue-multi.png"
+    },
+    { "name": "Grey-Light", "value": "glasses-square-grey-light.png" },
+    { "name": "Guava", "value": "glasses-square-guava.png" },
+    { "name": "Hip-Rose", "value": "glasses-square-hip-rose.png" },
+    { "name": "Honey", "value": "glasses-square-honey.png" },
+    { "name": "Magenta", "value": "glasses-square-magenta.png" },
+    { "name": "Orange-Multi", "value": "glasses-square-orange-multi.png" },
+    { "name": "Orange", "value": "glasses-square-orange.png" },
+    {
+      "name": "Pink-Purple-Multi",
+      "value": "glasses-square-pink-purple-multi.png"
+    },
+    { "name": "Red", "value": "glasses-square-red.png" },
+    { "name": "Smoke", "value": "glasses-square-smoke.png" },
+    { "name": "Teal", "value": "glasses-square-teal.png" },
+    { "name": "Watermelon", "value": "glasses-square-watermelon.png" },
+    {
+      "name": "Yellow-Saturated",
+      "value": "glasses-square-yellow-saturated.png"
+    }
+  ],
+  "pants": [
+    { "name": "Bege-Crt", "value": "pants-bege-crt.png" },
+    { "name": "Blue", "value": "pants-blue.png" },
+    { "name": "Bluegrey", "value": "pants-bluegrey.png" },
+    { "name": "Darkbrown", "value": "pants-darkbrown.png" },
+    { "name": "Darkgrey", "value": "pants-darkgrey.png" },
+    { "name": "Denim", "value": "pants-denim.png" },
+    { "name": "Grayscale-8", "value": "pants-grayscale-8.png" },
+    { "name": "Grayscale-9", "value": "pants-grayscale-9.png" },
+    { "name": "Orange", "value": "pants-orange.png" },
+    { "name": "Rust", "value": "pants-rust.png" },
+    { "name": "Teal-Light", "value": "pants-teal-light.png" },
+    { "name": "Tornout-Grey", "value": "pants-tornout-grey.png" },
+    { "name": "Tornout", "value": "pants-tornout.png" },
+    { "name": "White", "value": "pants-white.png" }
+  ],
+  "shoes": [
+    { "name": "Black", "value": "shoes-black.png" },
+    { "name": "Dark-Brown", "value": "shoes-dark-brown.png" },
+    { "name": "Fog-Grey", "value": "shoes-fog-grey.png" },
+    { "name": "Teal-Light", "value": "shoes-teal-light.png" },
+    { "name": "White", "value": "shoes-white.png" }
+  ],
+  "animations": [
+    { "name": "none", "value": 9999 },
+    { "name": "idle", "value": 3 },
+    { "name": "walk", "value": 8 },
+    { "name": "run", "value": 5 },
+    { "name": "jump", "value": 4 },
+    { "name": "dance1", "value": 1 },
+    { "name": "dance2", "value": 2 },
+    { "name": "tpose", "value": 7 }
+  ],
+
+  "tempAccessories": [
+    { "name": "1N", "value": "accessory-1n.png" },
+    { "name": "Aardvark", "value": "accessory-aardvark.png" },
+    { "name": "Axe", "value": "accessory-axe.png" },
+    { "name": "Belly-Chameleon", "value": "accessory-belly-chameleon.png" },
+    { "name": "Bird-Flying", "value": "accessory-bird-flying.png" },
+    { "name": "Bird-Side", "value": "accessory-bird-side.png" },
+    { "name": "Blind-Anchor", "value": "accessory-blind-anchor.png" },
+    { "name": "Bling-Anvil", "value": "accessory-bling-anvil.png" },
+    { "name": "Bling-Arrow", "value": "accessory-bling-arrow.png" },
+    { "name": "Bling-Cheese", "value": "accessory-bling-cheese.png" },
+    { "name": "Bling-Gold-Ingot", "value": "accessory-bling-gold-ingot.png" },
+    { "name": "Bling-Love", "value": "accessory-bling-love.png" },
+    { "name": "Bling-Mask", "value": "accessory-bling-mask.png" },
+    { "name": "Bling-Ring", "value": "accessory-bling-ring.png" },
+    { "name": "Bling-Scissors", "value": "accessory-bling-scissors.png" },
+    {
+      "name": "Body-Gradient-Checkerdisco",
+      "value": "accessory-body-gradient-checkerdisco.png"
+    },
+    {
+      "name": "Body-Gradient-Dawn",
+      "value": "accessory-body-gradient-dawn.png"
+    },
+    {
+      "name": "Body-Gradient-Dusk",
+      "value": "accessory-body-gradient-dusk.png"
+    },
+    {
+      "name": "Body-Gradient-Glacier",
+      "value": "accessory-body-gradient-glacier.png"
+    },
+    { "name": "Body-Gradient-Ice", "value": "accessory-body-gradient-ice.png" },
+    {
+      "name": "Body-Gradient-Pride",
+      "value": "accessory-body-gradient-pride.png"
+    },
+    {
+      "name": "Body-Gradient-Redpink",
+      "value": "accessory-body-gradient-redpink.png"
+    },
+    {
+      "name": "Body-Gradient-Sunset",
+      "value": "accessory-body-gradient-sunset.png"
+    },
+    { "name": "Carrot", "value": "accessory-carrot.png" },
+    { "name": "Chain", "value": "accessory-chain.png" },
+    {
+      "name": "Checker-Bigwalk-Blue-Prime",
+      "value": "accessory-checker-bigwalk-blue-prime.png"
+    },
+    {
+      "name": "Checker-Bigwalk-Greylight",
+      "value": "accessory-checker-bigwalk-greylight.png"
+    },
+    {
+      "name": "Checker-Bigwalk-Rainbow",
+      "value": "accessory-checker-bigwalk-rainbow.png"
+    },
+    { "name": "Checker-Rgb", "value": "accessory-checker-RGB.png" },
+    { "name": "Cloud", "value": "accessory-cloud.png" },
+    { "name": "Clover", "value": "accessory-clover.png" },
+    { "name": "Collar-Sunset", "value": "accessory-collar-sunset.png" },
+    { "name": "Cow", "value": "accessory-cow.png" },
+    { "name": "Dinosaur", "value": "accessory-dinosaur.png" },
+    { "name": "Dollar-Bling", "value": "accessory-dollar-bling.png" },
+    { "name": "Dragon", "value": "accessory-dragon.png" },
+    { "name": "Ducky", "value": "accessory-ducky.png" },
+    { "name": "Eth", "value": "accessory-eth.png" },
+    { "name": "Eye", "value": "accessory-eye.png" },
+    { "name": "Flash", "value": "accessory-flash.png" },
+    { "name": "Fries", "value": "accessory-fries.png" },
+    { "name": "Glasses-Logo-Sun", "value": "accessory-glasses-logo-sun.png" },
+    { "name": "Glasses-Logo", "value": "accessory-glasses-logo.png" },
+    { "name": "Glasses", "value": "accessory-glasses.png" },
+    { "name": "Heart", "value": "accessory-heart.png" },
+    {
+      "name": "Hoodiestrings-Uneven",
+      "value": "accessory-hoodiestrings-uneven.png"
+    },
+    { "name": "Id", "value": "accessory-id.png" },
+    { "name": "Infinity", "value": "accessory-infinity.png" },
+    { "name": "Insignia", "value": "accessory-insignia.png" },
+    { "name": "Leaf", "value": "accessory-leaf.png" },
+    { "name": "Lightbulb", "value": "accessory-lightbulb.png" },
+    { "name": "Marsface", "value": "accessory-marsface.png" },
+    { "name": "Matrix", "value": "accessory-matrix.png" },
+    { "name": "Moon-Block", "value": "accessory-moon-block.png" },
+    { "name": "Pizza-Bling", "value": "accessory-pizza-bling.png" },
+    { "name": "Pocket-Pencil", "value": "accessory-pocket-pencil.png" },
+    { "name": "Rain", "value": "accessory-rain.png" },
+    { "name": "Rgb", "value": "accessory-rgb.png" },
+    { "name": "Scarf-Clown", "value": "accessory-scarf-clown.png" },
+    { "name": "Secret-X", "value": "accessory-secret-x.png" },
+    { "name": "Shirt-Black", "value": "accessory-shirt-black.png" },
+    { "name": "Shrimp", "value": "accessory-shrimp.png" },
+    { "name": "Slimesplat", "value": "accessory-slimesplat.png" },
+    { "name": "Small-Bling", "value": "accessory-small-bling.png" },
+    { "name": "Snowflake", "value": "accessory-snowflake.png" },
+    { "name": "Stains-Blood", "value": "accessory-stains-blood.png" },
+    { "name": "Stains-Zombie", "value": "accessory-stains-zombie.png" },
+    {
+      "name": "Stripes-And-Checks",
+      "value": "accessory-stripes-and-checks.png"
+    },
+    { "name": "Stripes-Big-Red", "value": "accessory-stripes-big-red.png" },
+    { "name": "Stripes-Blit", "value": "accessory-stripes-blit.png" },
+    { "name": "Stripes-Blue-Med", "value": "accessory-stripes-blue-med.png" },
+    { "name": "Stripes-Brown", "value": "accessory-stripes-brown.png" },
+    { "name": "Stripes-Olive", "value": "accessory-stripes-olive.png" },
+    { "name": "Stripes-Red-Cold", "value": "accessory-stripes-red-cold.png" },
+    { "name": "Sunset", "value": "accessory-sunset.png" },
+    { "name": "Taxi-Checkers", "value": "accessory-taxi-checkers.png" },
+    { "name": "Text-Yolo", "value": "accessory-text-yolo.png" },
+    { "name": "Think", "value": "accessory-think.png" },
+    {
+      "name": "Tie-Black-On-White",
+      "value": "accessory-tie-black-on-white.png"
+    },
+    { "name": "Tie-Dye", "value": "accessory-tie-dye.png" },
+    {
+      "name": "Tie-Purple-On-White",
+      "value": "accessory-tie-purple-on-white.png"
+    },
+    { "name": "Tie-Red", "value": "accessory-tie-red.png" },
+    { "name": "Txt-A2+B2", "value": "accessory-txt-a2+b2.png" },
+
+    { "name": "Txt-Cc2", "value": "accessory-txt-cc2.png" },
+    { "name": "Txt-Copy", "value": "accessory-txt-copy.png" },
+    { "name": "Txt-Dao", "value": "accessory-txt-dao.png" },
+
+    { "name": "Txt-Dope-Text", "value": "accessory-txt-dope-text.png" },
+    { "name": "Txt-Foo-Black", "value": "accessory-txt-foo-black.png" },
+    { "name": "Txt-Ico", "value": "accessory-txt-ico.png" },
+    { "name": "Txt-Io", "value": "accessory-txt-io.png" },
+    { "name": "Txt-Lmao", "value": "accessory-txt-lmao.png" },
+    { "name": "Txt-Lol", "value": "accessory-txt-lol.png" },
+    { "name": "Txt-Mint", "value": "accessory-txt-mint.png" },
+    { "name": "Txt-Nil-Grey-Dark", "value": "accessory-txt-nil-grey-dark.png" },
+    { "name": "Txt-Noun-F0F", "value": "accessory-txt-noun-f0f.png" },
+    { "name": "Txt-Noun-Green", "value": "accessory-txt-noun-green.png" },
+    {
+      "name": "Txt-Noun-Multicolor",
+      "value": "accessory-txt-noun-multicolor.png"
+    },
+    { "name": "Txt-Noun", "value": "accessory-txt-noun.png" },
+    { "name": "Txt-Pi", "value": "accessory-txt-pi.png" },
+    { "name": "Txt-Pop", "value": "accessory-txt-pop.png" },
+    { "name": "Txt-Rofl", "value": "accessory-txt-rofl.png" },
+
+    { "name": "Wave", "value": "accessory-wave.png" },
+    { "name": "Wet-Money", "value": "accessory-wet-money.png" },
+    { "name": "Yingyang", "value": "accessory-yingyang.png" },
+    { "name": "Body-Bege", "value": "body-bege.png" },
+    { "name": "Body-Gray-Scale-1", "value": "body-gray-scale-1.png" },
+    { "name": "Body-Gray-Scale-9", "value": "body-gray-scale-9.png" },
+    { "name": "Body-Ice-Cold", "value": "body-ice-cold.png" }
+  ],
+  "tempHeads": [
+    {
+      "name": "Abstract",
+      "value": "head-abstract",
+      "filePath": "abstractHead.glb",
+      "componentName": "AbstractHead",
+      "color": "0x000000"
+    },
+    {
+      "name": "Bagpipe",
+      "value": "head-BagPipe",
+      "filePath": "HeadBagPipe.glb",
+      "componentName": "BagpipeHead",
+      "color": "0x68940"
+    },
+    {
+      "name": "Banana",
+      "value": "head-Banana",
+      "filePath": "HeadBanana.glb",
+      "componentName": "BananaHead",
+      "color": "0xFBC800"
+    },
+    {
+      "name": "Bank",
+      "value": "head-Bank",
+      "filePath": "HeadBank.glb",
+      "componentName": "BankHead",
+      "color": "0x62616D"
+    },
+    {
+      "name": "Bat",
+      "value": "head-Bat",
+      "filePath": "HeadBat.glb",
+      "componentName": "BatHead",
+      "color": "0x4D271B"
+    },
+    {
+      "name": "Beer",
+      "value": "head-beer",
+      "filePath": "beerHead.glb",
+      "componentName": "BeerHead",
+      "color": "0xF78A18"
+    },
+    {
+      "name": "Boombox",
+      "value": "head-boombox",
+      "filePath": "boomboxHead.glb",
+      "componentName": "BoomboxHead",
+      "color": "0xADC8CC"
+    },
+    {
+      "name": "Boot",
+      "value": "head-boot",
+      "filePath": "bootHead.glb",
+      "componentName": "BootHead",
+      "color": "0x7E5243"
+    },
+    {
+      "name": "Cake",
+      "value": "head-Cake",
+      "filePath": "cakeHead.glb",
+      "componentName": "CakeHead",
+      "color": "0xFF638D"
+    },
+    {
+      "name": "Camcorder",
+      "value": "head-Camcorder",
+      "filePath": "HeadCamcorder.glb",
+      "componentName": "CamcorderHead",
+      "color": "0xb2958d"
+    },
+    {
+      "name": "Cannedham",
+      "value": "head-Cannedham",
+      "filePath": "cannedhamHead.glb",
+      "componentName": "CannedhamHead",
+      "color": "0x5648ed"
+    },
+    {
+      "name": "Cashregister",
+      "value": "head-CashRegister",
+      "filePath": "HeadCashRegister.glb",
+      "componentName": "CashregisterHead",
+      "color": "0x5d6061"
+    },
+    {
+      "name": "Cassette",
+      "value": "head-cassette",
+      "filePath": "cassetteHead.glb",
+      "componentName": "CassetteHead",
+      "color": "0x4b4949"
+    },
+    {
+      "name": "Cat",
+      "value": "head-cat",
+      "filePath": "catHead.glb",
+      "componentName": "CatHead",
+      "color": "0x1F1D29"
+    },
+    {
+      "name": "Cd",
+      "value": "head-cd",
+      "filePath": "cdHead.glb",
+      "componentName": "CdHead",
+      "color": "0x70E890"
+    },
+    {
+      "name": "Chili",
+      "value": "head-Chili",
+      "filePath": "HeadChili.glb",
+      "componentName": "ChiliHead",
+      "color": "0xF3322C"
+    },
+    {
+      "name": "Cloud",
+      "value": "head-cloud",
+      "filePath": "cloudHead.glb",
+      "componentName": "CloudHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Clover",
+      "value": "head-clover",
+      "filePath": "cloverHead.glb",
+      "componentName": "CloverHead",
+      "color": "0x34AC80"
+    },
+    {
+      "name": "Cone",
+      "value": "head-Cone",
+      "filePath": "HeadCone.glb",
+      "componentName": "ConeHead",
+      "color": "0xF3322C"
+    },
+    {
+      "name": "Crab",
+      "value": "head-crab",
+      "filePath": "crabHead.glb",
+      "componentName": "CrabHead",
+      "color": "0xF39D44"
+    },
+    {
+      "name": "Crown",
+      "value": "head-crown",
+      "filePath": "crownHead.glb",
+      "componentName": "CrownHead",
+      "color": "0xEAB118"
+    },
+    {
+      "name": "Diamondblue",
+      "value": "head-DiamondBlue",
+      "filePath": "HeadDiamondBlue.glb",
+      "componentName": "DiamondblueHead",
+      "color": "0x254EFB"
+    },
+    {
+      "name": "Diamondred",
+      "value": "head-DiamondRed",
+      "filePath": "HeadDiamondRed.glb",
+      "componentName": "DiamondredHead",
+      "color": "0xF71248"
+    },
+    {
+      "name": "Dictionary",
+      "value": "head-Dictionary",
+      "filePath": "HeadDictionary.glb",
+      "componentName": "DictionaryHead",
+      "color": "0x1929F4"
+    },
+    {
+      "name": "Dino",
+      "value": "head-Dino",
+      "filePath": "HeadDino.glb",
+      "componentName": "DinoHead",
+      "color": "0x34AC80"
+    },
+    {
+      "name": "Dna",
+      "value": "head-DNA",
+      "filePath": "DNAHead.glb",
+      "componentName": "DnaHead",
+      "color": "0x2B83F6"
+    },
+    {
+      "name": "Duck",
+      "value": "head-duck",
+      "filePath": "duckHead.glb",
+      "componentName": "DuckHead",
+      "color": "0xFFC110"
+    },
+    {
+      "name": "Eggs",
+      "value": "head-Eggs",
+      "filePath": "HeadEggs.glb",
+      "componentName": "EggsHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Factory",
+      "value": "head-Factory",
+      "filePath": "HeadFactory.glb",
+      "componentName": "FactoryHead",
+      "color": "0x1F1D29"
+    },
+    {
+      "name": "Filmreel",
+      "value": "head-FilmReel",
+      "filePath": "HeadFilmReel.glb",
+      "componentName": "FilmreelHead",
+      "color": "0xFFC110"
+    },
+    {
+      "name": "Filmstrip",
+      "value": "head-FilmStrip",
+      "filePath": "HeadFilmStrip.glb",
+      "componentName": "FilmstripHead",
+      "color": "0x2B2834"
+    },
+    {
+      "name": "Flamingo",
+      "value": "head-Flamingo",
+      "filePath": "HeadFlamingo.glb",
+      "componentName": "FlamingoHead",
+      "color": "0xFF638D"
+    },
+    {
+      "name": "Fox",
+      "value": "head-Fox",
+      "filePath": "FoxHead.glb",
+      "componentName": "FoxHead",
+      "color": "0xF78A18"
+    },
+    {
+      "name": "Frog",
+      "value": "head-frog",
+      "filePath": "frogHead.glb",
+      "componentName": "FrogHead",
+      "color": "0x4BEA69"
+    },
+    {
+      "name": "Ghost",
+      "value": "head-ghost",
+      "filePath": "ghostHead.glb",
+      "componentName": "GhostHead",
+      "color": "0xABC1EE"
+    },
+    {
+      "name": "Glasses",
+      "value": "head-Glasses",
+      "filePath": "HeadGlasses.glb",
+      "componentName": "GlassesHead",
+      "color": "0x6F597A"
+    },
+    {
+      "name": "Gnome",
+      "value": "head-gnome",
+      "filePath": "gnomeHead.glb",
+      "componentName": "GnomeHead",
+      "color": "0xe8cba0"
+    },
+    {
+      "name": "Goat",
+      "value": "head-goat",
+      "filePath": "goatHead.glb",
+      "componentName": "GoatHead",
+      "color": "0x9D8E6E"
+    },
+    {
+      "name": "Grouper",
+      "value": "head-grouper",
+      "filePath": "grouperHead.glb",
+      "componentName": "GrouperHead",
+      "color": "0x70591F"
+    },
+    {
+      "name": "Handheld",
+      "value": "head-handheld",
+      "filePath": "consolehandheldHead.glb",
+      "componentName": "HandheldHead",
+      "color": "0xCFC2AB"
+    },
+    {
+      "name": "Heart",
+      "value": "head-heart",
+      "filePath": "heartHead.glb",
+      "componentName": "HeartHead",
+      "color": "0xF3322C"
+    },
+    {
+      "name": "Helicopter",
+      "value": "head-Helicopter",
+      "filePath": "HelicopterHead.glb",
+      "componentName": "HelicopterHead",
+      "color": "0xFF638D"
+    },
+    {
+      "name": "Hotdog",
+      "value": "head-HotDog",
+      "filePath": "HotDog.glb",
+      "componentName": "HotdogHead",
+      "color": "0xDD9B78"
+    },
+    {
+      "name": "House",
+      "value": "head-House",
+      "filePath": "HeadHouse.glb",
+      "componentName": "HouseHead",
+      "color": "0xFFF0EE"
+    },
+    {
+      "name": "Icepop",
+      "value": "head-icepop",
+      "filePath": "icepopHead.glb",
+      "componentName": "IcepopHead",
+      "color": "0x4BEA69"
+    },
+    {
+      "name": "Jellyfish",
+      "value": "head-JellyFish",
+      "filePath": "HeadJellyFish.glb",
+      "componentName": "JellyfishHead",
+      "color": "0xFF82AD"
+    },
+    {
+      "name": "Laptop",
+      "value": "head-laptop",
+      "filePath": "laptopHead.glb",
+      "componentName": "LaptopHead",
+      "color": "0x62616D"
+    },
+    {
+      "name": "Lock",
+      "value": "head-Lock",
+      "filePath": "HeadLock.glb",
+      "componentName": "LockHead",
+      "color": "0xD08B11"
+    },
+    {
+      "name": "Maze",
+      "value": "head-Maze",
+      "filePath": "HeadMaze.glb",
+      "componentName": "MazeHead",
+      "color": "0x2BB26B"
+    },
+    {
+      "name": "Microwave",
+      "value": "head-microwave",
+      "filePath": "microwaveHead.glb",
+      "componentName": "MicrowaveHead",
+      "color": "0xD3F1FA"
+    },
+    {
+      "name": "Mirror",
+      "value": "head-Mirror",
+      "filePath": "HeadMirror.glb",
+      "componentName": "MirrorHead",
+      "color": "0x7E5243"
+    },
+    {
+      "name": "Mixer",
+      "value": "head-mixer",
+      "filePath": "mixerHead.glb",
+      "componentName": "MixerHead",
+      "color": "0x4B4949"
+    },
+    {
+      "name": "Mushroom",
+      "value": "head-mushroom",
+      "filePath": "mushroomHead.glb",
+      "componentName": "MushroomHead",
+      "color": "0xF9E8DD"
+    },
+    {
+      "name": "Mustard",
+      "value": "head-Mustard",
+      "filePath": "HeadMustard.glb",
+      "componentName": "MustardHead",
+      "color": "0xFFC925"
+    },
+    {
+      "name": "Nigiri",
+      "value": "head-nigiri",
+      "filePath": "nigiriHead.glb",
+      "componentName": "NigiriHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Noodles",
+      "value": "head-Noodles",
+      "filePath": "NoodlesHead.glb",
+      "componentName": "NoodlesHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Orangutan",
+      "value": "head-Orangutan",
+      "filePath": "OrangutanHead.glb",
+      "componentName": "OrangutanHead",
+      "color": "0x241A17"
+    },
+    {
+      "name": "Orca",
+      "value": "head-Orca",
+      "filePath": "HeadOrca.glb",
+      "componentName": "OrcaHead",
+      "color": "0x343235"
+    },
+    {
+      "name": "Owl",
+      "value": "head-owl",
+      "filePath": "owlHead.glb",
+      "componentName": "OwlHead",
+      "color": "0xF39D44"
+    },
+    {
+      "name": "Panda",
+      "value": "head-Panda",
+      "filePath": "HeadPanda.glb",
+      "componentName": "PandaHead",
+      "color": "0xffffff"
+    },
+    {
+      "name": "Paperclip",
+      "value": "head-paperclip",
+      "filePath": "paperclipHead.glb",
+      "componentName": "PaperclipHead",
+      "color": "0xAAA6A4"
+    },
+    {
+      "name": "Phone",
+      "value": "head-phone",
+      "filePath": "cordlessphoneHead.glb",
+      "componentName": "PhoneHead",
+      "color": "0xCFC2AB"
+    },
+    {
+      "name": "Pill",
+      "value": "head-Pill",
+      "filePath": "HeadPill.glb",
+      "componentName": "PillHead",
+      "color": "0x34AC80"
+    },
+    {
+      "name": "Pineapple",
+      "value": "head-pineapple",
+      "filePath": "pineappleHead.glb",
+      "componentName": "PineappleHead",
+      "color": "0xFFC110"
+    },
+    {
+      "name": "Pirateship",
+      "value": "head-pirateship",
+      "filePath": "pirateshipHead.glb",
+      "componentName": "PirateshipHead",
+      "color": "0x62616D"
+    },
+    {
+      "name": "Plane",
+      "value": "head-Plane",
+      "filePath": "HeadPlane.glb",
+      "componentName": "PlaneHead",
+      "color": "0xffffff"
+    },
+    {
+      "name": "Popsoda",
+      "value": "head-PopSoda",
+      "filePath": "HeadPopSoda.glb",
+      "componentName": "PopsodaHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Porkbao",
+      "value": "head-porkbao",
+      "filePath": "porkbaoHead.glb",
+      "componentName": "PorkbaoHead",
+      "color": "0xFFF0BE"
+    },
+    {
+      "name": "Queencrown",
+      "value": "head-queencrown",
+      "filePath": "queencrownHead.glb",
+      "componentName": "QueencrownHead",
+      "color": "0xF82905"
+    },
+    {
+      "name": "Rabbit",
+      "value": "head-rabbit",
+      "filePath": "rabbitHead.glb",
+      "componentName": "RabbitHead",
+      "color": "0xA99FA2"
+    },
+    {
+      "name": "Rangefinder",
+      "value": "head-rangefinder",
+      "filePath": "rangefinderHead.glb",
+      "componentName": "RangefinderHead",
+      "color": "0xABAAA8"
+    },
+    {
+      "name": "Robot",
+      "value": "head-robot",
+      "filePath": "robotHead.glb",
+      "componentName": "RobotHead",
+      "color": "0x808082"
+    },
+    {
+      "name": "Rose",
+      "value": "head-Rose",
+      "filePath": "HeadRose.glb",
+      "componentName": "RoseHead",
+      "color": "0x962236"
+    },
+    {
+      "name": "Saguaro",
+      "value": "head-Saguaro",
+      "filePath": "HeadSaguaro.glb",
+      "componentName": "SaguaroHead",
+      "color": "0x909B0E"
+    },
+    {
+      "name": "Sailboat",
+      "value": "head-sailboat",
+      "filePath": "sailboatHead.glb",
+      "componentName": "SailboatHead",
+      "color": "0xCD916D"
+    },
+    {
+      "name": "Sandwich",
+      "value": "head-sandwich",
+      "filePath": "sandwichHead.glb",
+      "componentName": "SandwichHead",
+      "color": "0xC59268"
+    },
+    {
+      "name": "Saw",
+      "value": "head-Saw",
+      "filePath": "HeadSaw.glb",
+      "componentName": "SawHead",
+      "color": "0xB2A8A5"
+    },
+    {
+      "name": "Shark",
+      "value": "head-shark",
+      "filePath": "sharkHead.glb",
+      "componentName": "SharkHead",
+      "color": "0x2B83F6"
+    },
+    {
+      "name": "Skate",
+      "value": "head-skate",
+      "filePath": "skateHead.glb",
+      "componentName": "SkateHead",
+      "color": "0x8DD122"
+    },
+    {
+      "name": "Skeletonhat",
+      "value": "head-skeletonhat",
+      "filePath": "skeletonhatHead.glb",
+      "componentName": "SkeletonhatHead",
+      "color": "0xF9E8DD"
+    },
+    {
+      "name": "Snowmobile",
+      "value": "head-SnowMobile",
+      "filePath": "SnowMobileHead.glb",
+      "componentName": "SnowmobileHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Squid",
+      "value": "head-squid",
+      "filePath": "squidHead.glb",
+      "componentName": "SquidHead",
+      "color": "0xFF638D"
+    },
+    {
+      "name": "Sunset",
+      "value": "head-sunset",
+      "filePath": "sunsetHead.glb",
+      "componentName": "SunsetHead",
+      "color": "0xFFEF16"
+    },
+    {
+      "name": "Toaster",
+      "value": "head-toaster",
+      "filePath": "toasterHead.glb",
+      "componentName": "ToasterHead",
+      "color": "0xABAAA8"
+    },
+    {
+      "name": "Tooth",
+      "value": "head-Tooth",
+      "filePath": "HeadTooth.glb",
+      "componentName": "ToothHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Trashcan",
+      "value": "head-trashcan",
+      "filePath": "trashcanHead.glb",
+      "componentName": "TrashcanHead",
+      "color": "0x807F7E"
+    },
+    {
+      "name": "Turing",
+      "value": "head-Turing",
+      "filePath": "HeadTuring.glb",
+      "componentName": "TuringHead",
+      "color": "0x5D6061"
+    },
+    {
+      "name": "Ufo",
+      "value": "head-UFO",
+      "filePath": "HeadUFO.glb",
+      "componentName": "UfoHead",
+      "color": "0xFB4694"
+    },
+    {
+      "name": "Undead",
+      "value": "head-undead",
+      "filePath": "undeadHead.glb",
+      "componentName": "UndeadHead",
+      "color": "0x909B0E"
+    },
+    {
+      "name": "Vent",
+      "value": "head-vent",
+      "filePath": "Headvent.glb",
+      "componentName": "VentHead",
+      "color": "0xFFFFFF"
+    },
+    {
+      "name": "Volcano",
+      "value": "head-Volcano",
+      "filePath": "HeadVolcano.glb",
+      "componentName": "VolcanoHead",
+      "color": "0x62616D"
+    },
+    {
+      "name": "Wallsafe",
+      "value": "head-WallSafe",
+      "filePath": "HeadWallSafe.glb",
+      "componentName": "WallsafeHead",
+      "color": "0x5A423F"
+    },
+    {
+      "name": "Wave",
+      "value": "head-Wave",
+      "filePath": "WaveHead.glb",
+      "componentName": "WaveHead",
+      "color": "0x254EFB"
+    },
+    {
+      "name": "Weed",
+      "value": "head-weed",
+      "filePath": "weedHead.glb",
+      "componentName": "WeedHead",
+      "color": "0x68940"
+    },
+    {
+      "name": "Yeti",
+      "value": "head-yeti",
+      "filePath": "bigfootyetiHead.glb",
+      "componentName": "YetiHead",
+      "color": "0xEFF2FA"
+    }
+  ]
+}

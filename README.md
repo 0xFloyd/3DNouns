@@ -1,21 +1,47 @@
-![React Logo](https://github.com/vercel/vercel/blob/master/packages/frameworks/logos/react.svg)
+# 3D Nouns
 
-# React Example
+3D Nouns was created by @0xFloyd and @CoralOrca and funded by NounsDAO under Proposal 2.
 
-This directory is a brief example of a [React](https://reactjs.org/) app with [Serverless Functions](https://vercel.com/docs/v2/serverless-functions/introduction) that can be deployed with Vercel and zero configuration.
+// shadows: https://discourse.threejs.org/t/hello-i-am-facing-the-problem-with-shadow-stripes-on-model/18065/2
 
-## Deploy Your Own
+// https://stackoverflow.com/questions/43621274/how-to-correctly-set-lighting-for-custom-shader-material
 
-Deploy your own React project, along with Serverless Functions, with Vercel.
+// add in to vetrtex: THREE.ShaderChunk['shadowmap_pars_vertex']
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app-functions&template=create-react-app)
+https://www.youtube.com/watch?v=C8Cuwq1eqDw
 
-_Live Example: https://create-react-app.now-examples.now.sh/_
+dir /b > printit.txt will print only the file names
 
-### How We Created This Example
+<shaderMaterial
+// transparent={true}
+// lights={true}
+attach="material"
+args={[bodyFragmentShader]}
+needsUpdate={true}
+skinning={true}
+// castShadow
+// dithering
+/>
 
-To get started with React, along with [Serverless Functions](https://vercel.com/docs/v2/serverless-functions/introduction), with Vercel, you can use the [Create-React-App CLI](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) to initialize the project:
+     const uniforms = useMemo(
+    () =>
+      THREE.UniformsUtils.merge([
+        THREE.UniformsLib.lights,
+        {
+          tex: {
+            type: 't',
+            value: accessoryTexture,
+          },
+          tex2: {
+            type: 't',
+            value: bodyTexture,
+          },
+        },
+      ]),
+    [bodyTexture, accessoryTexture]
 
-```shell
-$ npx create-react-app my-app
-```
+);
+
+Design
+
+One of the biggest decisions that had to be made was the method in which to load in all the head models. All 3D Nouns have the same body geometry, so reusing the same body model and applying different textures (with a custom shaderMaterial) allowed for a super lightweight, efficient noun body. Woo! However, each 3D Noun head has different geometry, and thus an indivial model for each head was required. Programmatically "building" each head voxel-style was initially considered, but it turned out to be much more performant to manually build each head model ahead of time and load it into the scene. Adding and disposing of objects in a threejs scene is expensive, so all 234 head models are preloaded into the scene on load, and all remain rendered in the scene at all times, while mesh visibility is toggled based on application state.

@@ -1,20 +1,45 @@
-import NounCanvas from 'NounCanvas';
-import React, { useRef } from 'react';
-import { useEffect, useState } from 'react';
-import { Col, Container, Dropdown, Navbar, Row } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
-import './menu.css';
-import './GlowButton.css';
-import ComingSoon from 'ComingSoon';
+import NounCanvas from "NounCanvas";
+import React, { useRef } from "react";
+import { useEffect, useState } from "react";
+import { Col, Container, Dropdown, Navbar, Row } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import "./GlowButton.css";
+import SplashScreen from "./SplashScreen";
+
+const deviceType = () => {
+  const ua = navigator.userAgent;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  } else if (
+    /Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+      ua
+    )
+  ) {
+    return "mobile";
+  }
+  return "desktop";
+};
 
 const App = () => {
-  const [autoRotate, setAutoRotate] = useState(false);
+  const [head, setHead] = useState("rabbit"); //crab
+  const [glasses, setGlasses] = useState("orange"); //blue
+  const [body, setBody] = useState("purple"); //lightblue
+  const [pants, setPants] = useState("grey"); //black
 
-  const [head, setHead] = useState('rabbit'); //crab
-  const [glasses, setGlasses] = useState('orange'); //blue
-  const [body, setBody] = useState('purple'); //lightblue
-  const [pants, setPants] = useState('grey'); //black
+  const device = deviceType();
+
+  const [showSplashScreen, setShowSplashSscreen] = useState(true);
+
+  const [clicked, setClicked] = useState(false);
+  const [ready, setReady] = useState(false);
+
+  const loadScene = () => {
+    setClicked(true);
+    setTimeout(() => setReady(true), 3000);
+  };
+
+  const store = { clicked, setClicked, ready, setReady, loadScene };
 
   return (
     <div className="full-width">
@@ -45,8 +70,16 @@ const App = () => {
           </div>
         </Col>
       </Row> */}
-      <div className={`splash-screen`}>
-        <ComingSoon />
+      {!ready && (
+        <div
+          className={`splash-screen ${clicked ? " elementToFadeInAndOut" : ""}`}
+        >
+          <SplashScreen {...store} />
+        </div>
+      )}
+
+      <div className="nouns-canvas">
+        <NounCanvas />
       </div>
       {/* <div className="nouns-canvas">
         <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />

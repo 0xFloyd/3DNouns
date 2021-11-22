@@ -20,6 +20,12 @@ export const headAttributes = [
   { name: 'Shark', value: 'SharkHead' },
 ];
 
+export const accessoryAttributes = [
+  { name: 'carrot', value: 'accessory-carrot' },
+  { name: 'eye', value: 'accessory-eye' },
+  { name: 'gold chain', value: 'accessory-bling-gold-ingot' },
+];
+
 export const glassesAttributes = [
   { name: 'Pink Purple', value: 'Glasses4' },
   { name: 'Mint Green', value: 'Glasses_1' },
@@ -70,7 +76,8 @@ export const glassesPosition = {
 
 export const environmentAttributes = [
   { name: 'Normal', value: 'Normal' },
-  { name: 'Ocean', value: 'Ocean' },
+  { name: 'Island', value: 'Island' },
+  { name: 'Matrix', value: 'Matrix' },
 ];
 
 export const getKeyByValue = (object, value) => {
