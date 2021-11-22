@@ -83,10 +83,10 @@ const NounCanvas = () => {
   const [wireframeOption, setWireframeOption] = useState(null);
   const [walkAnimation, setWalkAnimation] = useState(false);
   const [nodAnimation, setNodAnimation] = useState(false);
-  const [animationState, setAnimationState] = useState(true);
+  const [animationState, setAnimationState] = useState(false);
   const [showDirections, setShowDirections] = useState(true);
   const [animationValue, setAnimationValue] = useState(
-    data.animations.find((animation) => animation.name === 'idle').name
+    data.animations.find((animation) => animation.name === 'none').name
   );
   const [downloadingModel, setDownloadingModel] = useState(false);
   const [lockedTraits, setLockedTraits] = useState({
