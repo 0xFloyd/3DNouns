@@ -12,7 +12,7 @@ export default function SandboxItems(props) {
       dispose={null}
       scale={[100, 100, 100]}
       rotation={new THREE.Euler(0, Math.PI / 2.5, 0)}
-      position={[0, 0, -50]}
+      position={[-50, 0, -30]}
     >
       <mesh
         castShadow
