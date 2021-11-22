@@ -4,6 +4,7 @@ import {
   Col,
   Container,
   Form,
+  FormCheck,
   Modal,
   Nav,
   Navbar,
@@ -54,6 +55,8 @@ const MenuTwo = ({
   lockedTraits,
   setLockedTraits,
   saveAsImage,
+  randomizerOn,
+  setRandomizerOn,
 }) => {
   const rotateOptions = [
     { name: 'Off', value: 'false' },
@@ -753,7 +756,15 @@ const MenuTwo = ({
               </div>
             </div>
             {/* end Rotate */}
-
+            <Form>
+              <FormCheck
+                id="switchEnabled"
+                type="switch"
+                checked={randomizerOn}
+                onChange={() => setRandomizerOn(!randomizerOn)}
+                label="Cycle (dev only - remove on prod)"
+              />
+            </Form>
             <div className="menu-footer-row">
               <div className="menu-footer-row-container">
                 <button

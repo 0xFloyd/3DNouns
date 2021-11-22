@@ -25,7 +25,7 @@ const RANDOMIZER = ({
       );
       setPants(data.pants[Math.floor(Math.random() * data.pants.length)].name);
       setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
-    }, 200);
+    }, 500);
 
     // setTimeout(() => {
     //   let huh = data.tempAccessories.find(

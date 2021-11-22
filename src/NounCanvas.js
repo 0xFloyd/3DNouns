@@ -85,6 +85,7 @@ const NounCanvas = () => {
   const [nodAnimation, setNodAnimation] = useState(false);
   const [animationState, setAnimationState] = useState(false);
   const [showDirections, setShowDirections] = useState(true);
+  const [randomizerOn, setRandomizerOn] = useState(false);
   const [animationValue, setAnimationValue] = useState(
     data.animations.find((animation) => animation.name === 'none').name
   );
@@ -439,14 +440,16 @@ const NounCanvas = () => {
           {/* <BakeShadows /> */}
           {/* <PreloadBodyTextures /> */}
           {/* {HeadComponents} */}
-          {/* <RANDOMIZER
-            setBody={setBody}
-            setAccessory={setAccessory}
-            setHead={setHead}
-            setGlasses={setGlasses}
-            setPants={setPants}
-            setShoes={setShoes}
-          /> */}
+          {randomizerOn && (
+            <RANDOMIZER
+              setBody={setBody}
+              setAccessory={setAccessory}
+              setHead={setHead}
+              setGlasses={setGlasses}
+              setPants={setPants}
+              setShoes={setShoes}
+            />
+          )}
           {/* <FINALBODY
             animationState={animationState}
             animationValue={animationValue}
@@ -536,6 +539,8 @@ const NounCanvas = () => {
         lockedTraits={lockedTraits}
         setLockedTraits={setLockedTraits}
         saveAsImage={saveAsImage}
+        randomizerOn={randomizerOn}
+        setRandomizerOn={setRandomizerOn}
       />
       {showDirections && (
         <div className="directions-popup">
