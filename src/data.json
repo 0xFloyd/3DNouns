@@ -1452,13 +1452,6 @@
       "color": "0x68940"
     },
     {
-      "name": "Wizardhat",
-      "value": "head-wizardhat",
-      "filePath": "wizardhatHead.glb",
-      "componentName": "WizardhatHead",
-      "color": "0x395ED1"
-    },
-    {
       "name": "Yeti",
       "value": "head-yeti",
       "filePath": "bigfootyetiHead.glb",
