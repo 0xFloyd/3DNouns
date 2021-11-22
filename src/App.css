@@ -338,6 +338,10 @@ a {
   }
 }
 
+.progress-bar {
+  background-color: #000000 !important;
+}
+
 .directions-popup {
   z-index: 100 !important;
   position: fixed;
