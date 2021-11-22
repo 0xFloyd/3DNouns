@@ -25,7 +25,7 @@ import {
   useTexture,
 } from '@react-three/drei';
 import { Col, Container, Row } from 'react-bootstrap';
-import logo from './assets/nouns-logo.svg';
+import logo from './assets/3dnounslogoglasses.png';
 import './shaders/materials/ReflectorMaterial';
 import NounsLogo from 'World/NounsLogo';
 import ProgressLoader from 'Loader';
@@ -83,7 +83,7 @@ const NounCanvas = () => {
   const [wireframeOption, setWireframeOption] = useState(null);
   const [walkAnimation, setWalkAnimation] = useState(false);
   const [nodAnimation, setNodAnimation] = useState(false);
-  const [animationState, setAnimationState] = useState(false);
+  const [animationState, setAnimationState] = useState(true);
   const [showDirections, setShowDirections] = useState(true);
   const [animationValue, setAnimationValue] = useState(
     data.animations.find((animation) => animation.name === 'idle').name
@@ -433,13 +433,20 @@ const NounCanvas = () => {
             args={[
               environment === 'Matrix' ? 0x000000 : 0xffffff,
               1,
-              environment === 'Matrix' ? 500 : 1500,
+              environment === 'Matrix' ? 1000 : 1500,
             ]}
           />
           {/* <BakeShadows /> */}
           {/* <PreloadBodyTextures /> */}
           {/* {HeadComponents} */}
-          {/* <RANDOMIZER setBody={setBody} setAccessory={setAccessory} /> */}
+          {/* <RANDOMIZER
+            setBody={setBody}
+            setAccessory={setAccessory}
+            setHead={setHead}
+            setGlasses={setGlasses}
+            setPants={setPants}
+            setShoes={setShoes}
+          /> */}
           {/* <FINALBODY
             animationState={animationState}
             animationValue={animationValue}
@@ -547,7 +554,7 @@ const NounCanvas = () => {
       )}
 
       <div className="logo-container">
-        <a href="https://nouns.wtf">
+        <a href="https://3dnouns.com">
           <img className="nouns-logo" src={logo} alt="NOUNS" />
         </a>
       </div>

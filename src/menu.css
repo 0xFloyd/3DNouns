@@ -269,7 +269,7 @@
 
 .menu-header-row {
   display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
 }
 
 .menu-button {
@@ -293,8 +293,14 @@
 .menu-button:hover {
   background-color: rgb(225, 225, 225);
 }
+
+.menu-button:focus {
+  background: rgba(255, 255, 255);
+}
 .menu-button-disabled {
-  width: 9em;
+  display: inline-block;
+  text-align: center;
+  padding: 0px 10px 0px 10px;
   height: 40px;
   outline: none;
   color: black;
@@ -307,6 +313,13 @@
   touch-action: manipulation;
   user-select: none;
   cursor: wait !important;
+}
+
+.menu-button-disabled:focus {
+  background: rgba(255, 255, 255);
+}
+.menu-button-disabled:hover {
+  background: rgba(255, 255, 255);
 }
 
 .header-randomize-container {
@@ -359,6 +372,30 @@
 }
 
 .menu-x-button:hover {
+  background-color: rgb(225, 225, 225);
+  cursor: pointer;
+}
+
+.options-menu-x-button {
+  display: inline-block;
+  text-align: center;
+  padding: 0px 15px 0px 15px;
+  height: 40px;
+  outline: none;
+  color: black;
+  background: #fff;
+  cursor: pointer;
+  z-index: 0;
+  font-size: 1.125em;
+  touch-action: manipulation;
+  user-select: none;
+  border: 1px solid rgb(128, 128, 128);
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 40px;
+}
+
+.options-menu-x-button:hover {
   background-color: rgb(225, 225, 225);
   cursor: pointer;
 }
@@ -570,22 +607,27 @@
 .screenshot-button {
   display: inline-block;
   text-align: center;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 10px 0px 10px;
   height: 40px;
   cursor: pointer;
-  margin: 0px;
+
   background: #fff;
   border: 1px solid rgb(128, 128, 128);
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
   color: rgb(51, 51, 51);
-  margin-right: 20px;
+  margin-right: 40px;
+}
+
+.screenshot-button:hover {
+  background-color: rgb(225, 225, 225);
+  cursor: pointer;
 }
 
 .about-paragraph-text {
   text-align: justify;
-  margin-top: 40px;
+  margin-top: 20px;
   text-justify: distribute;
   text-align-last: left;
 }
@@ -612,7 +654,25 @@
     text-align: center;
   }
 
-  .menu-x-button:hover {
+  .options-menu-x-button {
+    display: inline-block;
+    text-align: center;
+    padding: 0px 15px 0px 15px;
+    height: 40px;
+    outline: none;
+    color: black;
+    background: #fff;
+    cursor: pointer;
+    z-index: 0;
+    font-size: 1.125em;
+    touch-action: manipulation;
+    user-select: none;
+    border: 1px solid rgb(128, 128, 128);
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 40px;
+  }
+  .options-menu-x-button:hover {
     background-color: rgb(225, 225, 225);
     cursor: pointer;
   }
@@ -730,7 +790,7 @@
   }
   .menu-header-row {
     display: grid;
-    grid-template-columns: 0.5fr 3fr 1fr;
+    grid-template-columns: 0.75fr 3fr 0.75fr;
   }
   .trait-select {
     border: none;
@@ -772,5 +832,17 @@
     color: black;
     padding: 5px;
     text-decoration: none;
+  }
+  .menu-button:active {
+    background: rgba(255, 255, 255);
+  }
+  .menu-button:hover {
+    background: rgba(255, 255, 255);
+  }
+  .menu-button:focus {
+    background: rgba(225, 225, 225);
+  }
+  .menu-button-disabled:hover {
+    background: rgba(225, 225, 225);
   }
 }

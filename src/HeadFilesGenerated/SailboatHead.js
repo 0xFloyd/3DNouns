@@ -2,7 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef } from 'react';
 
-const BdayHead = ({
+const SailboatHead = ({
   headProp,
   glassesProp,
   animationState,
@@ -10,7 +10,7 @@ const BdayHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/HeadBDay.glb');
+  const { nodes, materials } = useGLTF('/headModels/sailboatHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -31,7 +31,7 @@ const BdayHead = ({
     <group
       ref={group}
       dispose={null}
-      visible={headProp === 'Bday' ? true : false}
+      visible={headProp === 'Sailboat' ? true : false}
       castShadow
       receiveShadow
     >
@@ -54,6 +54,6 @@ const BdayHead = ({
   );
 };
 
-useGLTF.preload('/headModels/HeadBDay.glb');
+useGLTF.preload('/headModels/sailboatHead.glb');
 
-export default BdayHead;
+export default SailboatHead;

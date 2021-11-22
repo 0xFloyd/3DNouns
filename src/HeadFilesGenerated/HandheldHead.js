@@ -10,7 +10,7 @@ const HandheldHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/HeadHandheld.glb');
+  const { nodes, materials } = useGLTF('/headModels/consolehandheldHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -54,6 +54,6 @@ const HandheldHead = ({
   );
 };
 
-useGLTF.preload('/headModels/HeadHandheld.glb');
+useGLTF.preload('/headModels/consolehandheldHead.glb');
 
 export default HandheldHead;

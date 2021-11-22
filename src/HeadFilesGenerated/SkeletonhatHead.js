@@ -2,7 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef } from 'react';
 
-const SkullHead = ({
+const SkeletonhatHead = ({
   headProp,
   glassesProp,
   animationState,
@@ -10,7 +10,7 @@ const SkullHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/skullHead.glb');
+  const { nodes, materials } = useGLTF('/headModels/skeletonhatHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -31,7 +31,7 @@ const SkullHead = ({
     <group
       ref={group}
       dispose={null}
-      visible={headProp === 'Skull' ? true : false}
+      visible={headProp === 'Skeletonhat' ? true : false}
       castShadow
       receiveShadow
     >
@@ -54,6 +54,6 @@ const SkullHead = ({
   );
 };
 
-useGLTF.preload('/headModels/skullHead.glb');
+useGLTF.preload('/headModels/skeletonhatHead.glb');
 
-export default SkullHead;
+export default SkeletonhatHead;

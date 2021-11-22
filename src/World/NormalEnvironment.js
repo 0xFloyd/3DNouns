@@ -2,6 +2,7 @@ import { Sky } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import SkyShader from './SkyBox';
 
 const NormalEnvironment = () => {
   // color="#101010"
@@ -14,19 +15,19 @@ const NormalEnvironment = () => {
       '/textures/world/grass.png'
     );
     texture_1.wrapS = texture_1.wrapT = THREE.RepeatWrapping;
-    texture_1.repeat.set(8, 8);
+    texture_1.repeat.set(12, 12);
     texture_1.anisotropy = 64;
     texture_1.encoding = THREE.sRGBEncoding;
 
     return (
-      <mesh receiveShadow position={[50, -1, 0]} rotation={[0, Math.PI / 2, 0]}>
+      <mesh receiveShadow position={[32, -1, 0]} rotation={[0, Math.PI / 2, 0]}>
         <cylinderBufferGeometry args={[2000, 2000, 2, 32]} />
-        {/* <meshStandardMaterial map={texture_1} attach="material" /> */}
-        <meshStandardMaterial
-          color={new THREE.Color(0x228b22).convertSRGBToLinear()}
+        <meshStandardMaterial map={texture_1} attach="material" />
+        {/* <meshStandardMaterial
+          color={new THREE.Color(0x707070).convertSRGBToLinear()}
           // roughness={0.1}
           // metalness={0}
-        />
+        /> */}
       </mesh>
     );
   };
@@ -35,9 +36,18 @@ const NormalEnvironment = () => {
     <>
       <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 1500]} />
       {/* <Sky distance={1000} sunPosition={[-100, 500, 1000]} /> */}
-      <color attach="background" args={[new THREE.Color(0x87ceeb)]} />
+      {/* <color attach="background" args={[new THREE.Color(0x87ceeb)]} /> */}
       {/* <fog attach="fog" args={[new THREE.Color(0x87ceeb), 1, 5000]} /> */}
-      <Sky distance={5000} sunPosition={[-100, 500, 1000]} />
+      {/* <Sky distance={5000} sunPosition={[-100, 500, 1000]} /> */}
+      <Sky
+        azimuth={0.5}
+        turbidity={7.5}
+        rayleigh={0.5}
+        inclination={0.6}
+        distance={3000}
+        sunPosition={[-100, 500, 1000]}
+      />
+      {/* <SkyShader /> */}
       <Ground />
       {/* <mesh
         castShadow
@@ -58,14 +68,14 @@ const NormalEnvironment = () => {
         <meshStandardMaterial
           color={new THREE.Color(0x50be51).convertSRGBToLinear()}
           // roughness={0.1}
-          // metalness={0}
+          // metalness={0}W
         />
       </mesh> */}
 
       {/* <gridHelper
         receiveShadow
         castShadow
-        args={[1500, 100, new THREE.Color(0x7d7d7d), new THREE.Color(0x7d7d7d)]}
+        args={[3000, 100, new THREE.Color(0x7d7d7d), new THREE.Color(0x7d7d7d)]}
         position={[0, 0.1, 0]}
       /> */}
     </>

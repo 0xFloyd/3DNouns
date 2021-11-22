@@ -10,7 +10,7 @@ const YetiHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/yetiHead.glb');
+  const { nodes, materials } = useGLTF('/headModels/bigfootyetiHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -54,6 +54,6 @@ const YetiHead = ({
   );
 };
 
-useGLTF.preload('/headModels/yetiHead.glb');
+useGLTF.preload('/headModels/bigfootyetiHead.glb');
 
 export default YetiHead;

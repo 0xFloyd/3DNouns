@@ -10,7 +10,7 @@ const WizardhatHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/WizardHatHead.glb');
+  const { nodes, materials } = useGLTF('/headModels/wizardhatHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -54,6 +54,6 @@ const WizardhatHead = ({
   );
 };
 
-useGLTF.preload('/headModels/WizardHatHead.glb');
+useGLTF.preload('/headModels/wizardhatHead.glb');
 
 export default WizardhatHead;

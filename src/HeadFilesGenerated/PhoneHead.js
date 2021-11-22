@@ -10,7 +10,7 @@ const PhoneHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/phoneHead.glb');
+  const { nodes, materials } = useGLTF('/headModels/cordlessphoneHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -54,6 +54,6 @@ const PhoneHead = ({
   );
 };
 
-useGLTF.preload('/headModels/phoneHead.glb');
+useGLTF.preload('/headModels/cordlessphoneHead.glb');
 
 export default PhoneHead;

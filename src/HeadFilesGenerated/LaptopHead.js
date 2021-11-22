@@ -2,7 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef } from 'react';
 
-const DuckyHead = ({
+const LaptopHead = ({
   headProp,
   glassesProp,
   animationState,
@@ -10,7 +10,7 @@ const DuckyHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/duckyHead.glb');
+  const { nodes, materials } = useGLTF('/headModels/laptopHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -31,7 +31,7 @@ const DuckyHead = ({
     <group
       ref={group}
       dispose={null}
-      visible={headProp === 'Ducky' ? true : false}
+      visible={headProp === 'Laptop' ? true : false}
       castShadow
       receiveShadow
     >
@@ -54,6 +54,6 @@ const DuckyHead = ({
   );
 };
 
-useGLTF.preload('/headModels/duckyHead.glb');
+useGLTF.preload('/headModels/laptopHead.glb');
 
-export default DuckyHead;
+export default LaptopHead;

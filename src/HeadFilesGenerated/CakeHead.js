@@ -2,7 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef } from 'react';
 
-const TunacanHead = ({
+const CakeHead = ({
   headProp,
   glassesProp,
   animationState,
@@ -10,7 +10,7 @@ const TunacanHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/HeadTunaCan.glb');
+  const { nodes, materials } = useGLTF('/headModels/cakeHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -31,7 +31,7 @@ const TunacanHead = ({
     <group
       ref={group}
       dispose={null}
-      visible={headProp === 'Tunacan' ? true : false}
+      visible={headProp === 'Cake' ? true : false}
       castShadow
       receiveShadow
     >
@@ -54,6 +54,6 @@ const TunacanHead = ({
   );
 };
 
-useGLTF.preload('/headModels/HeadTunaCan.glb');
+useGLTF.preload('/headModels/cakeHead.glb');
 
-export default TunacanHead;
+export default CakeHead;

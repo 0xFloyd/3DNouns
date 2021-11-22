@@ -2,7 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef } from 'react';
 
-const ChocolateHead = ({
+const QueencrownHead = ({
   headProp,
   glassesProp,
   animationState,
@@ -10,7 +10,7 @@ const ChocolateHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/HeadChocolate.glb');
+  const { nodes, materials } = useGLTF('/headModels/queencrownHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -31,7 +31,7 @@ const ChocolateHead = ({
     <group
       ref={group}
       dispose={null}
-      visible={headProp === 'Chocolate' ? true : false}
+      visible={headProp === 'Queencrown' ? true : false}
       castShadow
       receiveShadow
     >
@@ -54,6 +54,6 @@ const ChocolateHead = ({
   );
 };
 
-useGLTF.preload('/headModels/HeadChocolate.glb');
+useGLTF.preload('/headModels/queencrownHead.glb');
 
-export default ChocolateHead;
+export default QueencrownHead;

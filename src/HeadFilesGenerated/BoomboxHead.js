@@ -2,7 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef } from 'react';
 
-const MooseHead = ({
+const BoomboxHead = ({
   headProp,
   glassesProp,
   animationState,
@@ -10,7 +10,7 @@ const MooseHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/HeadMoose.glb');
+  const { nodes, materials } = useGLTF('/headModels/boomboxHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -31,7 +31,7 @@ const MooseHead = ({
     <group
       ref={group}
       dispose={null}
-      visible={headProp === 'Moose' ? true : false}
+      visible={headProp === 'Boombox' ? true : false}
       castShadow
       receiveShadow
     >
@@ -54,6 +54,6 @@ const MooseHead = ({
   );
 };
 
-useGLTF.preload('/headModels/HeadMoose.glb');
+useGLTF.preload('/headModels/boomboxHead.glb');
 
-export default MooseHead;
+export default BoomboxHead;

@@ -12,104 +12,103 @@ import PlaceHolderHead from '../assets/Head/PlaceholderHead';
 // import SharkHead from './HeadFiles/SharkHead';
 // import BeerHead from 'HeadFiles/BeerHead';
 import { headComponents } from './AllHeadModels';
-import BeerHead from '../HeadFilesGenerated/BeerHead';
-import BoatHead from '../HeadFilesGenerated/BoatHead';
-import CloudHead from '../HeadFilesGenerated/CloudHead';
-import ComputerHead from '../HeadFilesGenerated/ComputerHead';
-import CrabHead from '../HeadFilesGenerated/CrabHead';
-import GhostHead from '../HeadFilesGenerated/GhostHead';
-import GrouperHead from '../HeadFilesGenerated/GrouperHead';
-import KingHead from '../HeadFilesGenerated/KingHead';
-import MixerHead from '../HeadFilesGenerated/MixerHead';
-import NigiriHead from '../HeadFilesGenerated/NigiriHead';
-import OwlHead from '../HeadFilesGenerated/OwlHead';
-import PinappleHead from '../HeadFilesGenerated/PinappleHead';
-import PirateshipHead from '../HeadFilesGenerated/PirateshipHead';
-import QueenHead from '../HeadFilesGenerated/QueenHead';
-import SandwichHead from '../HeadFilesGenerated/SandwichHead';
-import SharkHead from '../HeadFilesGenerated/SharkHead';
-import SkateHead from '../HeadFilesGenerated/SkateHead';
-import SkullHead from '../HeadFilesGenerated/SkullHead';
-import SquidHead from '../HeadFilesGenerated/SquidHead';
-import SunsetHead from '../HeadFilesGenerated/SunsetHead';
-import TrashcanHead from '../HeadFilesGenerated/TrashcanHead';
-import UndeadHead from '../HeadFilesGenerated/UndeadHead';
-import YetiHead from '../HeadFilesGenerated/YetiHead';
 import AbstractHead from '../HeadFilesGenerated/AbstractHead';
-import CloverHead from '../HeadFilesGenerated/CloverHead';
-import DnaHead from '../HeadFilesGenerated/DnaHead';
-import FrogHead from '../HeadFilesGenerated/FrogHead';
-import GoatHead from '../HeadFilesGenerated/GoatHead';
-import HelicopterHead from '../HeadFilesGenerated/HelicopterHead';
-import HotdogHead from '../HeadFilesGenerated/HotdogHead';
-import NoodlesHead from '../HeadFilesGenerated/NoodlesHead';
-import OrangutanHead from '../HeadFilesGenerated/OrangutanHead';
-import RabbitHead from '../HeadFilesGenerated/RabbitHead';
-import SnowmobileHead from '../HeadFilesGenerated/SnowmobileHead';
-import ToasterHead from '../HeadFilesGenerated/ToasterHead';
-import WaveHead from '../HeadFilesGenerated/WaveHead';
-import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
-import BootHead from '../HeadFilesGenerated/BootHead';
-import CassetteHead from '../HeadFilesGenerated/CassetteHead';
-import CatHead from '../HeadFilesGenerated/CatHead';
-import CdHead from '../HeadFilesGenerated/CdHead';
-import DuckyHead from '../HeadFilesGenerated/DuckyHead';
-import FoxHead from '../HeadFilesGenerated/FoxHead';
-import GnomeHead from '../HeadFilesGenerated/GnomeHead';
-import HeartHead from '../HeadFilesGenerated/HeartHead';
-import IcepopHead from '../HeadFilesGenerated/IcepopHead';
-import MicrowaveHead from '../HeadFilesGenerated/MicrowaveHead';
-import MushroomHead from '../HeadFilesGenerated/MushroomHead';
-import PaperclipHead from '../HeadFilesGenerated/PaperclipHead';
-import PhoneHead from '../HeadFilesGenerated/PhoneHead';
-import PorkbaoHead from '../HeadFilesGenerated/PorkbaoHead';
-import RangefinderHead from '../HeadFilesGenerated/RangefinderHead';
-import RobotHead from '../HeadFilesGenerated/RobotHead';
-import WeedHead from '../HeadFilesGenerated/WeedHead';
 import BagpipeHead from '../HeadFilesGenerated/BagpipeHead';
 import BananaHead from '../HeadFilesGenerated/BananaHead';
 import BankHead from '../HeadFilesGenerated/BankHead';
 import BatHead from '../HeadFilesGenerated/BatHead';
-import BdayHead from '../HeadFilesGenerated/BdayHead';
+import BeerHead from '../HeadFilesGenerated/BeerHead';
+import BoomboxHead from '../HeadFilesGenerated/BoomboxHead';
+import BootHead from '../HeadFilesGenerated/BootHead';
+import CakeHead from '../HeadFilesGenerated/CakeHead';
 import CamcorderHead from '../HeadFilesGenerated/CamcorderHead';
+import CannedhamHead from '../HeadFilesGenerated/CannedhamHead';
 import CarHead from '../HeadFilesGenerated/CarHead';
 import CashregisterHead from '../HeadFilesGenerated/CashregisterHead';
+import CassetteHead from '../HeadFilesGenerated/CassetteHead';
+import CatHead from '../HeadFilesGenerated/CatHead';
+import CdHead from '../HeadFilesGenerated/CdHead';
 import ChiliHead from '../HeadFilesGenerated/ChiliHead';
+import CloudHead from '../HeadFilesGenerated/CloudHead';
+import CloverHead from '../HeadFilesGenerated/CloverHead';
 import ConeHead from '../HeadFilesGenerated/ConeHead';
+import CrabHead from '../HeadFilesGenerated/CrabHead';
+import CrownHead from '../HeadFilesGenerated/CrownHead';
 import DiamondblueHead from '../HeadFilesGenerated/DiamondblueHead';
 import DiamondredHead from '../HeadFilesGenerated/DiamondredHead';
 import DictionaryHead from '../HeadFilesGenerated/DictionaryHead';
 import DinoHead from '../HeadFilesGenerated/DinoHead';
+import DnaHead from '../HeadFilesGenerated/DnaHead';
+import DuckHead from '../HeadFilesGenerated/DuckHead';
 import EggsHead from '../HeadFilesGenerated/EggsHead';
 import FactoryHead from '../HeadFilesGenerated/FactoryHead';
 import FilmreelHead from '../HeadFilesGenerated/FilmreelHead';
 import FilmstripHead from '../HeadFilesGenerated/FilmstripHead';
 import FlamingoHead from '../HeadFilesGenerated/FlamingoHead';
-import GhettoblasterHead from '../HeadFilesGenerated/GhettoblasterHead';
+import FoxHead from '../HeadFilesGenerated/FoxHead';
+import FrogHead from '../HeadFilesGenerated/FrogHead';
+import GhostHead from '../HeadFilesGenerated/GhostHead';
 import GlassesHead from '../HeadFilesGenerated/GlassesHead';
+import GnomeHead from '../HeadFilesGenerated/GnomeHead';
+import GoatHead from '../HeadFilesGenerated/GoatHead';
+import GrouperHead from '../HeadFilesGenerated/GrouperHead';
 import HandheldHead from '../HeadFilesGenerated/HandheldHead';
+import HeartHead from '../HeadFilesGenerated/HeartHead';
+import HelicopterHead from '../HeadFilesGenerated/HelicopterHead';
+import HotdogHead from '../HeadFilesGenerated/HotdogHead';
 import HouseHead from '../HeadFilesGenerated/HouseHead';
+import IcepopHead from '../HeadFilesGenerated/IcepopHead';
 import JellyfishHead from '../HeadFilesGenerated/JellyfishHead';
+import LaptopHead from '../HeadFilesGenerated/LaptopHead';
 import LockHead from '../HeadFilesGenerated/LockHead';
-import MagichatHead from '../HeadFilesGenerated/MagichatHead';
 import MazeHead from '../HeadFilesGenerated/MazeHead';
+import MicrowaveHead from '../HeadFilesGenerated/MicrowaveHead';
 import MirrorHead from '../HeadFilesGenerated/MirrorHead';
+import MixerHead from '../HeadFilesGenerated/MixerHead';
+import MushroomHead from '../HeadFilesGenerated/MushroomHead';
 import MustardHead from '../HeadFilesGenerated/MustardHead';
+import NigiriHead from '../HeadFilesGenerated/NigiriHead';
+import NoodlesHead from '../HeadFilesGenerated/NoodlesHead';
+import OrangutanHead from '../HeadFilesGenerated/OrangutanHead';
 import OrcaHead from '../HeadFilesGenerated/OrcaHead';
+import OwlHead from '../HeadFilesGenerated/OwlHead';
 import PandaHead from '../HeadFilesGenerated/PandaHead';
+import PaperclipHead from '../HeadFilesGenerated/PaperclipHead';
+import PhoneHead from '../HeadFilesGenerated/PhoneHead';
 import PillHead from '../HeadFilesGenerated/PillHead';
+import PineappleHead from '../HeadFilesGenerated/PineappleHead';
+import PirateshipHead from '../HeadFilesGenerated/PirateshipHead';
 import PlaneHead from '../HeadFilesGenerated/PlaneHead';
 import PopsodaHead from '../HeadFilesGenerated/PopsodaHead';
+import PorkbaoHead from '../HeadFilesGenerated/PorkbaoHead';
+import QueencrownHead from '../HeadFilesGenerated/QueencrownHead';
+import RabbitHead from '../HeadFilesGenerated/RabbitHead';
+import RangefinderHead from '../HeadFilesGenerated/RangefinderHead';
+import RobotHead from '../HeadFilesGenerated/RobotHead';
 import RoseHead from '../HeadFilesGenerated/RoseHead';
 import SaguaroHead from '../HeadFilesGenerated/SaguaroHead';
+import SailboatHead from '../HeadFilesGenerated/SailboatHead';
+import SandwichHead from '../HeadFilesGenerated/SandwichHead';
 import SawHead from '../HeadFilesGenerated/SawHead';
+import SharkHead from '../HeadFilesGenerated/SharkHead';
+import SkateHead from '../HeadFilesGenerated/SkateHead';
+import SkeletonhatHead from '../HeadFilesGenerated/SkeletonhatHead';
+import SnowmobileHead from '../HeadFilesGenerated/SnowmobileHead';
+import SquidHead from '../HeadFilesGenerated/SquidHead';
+import SunsetHead from '../HeadFilesGenerated/SunsetHead';
+import ToasterHead from '../HeadFilesGenerated/ToasterHead';
 import ToothHead from '../HeadFilesGenerated/ToothHead';
-import TunacanHead from '../HeadFilesGenerated/TunacanHead';
+import TrashcanHead from '../HeadFilesGenerated/TrashcanHead';
 import TuringHead from '../HeadFilesGenerated/TuringHead';
 import UfoHead from '../HeadFilesGenerated/UfoHead';
+import UndeadHead from '../HeadFilesGenerated/UndeadHead';
 import VentHead from '../HeadFilesGenerated/VentHead';
 import VolcanoHead from '../HeadFilesGenerated/VolcanoHead';
 import WallsafeHead from '../HeadFilesGenerated/WallsafeHead';
+import WaveHead from '../HeadFilesGenerated/WaveHead';
+import WeedHead from '../HeadFilesGenerated/WeedHead';
+import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
+import YetiHead from '../HeadFilesGenerated/YetiHead';
 
 const MasterHead = ({
   headProp,
@@ -187,7 +186,7 @@ const MasterHead = ({
         masterHeadModel={MasterHead}
       />
 
-      <BoatHead
+      <SailboatHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
@@ -202,7 +201,7 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <ComputerHead
+      <LaptopHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
@@ -223,7 +222,7 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <KingHead
+      <CrownHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
@@ -251,14 +250,14 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <PinappleHead
+      <PineappleHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <QueenHead
+      <QueencrownHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
@@ -286,7 +285,7 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <SkullHead
+      <SkeletonhatHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
@@ -461,7 +460,7 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <DuckyHead
+      <DuckHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
@@ -580,7 +579,7 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <BdayHead
+      <CakeHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
@@ -685,7 +684,7 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <GhettoblasterHead
+      <BoomboxHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
@@ -727,13 +726,7 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <MagichatHead
-        headProp={headProp}
-        glassesProp={glassesTest}
-        animationState={animationState}
-        animationValue={animationValue}
-        masterHeadModel={MasterHead}
-      />
+
       <MazeHead
         headProp={headProp}
         glassesProp={glassesTest}
@@ -818,7 +811,7 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <TunacanHead
+      <CannedhamHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}

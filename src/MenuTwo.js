@@ -110,7 +110,7 @@ const MenuTwo = ({
                 </button>
               </div>
               <button
-                className="menu-x-button"
+                className="options-menu-x-button"
                 onClick={() => {
                   setOptionsVisibility('none');
                   setShowMintModal(false);
@@ -712,7 +712,7 @@ const MenuTwo = ({
               <div className="inline-select-wrap">
                 <label className="trait-label">Animation</label>
                 <select
-                  value={animationValue.name}
+                  value={animationValue}
                   onChange={(e) => {
                     if (e.target.value === 'none') {
                       setAnimationState(false);
@@ -903,7 +903,7 @@ const MenuTwo = ({
           <button
             className={
               // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
-              disabledButtonState ? 'footer-button-disabled' : 'footer-button'
+              disabledButtonState ? 'menu-button-disabled' : 'menu-button'
             }
             onClick={() => {
               generateRandomNoun();
@@ -926,12 +926,13 @@ const MenuTwo = ({
             SCREENSHOT
           </button> */}
           <button
-            className="screenshot-button"
+            className="menu-button"
             onClick={() => {
               saveAsImage();
             }}
           >
-            <BsCameraFill size={20} color="black" />
+            {/* <BsCameraFill size={20} color="black" /> */}
+            SCREENSHOT
           </button>
         </div>
       )}
@@ -962,23 +963,20 @@ const InformationModal = (props) => {
             Nouns
           </a>{' '}
           are an experimental attempt to improve the formation of on-chain
-          avatar communities. While projects such as Cryptopunks have attempted
-          to bootstrap digital community and identity, Nouns attempt to
-          bootstrap identity, community, governance and a treasury that can be
-          used by the community.
+          avatar communities, attempting to bootstrap identity, community,
+          governance and a treasury for the community.
         </h5>
         <h5 className="about-paragraph-text">
-          3D Nouns aims to expand Nouns into the online metaverse, built for
-          individual customization and ready-made as perfect avatars for
-          existing and future digital platforms. Eventually, 3D Nouns will
-          extend into multiple different mediums, including gaming, virtual
-          reality, and augmented reality.
+          3D Nouns aims to expand Nouns into the online metaverse by creating
+          avatars for existing and future digital platforms. Eventually, 3D
+          Nouns will extend into many different mediums, including gaming,
+          animation, virtual reality, and augmented reality.
         </h5>
         <h5 className="about-paragraph-text">
-          3D Nouns traits stay true to the original Nouns artwork, with each
-          trait meticulously modeled by hand to emulate the original in three
-          dimensions. Craft your own 3D Noun trait by trait, or randomly
-          generate one of over one billion different 3D Noun combinations.
+          3D Nouns stay true to the original Nouns ethos by emulating the
+          original artwork and open source nature, while letting you craft your
+          own 3D Noun or randomly generating one of over one billion different
+          combinations.
         </h5>
       </div>
       <div className="profile-section">
@@ -1104,6 +1102,15 @@ const MintModal = (props) => {
             className="mint-modal-link"
           >
             @3DNouns
+          </a>{' '}
+          or{' '}
+          <BsDiscord className="mint-twitter-logo" size={25} color="#5865F2" />
+          <a
+            className="mint-modal-link"
+            href="https://discord.gg/eutBpG26"
+            target="_blank"
+          >
+            Discord
           </a>
           !
         </h4>

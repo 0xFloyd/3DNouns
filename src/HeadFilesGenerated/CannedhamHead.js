@@ -2,7 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef } from 'react';
 
-const BrickwallHead = ({
+const CannedhamHead = ({
   headProp,
   glassesProp,
   animationState,
@@ -10,7 +10,7 @@ const BrickwallHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/HeadBrickWall.glb');
+  const { nodes, materials } = useGLTF('/headModels/cannedhamHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -31,7 +31,7 @@ const BrickwallHead = ({
     <group
       ref={group}
       dispose={null}
-      visible={headProp === 'Brickwall' ? true : false}
+      visible={headProp === 'Cannedham' ? true : false}
       castShadow
       receiveShadow
     >
@@ -54,6 +54,6 @@ const BrickwallHead = ({
   );
 };
 
-useGLTF.preload('/headModels/HeadBrickWall.glb');
+useGLTF.preload('/headModels/cannedhamHead.glb');
 
-export default BrickwallHead;
+export default CannedhamHead;

@@ -2,7 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef } from 'react';
 
-const KingHead = ({
+const PineappleHead = ({
   headProp,
   glassesProp,
   animationState,
@@ -10,7 +10,7 @@ const KingHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/kingHead.glb');
+  const { nodes, materials } = useGLTF('/headModels/pineappleHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -31,7 +31,7 @@ const KingHead = ({
     <group
       ref={group}
       dispose={null}
-      visible={headProp === 'King' ? true : false}
+      visible={headProp === 'Pineapple' ? true : false}
       castShadow
       receiveShadow
     >
@@ -54,6 +54,6 @@ const KingHead = ({
   );
 };
 
-useGLTF.preload('/headModels/kingHead.glb');
+useGLTF.preload('/headModels/pineappleHead.glb');
 
-export default KingHead;
+export default PineappleHead;

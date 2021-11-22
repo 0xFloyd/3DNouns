@@ -12,9 +12,9 @@ const MatrixEnvironment = () => {
   return (
     <>
       <color attach="background" args={[0x000000]} />
-      {/* <fog attach="fog" args={[0x000000, 1, 500]} /> */}
+      <fog attach="fog" args={[0x000000, 1, 1000]} />
       <mesh castShadow receiveShadow position={[0, -0.025, 0]}>
-        <boxBufferGeometry args={[1500, 0.05, 1500]} />
+        <boxBufferGeometry args={[3000, 0.05, 3000]} />
         <meshStandardMaterial
           color={new THREE.Color(0x000000).setHex(0x000000)}
         />
@@ -22,10 +22,11 @@ const MatrixEnvironment = () => {
       <gridHelper
         receiveShadow
         castShadow
-        args={[750, 50, new THREE.Color(0x00ff00), new THREE.Color(0x00ff00)]}
+        args={[3000, 100, new THREE.Color(0xffffff), new THREE.Color(0xffffff)]}
         position={[0, 0.1, 0]}
+        // 0x00ff00
       />
-      <gridHelper
+      {/* <gridHelper
         args={[750, 50, new THREE.Color(0x00ff00), new THREE.Color(0x00ff00)]}
         position={[0, 375, 0]}
       />
@@ -48,7 +49,7 @@ const MatrixEnvironment = () => {
         rotation={[0, 0, Math.PI / 2]}
         position={[-375, 0, 0]}
         args={[750, 50, new THREE.Color(0x00ff00), new THREE.Color(0x00ff00)]}
-      />
+      /> */}
 
       {/* <EffectComposer multisampling={8}>
         <Bloom

@@ -2,7 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef } from 'react';
 
-const GhettoblasterHead = ({
+const CrownHead = ({
   headProp,
   glassesProp,
   animationState,
@@ -10,7 +10,7 @@ const GhettoblasterHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/HeadGhettoBlaster.glb');
+  const { nodes, materials } = useGLTF('/headModels/crownHead.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -31,7 +31,7 @@ const GhettoblasterHead = ({
     <group
       ref={group}
       dispose={null}
-      visible={headProp === 'Ghettoblaster' ? true : false}
+      visible={headProp === 'Crown' ? true : false}
       castShadow
       receiveShadow
     >
@@ -54,6 +54,6 @@ const GhettoblasterHead = ({
   );
 };
 
-useGLTF.preload('/headModels/HeadGhettoBlaster.glb');
+useGLTF.preload('/headModels/crownHead.glb');
 
-export default GhettoblasterHead;
+export default CrownHead;
