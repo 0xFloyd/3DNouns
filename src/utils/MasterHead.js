@@ -107,7 +107,7 @@ import VolcanoHead from '../HeadFilesGenerated/VolcanoHead';
 import WallsafeHead from '../HeadFilesGenerated/WallsafeHead';
 import WaveHead from '../HeadFilesGenerated/WaveHead';
 import WeedHead from '../HeadFilesGenerated/WeedHead';
-import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
+// import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
 import YetiHead from '../HeadFilesGenerated/YetiHead';
 
 const MasterHead = ({
@@ -425,13 +425,13 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <WizardhatHead
+      {/* <WizardhatHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
         animationValue={animationValue}
         masterHeadModel={MasterHead}
-      />
+      /> */}
       <BootHead
         headProp={headProp}
         glassesProp={glassesTest}

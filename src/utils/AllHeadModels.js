@@ -93,7 +93,7 @@ import VolcanoHead from '../HeadFilesGenerated/VolcanoHead';
 import WallsafeHead from '../HeadFilesGenerated/WallsafeHead';
 import WaveHead from '../HeadFilesGenerated/WaveHead';
 import WeedHead from '../HeadFilesGenerated/WeedHead';
-import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
+// import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
 import YetiHead from '../HeadFilesGenerated/YetiHead';
 
 export const headComponents = [
@@ -192,6 +192,6 @@ export const headComponents = [
   { name: 'Wallsafe', value: WallsafeHead },
   { name: 'Wave', value: WaveHead },
   { name: 'Weed', value: WeedHead },
-  { name: 'Wizardhat', value: WizardhatHead },
+  // { name: 'Wizardhat', value: WizardhatHead },
   { name: 'Yeti', value: YetiHead },
 ];
