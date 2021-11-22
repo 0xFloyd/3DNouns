@@ -9,7 +9,7 @@ const MatrixEnvironment = () => {
   // depthWrite={false}
   //   const bloomLayer = new THREE.Layers();
   //   bloomLayer.set(BLOOM_SCENE);
-
+  let meshColor = new THREE.Color(0x181818).setHex(0x181818);
   return (
     <>
       {/* <Stars
@@ -21,19 +21,21 @@ const MatrixEnvironment = () => {
         fade
         // position={[100, 100, 100]}
       /> */}
-      <color attach="background" args={[0x000000]} />
-      <fog attach="fog" args={[0x000000, 1, 1000]} />
+      <color attach="background" args={[0x181818]} />
+      <fog attach="fog" args={[0x181818, 1, 1000]} />
       <mesh castShadow receiveShadow position={[0, -0.025, 0]}>
         <boxBufferGeometry args={[5000, 0.05, 5000]} />
         <meshStandardMaterial
-          color={new THREE.Color(0x000000).setHex(0x000000)}
+          color={new THREE.Color(0x181818)
+            .setHex(0x181818)
+            .convertSRGBToLinear()}
         />
       </mesh>
       <gridHelper
         receiveShadow
         castShadow
         args={[5000, 150, new THREE.Color(0xffffff), new THREE.Color(0xffffff)]}
-        position={[0, 0.5, 0]}
+        position={[0, 0.1, 0]}
         // 0x00ff00
       />
       {/* <gridHelper

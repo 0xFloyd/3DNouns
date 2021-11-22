@@ -338,6 +338,10 @@ a {
   }
 }
 
+.progress-bar {
+  background-color: #000000 !important;
+}
+
 .directions-popup {
   z-index: 100 !important;
   position: fixed;
@@ -378,5 +382,13 @@ a {
     overflow-y: auto;
     scrollbar-width: none;
     overflow-x: hidden;
+  }
+  .nouns-logo {
+    /* width: 100%;
+  height: 100%; */
+    max-width: 90%;
+    max-height: 90%;
+    margin-left: 10px;
+    margin-top: -10px;
   }
 }

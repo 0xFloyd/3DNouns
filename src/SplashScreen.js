@@ -1,6 +1,6 @@
-import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
-import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import * as THREE from 'three';
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import * as THREE from "three";
 import {
   bodyAttributes,
   glassesAttributes,
@@ -8,9 +8,9 @@ import {
   pantsAttributes,
   shoesAttributes,
   environmentAttributes,
-} from 'attributes';
-import ProgressLoader from './Loader';
-import { DepthOfField, EffectComposer } from '@react-three/postprocessing';
+} from "attributes";
+import ProgressLoader from "./Loader";
+import { DepthOfField, EffectComposer } from "@react-three/postprocessing";
 import {
   Html,
   RoundedBox,
@@ -18,13 +18,13 @@ import {
   useGLTF,
   useProgress,
   useTexture,
-} from '@react-three/drei';
-import Text from './Text';
-import { FontLoader } from 'utils/FontLoader';
-import { useSpring, animated, config } from '@react-spring/three';
-import TestText from 'TestText';
-import data from './data.json';
-import BodyMesh from 'assets/FullBodyNouns/BodyMesh';
+} from "@react-three/drei";
+import Text from "./Text";
+import { FontLoader } from "utils/FontLoader";
+import { useSpring, animated, config } from "@react-spring/three";
+import TestText from "TestText";
+import data from "./data.json";
+import BodyMesh from "assets/FullBodyNouns/BodyMesh";
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -84,7 +84,7 @@ const EnterButton = ({
   hovered,
   store,
 }) => {
-  const font = useLoader(FontLoader, '/bold.blob');
+  const font = useLoader(FontLoader, "/bold.blob");
 
   const { position } = useSpring({
     position: hovered ? [0, -0.25, 2] : [0, -0.5, 2],
@@ -106,7 +106,7 @@ const EnterButton = ({
   );
 
   useEffect(() => {
-    document.body.style.cursor = hovered ? 'pointer' : 'auto';
+    document.body.style.cursor = hovered ? "pointer" : "auto";
   }, [hovered]);
 
   const meshProps = {};
@@ -145,8 +145,8 @@ const EnterButton = ({
         onPointerOut={(event) => setHover(false)}
         // scale={hovered ? [1.2, 1.2, 1.2] : [1, 1, 1]}
       >
-        <textGeometry args={['ENTER', config]} />
-        <meshStandardMaterial attach="material" color={'#d63c5e'} />
+        <textGeometry args={["ENTER", config]} />
+        <meshStandardMaterial attach="material" color={"#d63c5e"} />
       </mesh>
     </animated.group>
   );
@@ -182,7 +182,7 @@ const SplashScreen = (store) => {
           // camera.fov =
         }}
       >
-        <color attach="background" args={['#000000']} />
+        <color attach="background" args={["#000000"]} />
         <ambientLight intensity={0.5} />
         {/* <spotLight position={[10, 10, 10]} intensity={0.1} /> */}
         <directionalLight
@@ -195,7 +195,7 @@ const SplashScreen = (store) => {
         <Intro {...store} />
 
         <Suspense fallback={<ProgressLoader />}>
-          {progress === 100 && (
+          {/* {progress === 100 && (
             <EnterButton
               enterRef={enterRef}
               setActive={setActive}
@@ -204,7 +204,7 @@ const SplashScreen = (store) => {
               hovered={hovered}
               store={store}
             />
-          )}
+          )} */}
           <Stars
             radius={100}
             depth={50}
