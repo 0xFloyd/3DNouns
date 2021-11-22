@@ -1,7 +1,7 @@
-import { Stars } from '@react-three/drei';
-import { Bloom, EffectComposer } from '@react-three/postprocessing';
-import React from 'react';
-import * as THREE from 'three';
+import { Stars } from "@react-three/drei";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
+import React from "react";
+import * as THREE from "three";
 
 const MatrixEnvironment = () => {
   // color="#101010"
@@ -32,7 +32,7 @@ const MatrixEnvironment = () => {
       <gridHelper
         receiveShadow
         castShadow
-        args={[3000, 100, new THREE.Color(0xffffff), new THREE.Color(0xffffff)]}
+        args={[5000, 150, new THREE.Color(0xffffff), new THREE.Color(0xffffff)]}
         position={[0, 0.5, 0]}
         // 0x00ff00
       />

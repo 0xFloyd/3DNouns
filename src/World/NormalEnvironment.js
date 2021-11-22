@@ -1,8 +1,8 @@
-import { Sky } from '@react-three/drei';
-import { useLoader } from '@react-three/fiber';
-import React, { useEffect, useRef } from 'react';
-import * as THREE from 'three';
-import SkyShader from './SkyBox';
+import { Sky } from "@react-three/drei";
+import { useLoader } from "@react-three/fiber";
+import React, { useEffect, useRef } from "react";
+import * as THREE from "three";
+import SkyShader from "./SkyBox";
 
 const NormalEnvironment = () => {
   // color="#101010"
@@ -12,7 +12,7 @@ const NormalEnvironment = () => {
   const Ground = () => {
     const texture_1 = useLoader(
       THREE.TextureLoader,
-      '/textures/world/grass.png'
+      "/textures/world/grass.png"
     );
     texture_1.wrapS = texture_1.wrapT = THREE.RepeatWrapping;
     texture_1.repeat.set(12, 12);
@@ -22,12 +22,12 @@ const NormalEnvironment = () => {
     return (
       <mesh receiveShadow position={[32, -1, 0]} rotation={[0, Math.PI / 2, 0]}>
         <cylinderBufferGeometry args={[2000, 2000, 2, 32]} />
-        <meshStandardMaterial map={texture_1} attach="material" />
-        {/* <meshStandardMaterial
+        {/* <meshStandardMaterial map={texture_1} attach="material" /> */}
+        <meshStandardMaterial
           color={new THREE.Color(0x505050).convertSRGBToLinear()}
           // roughness={0.1}
           // metalness={0}
-        /> */}
+        />
       </mesh>
     );
   };
@@ -72,12 +72,12 @@ const NormalEnvironment = () => {
         />
       </mesh> */}
 
-      {/* <gridHelper
+      <gridHelper
         receiveShadow
         castShadow
-        args={[5000, 125, new THREE.Color(0x7d7d7d), new THREE.Color(0x7d7d7d)]}
+        args={[5000, 150, new THREE.Color(0x7d7d7d), new THREE.Color(0x7d7d7d)]}
         position={[0, 0.5, 0]}
-      /> */}
+      />
     </>
   );
 };
