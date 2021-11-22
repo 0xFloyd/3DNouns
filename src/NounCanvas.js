@@ -25,7 +25,7 @@ import {
   useTexture,
 } from '@react-three/drei';
 import { Col, Container, Row } from 'react-bootstrap';
-import logo from './assets/3dnounslogoglasses.png';
+import logo from './assets/3DNounsLogoSVG.svg';
 import './shaders/materials/ReflectorMaterial';
 import NounsLogo from 'World/NounsLogo';
 import ProgressLoader from 'Loader';
