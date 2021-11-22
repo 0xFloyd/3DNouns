@@ -1,12 +1,13 @@
-import React, { useRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
-export default function ThreeDLogo(props) {
+const ThreeDLogo = ({}, ref) => {
   const group = useRef();
   const { nodes, materials } = useGLTF('/world/3Dglasses.glb');
   return (
     <mesh
+      ref={ref}
       castShadow
       receiveShadow
       geometry={nodes.NounsLogo.geometry}
@@ -39,6 +40,8 @@ export default function ThreeDLogo(props) {
     //   />
     // </group>
   );
-}
+};
+
+export default forwardRef(ThreeDLogo);
 
 useGLTF.preload('/3Dlogo.glb');

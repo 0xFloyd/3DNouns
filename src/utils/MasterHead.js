@@ -23,7 +23,7 @@ import BootHead from '../HeadFilesGenerated/BootHead';
 import CakeHead from '../HeadFilesGenerated/CakeHead';
 import CamcorderHead from '../HeadFilesGenerated/CamcorderHead';
 import CannedhamHead from '../HeadFilesGenerated/CannedhamHead';
-import CarHead from '../HeadFilesGenerated/CarHead';
+// import CarHead from '../HeadFilesGenerated/CarHead';
 import CashregisterHead from '../HeadFilesGenerated/CashregisterHead';
 import CassetteHead from '../HeadFilesGenerated/CassetteHead';
 import CatHead from '../HeadFilesGenerated/CatHead';
@@ -593,13 +593,13 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-      <CarHead
+      {/* <CarHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
         animationValue={animationValue}
         masterHeadModel={MasterHead}
-      />
+      /> */}
       <CashregisterHead
         headProp={headProp}
         glassesProp={glassesTest}

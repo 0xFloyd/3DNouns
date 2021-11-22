@@ -1,3 +1,4 @@
+import { Stars } from '@react-three/drei';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import React from 'react';
 import * as THREE from 'three';
@@ -11,10 +12,19 @@ const MatrixEnvironment = () => {
 
   return (
     <>
+      {/* <Stars
+        radius={100}
+        depth={700}
+        count={5000}
+        factor={16}
+        saturation={2}
+        fade
+        // position={[100, 100, 100]}
+      /> */}
       <color attach="background" args={[0x000000]} />
       <fog attach="fog" args={[0x000000, 1, 1000]} />
       <mesh castShadow receiveShadow position={[0, -0.025, 0]}>
-        <boxBufferGeometry args={[3000, 0.05, 3000]} />
+        <boxBufferGeometry args={[5000, 0.05, 5000]} />
         <meshStandardMaterial
           color={new THREE.Color(0x000000).setHex(0x000000)}
         />
@@ -23,7 +33,7 @@ const MatrixEnvironment = () => {
         receiveShadow
         castShadow
         args={[3000, 100, new THREE.Color(0xffffff), new THREE.Color(0xffffff)]}
-        position={[0, 0.1, 0]}
+        position={[0, 0.5, 0]}
         // 0x00ff00
       />
       {/* <gridHelper

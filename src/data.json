@@ -710,7 +710,6 @@
     { "name": "Insignia", "value": "accessory-insignia.png" },
     { "name": "Leaf", "value": "accessory-leaf.png" },
     { "name": "Lightbulb", "value": "accessory-lightbulb.png" },
-    { "name": "Lp", "value": "accessory-lp.png" },
     { "name": "Marsface", "value": "accessory-marsface.png" },
     { "name": "Matrix", "value": "accessory-matrix.png" },
     { "name": "Moon-Block", "value": "accessory-moon-block.png" },
@@ -752,11 +751,11 @@
     },
     { "name": "Tie-Red", "value": "accessory-tie-red.png" },
     { "name": "Txt-A2+B2", "value": "accessory-txt-a2+b2.png" },
-    { "name": "Txt-Cc", "value": "accessory-txt-cc.png" },
+
     { "name": "Txt-Cc2", "value": "accessory-txt-cc2.png" },
     { "name": "Txt-Copy", "value": "accessory-txt-copy.png" },
     { "name": "Txt-Dao", "value": "accessory-txt-dao.png" },
-    { "name": "Txt-Doom", "value": "accessory-txt-doom.png" },
+
     { "name": "Txt-Dope-Text", "value": "accessory-txt-dope-text.png" },
     { "name": "Txt-Foo-Black", "value": "accessory-txt-foo-black.png" },
     { "name": "Txt-Ico", "value": "accessory-txt-ico.png" },
@@ -775,8 +774,7 @@
     { "name": "Txt-Pi", "value": "accessory-txt-pi.png" },
     { "name": "Txt-Pop", "value": "accessory-txt-pop.png" },
     { "name": "Txt-Rofl", "value": "accessory-txt-rofl.png" },
-    { "name": "Txt-We", "value": "accessory-txt-we.png" },
-    { "name": "Txt-Yay", "value": "accessory-txt-yay.png" },
+
     { "name": "Wave", "value": "accessory-wave.png" },
     { "name": "Wet-Money", "value": "accessory-wet-money.png" },
     { "name": "Yingyang", "value": "accessory-yingyang.png" },
@@ -862,13 +860,6 @@
       "filePath": "cannedhamHead.glb",
       "componentName": "CannedhamHead",
       "color": "0x5648ed"
-    },
-    {
-      "name": "Car",
-      "value": "head-Car",
-      "filePath": "HeadCar.glb",
-      "componentName": "CarHead",
-      "color": "0xe11833"
     },
     {
       "name": "Cashregister",
@@ -1211,7 +1202,7 @@
       "value": "head-Panda",
       "filePath": "HeadPanda.glb",
       "componentName": "PandaHead",
-      "color": "0xFFC925"
+      "color": "0xffffff"
     },
     {
       "name": "Paperclip",

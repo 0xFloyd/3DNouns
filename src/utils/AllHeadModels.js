@@ -9,7 +9,7 @@ import BootHead from '../HeadFilesGenerated/BootHead';
 import CakeHead from '../HeadFilesGenerated/CakeHead';
 import CamcorderHead from '../HeadFilesGenerated/CamcorderHead';
 import CannedhamHead from '../HeadFilesGenerated/CannedhamHead';
-import CarHead from '../HeadFilesGenerated/CarHead';
+// import CarHead from '../HeadFilesGenerated/CarHead';
 import CashregisterHead from '../HeadFilesGenerated/CashregisterHead';
 import CassetteHead from '../HeadFilesGenerated/CassetteHead';
 import CatHead from '../HeadFilesGenerated/CatHead';
@@ -108,7 +108,7 @@ export const headComponents = [
   { name: 'Cake', value: CakeHead },
   { name: 'Camcorder', value: CamcorderHead },
   { name: 'Cannedham', value: CannedhamHead },
-  { name: 'Car', value: CarHead },
+  // { name: 'Car', value: CarHead },
   { name: 'Cashregister', value: CashregisterHead },
   { name: 'Cassette', value: CassetteHead },
   { name: 'Cat', value: CatHead },

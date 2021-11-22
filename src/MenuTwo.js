@@ -756,7 +756,7 @@ const MenuTwo = ({
               </div>
             </div>
             {/* end Rotate */}
-            <Form>
+            {/* <Form>
               <FormCheck
                 id="switchEnabled"
                 type="switch"
@@ -764,7 +764,7 @@ const MenuTwo = ({
                 onChange={() => setRandomizerOn(!randomizerOn)}
                 label="Cycle (dev only - remove on prod)"
               />
-            </Form>
+            </Form> */}
             <div className="menu-footer-row">
               <div className="menu-footer-row-container">
                 <button
@@ -778,19 +778,22 @@ const MenuTwo = ({
               </div>
               <div className="menu-footer-row-container">
                 <button
-                  className="menu-button"
+                  className="download-menu-button"
                   onClick={() => {
                     //   { "name": "tpose", "value": 7 },
-                    setAnimationState(true);
-                    setAnimationValue('tpose');
-                    setDownloadingModel(true);
-                    setTimeout(() => {
-                      downloadModel();
-                    }, 1500);
+                    // setAnimationState(true);
+                    // setAnimationValue('tpose');
+                    // setDownloadingModel(true);
+                    // setTimeout(() => {
+                    //   downloadModel();
+                    // }, 1500);
                   }}
+                  disabled={true}
                 >
                   DOWNLOAD NOUN
-                  {downloadingModel && (
+                  <br />
+                  {`< Coming soon! >`}
+                  {/* {downloadingModel && (
                     <Spinner
                       animation="border"
                       style={{
@@ -799,7 +802,7 @@ const MenuTwo = ({
                         height: '20px',
                       }}
                     />
-                  )}
+                  )} */}
                 </button>
               </div>
             </div>

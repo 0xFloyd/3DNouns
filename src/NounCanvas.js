@@ -67,6 +67,7 @@ import DownloadNoun from 'DownloadNoun';
 import MenuTwo from 'MenuTwo';
 import { isDesktop } from 'react-device-detect';
 import ThreeDLogo from 'ThreeDNounsLogo';
+import BillBoard from 'BillBoard';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -260,35 +261,53 @@ const NounCanvas = () => {
     );
   };
 
-  const VideoLights = () => {
+  const VideoLights = (ref) => {
     const light = useRef();
     const spotLight = useRef();
-    const hemiLight = useRef();
-    // useHelper(light, DirectionalLightHelper, 'cyan');
-    // useHelper(spotLight, SpotLightHelper, 'red');
+    const logoLightRef = useRef();
+
+    // const logoLight = new THREE.SpotLight(0xffffff);
+    // logoLight.intensity = 3;
+    // useHelper(refTwo, DirectionalLightHelper, 'cyan');
+    // useHelper(logoLightRef, SpotLightHelper, 'red');
     // useHelper(hemiLight, HemisphereLightHelper, 'blue');
     const d = 5;
+
+    // useEffect(() => {
+    //   if (logoLight.current && GlassesLogo.current) {
+    //     logoLight.current.target = ref.current;
+    //     // helper.current.update();
+    //   }
+    // }, [logoLight, ref]);
 
     return (
       <>
         {/* <color attach="background" args={['#101010']} /> */}
         {/* <fog attach="fog" args={['#101010', 1, 500]} /> */}
         <group>
-          <ambientLight intensity={0.33} />
+          <ambientLight intensity={1} />
           {/* <spotLight
-          intensity={0.8}
-          ref={spotLight}
-          position={[-10, 300, 300]}
-          castShadow
-          color={new THREE.Color(0xffa95c)}
-          shadow-mapSize-width={2048}
-          shadow-mapSize-height={2048}
-        /> */}
+            intensity={0.8}
+            ref={logoLight}
+            position={[100, 0, 200]}
+            castShadow
+            color={new THREE.Color(0xffa95c)}
+            // lookAt={[100, 0, -200]}
+            shadow-mapSize-width={2048}
+            shadow-mapSize-height={2048}
+          /> */}
           <hemisphereLight
             skyColor={new THREE.Color(0xffffbb)}
             groundColor={new THREE.Color(0x080820)}
-            intensity={0.5}
+            intensity={1.5}
           />
+          {/* <primitive
+            ref={logoLightRef}
+            object={logoLight}
+            position={[75, 10, -75]}
+            // rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
+          />
+          <primitive object={logoLight.target} position={[150, 10, -150]} /> */}
           {/* <directionalLight
           ref={light}
           color={new THREE.Color(0xffa95c)}
@@ -308,7 +327,7 @@ const NounCanvas = () => {
           <directionalLight
             // color={0xffffbb}
             ref={light}
-            intensity={0.55}
+            intensity={1}
             position={[-100, 500, 500]}
             shadow-camera-left={d * -100}
             shadow-camera-bottom={d * -100}
@@ -321,6 +340,24 @@ const NounCanvas = () => {
             shadow-mapSize-width={4096}
             castShadow
           />
+
+          {/* <directionalLight
+            // color={0xffffbb}
+
+            ref={logoLight}
+            intensity={0.55}
+            position={[0, 30, -100]}
+            shadow-camera-left={d * -100}
+            shadow-camera-bottom={d * -100}
+            shadow-camera-right={d * 100}
+            shadow-camera-top={d * 100}
+            shadow-camera-near={10}
+            shadow-camera-far={5000}
+            shadow-bias={-0.0001}
+            shadow-mapSize-height={4096}
+            shadow-mapSize-width={4096}
+            castShadow
+          /> */}
         </group>
       </>
     );
@@ -387,17 +424,20 @@ const NounCanvas = () => {
 
   const temporaryModel = useRef();
 
+  const GlassesLogo = useRef();
+
   return (
     <>
       <Canvas
         shadows
         gl={{
           preserveDrawingBuffer: true,
+          // logarithmicDepthBuffer: true,
           // antialias: false,
           // pixelRatio: window.devicePixelRatio * 2,
           // premultipliedAlpha: true,
           // shadowMap:  THREE.PCFSoftShadowMap
-          // physicallyCorrectLights: true,
+          physicallyCorrectLights: true,
         }}
         dpr={[1, 1.5]}
         // camera={{ position: [5, 5, 5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
@@ -412,7 +452,7 @@ const NounCanvas = () => {
         }}
       >
         {/* <Lights /> */}
-        <VideoLights />
+        <VideoLights GlassesLogo={GlassesLogo} />
 
         <OrbitControls
           target={[0, 20, 0]}
@@ -422,7 +462,7 @@ const NounCanvas = () => {
           enableDamping={true}
           maxPolarAngle={Math.PI / 1.85}
           maxDistance={150}
-          minDistance={10}
+          minDistance={20}
         />
 
         <Suspense fallback={<ProgressLoader />}>
@@ -503,7 +543,7 @@ const NounCanvas = () => {
           </group> */}
           {/* <HorizontalNounsLogo environment={environment} /> */}
           {/* <NounsLogo environment={environment} /> */}
-          <ThreeDLogo />
+          <ThreeDLogo ref={GlassesLogo} />
         </Suspense>
         {/* <Stats showPanel={0} className="stats" /> */}
       </Canvas>

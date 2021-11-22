@@ -95,7 +95,6 @@
   display: block;
   border-radius: 10px;
   -webkit-box-shadow: none;
-  background-color: #d63c5e;
   border: none;
   cursor: pointer;
   text-indent: 80px;
@@ -103,10 +102,13 @@
   -webkit-appearance: none;
   appearance: none;
   text-overflow: '';
+  outline: none;
+  outline-style: none;
 }
 
 .trait-select-box:focus {
   outline: none;
+  outline-style: none;
 }
 
 .trait-select-box-label {
@@ -225,6 +227,10 @@
   background-color: rgba(255, 255, 255, 0.603);
   cursor: pointer;
 }
+.trait-select:focus {
+  outline-style: none;
+  outline: none;
+}
 
 .trait-label {
   color: rgb(125, 125, 125);
@@ -270,6 +276,14 @@
 .menu-header-row {
   display: grid;
   grid-template-columns: 0.5fr 1fr 0.5fr;
+}
+
+.download-menu-button {
+  background: #fff;
+  outline: none;
+  border: 1px solid rgb(128, 128, 128);
+  border-radius: 5px;
+  padding: 0px 10px 0px 10px;
 }
 
 .menu-button {
