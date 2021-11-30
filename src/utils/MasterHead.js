@@ -75,6 +75,7 @@ import OwlHead from '../HeadFilesGenerated/OwlHead';
 import PandaHead from '../HeadFilesGenerated/PandaHead';
 import PaperclipHead from '../HeadFilesGenerated/PaperclipHead';
 import PhoneHead from '../HeadFilesGenerated/PhoneHead';
+import PianoHead from '../HeadFilesGenerated/PianoHead';
 import PillHead from '../HeadFilesGenerated/PillHead';
 import PineappleHead from '../HeadFilesGenerated/PineappleHead';
 import PirateshipHead from '../HeadFilesGenerated/PirateshipHead';
@@ -847,6 +848,13 @@ const MasterHead = ({
         masterHeadModel={MasterHead}
       />
       <WallsafeHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <PianoHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
