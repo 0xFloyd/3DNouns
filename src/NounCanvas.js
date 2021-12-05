@@ -409,7 +409,7 @@ const NounCanvas = () => {
     var imgData, imgNode;
     try {
       var strMime = 'image/jpeg';
-      imgData = sceneState.gl.domElement.toDataURL(strMime);
+      imgData = sceneState.gl.domElement.toDataURL(strMime, 1.0);
 
       saveScreenshot(
         imgData.replace(strMime, 'image/octet-stream'),
@@ -445,7 +445,7 @@ const NounCanvas = () => {
         // camera={{ position: [5, 5, 5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
           // do things here
-          camera.position.x = 24;
+          camera.position.x = 0;
           camera.position.y = 32;
           camera.position.z = 48;
           camera.lookAt(lookAtPos);
@@ -585,6 +585,7 @@ const NounCanvas = () => {
         saveAsImage={saveAsImage}
         randomizerOn={randomizerOn}
         setRandomizerOn={setRandomizerOn}
+        setSceneState={setSceneState}
       />
       {showDirections && (
         <div className="directions-popup">
