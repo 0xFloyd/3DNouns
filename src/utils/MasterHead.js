@@ -1,5 +1,5 @@
 import { useGLTF, useProgress, useTexture } from '@react-three/drei';
-import { useLoader } from '@react-three/fiber';
+import { useLoader, useThree } from '@react-three/fiber';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
@@ -117,6 +117,7 @@ const MasterHead = ({
   animationState,
   animationValue,
 }) => {
+  const { gl } = useThree();
   const MasterHead = useGLTF('/pipeline1110/headAnim.glb');
 
   const [allheadsState, setAllHeadsState] = useState([]);
@@ -127,7 +128,7 @@ const MasterHead = ({
   );
 
   glassesTest.flipY = false;
-  // glassesTest.magFilter = glassesTest.minFilter = THREE.NearestFilter;
+  glassesTest.magFilter = glassesTest.minFilter = THREE.NearestFilter;
 
   const allHeadComponents = headComponents.map((obj, index) => {
     const Component = obj.value;

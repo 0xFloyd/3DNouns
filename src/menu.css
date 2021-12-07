@@ -256,6 +256,86 @@
   max-height: 95vh;
 }
 
+.screenshot-container {
+  z-index: 100 !important;
+  position: fixed;
+  padding: 10px 20px 10px 20px;
+  top: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  border-bottom-left-radius: 10px;
+  overflow-y: auto;
+  /* scrollbar-width: none; */
+  max-height: 95vh;
+}
+
+.screenshot-modal-container {
+  z-index: 101 !important;
+  position: fixed;
+  padding: 10px;
+  bottom: 12.5%;
+  right: 25%;
+  width: 50vw;
+  max-height: 100vh;
+  /* height: 75vh; */
+  background-color: rgb(255, 255, 255);
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 35px 35px 35px 35px;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  text-align: center;
+}
+
+.screenshot-canvas-container {
+  /* z-index: 100 !important;
+  position: fixed;
+  padding: 10px;
+  top: 12.5%;
+  right: 25%;
+  width: 50vw;
+  max-height: 100vh; */
+  height: 65vh;
+
+  padding-bottom: 20px;
+  /* background-color: rgb(255, 255, 255);
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 25px 25px 75px 25px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  text-align: center; */
+}
+
+.screenshot-modal-background {
+  z-index: 100 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  width: 100vw;
+  max-height: 100vh;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+  overflow: hidden;
+  scrollbar-width: none;
+  text-align: center;
+}
+
+.take-screenshot-container {
+  display: grid;
+  grid-template-columns: 0.5fr 0.25fr 0.5fr;
+  align-items: center;
+}
+
+.react-color-picker-container {
+  position: absolute;
+  right: 1%;
+  bottom: 1%;
+}
+
 /* Safari and Chrome */
 /* .options-container::-webkit-scrollbar {
   display: none;
@@ -494,7 +574,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 10px 0px 0px 0px;
+  padding: 0px;
 }
 
 .profile-section {
@@ -637,6 +718,11 @@
 .screenshot-button:hover {
   background-color: rgb(225, 225, 225);
   cursor: pointer;
+}
+
+.light-slider-container {
+  padding-right: 0px;
+  width: 80%;
 }
 
 .about-paragraph-text {
@@ -847,6 +933,7 @@
     padding: 5px;
     text-decoration: none;
   }
+
   .menu-button:active {
     background: rgba(255, 255, 255);
   }
@@ -858,5 +945,90 @@
   }
   .menu-button-disabled:hover {
     background: rgba(225, 225, 225);
+  }
+
+  .screenshot-container {
+    z-index: 100 !important;
+    position: fixed;
+    padding: 10px 20px 10px 20px;
+    top: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    border-bottom-left-radius: 10px;
+    overflow-y: auto;
+    /* scrollbar-width: none; */
+    max-height: 95vh;
+  }
+
+  .screenshot-modal-container {
+    z-index: 101 !important;
+    position: fixed;
+    padding: 10px;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    font-size: 1rem;
+    border-radius: 0px;
+    padding: 25px 25px 75px 25px;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    text-align: center;
+  }
+
+  .screenshot-canvas-container {
+    height: 50vh;
+    padding: 0px;
+    /* z-index: 101 !important;
+    position: fixed;
+    padding: 10px;
+    top: 2.5%;
+    right: 0;
+    width: 100vw;
+    max-height: 100vh;
+    height: 75vh;
+    background-color: rgb(255, 255, 255);
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 25px 25px 75px 25px;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    text-align: center; */
+  }
+
+  .react-color-picker-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    order: 2;
+    margin: 5px 0px 5px 0px;
+    /* position: absolute;
+    bottom: 1%; */
+  }
+
+  .take-screenshot-container {
+    display: block;
+    display: flex;
+    flex-flow: column;
+    margin-top: 20px;
+  }
+  .light-slider-container {
+    justify-content: center;
+    width: 100%;
+    order: 1;
+  }
+  .screenshot-mobile-button {
+    margin-top: 10px;
+    width: 50%;
+    align-self: center;
+    order: 3;
+  }
+  .screenshot-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }

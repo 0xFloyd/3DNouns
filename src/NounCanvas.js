@@ -405,21 +405,21 @@ const NounCanvas = () => {
     );
   };
 
-  const saveAsImage = () => {
-    var imgData, imgNode;
-    try {
-      var strMime = 'image/jpeg';
-      imgData = sceneState.gl.domElement.toDataURL(strMime, 1.0);
+  // const saveAsImage = () => {
+  //   var imgData, imgNode;
+  //   try {
+  //     var strMime = 'image/jpeg';
+  //     imgData = sceneState.gl.domElement.toDataURL(strMime, 1.0);
 
-      saveScreenshot(
-        imgData.replace(strMime, 'image/octet-stream'),
-        '3DNoun.jpg'
-      );
-    } catch (e) {
-      console.log(e);
-      return;
-    }
-  };
+  //     saveScreenshot(
+  //       imgData.replace(strMime, 'image/octet-stream'),
+  //       '3DNoun.jpg'
+  //     );
+  //   } catch (e) {
+  //     console.log(e);
+  //     return;
+  //   }
+  // };
 
   const modelDownloadMeshForward = useRef();
 
@@ -582,7 +582,7 @@ const NounCanvas = () => {
         setDownloadingModel={setDownloadingModel}
         lockedTraits={lockedTraits}
         setLockedTraits={setLockedTraits}
-        saveAsImage={saveAsImage}
+        // saveAsImage={saveAsImage}
         randomizerOn={randomizerOn}
         setRandomizerOn={setRandomizerOn}
         setSceneState={setSceneState}
@@ -696,16 +696,16 @@ function save(blob, filename) {
   // URL.revokeObjectURL( url ); breaks Firefox...
 }
 
-const saveScreenshot = (strData, filename) => {
-  var link = document.createElement('a');
-  if (typeof link.download === 'string') {
-    document.body.appendChild(link); //Firefox requires the link to be in the body
-    link.download = filename;
-    link.href = strData;
-    link.click();
-    document.body.removeChild(link); //remove the link when done
-  }
-};
+// const saveScreenshot = (strData, filename) => {
+//   var link = document.createElement('a');
+//   if (typeof link.download === 'string') {
+//     document.body.appendChild(link); //Firefox requires the link to be in the body
+//     link.download = filename;
+//     link.href = strData;
+//     link.click();
+//     document.body.removeChild(link); //remove the link when done
+//   }
+// };
 
 {
   /* <MyCamera
