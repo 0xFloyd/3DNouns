@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
 
 /* noun color: #d63c5e */
 * {
   box-sizing: border-box;
-  font-family: "Londrina Solid";
+  font-family: 'Londrina Solid';
   font-size: 1rem;
 }
 
@@ -112,7 +112,7 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  font-family: "Londrina Solid";
+  font-family: 'Londrina Solid';
 }
 
 .attribute-select-box:hover {
@@ -186,7 +186,7 @@ body {
   background: #d63c5e;
   color: white;
   cursor: pointer;
-  font-family: "Londrina Solid";
+  font-family: 'Londrina Solid';
 }
 
 .attribute-select-box option:hover {
@@ -231,7 +231,7 @@ body {
 }
 
 .toggle:before {
-  content: "on off";
+  content: 'on off';
   display: block;
   position: absolute;
   z-index: 2;

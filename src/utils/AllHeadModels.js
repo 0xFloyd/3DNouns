@@ -61,6 +61,7 @@ import OwlHead from '../HeadFilesGenerated/OwlHead';
 import PandaHead from '../HeadFilesGenerated/PandaHead';
 import PaperclipHead from '../HeadFilesGenerated/PaperclipHead';
 import PhoneHead from '../HeadFilesGenerated/PhoneHead';
+import PianoHead from '../HeadFilesGenerated/PianoHead';
 import PillHead from '../HeadFilesGenerated/PillHead';
 import PineappleHead from '../HeadFilesGenerated/PineappleHead';
 import PirateshipHead from '../HeadFilesGenerated/PirateshipHead';
@@ -160,6 +161,7 @@ export const headComponents = [
   { name: 'Panda', value: PandaHead },
   { name: 'Paperclip', value: PaperclipHead },
   { name: 'Phone', value: PhoneHead },
+  { name: 'Piano', value: PianoHead },
   { name: 'Pill', value: PillHead },
   { name: 'Pineapple', value: PineappleHead },
   { name: 'Pirateship', value: PirateshipHead },

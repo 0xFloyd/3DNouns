@@ -81,6 +81,9 @@ const App = () => {
       <div className="nouns-canvas">
         <NounCanvas />
       </div>
+      {/* <div className="nouns-canvas">
+        <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
+      </div> */}
     </div>
   );
 };

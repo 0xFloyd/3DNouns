@@ -4,8 +4,8 @@ import {
   useFrame,
   useLoader,
   useThree,
-} from "@react-three/fiber";
-import * as THREE from "three";
+} from '@react-three/fiber';
+import * as THREE from 'three';
 import React, {
   Suspense,
   useEffect,
@@ -13,7 +13,7 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
+} from 'react';
 import {
   Environment,
   OrbitControls,
@@ -23,12 +23,12 @@ import {
   useHelper,
   useProgress,
   useTexture,
-} from "@react-three/drei";
-import { Col, Container, Row } from "react-bootstrap";
-import logo from "./assets/3DNounsLogoSVG.svg";
-import "./shaders/materials/ReflectorMaterial";
-import NounsLogo from "World/NounsLogo";
-import ProgressLoader from "Loader";
+} from '@react-three/drei';
+import { Col, Container, Row } from 'react-bootstrap';
+import logo from './assets/3DNounsLogoSVG.svg';
+import './shaders/materials/ReflectorMaterial';
+import NounsLogo from 'World/NounsLogo';
+import ProgressLoader from 'Loader';
 import {
   bodyAttributes,
   accessoryAttributes,
@@ -37,38 +37,38 @@ import {
   pantsAttributes,
   shoesAttributes,
   environmentAttributes,
-} from "attributes";
+} from 'attributes';
 import {
   DirectionalLightHelper,
   HemisphereLightHelper,
   SpotLightHelper,
   TextureLoader,
-} from "three";
-import SeperateHeadBody from "./assets/FullBodyNouns/SeperateHeadAndBodyTest";
-import NormalEnvironment from "World/NormalEnvironment";
-import OceanEnvironment from "World/OceanEnvironment";
-import Menu from "Menu";
-import data from "./data.json";
-import FINALBODY from "assets/FullBodyNouns/FinalPipelineTest";
-import FINALHEAD from "assets/FullBodyNouns/FINALHEAD";
-import ModelHead from "assets/FullBodyNouns/FINALHEAD";
-import HeadComponents from "assets/FullBodyNouns/FINALHEAD";
-import { headComponents } from "utils/AllHeadModels";
-import PreloadBodyTextures from "utils/PreloadBodyTextures";
-import MasterHead from "utils/MasterHead";
-import FINALBODY119 from "assets/FullBodyNouns/FINALBODY119";
-import RANDOMIZER from "RANDOMIZER";
-import MatrixEnvironment from "World/Matrix";
+} from 'three';
+import SeperateHeadBody from './assets/FullBodyNouns/SeperateHeadAndBodyTest';
+import NormalEnvironment from 'World/NormalEnvironment';
+import OceanEnvironment from 'World/OceanEnvironment';
+import Menu from 'Menu';
+import data from './data.json';
+import FINALBODY from 'assets/FullBodyNouns/FinalPipelineTest';
+import FINALHEAD from 'assets/FullBodyNouns/FINALHEAD';
+import ModelHead from 'assets/FullBodyNouns/FINALHEAD';
+import HeadComponents from 'assets/FullBodyNouns/FINALHEAD';
+import { headComponents } from 'utils/AllHeadModels';
+import PreloadBodyTextures from 'utils/PreloadBodyTextures';
+import MasterHead from 'utils/MasterHead';
+import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
+import RANDOMIZER from 'RANDOMIZER';
+import MatrixEnvironment from 'World/Matrix';
 // import { GLTFExporter } from 'three-stdlib';
-import NounHolder from "NounHolder";
-import HorizontalNounsLogo from "World/HorizontalNounsLogo";
-import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter.js";
-import DownloadNoun from "DownloadNoun";
-import MenuTwo from "MenuTwo";
-import { isDesktop } from "react-device-detect";
-import ThreeDLogo from "ThreeDNounsLogo";
-import BillBoard from "BillBoard";
-import SandboxItems from "./SandboxItems";
+import NounHolder from 'NounHolder';
+import HorizontalNounsLogo from 'World/HorizontalNounsLogo';
+import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
+import DownloadNoun from 'DownloadNoun';
+import MenuTwo from 'MenuTwo';
+import { isDesktop } from 'react-device-detect';
+import ThreeDLogo from 'ThreeDNounsLogo';
+import BillBoard from 'BillBoard';
+import SandboxItems from './SandboxItems';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -77,11 +77,11 @@ const NounCanvas = () => {
 
   preloadAllAssets();
 
-  const [optionsVisibility, setOptionsVisibility] = useState("block");
-  const [autoRotate, setAutoRotate] = useState("false");
+  const [optionsVisibility, setOptionsVisibility] = useState('block');
+  const [autoRotate, setAutoRotate] = useState('false');
   const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
   const [deviceState, setDeviceState] = useState(isDesktop);
-  const [environment, setEnvironment] = useState("Normal");
+  const [environment, setEnvironment] = useState('Normal');
   const [wireframeOption, setWireframeOption] = useState(null);
   const [walkAnimation, setWalkAnimation] = useState(false);
   const [nodAnimation, setNodAnimation] = useState(false);
@@ -89,7 +89,7 @@ const NounCanvas = () => {
   const [showDirections, setShowDirections] = useState(true);
   const [randomizerOn, setRandomizerOn] = useState(false);
   const [animationValue, setAnimationValue] = useState(
-    data.animations.find((animation) => animation.name === "none").name
+    data.animations.find((animation) => animation.name === 'none').name
   );
   const [downloadingModel, setDownloadingModel] = useState(false);
   const [lockedTraits, setLockedTraits] = useState({
@@ -138,8 +138,8 @@ const NounCanvas = () => {
       setDeviceState(isDesktop);
     }
 
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
   });
 
   const generateRandomNoun = () => {
@@ -179,7 +179,7 @@ const NounCanvas = () => {
   };
 
   useEffect(() => {
-    document.body.style.cursor = "auto";
+    document.body.style.cursor = 'auto';
     setTimeout(() => {
       setShowDirections(false);
     }, 10000);
@@ -237,7 +237,7 @@ const NounCanvas = () => {
           shadow-mapSize-height={4096}
         /> */}
         <hemisphereLight
-          skyColor={"black"}
+          skyColor={'black'}
           groundColor={0xffffff}
           intensity={0.5}
           position={[0, 500, 0]}
@@ -371,7 +371,7 @@ const NounCanvas = () => {
     let hiddenDownloadNoun = temporaryModel.current;
     let currentTest = modelDownloadMeshForward.current;
     // console.log('fule scene: ', holder);
-    console.log("current group object: ", fullScene);
+    console.log('current group object: ', fullScene);
 
     let currentNoun = fullScene?.scene?.children[1];
     let animations = [];
@@ -392,34 +392,34 @@ const NounCanvas = () => {
         // saveArrayBuffer(result, "Model.glb")
 
         if (result instanceof ArrayBuffer) {
-          saveArrayBuffer(result, "NounModel.glb");
+          saveArrayBuffer(result, 'NounModel.glb');
         } else {
           const output = JSON.stringify(result, null, 2);
-          saveString(output, "NounModel.gltf");
+          saveString(output, 'NounModel.gltf');
           setDownloadingModel(false);
           setAnimationState(false);
-          setAnimationValue("none");
+          setAnimationValue('none');
         }
       },
       options
     );
   };
 
-  const saveAsImage = () => {
-    var imgData, imgNode;
-    try {
-      var strMime = "image/jpeg";
-      imgData = sceneState.gl.domElement.toDataURL(strMime);
+  // const saveAsImage = () => {
+  //   var imgData, imgNode;
+  //   try {
+  //     var strMime = 'image/jpeg';
+  //     imgData = sceneState.gl.domElement.toDataURL(strMime, 1.0);
 
-      saveScreenshot(
-        imgData.replace(strMime, "image/octet-stream"),
-        "3DNoun.jpg"
-      );
-    } catch (e) {
-      console.log(e);
-      return;
-    }
-  };
+  //     saveScreenshot(
+  //       imgData.replace(strMime, 'image/octet-stream'),
+  //       '3DNoun.jpg'
+  //     );
+  //   } catch (e) {
+  //     console.log(e);
+  //     return;
+  //   }
+  // };
 
   const modelDownloadMeshForward = useRef();
 
@@ -434,7 +434,7 @@ const NounCanvas = () => {
         gl={{
           preserveDrawingBuffer: true,
           // logarithmicDepthBuffer: true,
-          // antialias: false,
+          antialias: true,
           // pixelRatio: window.devicePixelRatio * 2,
           // premultipliedAlpha: true,
           // shadowMap:  THREE.PCFSoftShadowMap
@@ -445,7 +445,7 @@ const NounCanvas = () => {
         // camera={{ position: [5, 5, 5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
           // do things here
-          camera.position.x = 24;
+          camera.position.x = 0;
           camera.position.y = 32;
           camera.position.z = 48;
           camera.lookAt(lookAtPos);
@@ -468,15 +468,15 @@ const NounCanvas = () => {
         />
 
         <Suspense fallback={<ProgressLoader />}>
-          {environment === "Normal" && <NormalEnvironment />}
-          {environment === "Island" && <OceanEnvironment />}
-          {environment === "Matrix" && <MatrixEnvironment />}
+          {environment === 'Normal' && <NormalEnvironment />}
+          {environment === 'Island' && <OceanEnvironment />}
+          {environment === 'Matrix' && <MatrixEnvironment />}
           <fog
             attach="fog"
             args={[
-              environment === "Matrix" ? 0x181818 : 0xffffff,
+              environment === 'Matrix' ? 0x181818 : 0xffffff,
               1,
-              environment === "Matrix" ? 1000 : 1500,
+              environment === 'Matrix' ? 1000 : 1500,
             ]}
           />
           {/* <BakeShadows /> */}
@@ -582,15 +582,16 @@ const NounCanvas = () => {
         setDownloadingModel={setDownloadingModel}
         lockedTraits={lockedTraits}
         setLockedTraits={setLockedTraits}
-        saveAsImage={saveAsImage}
+        // saveAsImage={saveAsImage}
         randomizerOn={randomizerOn}
         setRandomizerOn={setRandomizerOn}
+        setSceneState={setSceneState}
       />
       {showDirections && (
         <div className="directions-popup">
-          <h2 style={{ color: "#d63c5e" }}>Directions: </h2>
-          <h4>{`${isDesktop ? "CLICK" : "TOUCH"} AND DRAG TO ROTATE`}</h4>
-          <h4>{`${isDesktop ? "SCROLL WHEEL" : "PINCH"} TO ZOOM`}</h4>
+          <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
+          <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
+          <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
           <div className="close-directions-container">
             <button
               className="menu-button"
@@ -639,7 +640,7 @@ export default NounCanvas;
 
 // Extras
 const Ground = () => {
-  const texture_1 = useLoader(TextureLoader, "/grasslight-big.jpg");
+  const texture_1 = useLoader(TextureLoader, '/grasslight-big.jpg');
   texture_1.wrapS = texture_1.wrapT = THREE.RepeatWrapping;
   texture_1.repeat.set(2, 2);
   texture_1.anisotropy = 16;
@@ -680,14 +681,14 @@ const preloadAllAssets = () => {
 
 // functions from threejs repo --> https://github.com/mrdoob/three.js/blob/b5c272cf408cb33153190fa715d81581bd95ee47/examples/misc_exporter_gltf.html#L105
 function saveArrayBuffer(buffer, filename) {
-  save(new Blob([buffer], { type: "application/octet-stream" }), filename);
+  save(new Blob([buffer], { type: 'application/octet-stream' }), filename);
 }
 function saveString(text, filename) {
-  save(new Blob([text], { type: "text/plain" }), filename);
+  save(new Blob([text], { type: 'text/plain' }), filename);
 }
 function save(blob, filename) {
-  let link = document.createElement("a");
-  link.style.display = "none";
+  let link = document.createElement('a');
+  link.style.display = 'none';
   document.body.appendChild(link); // Firefox workaround, see #6594
   link.href = URL.createObjectURL(blob);
   link.download = filename;
@@ -695,16 +696,16 @@ function save(blob, filename) {
   // URL.revokeObjectURL( url ); breaks Firefox...
 }
 
-const saveScreenshot = (strData, filename) => {
-  var link = document.createElement("a");
-  if (typeof link.download === "string") {
-    document.body.appendChild(link); //Firefox requires the link to be in the body
-    link.download = filename;
-    link.href = strData;
-    link.click();
-    document.body.removeChild(link); //remove the link when done
-  }
-};
+// const saveScreenshot = (strData, filename) => {
+//   var link = document.createElement('a');
+//   if (typeof link.download === 'string') {
+//     document.body.appendChild(link); //Firefox requires the link to be in the body
+//     link.download = filename;
+//     link.href = strData;
+//     link.click();
+//     document.body.removeChild(link); //remove the link when done
+//   }
+// };
 
 {
   /* <MyCamera

@@ -37,7 +37,7 @@ export default function HeadTest119BonsaiHead({
       visible={headProp === 'Bonsai' ? true : false}
       castShadow
       receiveShadow
-      position={[0, 1, 0]}
+      // position={[0, 1, 0]}
     >
       <primitive
         object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd}

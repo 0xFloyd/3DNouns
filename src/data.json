@@ -1219,6 +1219,13 @@
       "color": "0xCFC2AB"
     },
     {
+      "name": "Piano",
+      "value": "head-piano",
+      "filePath": "HeadPiano.glb",
+      "componentName": "PianoHead",
+      "color": "0x000000"
+    },
+    {
       "name": "Pill",
       "value": "head-Pill",
       "filePath": "HeadPill.glb",
