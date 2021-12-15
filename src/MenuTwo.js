@@ -24,6 +24,7 @@ import FloydPicture from './assets/floyd.jpg';
 import { isDesktop, isMobile } from 'react-device-detect';
 import { useProgress } from '@react-three/drei';
 import ScreenshotModal from 'ScreenshotModal';
+import AnimationSelect from 'components/AnimationSelect';
 
 const MenuTwo = ({
   isDesktop,
@@ -59,6 +60,8 @@ const MenuTwo = ({
   randomizerOn,
   setRandomizerOn,
   // setSceneState,
+  showScreenshotModal,
+  setShowScreenshotModal,
 }) => {
   const rotateOptions = [
     { name: 'Off', value: 'false' },
@@ -68,7 +71,7 @@ const MenuTwo = ({
   const [disabledButtonState, setDisabledButtonState] = useState(false);
   const [showAboutModal, setShowAboutModal] = useState(false);
   const [showMintModal, setShowMintModal] = useState(false);
-  const [showScreenshotModal, setShowScreenshotModal] = useState(false);
+  // const [showScreenshotModal, setShowScreenshotModal] = useState(false);
   const [sceneScreenshotState, setSceneScreenshotState] = useState(null);
 
   const throttleClicks = () => {
@@ -97,7 +100,12 @@ const MenuTwo = ({
                   className="screenshot-button"
                   onClick={() => {
                     // saveAsImage();
-                    setShowScreenshotModal(true);
+                    // stop animation
+                    setAnimationState(false);
+                    setAnimationValue('none');
+                    setTimeout(() => {
+                      setShowScreenshotModal(true);
+                    }, 1000);
                   }}
                 >
                   <BsCameraFill size={20} color="black" />
@@ -718,34 +726,12 @@ const MenuTwo = ({
               {/* end world */}
 
               {/*  Animation */}
-              <div className="inline-option-row">
-                <span />
-                <div className="inline-select-wrap">
-                  <label className="trait-label">Animation</label>
-                  <select
-                    value={animationValue}
-                    onChange={(e) => {
-                      if (e.target.value === 'none') {
-                        setAnimationState(false);
-                        setAnimationValue(e.target.value);
-                      } else {
-                        setAnimationState(true);
-                        setAnimationValue(e.target.value);
-                      }
-                    }}
-                    className="trait-select"
-                  >
-                    {data.animations.map((animationObj) => (
-                      <option
-                        key={animationObj.value}
-                        value={animationObj.name}
-                      >
-                        {animationName(animationObj.name)}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+              <AnimationSelect
+                animationValue={animationValue}
+                setAnimationState={setAnimationState}
+                setAnimationValue={setAnimationValue}
+              />
+
               {/*  End animation */}
 
               {/*  Rotate */}
@@ -867,7 +853,11 @@ const MenuTwo = ({
               style={{ marginLeft: '20px', marginRight: '0px' }}
               onClick={() => {
                 // saveAsImage();
-                setShowScreenshotModal(true);
+                setAnimationState(false);
+                setAnimationValue('none');
+                setTimeout(() => {
+                  setShowScreenshotModal(true);
+                }, 1000);
               }}
             >
               <BsCameraFill size={20} color="black" />
@@ -947,7 +937,10 @@ const MenuTwo = ({
           shoes={shoes}
           animationState={animationState}
           animationValue={animationValue}
+          setAnimationState={setAnimationState}
+          setAnimationValue={setAnimationValue}
           // setSceneScreenshotState={setSceneScreenshotState}
+          showScreenshotModal={showScreenshotModal}
           setShowScreenshotModal={setShowScreenshotModal}
         />
       )}
@@ -982,7 +975,11 @@ const MenuTwo = ({
             className="menu-button"
             onClick={() => {
               // saveAsImage();
-              setShowScreenshotModal(true);
+              setAnimationState(false);
+              setAnimationValue('none');
+              setTimeout(() => {
+                setShowScreenshotModal(true);
+              }, 1000);
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
@@ -1178,34 +1175,6 @@ const truncateString = (str) => {
     return str.slice(0, 16) + '...';
   } else {
     return str;
-  }
-};
-
-const animationName = (name) => {
-  switch (name) {
-    case 'none':
-      return 'None';
-    case 'walk':
-      return 'Walk';
-    case 'run':
-      return 'Run';
-
-    case 'dance1':
-      return 'Dance 1';
-
-    case 'dance2':
-      return 'Dance 2';
-
-    case 'idle':
-      return 'Idle';
-
-    case 'jump':
-      return 'Jump';
-    case 'tpose':
-      return 'T-Pose';
-
-    default:
-      break;
   }
 };
 

@@ -10,7 +10,7 @@
 
 input[type='range'] {
   -webkit-appearance: none;
-  max-width: 90%;
+  max-width: 100%;
 }
 
 input[type='range']::-webkit-slider-runnable-track {

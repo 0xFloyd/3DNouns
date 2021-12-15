@@ -1,0 +1,61 @@
+.animation-container {
+  /* background-color: red; */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin-right: 20px;
+}
+
+.animation-next-button {
+  background-color: none;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.animation-label {
+  align-self: center;
+  text-align: left;
+}
+
+.animation-select-wrap {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.animation-name {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Londrina Solid';
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  /* text-indent: 0.1em; */
+  padding-left: 0.75em;
+  /* margin-left: 7.5px; */
+}
+
+.animation-name:hover {
+  background-color: rgba(255, 255, 255, 0.603);
+  cursor: pointer;
+}
+.animation-name:focus {
+  outline-style: none;
+  outline: none;
+}
+
+/*  MOBILE STYLING */
+@media (max-width: 768px) {
+  .background-color-label {
+    display: none;
+  }
+}

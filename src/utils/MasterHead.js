@@ -122,13 +122,18 @@ const MasterHead = ({
 
   const [allheadsState, setAllHeadsState] = useState([]);
 
-  const glassesTest = useLoader(
+  let glassesTest = useLoader(
     THREE.TextureLoader,
     `/textures/glasses/${glassesProp}`
-  );
+  )
 
   glassesTest.flipY = false;
-  glassesTest.magFilter = glassesTest.minFilter = THREE.NearestFilter;
+  // glassesTest.magFilter = THREE.NearestFilter
+  // glassesTest.minFilter = THREE.NearestFilter;
+  glassesTest.generateMipmaps = false
+  glassesTest.premultiplyAlpha = false;
+  glassesTest.needsUpdate = true;
+  
 
   const allHeadComponents = headComponents.map((obj, index) => {
     const Component = obj.value;
@@ -187,7 +192,6 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-
       <SailboatHead
         headProp={headProp}
         glassesProp={glassesTest}
@@ -195,7 +199,6 @@ const MasterHead = ({
         animationValue={animationValue}
         masterHeadModel={MasterHead}
       />
-
       <CloudHead
         headProp={headProp}
         glassesProp={glassesTest}

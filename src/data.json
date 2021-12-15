@@ -615,14 +615,14 @@
     { "name": "White", "value": "shoes-white.png" }
   ],
   "animations": [
-    { "name": "none", "value": 9999 },
-    { "name": "idle", "value": 3 },
-    { "name": "walk", "value": 8 },
-    { "name": "run", "value": 5 },
-    { "name": "jump", "value": 4 },
-    { "name": "dance1", "value": 1 },
-    { "name": "dance2", "value": 2 },
-    { "name": "tpose", "value": 7 }
+    { "name": "none", "index": 0, "value": 9999 },
+    { "name": "idle", "index": 1, "value": 3 },
+    { "name": "walk", "index": 2, "value": 8 },
+    { "name": "run", "index": 3, "value": 5 },
+    { "name": "jump", "index": 4, "value": 4 },
+    { "name": "dance1", "index": 5, "value": 1 },
+    { "name": "dance2", "index": 6, "value": 2 },
+    { "name": "tpose", "index": 7, "value": 7 }
   ],
 
   "tempAccessories": [

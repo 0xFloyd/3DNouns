@@ -88,6 +88,7 @@ const NounCanvas = () => {
   const [animationState, setAnimationState] = useState(false);
   const [showDirections, setShowDirections] = useState(true);
   const [randomizerOn, setRandomizerOn] = useState(false);
+  const [showScreenshotModal, setShowScreenshotModal] = useState(false);
   const [animationValue, setAnimationValue] = useState(
     data.animations.find((animation) => animation.name === 'none').name
   );
@@ -503,18 +504,20 @@ const NounCanvas = () => {
 
           <SandboxItems />
 
-          <NounHolder
-            headProp={head}
-            glassesProp={glasses}
-            animationState={animationState}
-            animationValue={animationValue}
-            pantsProp={pants}
-            accessoryProp={accessory}
-            bodyProp={body}
-            shoeProp={shoes}
-            setSceneState={setSceneState}
-            ref={modelDownloadMeshForward}
-          />
+          {!showScreenshotModal && (
+            <NounHolder
+              headProp={head}
+              glassesProp={glasses}
+              animationState={animationState}
+              animationValue={animationValue}
+              pantsProp={pants}
+              accessoryProp={accessory}
+              bodyProp={body}
+              shoeProp={shoes}
+              setSceneState={setSceneState}
+              ref={modelDownloadMeshForward}
+            />
+          )}
 
           <DownloadNoun
             headProp={head}
@@ -585,7 +588,9 @@ const NounCanvas = () => {
         // saveAsImage={saveAsImage}
         randomizerOn={randomizerOn}
         setRandomizerOn={setRandomizerOn}
-        setSceneState={setSceneState}
+        // setSceneState={setSceneState}
+        showScreenshotModal={showScreenshotModal}
+        setShowScreenshotModal={setShowScreenshotModal}
       />
       {showDirections && (
         <div className="directions-popup">
@@ -674,9 +679,9 @@ const preloadAllAssets = () => {
     useTexture.preload(`/textures/shoes/${shoeObj.value}`);
   });
 
-  data.glasses.forEach((glassesObj) => {
-    useTexture.preload(`/textures/glasses/${glassesObj.value}`);
-  });
+  // data.glasses.forEach((glassesObj) => {
+  //   useTexture.preload(`/textures/glasses/${glassesObj.value}`);
+  // });
 };
 
 // functions from threejs repo --> https://github.com/mrdoob/three.js/blob/b5c272cf408cb33153190fa715d81581bd95ee47/examples/misc_exporter_gltf.html#L105

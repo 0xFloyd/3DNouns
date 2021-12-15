@@ -8,23 +8,23 @@ import { CompactPicker } from 'react-color';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module';
 import { Form } from 'react-bootstrap';
 import './styles/slider.css';
+// import ScreenshotBackdrop from 'World/ScreenshotBackdrop';
+import AnimationSelect from 'components/AnimationSelect';
+import ScreenshotAnimationSelect from 'components/ScreenshotAnimationSelect';
 
 const ScreenshotModal = ({
   head,
-
   body,
-
   accessory,
-
   pants,
-
   glasses,
-
   shoes,
-
   animationState,
   animationValue,
+  setAnimationState,
+  setAnimationValue,
   // setSceneScreenshotState,
+  showScreenshotModal,
   setShowScreenshotModal,
 }) => {
   const orbitControls = useRef();
@@ -35,6 +35,7 @@ const ScreenshotModal = ({
   const [sceneColor, setSceneColor] = useState('#d5d7e1');
   const [hemisphereLightIntensity, setHemisphereLightIntensity] = useState(0.5);
   const [directionalLightIntensity, setDirectionalLightIntensity] = useState(2);
+  const [lightDirection, setLightDirection] = useState(-100);
   const [sceneScreenshotState, setSceneScreenshotState] = useState(null);
 
   useEffect(() => {
@@ -69,8 +70,8 @@ const ScreenshotModal = ({
             shadows
             gl={{
               preserveDrawingBuffer: true,
-
               physicallyCorrectLights: true,
+              antialias: true,
             }}
             dpr={[1, 1.5]}
             // camera={{ position: [5, 5, 5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
@@ -95,7 +96,7 @@ const ScreenshotModal = ({
               // color={0xffffbb}
               // ref={light}
               intensity={directionalLightIntensity}
-              position={[0, 500, 500]}
+              position={[lightDirection, 300, 200]}
               shadow-camera-left={d * -100}
               shadow-camera-bottom={d * -100}
               shadow-camera-right={d * 100}
@@ -114,50 +115,71 @@ const ScreenshotModal = ({
               //   autoRotate={false}
               enablePan={false}
               enableDamping={true}
-              maxPolarAngle={Math.PI / 2}
-              maxDistance={35}
+              maxPolarAngle={Math.PI / 1.5}
+              maxDistance={40}
               minDistance={15}
             />
 
-            {/* <color attach="background" args={[new THREE.Color(sceneColor)]} /> */}
+            <color attach="background" args={[new THREE.Color(sceneColor)]} />
+            <fog attach="fog" args={[sceneColor, 1, 1000]} />
             <Suspense fallback={<ProgressLoader />}>
+              {/* <ScreenshotBackdrop color={new THREE.Color(sceneColor)} /> */}
               <Backdrop
                 receiveShadow
                 castShadow
-                floor={2}
-                position={[0, 0, -20]}
-                scale={[250, 150, 50]}
+                floor={20}
+                position={[0, -1, -100]}
+                scale={[5000, 1000, 50]}
               >
                 <meshStandardMaterial
-                  color={new THREE.Color(sceneColor)}
+                  color={new THREE.Color(sceneColor).convertSRGBToLinear()}
                   envMapIntensity={0.1}
                 />
               </Backdrop>
-              <NounHolder
-                headProp={head}
-                glassesProp={glasses}
-                animationState={animationState}
-                animationValue={animationValue}
-                pantsProp={pants}
-                accessoryProp={accessory}
-                bodyProp={body}
-                shoeProp={shoes}
-                setSceneState={setSceneScreenshotState}
-              />
+
+              {showScreenshotModal && (
+                <NounHolder
+                  headProp={head}
+                  glassesProp={glasses}
+                  animationState={animationState}
+                  animationValue={animationValue}
+                  pantsProp={pants}
+                  accessoryProp={accessory}
+                  bodyProp={body}
+                  shoeProp={shoes}
+                  setSceneState={setSceneScreenshotState}
+                />
+              )}
             </Suspense>
           </Canvas>
         </div>
 
         <button
           className="modal-closer screenshot-close-button"
-          onClick={() => setShowScreenshotModal(false)}
+          onClick={() => {
+            setAnimationState(false);
+            setAnimationValue('none');
+            setTimeout(() => {
+              setShowScreenshotModal(false);
+            }, 1500);
+          }}
         >
           X
         </button>
 
         <div className="take-screenshot-container">
-          {' '}
           <div className="light-slider-container">
+            <label className="animation-label">Animation</label>
+            <ScreenshotAnimationSelect
+              animationValue={animationValue}
+              setAnimationState={setAnimationState}
+              setAnimationValue={setAnimationValue}
+            />
+            {/* <AnimationSelect
+              animationValue={animationValue}
+              setAnimationState={setAnimationState}
+              setAnimationValue={setAnimationValue}
+            /> */}
             <label className="slider-label">Direction Light</label>
             <input
               type="range"
@@ -181,17 +203,36 @@ const ScreenshotModal = ({
                 setHemisphereLightIntensity(Number(e.target.value))
               }
             />
+            <label className="slider-label">Light Direction</label>
+            <input
+              type="range"
+              // className="form-range"
+              min="-300"
+              max="300"
+              step="3"
+              value={lightDirection}
+              onChange={(e) => setLightDirection(Number(e.target.value))}
+            />
           </div>
-          <button
-            className="menu-button screenshot-mobile-button"
-            onClick={() => {
-              setShowScreenshotModal(false);
-              saveAsImage();
-            }}
-          >
-            SCREENSHOT
-          </button>
+          <div>
+            {/* <AnimationSelect
+              animationValue={animationValue}
+              setAnimationState={setAnimationState}
+              setAnimationValue={setAnimationValue}
+            /> */}
+
+            <button
+              className="menu-button screenshot-mobile-button"
+              onClick={() => {
+                // setShowScreenshotModal(false);
+                saveAsImage();
+              }}
+            >
+              SCREENSHOT
+            </button>
+          </div>
           <div className="react-color-picker-container">
+            <label className="background-color-label">Background Color</label>
             <CompactPicker
               color={sceneColor}
               onChangeComplete={(color) => setSceneColor(color.hex)}
