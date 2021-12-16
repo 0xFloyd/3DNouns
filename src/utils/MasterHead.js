@@ -1,7 +1,7 @@
 import { useGLTF, useProgress, useTexture } from '@react-three/drei';
 import { useLoader, useThree } from '@react-three/fiber';
 import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import HeadTest119BonsaiHead from '../assets/Head/HeadTest119BonsaiHead';
 import HeadTest119PineappleHead from '../assets/Head/HeadTest119PineappleHead';
@@ -110,6 +110,7 @@ import WaveHead from '../HeadFilesGenerated/WaveHead';
 import WeedHead from '../HeadFilesGenerated/WeedHead';
 // import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
 import YetiHead from '../HeadFilesGenerated/YetiHead';
+import AardvarkHead from '../HeadFilesGenerated/AardvarkHead';
 
 const MasterHead = ({
   headProp,
@@ -122,18 +123,23 @@ const MasterHead = ({
 
   const [allheadsState, setAllHeadsState] = useState([]);
 
-  let glassesTest = useLoader(
+  const glassesTest = useLoader(
     THREE.TextureLoader,
     `/textures/glasses/${glassesProp}`
-  )
+  );
 
-  glassesTest.flipY = false;
-  // glassesTest.magFilter = THREE.NearestFilter
-  // glassesTest.minFilter = THREE.NearestFilter;
-  glassesTest.generateMipmaps = false
-  glassesTest.premultiplyAlpha = false;
-  glassesTest.needsUpdate = true;
-  
+  useEffect(() => {
+    glassesTest.needsUpdate = true;
+    glassesTest.flipY = false;
+    glassesTest.magFilter = THREE.LinearMipMapNearestFilter;
+    glassesTest.minFilter = THREE.LinearMipMapNearestFilter;
+  }, [
+    glassesTest.magFilter,
+    glassesTest.minFilter,
+    glassesTest.needsUpdate,
+    glassesProp,
+    glassesTest,
+  ]);
 
   const allHeadComponents = headComponents.map((obj, index) => {
     const Component = obj.value;
@@ -859,6 +865,13 @@ const MasterHead = ({
         masterHeadModel={MasterHead}
       />
       <PianoHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <AardvarkHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}

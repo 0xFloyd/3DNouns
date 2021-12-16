@@ -732,6 +732,12 @@
   text-align-last: left;
 }
 
+.screenshot-close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 /*  MOBILE STYLING */
 @media (max-width: 768px) {
   .menu-x-button {

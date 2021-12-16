@@ -785,6 +785,13 @@
   ],
   "tempHeads": [
     {
+      "name": "Aardvark",
+      "value": "head-aardvark",
+      "filePath": "HeadArdvark.glb",
+      "componentName": "AardvarkHead",
+      "color": "0x000000"
+    },
+    {
       "name": "Abstract",
       "value": "head-abstract",
       "filePath": "abstractHead.glb",

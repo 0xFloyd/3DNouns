@@ -96,6 +96,7 @@ import WaveHead from '../HeadFilesGenerated/WaveHead';
 import WeedHead from '../HeadFilesGenerated/WeedHead';
 // import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
 import YetiHead from '../HeadFilesGenerated/YetiHead';
+import AardvarkHead from '../HeadFilesGenerated/AardvarkHead';
 
 export const headComponents = [
   { name: 'Abstract', value: AbstractHead },
@@ -196,4 +197,5 @@ export const headComponents = [
   { name: 'Weed', value: WeedHead },
   // { name: 'Wizardhat', value: WizardhatHead },
   { name: 'Yeti', value: YetiHead },
+  { name: 'Aardvark', value: AardvarkHead },
 ];
