@@ -10,7 +10,7 @@ const AardvarkHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/HeadArdvark.glb');
+  const { nodes, materials } = useGLTF('/headModels/HeadAardvark.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -54,6 +54,6 @@ const AardvarkHead = ({
   );
 };
 
-useGLTF.preload('/headModels/HeadArdvark.glb');
+useGLTF.preload('/headModels/HeadAardvark.glb');
 
 export default AardvarkHead;

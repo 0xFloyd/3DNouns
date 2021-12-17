@@ -30,8 +30,11 @@ const BodyMesh = React.memo(function ({
 
   const canvasTexture = new THREE.CanvasTexture(canvas);
   canvasTexture.flipY = false;
-  canvasTexture.minFilter = THREE.LinearMipMapNearestFilter;
-  canvasTexture.magFilter = THREE.LinearMipMapNearestFilter;
+  canvasTexture.minFilter = THREE.NearestFilter;
+  canvasTexture.magFilter = THREE.NearestFilter;
+  // for hi res textures
+  // canvasTexture.minFilter = THREE.LinearMipMapNearestFilter;
+  // canvasTexture.magFilter = THREE.LinearMipMapNearestFilter;
   canvasTexture.encoding = THREE.sRGBEncoding;
 
   // useEffect(() => {

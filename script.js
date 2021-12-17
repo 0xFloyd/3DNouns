@@ -8,8 +8,18 @@ const starterComponent = fs
   .readFileSync('./HeadStarterComponent.js')
   .toString();
 
+// file to write all head components (copy paste out of file)
+let AllHeadComponents = fs.readFileSync('./AllHeadComponents.js').toString();
+
 // for each folder in the everyday directory, create a "starter" file and write a react "starter component" to that file
 jsonData.tempHeads.forEach((headData) => {
+  AllHeadComponents += `<${headData.componentName}
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />`;
   // file name to be created
   let filePath = `${headData.componentName}.js`;
 
@@ -37,6 +47,12 @@ jsonData.tempHeads.forEach((headData) => {
     }
   );
 });
+
+// write to AllHeadComponents
+fs.writeFileSync(`./AllHeadComponents.js`, AllHeadComponents, function (err) {
+  if (err) return console.log(err);
+});
+
 // fs.readdir(readDirectory, (err, files) => {
 //   files.forEach((file) => {
 //     // file name to be created
