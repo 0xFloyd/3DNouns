@@ -1,5 +1,5 @@
-import { Backdrop, OrbitControls, useHelper } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
+import { Backdrop, Html, OrbitControls, useHelper } from '@react-three/drei';
+import { Canvas, useThree } from '@react-three/fiber';
 import ProgressLoader from 'Loader';
 import NounHolder from 'NounHolder';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
@@ -32,11 +32,13 @@ const ScreenshotModal = ({
 
   const hemisphereLightRef = useRef();
 
+  const [threeScene, setThreeScene] = useState(null);
   const [sceneColor, setSceneColor] = useState('#d5d7e1');
   const [hemisphereLightIntensity, setHemisphereLightIntensity] = useState(0.5);
   const [directionalLightIntensity, setDirectionalLightIntensity] = useState(2);
   const [lightDirection, setLightDirection] = useState(-100);
   const [sceneScreenshotState, setSceneScreenshotState] = useState(null);
+  const [cameraHeadShot, setCameraHeadshot] = useState(true);
 
   useEffect(() => {
     // const gui = new GUI();
@@ -60,6 +62,24 @@ const ScreenshotModal = ({
       console.log(e);
       return;
     }
+  };
+
+  const updateCamera = () => {
+    if (threeScene && orbitControls) {
+      orbitControls.current.target.y = cameraHeadShot ? 22.5 : 27.5;
+      orbitControls.current.update();
+      threeScene.updateProjectionMatrix();
+      setCameraHeadshot(!cameraHeadShot);
+    }
+  };
+
+  const SetThreeScene = () => {
+    const { camera } = useThree();
+
+    useEffect(() => {
+      setThreeScene(camera);
+    }, []);
+    return null;
   };
 
   return (
@@ -113,7 +133,7 @@ const ScreenshotModal = ({
               target={[0, 27.5, 0]}
               ref={orbitControls}
               //   autoRotate={false}
-              enablePan={false}
+              enablePan={true}
               enableDamping={true}
               maxPolarAngle={Math.PI / 1.5}
               maxDistance={40}
@@ -137,6 +157,8 @@ const ScreenshotModal = ({
                 />
               </Backdrop>
 
+              <SetThreeScene />
+
               {showScreenshotModal && (
                 <NounHolder
                   headProp={head}
@@ -153,7 +175,6 @@ const ScreenshotModal = ({
             </Suspense>
           </Canvas>
         </div>
-
         <button
           className="modal-closer screenshot-close-button"
           onClick={() => {
@@ -166,7 +187,6 @@ const ScreenshotModal = ({
         >
           X
         </button>
-
         <div className="take-screenshot-container">
           <div className="light-slider-container">
             <label className="animation-label">Animation</label>
@@ -220,6 +240,17 @@ const ScreenshotModal = ({
               setAnimationState={setAnimationState}
               setAnimationValue={setAnimationValue}
             /> */}
+
+            <button
+              className="menu-button screenshot-mobile-button"
+              onClick={() => {
+                // setShowScreenshotModal(false);
+                // saveAsImage();
+                updateCamera();
+              }}
+            >
+              {cameraHeadShot ? 'Focus Body' : 'Focus Head'}
+            </button>
 
             <button
               className="menu-button screenshot-mobile-button"

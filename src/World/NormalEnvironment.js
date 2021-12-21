@@ -36,7 +36,7 @@ const NormalEnvironment = () => {
 
   return (
     <>
-      <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 10000]} />
+      <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 1500]} />
       {/* <Sky distance={1000} sunPosition={[-100, 500, 1000]} /> */}
       {/* <color attach="background" args={[new THREE.Color(0x87ceeb)]} /> */}
       {/* <fog attach="fog" args={[new THREE.Color(0x87ceeb), 1, 5000]} /> */}
