@@ -26,7 +26,7 @@ const NormalEnvironment = () => {
         <cylinderBufferGeometry args={[2000, 2000, 2, 32]} />
         {/* <meshStandardMaterial map={texture_1} attach="material" /> */}
         <meshStandardMaterial
-          color={new THREE.Color(0x95b85d).convertSRGBToLinear()}
+          color={new THREE.Color(0x404040).convertSRGBToLinear()}
           // roughness={0.1}
           // metalness={0}
         />
@@ -52,7 +52,7 @@ const NormalEnvironment = () => {
       {/* <SkyShader /> */}
       <Ground />
       {/* scale={[80, 80, 80]} position={[2600, -24, 1700]} */}
-      <group dispose={null} scale={[80, 80, 80]} position={[0, -25, 0]}>
+      {/* <group dispose={null} scale={[80, 80, 80]} position={[0, -25, 0]}>
         <mesh
           castShadow
           receiveShadow
@@ -116,13 +116,13 @@ const NormalEnvironment = () => {
           material={materials['palette.008']}
           rotation={[Math.PI / 2, 0, 0]}
         />
-      </group>
-      {/* <gridHelper
+      </group> */}
+      <gridHelper
         receiveShadow
         // castShadow
         args={[5000, 150, new THREE.Color(0x7d7d7d), new THREE.Color(0x7d7d7d)]}
         position={[0, 0.1, 0]}
-      /> */}
+      />
     </>
   );
 };

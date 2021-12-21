@@ -503,7 +503,7 @@ const NounCanvas = () => {
             shoeProp={shoes}
           /> */}
 
-          {/* <SandboxItems /> */}
+          <SandboxItems />
 
           {!showScreenshotModal && (
             <NounHolder
