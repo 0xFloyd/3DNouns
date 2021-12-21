@@ -1,0 +1,11 @@
+Model Information:
+* title:	Voxel City
+* source:	https://sketchfab.com/3d-models/voxel-city-6edaf4afba12488f8581e91c756553fb
+* author:	_WonderBoy_ (https://sketchfab.com/_WonderBoy_)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Voxel City" (https://sketchfab.com/3d-models/voxel-city-6edaf4afba12488f8581e91c756553fb) by _WonderBoy_ (https://sketchfab.com/_WonderBoy_) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

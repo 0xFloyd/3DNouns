@@ -443,7 +443,7 @@ const NounCanvas = () => {
           physicallyCorrectLights: true,
         }}
         dpr={[1, 1.5]}
-        // camera={{ position: [5, 5, 5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
+        camera={{ near: 0.1, far: 5000 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
           // do things here
           camera.position.x = 0;
@@ -461,7 +461,8 @@ const NounCanvas = () => {
           target={[0, 20, 0]}
           ref={orbitControls}
           autoRotate={JSON.parse(autoRotate)}
-          enablePan={false}
+          // enablePan={false}
+          enablePan={true}
           enableDamping={true}
           maxPolarAngle={Math.PI / 1.85}
           maxDistance={150}
@@ -502,7 +503,7 @@ const NounCanvas = () => {
             shoeProp={shoes}
           /> */}
 
-          <SandboxItems />
+          {/* <SandboxItems /> */}
 
           {!showScreenshotModal && (
             <NounHolder
@@ -519,7 +520,7 @@ const NounCanvas = () => {
             />
           )}
 
-          <DownloadNoun
+          {/* <DownloadNoun
             headProp={head}
             glassesProp={glasses}
             animationState={animationState}
@@ -530,7 +531,7 @@ const NounCanvas = () => {
             shoeProp={shoes}
             setSceneState={setSceneState}
             ref={temporaryModel}
-          />
+          /> */}
 
           {/* <group ref={modelDownloadMesh}>
             <MasterHead

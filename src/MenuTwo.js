@@ -1087,7 +1087,7 @@ const InformationModal = (props) => {
           />
           <a
             className="social-link"
-            href="https://discord.gg/uhd8nCv7"
+            href="https://discord.gg/kZZaz6jy2k"
             target="_blank"
           >
             3D Nouns Discord
@@ -1158,7 +1158,7 @@ const MintModal = (props) => {
           <BsDiscord className="mint-twitter-logo" size={25} color="#5865F2" />
           <a
             className="mint-modal-link"
-            href="https://discord.gg/uhd8nCv7"
+            href="https://discord.gg/kZZaz6jy2k"
             target="_blank"
           >
             Discord
