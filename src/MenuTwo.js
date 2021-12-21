@@ -456,7 +456,8 @@ const MenuTwo = ({
                   >
                     {data.tempAccessories.map((accessory, index) => (
                       <option key={index} value={accessory.name}>
-                        {truncateString(accessory.name)}
+                        {accessory.name}
+                        {/* {truncateString(accessory.name)} */}
                       </option>
                     ))}
                   </select>
