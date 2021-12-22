@@ -689,9 +689,9 @@ const preloadAllAssets = () => {
     useTexture.preload(`/textures/shoes/${shoeObj.value}`);
   });
 
-  // data.glasses.forEach((glassesObj) => {
-  //   useTexture.preload(`/textures/glasses/${glassesObj.value}`);
-  // });
+  data.glasses.forEach((glassesObj) => {
+    useTexture.preload(`/textures/glasses/${glassesObj.value}`);
+  });
 };
 
 // functions from threejs repo --> https://github.com/mrdoob/three.js/blob/b5c272cf408cb33153190fa715d81581bd95ee47/examples/misc_exporter_gltf.html#L105

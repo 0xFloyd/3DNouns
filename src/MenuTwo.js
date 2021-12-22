@@ -97,16 +97,23 @@ const MenuTwo = ({
             {optionsVisibility === 'block' ? (
               <div className="menu-header-row">
                 <button
-                  className="screenshot-button"
+                  className={
+                    disabledButtonState
+                      ? 'screenshot-button-disabled'
+                      : 'screenshot-button'
+                  }
                   onClick={() => {
                     // saveAsImage();
                     // stop animation
+                    setDisabledButtonState(true);
                     setAnimationState(false);
                     setAnimationValue('none');
                     setTimeout(() => {
                       setShowScreenshotModal(true);
+                      setDisabledButtonState(false);
                     }, 1000);
                   }}
+                  disabled={disabledButtonState}
                 >
                   <BsCameraFill size={20} color="black" />
                 </button>
@@ -850,14 +857,21 @@ const MenuTwo = ({
               RANDOMIZE
             </button>
             <button
-              className="screenshot-button"
               style={{ marginLeft: '20px', marginRight: '0px' }}
+              className={
+                disabledButtonState
+                  ? 'screenshot-button-disabled'
+                  : 'screenshot-button'
+              }
               onClick={() => {
                 // saveAsImage();
+                // stop animation
+                setDisabledButtonState(true);
                 setAnimationState(false);
                 setAnimationValue('none');
                 setTimeout(() => {
                   setShowScreenshotModal(true);
+                  setDisabledButtonState(false);
                 }, 1000);
               }}
             >
@@ -1144,9 +1158,8 @@ const MintModal = (props) => {
           <span className="noun-color-h2">3D Noun</span>?
         </h2>
         <h4>
-          We're currently working on a feature that allows people to mint their
-          own custom 3D Noun as part of a larger 3D Nouns collection. If this
-          interests you, reach out and let us know on twitter{' '}
+          We're currently working on the specifics of a 3D Noun NFT collection.
+          If this interests you, follow us on twitter{' '}
           <SiTwitter className="mint-twitter-logo" size={25} color="#1DA1F2" />{' '}
           <a
             href="https://twitter.com/3dnouns"
@@ -1155,7 +1168,7 @@ const MintModal = (props) => {
           >
             @3DNouns
           </a>{' '}
-          or{' '}
+          and join the discord for updates{' '}
           <BsDiscord className="mint-twitter-logo" size={25} color="#5865F2" />
           <a
             className="mint-modal-link"

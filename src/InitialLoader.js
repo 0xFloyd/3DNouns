@@ -14,70 +14,77 @@ import LoadingNoun from './assets/loading.mp4';
 // const defaultDataInterpolation = (p: number) => `Loading ${p.toFixed(2)}%`;
 const defaultDataInterpolation = (p) => `Loading 3D Nouns ${p.toFixed()}%`;
 
-function InitialLoader({
-  containerStyles,
-  innerStyles,
-  barStyles,
-  dataStyles,
-  dataInterpolation = defaultDataInterpolation,
-  initialState = (active) => active,
-}) {
-  const { active, progress } = useProgress();
-  const progressRef = React.useRef(0);
-  const rafRef = React.useRef(0);
-  const progressSpanRef = React.useRef(null);
-  const [shown, setShown] = React.useState(initialState(active));
+const InitialLoader = React.memo(
+  ({
+    containerStyles,
+    innerStyles,
+    barStyles,
+    dataStyles,
+    dataInterpolation = defaultDataInterpolation,
+    initialState = (active) => active,
+  }) => {
+    const { active, progress } = useProgress();
+    const progressRef = React.useRef(0);
+    const rafRef = React.useRef(0);
+    const progressSpanRef = React.useRef(null);
+    const [shown, setShown] = React.useState(initialState(active));
 
-  React.useEffect(() => {
-    let t;
-    if (active !== shown) t = setTimeout(() => setShown(active), 300);
-    return () => clearTimeout(t);
-  }, [shown, active]);
+    React.useEffect(() => {
+      let t;
+      if (active !== shown) t = setTimeout(() => setShown(active), 300);
+      return () => clearTimeout(t);
+    }, [shown, active]);
 
-  const updateProgress = React.useCallback(() => {
-    if (!progressSpanRef.current) return;
-    progressRef.current += (progress - progressRef.current) / 2;
-    if (progressRef.current > 0.95 * progress || progress === 100)
-      progressRef.current = progress;
-    progressSpanRef.current.innerText = dataInterpolation(progressRef.current);
-    if (progressRef.current < progress)
-      rafRef.current = requestAnimationFrame(updateProgress);
-  }, [dataInterpolation, progress]);
+    const updateProgress = React.useCallback(() => {
+      if (!progressSpanRef.current) return;
+      progressRef.current += (progress - progressRef.current) / 2;
+      if (progressRef.current > 0.95 * progress || progress === 100)
+        progressRef.current = progress;
+      progressSpanRef.current.innerText = dataInterpolation(
+        progressRef.current
+      );
+      if (progressRef.current < progress)
+        rafRef.current = requestAnimationFrame(updateProgress);
+    }, [dataInterpolation, progress]);
 
-  React.useEffect(() => {
-    updateProgress();
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [updateProgress]);
+    React.useEffect(() => {
+      updateProgress();
+      return () => cancelAnimationFrame(rafRef.current);
+    }, [updateProgress]);
 
-  return shown ? (
-    <div
-      style={{
-        ...styles.container,
-        opacity: active ? 1 : 0,
-        ...containerStyles,
-      }}
-    >
-      <video preload={'auto'} style={{ height: '300px' }} muted loop autoPlay>
-        <source src={LoadingNoun} type="video/mp4" />
-      </video>
-      <div>
-        <div style={{ ...styles.inner, ...innerStyles }}>
-          <div
-            style={{
-              ...styles.bar,
-              transform: `scaleX(${progress / 100})`,
-              ...barStyles,
-            }}
-          ></div>
-          <span
-            ref={progressSpanRef}
-            style={{ ...styles.data, ...dataStyles }}
-          />
+    console.count('loader');
+
+    return shown ? (
+      <div
+        style={{
+          ...styles.container,
+          opacity: active ? 1 : 0,
+          ...containerStyles,
+        }}
+      >
+        <video preload={'auto'} style={{ height: '300px' }} muted loop autoPlay>
+          <source src={LoadingNoun} type="video/mp4" />
+        </video>
+        {/* <img src={loadingNounImage} style={{ height: '300px' }} alt="Noun" /> */}
+        <div>
+          <div style={{ ...styles.inner, ...innerStyles }}>
+            <div
+              style={{
+                ...styles.bar,
+                transform: `scaleX(${progress / 100})`,
+                ...barStyles,
+              }}
+            ></div>
+            <span
+              ref={progressSpanRef}
+              style={{ ...styles.data, ...dataStyles }}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  ) : null;
-}
+    ) : null;
+  }
+);
 
 const styles = {
   container: {
