@@ -694,6 +694,10 @@
       "name": "Checkers-Big-Red-Cold",
       "value": "accessory-checkers-big-red-cold.png"
     },
+    {
+      "name": "Checkers-Black",
+      "value": "accessory-checkers-black.png"
+    },
     { "name": "Checkers-Blue", "value": "accessory-checkers-blue.png" },
     { "name": "Checkers-Magenta", "value": "accessory-checkers-magenta.png" },
     {
@@ -704,7 +708,8 @@
       "name": "Checkers-Spaced-White",
       "value": "accessory-checkers-spaced-white.png"
     },
-    { "name": "Checkers-Vibrant'", "value": "accessory-checkers-vibrant'.png" },
+    { "name": "Checkers-Vibrant'", "value": "accessory-checkers-vibrant.png" },
+    { "name": "Chicken", "value": "accessory-chicken.png" },
     { "name": "Cloud", "value": "accessory-cloud.png" },
     { "name": "Clover", "value": "accessory-clover.png" },
     { "name": "Collar-Sunset", "value": "accessory-collar-sunset.png" },
