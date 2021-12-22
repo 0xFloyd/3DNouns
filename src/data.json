@@ -983,7 +983,7 @@
       "value": "head-Box",
       "filePath": "HeadBox.glb",
       "componentName": "BoxHead",
-      "color": "0x67B1E3"
+      "color": "0x8D6F5B"
     },
     {
       "name": "Boxingglove",
@@ -1226,7 +1226,7 @@
     {
       "name": "Cordlessphone",
       "value": "head-Cordlessphone",
-      "filePath": "cordlessphoneHead.glb",
+      "filePath": "HeadCordlessphone.glb",
       "componentName": "CordlessphoneHead",
       "color": "0xCFC2AB"
     },
@@ -1263,7 +1263,7 @@
       "value": "head-Crochat",
       "filePath": "HeadCrocHat.glb",
       "componentName": "CrochatHead",
-      "color": "0x34AC80"
+      "color": "0x27A463"
     },
     {
       "name": "Crown",
@@ -2024,7 +2024,7 @@
     {
       "name": "Rangefinder",
       "value": "head-Rangefinder",
-      "filePath": "rangefinderHead.glb",
+      "filePath": "HeadRangefinder.glb",
       "componentName": "RangefinderHead",
       "color": "0xABAAA8"
     },
