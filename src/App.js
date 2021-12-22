@@ -7,6 +7,7 @@ import './App.css';
 import './GlowButton.css';
 import SplashScreen from './SplashScreen';
 import { useProgress } from '@react-three/drei';
+import InitialLoader from 'InitialLoader';
 
 const deviceType = () => {
   const ua = navigator.userAgent;
@@ -80,10 +81,11 @@ const App = () => {
           <SplashScreen {...store} />
         </div>
       )} */}
-
+      <InitialLoader />
       <div className="nouns-canvas">
         <NounCanvas />
       </div>
+
       {/* <div className="nouns-canvas">
         <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
       </div> */}

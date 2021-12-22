@@ -575,7 +575,7 @@ const NounCanvas = () => {
         dataStyles={{ fontSize: '2rem', textAlign: 'center' }} // Text styles
         dataInterpolation={(p) => `Loading 3D Nouns - ${p.toFixed(2)}%`} // Text
       /> */}
-      <InitialLoader />
+ 
 
       <MenuTwo
         isDesktop={deviceState}
