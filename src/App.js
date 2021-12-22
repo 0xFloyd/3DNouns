@@ -5,7 +5,7 @@ import { Col, Container, Dropdown, Navbar, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import './GlowButton.css';
-import SplashScreen from './SplashScreen';
+// import SplashScreen from './SplashScreen';
 import { useProgress } from '@react-three/drei';
 import InitialLoader from 'InitialLoader';
 

@@ -1,5 +1,6 @@
 import { useProgress } from '@react-three/drei';
 import * as React from 'react';
+import LoadingNoun from './assets/loading.mp4';
 
 // interface LoaderOptions {
 //   containerStyles: any;
@@ -56,8 +57,8 @@ function InitialLoader({
         ...containerStyles,
       }}
     >
-      <video style={{ height: '300px' }} muted loop autoPlay>
-        <source src={'/loading.mp4'} type="video/mp4" />
+      <video preload={'auto'} style={{ height: '300px' }} muted loop autoPlay>
+        <source src={LoadingNoun} type="video/mp4" />
       </video>
       <div>
         <div style={{ ...styles.inner, ...innerStyles }}>

@@ -13,14 +13,14 @@ const NormalEnvironment = () => {
   // const { nodes, materials } = useGLTF('/world/voxelworld.glb');
 
   const Ground = () => {
-    const texture_1 = useLoader(
-      THREE.TextureLoader,
-      '/textures/world/grass2.png'
-    );
-    texture_1.wrapS = texture_1.wrapT = THREE.RepeatWrapping;
-    texture_1.repeat.set(32, 32);
-    texture_1.anisotropy = 64;
-    texture_1.encoding = THREE.sRGBEncoding;
+    // const texture_1 = useLoader(
+    //   THREE.TextureLoader,
+    //   '/textures/world/grass2.png'
+    // );
+    // texture_1.wrapS = texture_1.wrapT = THREE.RepeatWrapping;
+    // texture_1.repeat.set(32, 32);
+    // texture_1.anisotropy = 64;
+    // texture_1.encoding = THREE.sRGBEncoding;
 
     return (
       <mesh receiveShadow position={[32, -1, 0]} rotation={[0, Math.PI / 2, 0]}>
@@ -37,7 +37,7 @@ const NormalEnvironment = () => {
 
   return (
     <>
-      <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 3000]} />
+      <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 1500]} />
       {/* <Sky distance={1000} sunPosition={[-100, 500, 1000]0} /> */}
       {/* <color attach="background" args={[new THREE.Color(0x87ceeb)]} /> */}
       {/* <fog attach="fog" args={[new THREE.Color(0x87ceeb), 1, 5000]} /> */}
@@ -67,8 +67,8 @@ const NormalEnvironment = () => {
         />
       </mesh> */}
       {/* scale={[80, 80, 80]} position={[2600, -24, 1700]} */}
-      <group dispose={null} scale={[80, 80, 80]} position={[0, -25, 0]}>
-        {/* <mesh
+      {/* <group dispose={null} scale={[80, 80, 80]} position={[0, -25, 0]}> */}
+      {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.WATER.geometry}
@@ -145,7 +145,7 @@ const NormalEnvironment = () => {
           material={materials['palette.010']}
           rotation={[Math.PI / 2, 0, 0]}
         /> */}
-      </group>
+      {/* </group> */}
       <gridHelper
         receiveShadow
         // castShadow

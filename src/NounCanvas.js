@@ -1,77 +1,66 @@
-import {
-  Canvas,
-  extend,
-  useFrame,
-  useLoader,
-  useThree,
-} from '@react-three/fiber';
+import { Canvas, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
-import React, {
+import {
   Suspense,
   useEffect,
-  useLayoutEffect,
-  useMemo,
+  // useLayoutEffect,
+  // useMemo,
   useRef,
   useState,
 } from 'react';
 import {
-  Environment,
-  Loader,
+  // Environment,
+  // Loader,
   OrbitControls,
-  Stage,
+  // Stage,
   Stats,
   useGLTF,
-  useHelper,
-  useProgress,
+  // useHelper,
+  // useProgress,
   useTexture,
 } from '@react-three/drei';
-import { Col, Container, Row } from 'react-bootstrap';
+// import { Col, Container, Row } from 'react-bootstrap';
 import logo from './assets/3DNounsLogoSVG.svg';
-import './shaders/materials/ReflectorMaterial';
-import NounsLogo from 'World/NounsLogo';
-import ProgressLoader from 'Loader';
-import {
-  bodyAttributes,
-  accessoryAttributes,
-  glassesAttributes,
-  headAttributes,
-  pantsAttributes,
-  shoesAttributes,
-  environmentAttributes,
-} from 'attributes';
-import {
-  DirectionalLightHelper,
-  HemisphereLightHelper,
-  SpotLightHelper,
-  TextureLoader,
-} from 'three';
-import SeperateHeadBody from './assets/FullBodyNouns/SeperateHeadAndBodyTest';
+// import './shaders/materials/ReflectorMaterial';
+// import NounsLogo from 'World/NounsLogo';
+// import ProgressLoader from 'Loader';
+// import {
+//   bodyAttributes,
+//   accessoryAttributes,
+//   glassesAttributes,
+//   headAttributes,
+//   pantsAttributes,
+//   shoesAttributes,
+//   environmentAttributes,
+// } from 'attributes';
+import { TextureLoader } from 'three';
+
 import NormalEnvironment from 'World/NormalEnvironment';
-import OceanEnvironment from 'World/OceanEnvironment';
-import Menu from 'Menu';
+// import OceanEnvironment from 'World/OceanEnvironment';
+// import Menu from 'Menu';
 import data from './data.json';
-import FINALBODY from 'assets/FullBodyNouns/FinalPipelineTest';
-import FINALHEAD from 'assets/FullBodyNouns/FINALHEAD';
-import ModelHead from 'assets/FullBodyNouns/FINALHEAD';
-import HeadComponents from 'assets/FullBodyNouns/FINALHEAD';
+// import FINALBODY from 'assets/FullBodyNouns/FinalPipelineTest';
+// import FINALHEAD from 'assets/FullBodyNouns/FINALHEAD';
+// import ModelHead from 'assets/FullBodyNouns/FINALHEAD';
+// import HeadComponents from 'assets/FullBodyNouns/FINALHEAD';
 import { headComponents } from 'utils/AllHeadModels';
-import PreloadBodyTextures from 'utils/PreloadBodyTextures';
-import MasterHead from 'utils/MasterHead';
-import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
+// import PreloadBodyTextures from 'utils/PreloadBodyTextures';
+// import MasterHead from 'utils/MasterHead';
+// import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
 import RANDOMIZER from 'RANDOMIZER';
 import MatrixEnvironment from 'World/Matrix';
 // import { GLTFExporter } from 'three-stdlib';
 import NounHolder from 'NounHolder';
-import HorizontalNounsLogo from 'World/HorizontalNounsLogo';
+// import HorizontalNounsLogo from 'World/HorizontalNounsLogo';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
-import DownloadNoun from 'DownloadNoun';
+// import DownloadNoun from 'DownloadNoun';
 import MenuTwo from 'MenuTwo';
 import { isDesktop } from 'react-device-detect';
 import ThreeDLogo from 'ThreeDNounsLogo';
-import BillBoard from 'BillBoard';
-import SandboxItems from './SandboxItems';
+// import BillBoard from 'BillBoard';
+// import SandboxItems from './SandboxItems';
 import './styles/ProgressLoader.css';
-import InitialLoader from 'InitialLoader';
+// import InitialLoader from 'InitialLoader';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -446,7 +435,7 @@ const NounCanvas = () => {
           physicallyCorrectLights: true,
         }}
         dpr={[1, 1.5]}
-        camera={{ near: 0.1, far: 5000 }} // https://github.com/pmndrs/react-three-fiber/issues/67
+        // camera={{ near: 0.1, far: 5000 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
           // do things here
           camera.position.x = 0;
@@ -474,7 +463,7 @@ const NounCanvas = () => {
         <Suspense fallback={null}>
           {/* <Suspense fallback={<ProgressLoader />}> */}
           {environment === 'Normal' && <NormalEnvironment />}
-          {environment === 'Island' && <OceanEnvironment />}
+          {/* {environment === 'Island' && <OceanEnvironment />} */}
           {environment === 'Matrix' && <MatrixEnvironment />}
           <fog
             attach="fog"
@@ -575,7 +564,6 @@ const NounCanvas = () => {
         dataStyles={{ fontSize: '2rem', textAlign: 'center' }} // Text styles
         dataInterpolation={(p) => `Loading 3D Nouns - ${p.toFixed(2)}%`} // Text
       /> */}
- 
 
       <MenuTwo
         isDesktop={deviceState}
