@@ -16,6 +16,7 @@ import React, {
 } from 'react';
 import {
   Environment,
+  Loader,
   OrbitControls,
   Stage,
   Stats,
@@ -69,6 +70,8 @@ import { isDesktop } from 'react-device-detect';
 import ThreeDLogo from 'ThreeDNounsLogo';
 import BillBoard from 'BillBoard';
 import SandboxItems from './SandboxItems';
+import './styles/ProgressLoader.css';
+import InitialLoader from 'InitialLoader';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -183,7 +186,7 @@ const NounCanvas = () => {
     document.body.style.cursor = 'auto';
     setTimeout(() => {
       setShowDirections(false);
-    }, 10000);
+    }, 15000);
   }, []);
 
   const HeadComponents = headComponents.map((obj) => {
@@ -461,15 +464,15 @@ const NounCanvas = () => {
           target={[0, 20, 0]}
           ref={orbitControls}
           autoRotate={JSON.parse(autoRotate)}
-          // enablePan={false}
-          enablePan={true}
+          enablePan={false}
           enableDamping={true}
           maxPolarAngle={Math.PI / 1.85}
           maxDistance={150}
           minDistance={20}
         />
 
-        <Suspense fallback={<ProgressLoader />}>
+        <Suspense fallback={null}>
+          {/* <Suspense fallback={<ProgressLoader />}> */}
           {environment === 'Normal' && <NormalEnvironment />}
           {environment === 'Island' && <OceanEnvironment />}
           {environment === 'Matrix' && <MatrixEnvironment />}
@@ -503,7 +506,7 @@ const NounCanvas = () => {
             shoeProp={shoes}
           /> */}
 
-          <SandboxItems />
+          {/* <SandboxItems /> */}
 
           {!showScreenshotModal && (
             <NounHolder
@@ -555,6 +558,24 @@ const NounCanvas = () => {
         </Suspense>
         {/* <Stats showPanel={0} className="stats" /> */}
       </Canvas>
+      {/* <Loader
+        containerStyles={{
+          width: '100vw',
+          // backgroundColor: 'red',
+          // justifyContent: 'center',
+          // alignItems: 'center',
+        }} // Flex layout styles
+        innerStyles={{
+          // textAlign: 'center',
+          // justifyContent: 'center',
+          // alignItems: 'center',
+          width: '50vw',
+        }} // Inner container styles
+        barStyles={{ height: '20px', maxWidth: '50vw' }} // Loading-bar styles
+        dataStyles={{ fontSize: '2rem', textAlign: 'center' }} // Text styles
+        dataInterpolation={(p) => `Loading 3D Nouns - ${p.toFixed(2)}%`} // Text
+      /> */}
+      <InitialLoader />
 
       <MenuTwo
         isDesktop={deviceState}

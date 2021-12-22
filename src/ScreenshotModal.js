@@ -34,7 +34,7 @@ const ScreenshotModal = ({
 
   const [threeScene, setThreeScene] = useState(null);
   const [sceneColor, setSceneColor] = useState('#d5d7e1');
-  const [hemisphereLightIntensity, setHemisphereLightIntensity] = useState(0.5);
+  const [hemisphereLightIntensity, setHemisphereLightIntensity] = useState(1.5);
   const [directionalLightIntensity, setDirectionalLightIntensity] = useState(2);
   const [lightDirection, setLightDirection] = useState(-100);
   const [sceneScreenshotState, setSceneScreenshotState] = useState(null);
@@ -245,25 +245,27 @@ const ScreenshotModal = ({
               className="menu-button screenshot-mobile-button"
               onClick={() => {
                 // setShowScreenshotModal(false);
+                saveAsImage();
+              }}
+            >
+              SCREENSHOT
+            </button>
+            <button
+              className="menu-button screenshot-mobile-button"
+              onClick={() => {
+                // setShowScreenshotModal(false);
                 // saveAsImage();
                 updateCamera();
               }}
             >
               {cameraHeadShot ? 'Focus Body' : 'Focus Head'}
             </button>
-
-            <button
-              className="menu-button screenshot-mobile-button"
-              onClick={() => {
-                // setShowScreenshotModal(false);
-                saveAsImage();
-              }}
-            >
-              SCREENSHOT
-            </button>
           </div>
           <div className="react-color-picker-container">
-            <label className="background-color-label">Background Color</label>
+            <div>
+              <label className="background-color-label">Background Color</label>
+            </div>
+
             <CompactPicker
               color={sceneColor}
               onChangeComplete={(color) => setSceneColor(color.hex)}

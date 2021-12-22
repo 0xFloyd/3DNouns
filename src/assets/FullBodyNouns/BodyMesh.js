@@ -56,7 +56,7 @@ const BodyMesh = React.memo(function ({
   let toLoad = 2;
   function onLoaded() {
     toLoad--;
-    if (toLoad === 0) {
+    if (ctx && toLoad === 0) {
       console.log('All loaded! Blending textures...');
       canvas.width = Math.max(bodyImg.width, patternImg.width);
       canvas.height = Math.max(bodyImg.height, patternImg.height);

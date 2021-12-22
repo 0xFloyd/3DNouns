@@ -738,6 +738,10 @@
   right: 5px;
 }
 
+.screenshot-mobile-button {
+  margin-bottom: 10px;
+}
+
 /*  MOBILE STYLING */
 @media (max-width: 768px) {
   .menu-x-button {
@@ -975,7 +979,7 @@
     right: 0;
     width: 100vw;
     max-height: 100vh;
-    height: 100vh;
+    height: 90vh;
     background-color: rgb(255, 255, 255);
     font-size: 1rem;
     border-radius: 0px;
@@ -983,6 +987,7 @@
     overflow-y: hidden;
     scrollbar-width: none;
     text-align: center;
+    overflow-y: auto;
   }
 
   .screenshot-canvas-container {
