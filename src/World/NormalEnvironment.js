@@ -68,16 +68,17 @@ const NormalEnvironment = () => {
         />
       </mesh> */}
       {/* position={[75, 6, 0]} */}
-      <group dispose={null} scale={[5, 5, 5]} position={[-650, -14.5, -500]}>
+      <group dispose={null} scale={[120, 120, 120]} position={[0, 1, 75]}>
         {' '}
         {/* position={[2600, -24, 1700]} */}
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Union_142.geometry}
-          material={materials.city_material1}
-          position={[-3.92, -0.1, -3.22]}
+          material={materials.city3_material}
+          position={[-3.99, -0.1, -3.54]}
           rotation={[Math.PI / 2, 0, 0]}
+          scale={[0.03, 0.03, 0.03]}
         />
       </group>
       {/* <gridHelper

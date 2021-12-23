@@ -13,8 +13,8 @@ const ThreeDLogo = ({}, ref) => {
       receiveShadow
       geometry={nodes.NounsLogo.geometry}
       material={materials['3DblueRedLogo_material']}
-      scale={[7, 7, 7]}
-      position={[150, 0, -70]}
+      scale={[4, 4, 4]}
+      position={[120, 0, -20]}
       rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
     />
 

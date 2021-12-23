@@ -60,6 +60,8 @@ import ThreeDLogo from 'ThreeDNounsLogo';
 // import BillBoard from 'BillBoard';
 // import SandboxItems from './SandboxItems';
 import './styles/ProgressLoader.css';
+import InitialLoader from 'InitialLoader';
+import ProgressLoader from 'Loader';
 // import InitialLoader from 'InitialLoader';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
@@ -460,7 +462,7 @@ const NounCanvas = () => {
           minDistance={20}
         />
 
-        <Suspense fallback={null}>
+        <Suspense fallback={<ProgressLoader />}>
           {/* <Suspense fallback={<ProgressLoader />}> */}
           {environment === 'Normal' && <NormalEnvironment />}
           {/* {environment === 'Island' && <OceanEnvironment />} */}
