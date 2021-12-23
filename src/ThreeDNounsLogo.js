@@ -1,10 +1,10 @@
-import React, { forwardRef, useRef } from "react";
-import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
+import React, { forwardRef, useRef } from 'react';
+import { useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
 
 const ThreeDLogo = ({}, ref) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/world/3Dglasses.glb");
+  const { nodes, materials } = useGLTF('/world/3Dglasses.glb');
 
   return (
     <mesh
@@ -12,9 +12,9 @@ const ThreeDLogo = ({}, ref) => {
       castShadow
       receiveShadow
       geometry={nodes.NounsLogo.geometry}
-      material={materials["3DblueRedLogo_material"]}
+      material={materials['3DblueRedLogo_material']}
       scale={[7, 7, 7]}
-      position={[100, 0, -200]}
+      position={[150, 0, -70]}
       rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
     />
 
@@ -46,4 +46,4 @@ const ThreeDLogo = ({}, ref) => {
 
 export default forwardRef(ThreeDLogo);
 
-useGLTF.preload("/3Dlogo.glb");
+useGLTF.preload('/3Dlogo.glb');

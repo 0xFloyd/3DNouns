@@ -456,7 +456,7 @@ const NounCanvas = () => {
           enablePan={false}
           enableDamping={true}
           maxPolarAngle={Math.PI / 1.85}
-          maxDistance={150}
+          maxDistance={100}
           minDistance={20}
         />
 

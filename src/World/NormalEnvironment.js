@@ -11,6 +11,7 @@ const NormalEnvironment = () => {
   // depthWrite={false}
 
   // const { nodes, materials } = useGLTF('/world/voxelworld.glb');
+  const { nodes, materials } = useGLTF('/world/nountoun.glb');
 
   const Ground = () => {
     // const texture_1 = useLoader(
@@ -51,8 +52,8 @@ const NormalEnvironment = () => {
         sunPosition={[-100, 500, 1000]}
       />
       {/* <SkyShader /> */}
-      <House />
-      <Ground />
+      {/* <House /> */}
+      {/* <Ground /> */}
       {/* <mesh
         receiveShadow
         position={[-70, -0.5, -70]}
@@ -66,92 +67,221 @@ const NormalEnvironment = () => {
           // metalness={0}
         />
       </mesh> */}
-      {/* scale={[80, 80, 80]} position={[2600, -24, 1700]} */}
-      {/* <group dispose={null} scale={[80, 80, 80]} position={[0, -25, 0]}> */}
-      {/* <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.WATER.geometry}
-          material={materials.palette}
+
+      <group dispose={null} scale={[120, 120, 120]} position={[75, 6, 0]}>
+        {' '}
+        {/* position={[2600, -24, 1700]} */}
+        <group
+          position={[0.19, -0.81, -2.12]}
           rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.untitled.geometry}
-          material={materials['palette.001']}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.untitled001.geometry}
-          material={materials['palette.002']}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.WATER001.geometry}
-          material={materials['palette.003']}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes['voxlandscapetry2-5'].geometry}
-          material={materials['palette.004']}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes['voxlandscapetry2-6'].geometry}
-          material={materials['palette.005']}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.WATER002.geometry}
-          material={materials['palette.006']}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.untitled002.geometry}
-          material={materials['palette.007']}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes['voxlandscapetry2-10'].geometry}
-          material={materials['palette.008']}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes['voxlandscapetry2-11'].geometry}
-          material={materials['palette.009']}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes['voxlandscapetry2-8'].geometry}
-          material={materials['palette.010']}
-          rotation={[Math.PI / 2, 0, 0]}
-        /> */}
-      {/* </group> */}
-      <gridHelper
+          scale={[0.04, 0.04, 0.04]}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Box.geometry}
+            material={nodes.Box.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Box_1.geometry}
+            material={nodes.Box_1.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Box_2.geometry}
+            material={nodes.Box_2.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Box_3.geometry}
+            material={nodes.Box_3.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Box_4.geometry}
+            material={nodes.Box_4.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Box_4_part.geometry}
+            material={nodes.Box_4_part.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Box_4_part_1.geometry}
+            material={nodes.Box_4_part_1.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Box_5.geometry}
+            material={nodes.Box_5.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Box_7.geometry}
+            material={nodes.Box_7.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_10'].geometry}
+            material={nodes['head-house_10'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_11'].geometry}
+            material={nodes['head-house_11'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_12'].geometry}
+            material={nodes['head-house_12'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_13'].geometry}
+            material={nodes['head-house_13'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_14'].geometry}
+            material={nodes['head-house_14'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_15'].geometry}
+            material={nodes['head-house_15'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_16'].geometry}
+            material={nodes['head-house_16'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_17'].geometry}
+            material={nodes['head-house_17'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_4'].geometry}
+            material={nodes['head-house_4'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_5'].geometry}
+            material={nodes['head-house_5'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_6'].geometry}
+            material={nodes['head-house_6'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_7'].geometry}
+            material={nodes['head-house_7'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['head-house_9'].geometry}
+            material={nodes['head-house_9'].material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Oren_1101.geometry}
+            material={nodes.Oren_1101.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Oren_1104.geometry}
+            material={nodes.Oren_1104.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Oren_1105.geometry}
+            material={nodes.Oren_1105.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Oren_1107.geometry}
+            material={nodes.Oren_1107.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Oren_1108.geometry}
+            material={nodes.Oren_1108.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Oren_1109.geometry}
+            material={nodes.Oren_1109.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Oren_1114.geometry}
+            material={nodes.Oren_1114.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Oren_1115.geometry}
+            material={nodes.Oren_1115.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Oren_1116.geometry}
+            material={nodes.Oren_1116.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Union_139.geometry}
+            material={nodes.Union_139.material}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Union_141.geometry}
+            material={nodes.Union_141.material}
+          />
+        </group>
+      </group>
+      {/* <gridHelper
         receiveShadow
         // castShadow
         args={[5000, 150, new THREE.Color(0x7d7d7d), new THREE.Color(0x7d7d7d)]}
         position={[0, 0.1, 0]}
-      />
+      /> */}
     </>
   );
 };
