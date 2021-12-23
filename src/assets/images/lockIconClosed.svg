@@ -2,58 +2,43 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Default" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
-<rect x="-80.425" y="15.969" width="59.351" height="25.805"/>
-<polygon fill="#8C8C8C" stroke="#8C8C8C" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" points="
-	163.063,25.588 160.521,25.588 160.521,33.214 145.269,33.214 145.269,25.588 140.185,25.588 140.185,30.672 137.642,30.672 
-	137.642,23.046 145.269,23.046 145.269,17.962 160.521,17.962 160.521,23.046 163.063,23.046 163.063,17.962 178.315,17.962 
-	178.315,33.214 163.063,33.214 "/>
-<rect x="165.605" y="20.504" fill="#FFFFFF" stroke="#8C8C8C" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="10.168" height="10.168"/>
-<rect x="147.811" y="20.504" fill="#FFFFFF" stroke="#8C8C8C" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="10.168" height="10.168"/>
-<rect x="147.811" y="23.617" fill="#8C8C8C" stroke="#8C8C8C" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="7.056"/>
-<line fill="none" stroke="#8C8C8C" stroke-linecap="round" stroke-linejoin="round" x1="145.269" y1="13.42" x2="175.773" y2="13.42"/>
-<rect x="160.521" y="37.299" fill="#8C8C8C" width="2.542" height="2.542"/>
-<polyline fill="none" stroke="#8C8C8C" stroke-linecap="round" stroke-linejoin="round" points="175.773,13.42 180.858,13.42 
-	180.858,43.925 140.185,43.925 140.185,13.42 145.269,13.42 "/>
-<polygon fill="none" stroke="#8C8C8C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="175.773,4.42 
-	175.773,-5.748 173.231,-5.748 173.231,-8.291 170.689,-8.291 170.689,-10.833 150.353,-10.833 150.353,-8.291 147.811,-8.291 
-	147.811,-5.748 145.269,-5.748 145.269,4.42 150.353,4.42 150.353,1.878 150.353,-3.206 152.895,-3.206 152.895,-5.748 
-	165.605,-5.748 168.147,-5.748 168.147,-3.206 170.689,-3.206 170.689,4.42 "/>
-<rect x="-36.558" y="8.227" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" width="10.322" height="5.161"/>
-<rect x="-46.879" y="8.227" stroke="#000000" stroke-width="0.25" stroke-linecap="round" stroke-linejoin="round" width="7.741" height="5.161"/>
-<rect x="-59.782" y="10.808" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" width="5.161" height="2.58"/>
-<rect x="-57.202" y="36.612" fill="#FFFFFF" stroke="#000000" stroke-width="0.25" stroke-linecap="round" stroke-linejoin="round" width="12.903" height="2.581"/>
-<polygon fill="#FF0000" stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" points="
-	-49.459,26.291 -52.041,26.291 -52.041,34.032 -67.523,34.032 -67.523,26.291 -72.684,26.291 -72.684,31.452 -75.264,31.452 
-	-75.264,23.71 -67.523,23.71 -67.523,18.549 -52.041,18.549 -52.041,23.71 -49.459,23.71 -49.459,18.549 -33.977,18.549 
-	-33.977,34.032 -49.459,34.032 "/>
-<rect x="-46.879" y="21.13" fill="#FFFFFF" width="5.161" height="10.322"/>
-<rect x="-64.942" y="21.13" fill="#FFFFFF" width="5.16" height="10.322"/>
-<polygon fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" points="-80.425,44.354 -80.425,8.227 
-	-72.684,8.227 -67.523,8.227 -64.942,8.227 -59.782,8.227 -57.202,8.227 -57.202,5.646 -52.041,5.646 -21.075,5.646 -21.075,44.354 
-	"/>
-<polygon stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" points="-51.467,63.853 
-	-54.009,63.853 -54.009,71.479 -69.261,71.479 -69.261,63.853 -74.345,63.853 -74.345,68.937 -76.888,68.937 -76.888,61.311 
-	-69.261,61.311 -69.261,56.227 -54.009,56.227 -54.009,61.311 -51.467,61.311 -51.467,56.227 -36.214,56.227 -36.214,71.479 
-	-51.467,71.479 "/>
-<rect x="-43.84" y="58.769" fill="none" stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="10.168"/>
-<rect x="-48.925" y="58.769" fill="#FFFFFF" stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="10.168"/>
-<rect x="-61.635" y="58.769" fill="none" stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="10.168"/>
-<rect x="-66.719" y="58.769" fill="#FFFFFF" stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="10.168"/>
-<rect x="-41.718" y="21.13" stroke="#000000" stroke-width="0.005" stroke-linecap="round" stroke-linejoin="round" width="5.161" height="10.322"/>
-<rect x="-59.782" y="21.13" stroke="#000000" stroke-width="0.005" stroke-linecap="round" stroke-linejoin="round" width="5.161" height="10.322"/>
-<polygon stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" points="27.688,29.421 
-	25.146,29.421 25.146,37.047 9.894,37.047 9.894,29.421 4.81,29.421 4.81,34.505 2.267,34.505 2.267,26.879 9.894,26.879 
-	9.894,21.795 25.146,21.795 25.146,26.879 27.688,26.879 27.688,21.795 42.94,21.795 42.94,37.047 27.688,37.047 "/>
-<rect x="35.314" y="24.337" fill="none" stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="10.168"/>
-<rect x="30.23" y="24.337" fill="#FFFFFF" stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="10.168"/>
-<rect x="17.52" y="24.337" fill="none" stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="10.168"/>
-<rect x="12.436" y="24.337" fill="#FFFFFF" stroke="#000000" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="10.168"/>
-<polygon fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" points="14.978,17.252 35.314,17.252 
-	35.314,9.626 32.772,9.626 32.772,7.084 30.23,7.084 17.52,7.084 17.52,9.626 14.978,9.626 14.978,14.71 "/>
-<rect x="22.604" y="40.131" stroke="#000000" stroke-width="0.25" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="5.084"/>
-<polygon fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="4.81,47.757 
-	4.81,17.252 9.894,17.252 9.894,7.084 12.436,7.084 12.436,4.542 14.978,4.542 14.978,2 35.314,2 35.314,4.542 37.856,4.542 
-	37.856,7.084 40.398,7.084 40.398,17.252 45.483,17.252 45.483,47.757 "/>
-<rect x="165.605" y="23.617" fill="#8C8C8C" stroke="#8C8C8C" stroke-width="0.05" stroke-linecap="round" stroke-linejoin="round" width="5.084" height="7.056"/>
+	 width="44px" height="49.583px" viewBox="0 0 44 49.583" enable-background="new 0 0 44 49.583" xml:space="preserve">
+<polygon fill="#A8A8A8" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="37.252,17.395 
+	42.336,17.395 42.336,47.899 1.663,47.899 1.663,17.395 "/>
+<rect x="-74.233" y="20.871" fill="#212121" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" width="58.468" height="27.029"/>
+<polygon fill="#383838" points="24.542,30.105 22,30.105 22,37.731 6.748,37.731 6.748,30.105 6.748,27.563 6.748,22.479 22,22.479 
+	22,27.563 24.542,27.563 24.542,22.479 39.794,22.479 39.794,37.731 24.542,37.731 "/>
+<polygon fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="-74.233,48.833 
+	-74.233,13.244 -66.607,13.244 -61.523,13.244 -58.981,13.244 -53.896,13.244 -51.354,13.244 -48.813,10.702 -46.271,10.702 
+	-15.766,10.702 -15.766,48.833 "/>
+<polygon fill="#FF0000" points="-43.729,31.039 -46.271,31.039 -46.271,38.665 -61.523,38.665 -61.523,31.039 -61.523,28.497 
+	-61.523,23.413 -46.271,23.413 -46.271,28.497 -43.729,28.497 -43.729,23.413 -28.476,23.413 -28.476,38.665 -43.729,38.665 "/>
+<rect x="-51.354" y="41.207" fill="#B7B7B7" width="12.71" height="2.542"/>
+<rect x="-31.018" y="13.244" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" width="10.168" height="5.084"/>
+<rect x="-41.186" y="13.244" fill="#545454" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" width="7.626" height="5.084"/>
+<rect x="-36.102" y="25.955" fill="#212121" width="5.084" height="10.168"/>
+<rect x="-41.186" y="25.955" fill="#FFFFFF" width="5.084" height="10.168"/>
+<rect x="-53.896" y="25.955" fill="#212121" width="5.084" height="10.168"/>
+<rect x="-58.981" y="25.955" fill="#FFFFFF" width="5.084" height="10.168"/>
+<polygon fill="none" stroke="#515151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="102.914,17.395 
+	133.419,17.395 138.503,17.395 138.503,47.899 97.83,47.899 97.83,17.395 "/>
+<polygon fill="none" stroke="#515151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="110.277,4.333 
+	105.648,2.229 109.856,-7.028 113.222,-8.29 116.588,-9.552 135.102,-1.137 136.364,2.229 137.626,5.595 133.419,14.852 
+	128.791,12.749 131.946,5.806 131.946,5.806 130.684,2.44 128.37,1.388 116.799,-3.872 116.799,-3.872 113.433,-2.609 
+	111.329,2.019 "/>
+<polygon fill="#4F4F4F" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="11.832,17.395 
+	6.748,17.395 6.748,7.226 9.29,4.684 11.832,2.142 32.168,2.142 34.71,4.684 37.252,7.226 37.252,17.395 32.168,17.395 
+	32.168,9.768 32.168,9.768 29.626,7.226 27.084,7.226 14.374,7.226 14.374,7.226 11.832,9.768 11.832,14.852 "/>
+<polygon fill="#878787" points="120.708,30.105 118.167,30.105 118.167,37.731 102.914,37.731 102.914,30.105 102.914,27.563 
+	102.914,22.479 118.167,22.479 118.167,27.563 120.708,27.563 120.708,22.479 135.961,22.479 135.961,37.731 120.708,37.731 "/>
+<rect x="105.456" y="25.021" fill="#212121" width="5.084" height="10.168"/>
+<rect x="110.54" y="25.021" fill="#FFFFFF" width="5.084" height="10.168"/>
+<rect x="123.25" y="25.021" fill="#212121" width="5.084" height="10.168"/>
+<rect x="128.335" y="25.021" fill="#FFFFFF" width="5.084" height="10.168"/>
+<rect x="115.625" y="40.273" fill="#212121" width="5.084" height="5.084"/>
+<rect x="22" y="40.273" fill="#212121" width="2.542" height="2.542"/>
+<rect x="9.29" y="25.021" fill="#FFFFFF" width="5.084" height="10.168"/>
+<rect x="14.374" y="25.021" fill="#212121" width="5.084" height="10.168"/>
+<rect x="27.084" y="25.021" fill="#FFFFFF" width="5.084" height="10.168"/>
+<rect x="32.168" y="25.021" fill="#212121" width="5.084" height="10.168"/>
 </svg>
