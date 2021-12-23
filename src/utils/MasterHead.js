@@ -242,6 +242,7 @@ import WhalealiveHead from '../HeadFilesGenerated/WhalealiveHead';
 import WineHead from '../HeadFilesGenerated/WineHead';
 import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
 import ZebraHead from '../HeadFilesGenerated/ZebraHead';
+import Head4156 from '../HeadFilesGenerated/Head4156';
 import { headComponents } from './AllHeadModels';
 
 const MasterHead = ({
@@ -1949,6 +1950,13 @@ const MasterHead = ({
         masterHeadModel={MasterHead}
       />
       <ZebraHead
+        headProp={headProp}
+        glassesProp={glassesTest}
+        animationState={animationState}
+        animationValue={animationValue}
+        masterHeadModel={MasterHead}
+      />
+      <Head4156
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}

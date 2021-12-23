@@ -2466,6 +2466,13 @@
       "filePath": "HeadZebra.glb",
       "componentName": "ZebraHead",
       "color": "0xCFC9B8"
+    },
+    {
+      "name": "4156",
+      "value": "head-4156",
+      "filePath": "Head4156.glb",
+      "componentName": "Head4156",
+      "color": "0x352410"
     }
   ]
 }

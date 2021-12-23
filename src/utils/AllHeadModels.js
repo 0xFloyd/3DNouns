@@ -232,6 +232,7 @@ import WhalealiveHead from '../HeadFilesGenerated/WhalealiveHead';
 import WineHead from '../HeadFilesGenerated/WineHead';
 import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
 import ZebraHead from '../HeadFilesGenerated/ZebraHead';
+import Head4156 from '../HeadFilesGenerated/Head4156';
 
 export const headComponents = [
   { name: 'Aardvark', value: AardvarkHead },
@@ -468,4 +469,5 @@ export const headComponents = [
   { name: 'Wine', value: WineHead },
   { name: 'Wizardhat', value: WizardhatHead },
   { name: 'Zebra', value: ZebraHead },
+  { name: '4156', value: Head4156 },
 ];
