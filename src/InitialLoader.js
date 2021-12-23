@@ -27,7 +27,7 @@ const InitialLoader = React.memo(
     const progressRef = React.useRef(0);
     const rafRef = React.useRef(0);
     const progressSpanRef = React.useRef(null);
-    const [shown, setShown] = React.useState(initialState(active));
+    const [shown, setShown] = React.useState(initialState(true));
 
     React.useEffect(() => {
       let t;
