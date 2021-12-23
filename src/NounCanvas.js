@@ -15,6 +15,7 @@ import {
   // Stage,
   Stats,
   useGLTF,
+  useProgress,
   // useHelper,
   // useProgress,
   useTexture,
@@ -462,7 +463,7 @@ const NounCanvas = () => {
           minDistance={20}
         />
 
-        <Suspense fallback={<ProgressLoader />}>
+        <Suspense fallback={null}>
           {/* <Suspense fallback={<ProgressLoader />}> */}
           {environment === 'Normal' && <NormalEnvironment />}
           {/* {environment === 'Island' && <OceanEnvironment />} */}

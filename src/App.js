@@ -43,7 +43,7 @@ const App = () => {
 
   const store = { clicked, setClicked, ready, setReady, loadScene };
 
-  const { progress } = useProgress();
+  const { active, progress, errors, item, loaded, total } = useProgress();
 
   return (
     <div className="full-width">
@@ -82,9 +82,7 @@ const App = () => {
         </div>
       )} */}
       <InitialLoader />
-      <div className="nouns-canvas">
-        <NounCanvas />
-      </div>
+      <div className="nouns-canvas">{loaded && <NounCanvas />}</div>
 
       {/* <div className="nouns-canvas">
         <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
