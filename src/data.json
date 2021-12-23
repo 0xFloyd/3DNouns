@@ -1,7 +1,7 @@
 {
   "world": [
-    { "name": "Normal", "value": "Normal" },
-    { "name": "Dark", "value": "Matrix" }
+    { "name": "Day", "value": "Normal" },
+    { "name": "Night", "value": "Matrix" }
   ],
   "body": [
     { "name": "Bege-Bsod", "value": "body-bege-bsod.png" },

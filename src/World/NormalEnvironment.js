@@ -1,11 +1,11 @@
-import { Sky, useGLTF, useProgress } from '@react-three/drei';
+import { Sky, Stars, useGLTF, useProgress } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import House from './House';
 import SkyShader from './SkyBox';
 
-const NormalEnvironment = () => {
+const NormalEnvironment = ({ environment }) => {
   // color="#101010"
   // transparent
   // depthWrite={false}
@@ -40,12 +40,21 @@ const NormalEnvironment = () => {
 
   return (
     <>
-      <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 1500]} />
+      {environment === 'Normal' && (
+        <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 1500]} />
+      )}
+      {environment === 'Matrix' && (
+        <fog attach="fog" args={[new THREE.Color(0x181818), 1, 1500]} />
+      )}
       {/* <Sky distance={1000} sunPosition={[-100, 500, 1000]0} /> */}
       {/* <color attach="background" args={[new THREE.Color(0x87ceeb)]} /> */}
       {/* <fog attach="fog" args={[new THREE.Color(0x87ceeb), 1, 5000]} /> */}
       {/* <Sky distance={5000} sunPosition={[-100, 500, 1000]} /> */}
-      {loaded && (
+
+      {loaded && environment === 'Matrix' && (
+        <color attach="background" args={[0x181818]} />
+      )}
+      {loaded && environment === 'Normal' && (
         <Sky
           azimuth={0.5}
           turbidity={7.5}
@@ -53,6 +62,17 @@ const NormalEnvironment = () => {
           inclination={0.6}
           distance={3000}
           sunPosition={[-100, 500, 1000]}
+        />
+      )}
+      {loaded && environment === 'Matrix' && (
+        <Stars
+          radius={100}
+          depth={700}
+          count={5000}
+          factor={16}
+          saturation={2}
+          fade
+          // position={[100, 100, 100]}
         />
       )}
       {/* <SkyShader /> */}

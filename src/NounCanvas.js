@@ -469,17 +469,22 @@ const NounCanvas = () => {
 
         <Suspense fallback={null}>
           {/* <Suspense fallback={<ProgressLoader />}> */}
-          {environment === 'Normal' && <NormalEnvironment />}
+          {/* {environment === 'Normal' && (
+            <NormalEnvironment environment={environment} />
+          )} */}
+
+          <NormalEnvironment environment={environment} />
+
           {/* {environment === 'Island' && <OceanEnvironment />} */}
-          {environment === 'Matrix' && <MatrixEnvironment />}
-          <fog
+          {/* {environment === 'Matrix' && <MatrixEnvironment />} */}
+          {/* <fog
             attach="fog"
             args={[
               environment === 'Matrix' ? 0x181818 : 0xffffff,
               1,
               environment === 'Matrix' ? 1000 : 1500,
             ]}
-          />
+          /> */}
           {/* <BakeShadows /> */}
           {/* <PreloadBodyTextures /> */}
           {/* {HeadComponents} */}
