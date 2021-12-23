@@ -1,4 +1,4 @@
-import { Sky, useGLTF } from '@react-three/drei';
+import { Sky, useGLTF, useProgress } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
@@ -36,6 +36,8 @@ const NormalEnvironment = () => {
     );
   };
 
+  const { active, progress, errors, item, loaded, total } = useProgress();
+
   return (
     <>
       <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 1500]} />
@@ -43,14 +45,16 @@ const NormalEnvironment = () => {
       {/* <color attach="background" args={[new THREE.Color(0x87ceeb)]} /> */}
       {/* <fog attach="fog" args={[new THREE.Color(0x87ceeb), 1, 5000]} /> */}
       {/* <Sky distance={5000} sunPosition={[-100, 500, 1000]} /> */}
-      <Sky
-        azimuth={0.5}
-        turbidity={7.5}
-        rayleigh={0.4}
-        inclination={0.6}
-        distance={3000}
-        sunPosition={[-100, 500, 1000]}
-      />
+      {loaded && (
+        <Sky
+          azimuth={0.5}
+          turbidity={7.5}
+          rayleigh={0.4}
+          inclination={0.6}
+          distance={3000}
+          sunPosition={[-100, 500, 1000]}
+        />
+      )}
       {/* <SkyShader /> */}
       {/* <House /> */}
       {/* <Ground /> */}

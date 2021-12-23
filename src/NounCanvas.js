@@ -70,6 +70,8 @@ const lookAtPos = new THREE.Vector3(0, 5, 0);
 const NounCanvas = () => {
   // 11/5/21 DELETE WHEN ALL ACCESSORIES
 
+  const { active, progress, errors, item, loaded, total } = useProgress();
+
   preloadAllAssets();
 
   const [optionsVisibility, setOptionsVisibility] = useState('block');
@@ -463,7 +465,7 @@ const NounCanvas = () => {
           minDistance={20}
         />
 
-        <Suspense fallback={null}>
+        <Suspense fallback={<ProgressLoader />}>
           {/* <Suspense fallback={<ProgressLoader />}> */}
           {environment === 'Normal' && <NormalEnvironment />}
           {/* {environment === 'Island' && <OceanEnvironment />} */}
@@ -567,66 +569,68 @@ const NounCanvas = () => {
         dataStyles={{ fontSize: '2rem', textAlign: 'center' }} // Text styles
         dataInterpolation={(p) => `Loading 3D Nouns - ${p.toFixed(2)}%`} // Text
       /> */}
+      {loaded && (
+        <>
+          <MenuTwo
+            isDesktop={deviceState}
+            optionsVisibility={optionsVisibility}
+            setOptionsVisibility={setOptionsVisibility}
+            head={head}
+            setHead={setHead}
+            body={body}
+            setBody={setBody}
+            accessory={accessory}
+            setAccessory={setAccessory}
+            pants={pants}
+            setPants={setPants}
+            glasses={glasses}
+            setGlasses={setGlasses}
+            shoes={shoes}
+            setShoes={setShoes}
+            environment={environment}
+            setEnvironment={setEnvironment}
+            autoRotate={autoRotate}
+            setAutoRotate={setAutoRotate}
+            generateRandomNoun={generateRandomNoun}
+            animationState={animationState}
+            animationValue={animationValue}
+            setAnimationState={setAnimationState}
+            setAnimationValue={setAnimationValue}
+            downloadModel={downloadModel}
+            downloadingModel={downloadingModel}
+            setDownloadingModel={setDownloadingModel}
+            lockedTraits={lockedTraits}
+            setLockedTraits={setLockedTraits}
+            // saveAsImage={saveAsImage}
+            randomizerOn={randomizerOn}
+            setRandomizerOn={setRandomizerOn}
+            // setSceneState={setSceneState}
+            showScreenshotModal={showScreenshotModal}
+            setShowScreenshotModal={setShowScreenshotModal}
+          />
+          {showDirections && (
+            <div className="directions-popup">
+              <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
+              <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
+              <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
+              <div className="close-directions-container">
+                <button
+                  className="menu-button"
+                  onClick={() => setShowDirections(false)}
+                >
+                  CLOSE
+                </button>
+              </div>
+            </div>
+          )}
 
-      <MenuTwo
-        isDesktop={deviceState}
-        optionsVisibility={optionsVisibility}
-        setOptionsVisibility={setOptionsVisibility}
-        head={head}
-        setHead={setHead}
-        body={body}
-        setBody={setBody}
-        accessory={accessory}
-        setAccessory={setAccessory}
-        pants={pants}
-        setPants={setPants}
-        glasses={glasses}
-        setGlasses={setGlasses}
-        shoes={shoes}
-        setShoes={setShoes}
-        environment={environment}
-        setEnvironment={setEnvironment}
-        autoRotate={autoRotate}
-        setAutoRotate={setAutoRotate}
-        generateRandomNoun={generateRandomNoun}
-        animationState={animationState}
-        animationValue={animationValue}
-        setAnimationState={setAnimationState}
-        setAnimationValue={setAnimationValue}
-        downloadModel={downloadModel}
-        downloadingModel={downloadingModel}
-        setDownloadingModel={setDownloadingModel}
-        lockedTraits={lockedTraits}
-        setLockedTraits={setLockedTraits}
-        // saveAsImage={saveAsImage}
-        randomizerOn={randomizerOn}
-        setRandomizerOn={setRandomizerOn}
-        // setSceneState={setSceneState}
-        showScreenshotModal={showScreenshotModal}
-        setShowScreenshotModal={setShowScreenshotModal}
-      />
-      {showDirections && (
-        <div className="directions-popup">
-          <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
-          <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
-          <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
-          <div className="close-directions-container">
-            <button
-              className="menu-button"
-              onClick={() => setShowDirections(false)}
-            >
-              CLOSE
-            </button>
+          <div className="logo-container">
+            <a href="https://3dnouns.com">
+              <img className="nouns-logo" src={logo} alt="NOUNS" />
+            </a>
           </div>
-        </div>
+        </>
       )}
-
-      <div className="logo-container">
-        <a href="https://3dnouns.com">
-          <img className="nouns-logo" src={logo} alt="NOUNS" />
-        </a>
-      </div>
-
       {/* {!isDesktop && optionsVisibility === 'block' ? null : (
         <div className="credit-container">
           <span className="credit-container-text">

@@ -52,8 +52,6 @@ const InitialLoader = React.memo(
       return () => cancelAnimationFrame(rafRef.current);
     }, [updateProgress]);
 
-    console.count('loader');
-
     return shown ? (
       <div
         style={{
