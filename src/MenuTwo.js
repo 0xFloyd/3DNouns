@@ -25,6 +25,9 @@ import { isDesktop, isMobile } from 'react-device-detect';
 import { useProgress } from '@react-three/drei';
 import ScreenshotModal from 'ScreenshotModal';
 import AnimationSelect from 'components/AnimationSelect';
+import CameraIcon from './assets/images/cameraIcon.svg';
+import ClosedLockIcon from './assets/images/lockIconClosed.svg';
+import OpenLockIcon from './assets/images/lockIconOpen.svg';
 
 const MenuTwo = ({
   isDesktop,
@@ -115,7 +118,12 @@ const MenuTwo = ({
                   }}
                   disabled={disabledButtonState}
                 >
-                  <BsCameraFill size={20} color="black" />
+                  {/* <BsCameraFill size={20} color="black" /> */}
+                  <img
+                    src={CameraIcon}
+                    alt="camera-icon"
+                    className="camera-noun-icon"
+                  />
                 </button>
 
                 <div className="header-randomize-container">
@@ -212,16 +220,26 @@ const MenuTwo = ({
                     className="select-shuffle-icon-button"
                   >
                     {lockedTraits.head ? (
-                      <FiLock
-                        className="select-shuffle-icon"
-                        color={'black'}
-                        size={27.5}
+                      // <FiLock
+                      //   className="select-shuffle-icon"
+                      //   color={'black'}
+                      //   size={27.5}
+                      // />
+                      <img
+                        src={ClosedLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     ) : (
-                      <FiUnlock
-                        className="select-shuffle-icon"
-                        color={'grey'}
-                        size={27.5}
+                      // <FiUnlock
+                      //   className="select-shuffle-icon"
+                      //   color={'grey'}
+                      //   size={27.5}
+                      // />
+                      <img
+                        src={OpenLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     )}
                   </button>
@@ -295,16 +313,16 @@ const MenuTwo = ({
                     className="select-shuffle-icon-button"
                   >
                     {lockedTraits.glasses ? (
-                      <FiLock
-                        className="select-shuffle-icon"
-                        color={'black'}
-                        size={27.5}
+                      <img
+                        src={ClosedLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     ) : (
-                      <FiUnlock
-                        className="select-shuffle-icon"
-                        color={'grey'}
-                        size={27.5}
+                      <img
+                        src={OpenLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     )}
                   </button>
@@ -399,16 +417,27 @@ const MenuTwo = ({
                     className="select-shuffle-icon-button"
                   >
                     {lockedTraits.body ? (
-                      <FiLock
-                        className="select-shuffle-icon"
-                        color={'black'}
-                        size={27.5}
+                      // <FiLock
+                      //   className="select-shuffle-icon"
+                      //   color={'black'}
+                      //   size={27.5}
+                      // />
+
+                      <img
+                        src={ClosedLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     ) : (
-                      <FiUnlock
-                        className="select-shuffle-icon"
-                        color={'grey'}
-                        size={27.5}
+                      // <FiUnlock
+                      //   className="select-shuffle-icon"
+                      //   color={'grey'}
+                      //   size={27.5}
+                      // />
+                      <img
+                        src={OpenLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     )}
                   </button>
@@ -492,16 +521,27 @@ const MenuTwo = ({
                     className="select-shuffle-icon-button"
                   >
                     {lockedTraits.accessory ? (
-                      <FiLock
-                        className="select-shuffle-icon"
-                        color={'black'}
-                        size={27.5}
+                      // <FiLock
+                      //   className="select-shuffle-icon"
+                      //   color={'black'}
+                      //   size={27.5}
+                      // />
+
+                      <img
+                        src={ClosedLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     ) : (
-                      <FiUnlock
-                        className="select-shuffle-icon"
-                        color={'grey'}
-                        size={27.5}
+                      // <FiUnlock
+                      //   className="select-shuffle-icon"
+                      //   color={'grey'}
+                      //   size={27.5}
+                      // />
+                      <img
+                        src={OpenLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     )}
                   </button>
@@ -585,16 +625,27 @@ const MenuTwo = ({
                     className="select-shuffle-icon-button"
                   >
                     {lockedTraits.pants ? (
-                      <FiLock
-                        className="select-shuffle-icon"
-                        color={'black'}
-                        size={27.5}
+                      // <FiLock
+                      //   className="select-shuffle-icon"
+                      //   color={'black'}
+                      //   size={27.5}
+                      // />
+
+                      <img
+                        src={ClosedLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     ) : (
-                      <FiUnlock
-                        className="select-shuffle-icon"
-                        color={'grey'}
-                        size={27.5}
+                      // <FiUnlock
+                      //   className="select-shuffle-icon"
+                      //   color={'grey'}
+                      //   size={27.5}
+                      // />
+                      <img
+                        src={OpenLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     )}
                   </button>
@@ -677,16 +728,27 @@ const MenuTwo = ({
                     className="select-shuffle-icon-button"
                   >
                     {lockedTraits.shoes ? (
-                      <FiLock
-                        className="select-shuffle-icon"
-                        color={'black'}
-                        size={27.5}
+                      // <FiLock
+                      //   className="select-shuffle-icon"
+                      //   color={'black'}
+                      //   size={27.5}
+                      // />
+
+                      <img
+                        src={ClosedLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     ) : (
-                      <FiUnlock
-                        className="select-shuffle-icon"
-                        color={'grey'}
-                        size={27.5}
+                      // <FiUnlock
+                      //   className="select-shuffle-icon"
+                      //   color={'grey'}
+                      //   size={27.5}
+                      // />
+                      <img
+                        src={OpenLockIcon}
+                        alt="lock-icon"
+                        className="lock-noun-icon"
                       />
                     )}
                   </button>
@@ -875,7 +937,12 @@ const MenuTwo = ({
                 }, 1000);
               }}
             >
-              <BsCameraFill size={20} color="black" />
+              {/* <BsCameraFill size={20} color="black" /> */}
+              <img
+                src={CameraIcon}
+                alt="camera-icon"
+                className="camera-noun-icon"
+              />
             </button>
             <button
               onClick={() => {

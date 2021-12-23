@@ -11,6 +11,7 @@ import './styles/slider.css';
 // import ScreenshotBackdrop from 'World/ScreenshotBackdrop';
 import AnimationSelect from 'components/AnimationSelect';
 import ScreenshotAnimationSelect from 'components/ScreenshotAnimationSelect';
+import CameraIcon from './assets/images/cameraIcon.svg';
 
 const ScreenshotModal = ({
   head,
@@ -248,7 +249,12 @@ const ScreenshotModal = ({
                 saveAsImage();
               }}
             >
-              SCREENSHOT
+              <img
+                src={CameraIcon}
+                alt="camera-icon"
+                className="camera-noun-icon"
+              />
+              {/* SCREENSHOT */}
             </button>
             <button
               className="menu-button screenshot-mobile-button"
