@@ -65,6 +65,7 @@ const MenuTwo = ({
   // setSceneState,
   showScreenshotModal,
   setShowScreenshotModal,
+  saveAsImage,
 }) => {
   const rotateOptions = [
     { name: 'Off', value: 'false' },
@@ -945,6 +946,20 @@ const MenuTwo = ({
               />
             </button>
             <button
+              className="menu-button"
+              style={{ marginLeft: '20px' }}
+              onClick={() => {
+                saveAsImage();
+                // setAnimationState(false);
+                // setAnimationValue('none');
+                // setTimeout(() => {
+                //   setShowScreenshotModal(true);
+                // }, 1000);
+              }}
+            >
+              SCREENSHOT
+            </button>
+            <button
               onClick={() => {
                 setOptionsVisibility('block');
                 hideModals(setShowAboutModal, setShowMintModal);
@@ -969,7 +984,11 @@ const MenuTwo = ({
 
         {isMobile && optionsVisibility === 'none' && (
           // <div className= <>
-          <Navbar expand="lg" className="justify-content-end">
+          <Navbar
+            style={{ touchAction: 'manipulation' }}
+            expand="lg"
+            className="justify-content-end"
+          >
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse
               id="basic-navbar-nav"
@@ -1054,14 +1073,39 @@ const MenuTwo = ({
             SCREENSHOT
           </button> */}
           <button
-            className="menu-button"
+            className={
+              disabledButtonState
+                ? 'mobile-screenshot-button-disabled'
+                : 'mobile-screenshot-button'
+            }
             onClick={() => {
               // saveAsImage();
+              // stop animation
+              setDisabledButtonState(true);
               setAnimationState(false);
               setAnimationValue('none');
               setTimeout(() => {
                 setShowScreenshotModal(true);
+                setDisabledButtonState(false);
               }, 1000);
+            }}
+          >
+            {/* <BsCameraFill size={20} color="black" /> */}
+            <img
+              src={CameraIcon}
+              alt="camera-icon"
+              className="camera-noun-icon"
+            />
+          </button>
+          <button
+            className="menu-button"
+            onClick={() => {
+              saveAsImage();
+              // setAnimationState(false);
+              // setAnimationValue('none');
+              // setTimeout(() => {
+              //   setShowScreenshotModal(true);
+              // }, 1000);
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
@@ -1225,8 +1269,8 @@ const MintModal = (props) => {
           <span className="noun-color-h2">3D Noun</span>?
         </h2>
         <h4>
-          We're currently working on the specifics of a 3D Noun NFT collection.
-          If this interests you, follow us on twitter{' '}
+          We're currently working on the feasibility of a 3D Noun NFT
+          collection. If this interests you, follow us on twitter{' '}
           <SiTwitter className="mint-twitter-logo" size={25} color="#1DA1F2" />{' '}
           <a
             href="https://twitter.com/3dnouns"

@@ -134,7 +134,7 @@ const ScreenshotModal = ({
               target={[0, 27.5, 0]}
               ref={orbitControls}
               //   autoRotate={false}
-              enablePan={true}
+              enablePan={false}
               enableDamping={true}
               maxPolarAngle={Math.PI / 1.5}
               maxDistance={40}
@@ -235,7 +235,7 @@ const ScreenshotModal = ({
               onChange={(e) => setLightDirection(Number(e.target.value))}
             />
           </div>
-          <div>
+          <div className="screenshot-button-container">
             {/* <AnimationSelect
               animationValue={animationValue}
               setAnimationState={setAnimationState}

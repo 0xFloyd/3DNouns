@@ -1,6 +1,6 @@
 import { Sky, Stars, useGLTF, useProgress } from '@react-three/drei';
-import { useLoader } from '@react-three/fiber';
-import React, { useEffect, useRef } from 'react';
+import { useFrame, useLoader } from '@react-three/fiber';
+import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import House from './House';
 import SkyShader from './SkyBox';
@@ -11,7 +11,30 @@ const NormalEnvironment = ({ environment }) => {
   // depthWrite={false}
 
   // const { nodes, materials } = useGLTF('/world/voxelworld.glb');
+
   const { nodes, materials } = useGLTF('/world/nountoun.glb');
+  const truck = useGLTF('/world/cocatruck.glb');
+
+  const truckRef = useRef();
+
+  const [showTruck, setShowTruck] = useState(true);
+
+  useFrame(() => {
+    if (truckRef.current && showTruck) {
+      truckRef.current.position.x += 0.3;
+      if (truckRef.current.position.x > 900) {
+        setShowTruck(false);
+        truckRef.current.position.x = -200;
+        delayTruck();
+      }
+    }
+  });
+
+  const delayTruck = () => {
+    setTimeout(() => {
+      setShowTruck(true);
+    }, randomIntFromInterval(15000, 25000));
+  };
 
   const Ground = () => {
     // const texture_1 = useLoader(
@@ -67,7 +90,7 @@ const NormalEnvironment = ({ environment }) => {
           sunPosition={[-100, 500, 1000]}
         />
       ) : null}
-      {loaded && environment === 'Matrix' && (
+      {/* {loaded && environment === 'Matrix' && (
         <Stars
           radius={100}
           depth={700}
@@ -77,7 +100,7 @@ const NormalEnvironment = ({ environment }) => {
           fade
           // position={[100, 100, 100]}
         />
-      )}
+      )} */}
       {/* <SkyShader /> */}
       {/* <House /> */}
       {/* <Ground /> */}
@@ -96,19 +119,38 @@ const NormalEnvironment = ({ environment }) => {
       </mesh> */}
       {/* position={[75, 6, 0]} */}
       {environment === 'Normal' || environment === 'Matrix' ? (
-        <group dispose={null} scale={[120, 120, 120]} position={[0, 1, 85]}>
-          {' '}
-          {/* position={[2600, -24, 1700]} */}
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Union_142.geometry}
-            material={materials.city3_material}
-            position={[-3.99, -0.1, -3.54]}
-            rotation={[Math.PI / 2, 0, 0]}
-            scale={[0.03, 0.03, 0.03]}
-          />
-        </group>
+        <>
+          <group
+            dispose={null}
+            scale={[140, 140, 140]}
+            position={[0, 1.5, 100]}
+          >
+            {' '}
+            {/* position={[2600, -24, 1700]} */}
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Union_142.geometry}
+              material={materials.city3_material}
+              position={[-3.99, -0.1, -3.54]}
+              rotation={[Math.PI / 2, 0, 0]}
+              scale={[0.03, 0.03, 0.03]}
+            />
+          </group>
+          {truck && truck.nodes && truck.materials && (
+            <group ref={truckRef} dispose={null} visible={showTruck}>
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={truck.nodes.Oren_1117.geometry}
+                material={truck.materials.coca_material}
+                position={[-450, -49, -210]}
+                rotation={[Math.PI / 2, 0, 0]}
+                scale={[3, 3, 3]}
+              />
+            </group>
+          )}
+        </>
       ) : null}
       {environment === 'VoidDay' || environment === 'VoidNight' ? (
         <gridHelper
@@ -143,3 +185,8 @@ const NormalEnvironment = ({ environment }) => {
 };
 
 export default NormalEnvironment;
+
+function randomIntFromInterval(min, max) {
+  // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}

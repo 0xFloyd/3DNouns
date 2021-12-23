@@ -15,6 +15,7 @@ import {
   // Stage,
   Stats,
   useGLTF,
+  useHelper,
   useProgress,
   // useHelper,
   // useProgress,
@@ -73,6 +74,12 @@ const NounCanvas = () => {
   const { active, progress, errors, item, loaded, total } = useProgress();
 
   preloadAllAssets();
+
+  window.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  });
 
   const [optionsVisibility, setOptionsVisibility] = useState('block');
   const [autoRotate, setAutoRotate] = useState('false');
@@ -262,15 +269,15 @@ const NounCanvas = () => {
     );
   };
 
-  const VideoLights = (ref) => {
+  const VideoLights = ({ environmentParam, glassesLogo }) => {
     const light = useRef();
     const spotLight = useRef();
     const logoLightRef = useRef();
 
-    // const logoLight = new THREE.SpotLight(0xffffff);
+    const logoLight = new THREE.SpotLight(0xffffff);
     // logoLight.intensity = 3;
     // useHelper(refTwo, DirectionalLightHelper, 'cyan');
-    // useHelper(logoLightRef, SpotLightHelper, 'red');
+    useHelper(logoLightRef, THREE.SpotLightHelper, 'red');
     // useHelper(hemiLight, HemisphereLightHelper, 'blue');
     const d = 5;
 
@@ -286,7 +293,9 @@ const NounCanvas = () => {
         {/* <color attach="background" args={['#101010']} /> */}
         {/* <fog attach="fog" args={['#101010', 1, 500]} /> */}
         <group>
-          <ambientLight intensity={1.35} />
+          <ambientLight
+            intensity={environmentParam === 'Matrix' ? 0.35 : 1.35}
+          />
           {/* <spotLight
             intensity={0.8}
             ref={logoLight}
@@ -300,7 +309,7 @@ const NounCanvas = () => {
           <hemisphereLight
             skyColor={new THREE.Color(0xffffbb)}
             groundColor={new THREE.Color(0x080820)}
-            intensity={1.85}
+            intensity={environmentParam === 'Matrix' ? 0.85 : 1.85}
           />
           {/* <primitive
             ref={logoLightRef}
@@ -325,10 +334,47 @@ const NounCanvas = () => {
           position={[0, 500, 0]}
           ref={hemiLight}
         /> */}
+          {environmentParam === 'Matrix' ? (
+            <spotLight
+              penumbra={1}
+              distance={1000}
+              angle={0.35}
+              attenuation={1}
+              anglePower={4}
+              intensity={500}
+              position={[0, 200, 0]}
+              castShadow
+              color={new THREE.Color(0xffa95c)}
+              // lookAt={[100, 0, -200]}
+              shadow-mapSize-width={4096}
+              shadow-mapSize-height={4096}
+              shadow-bias={-0.0001}
+            />
+          ) : null}
+          {/* {environmentParam === 'Matrix' ? (
+            <spotLight
+              ref={logoLightRef}
+              penumbra={1}
+              distance={500}
+              angle={0.35}
+              attenuation={1}
+              anglePower={4}
+              intensity={500}
+              position={[350, 100, -280]}
+              castShadow
+              target={logoLight}
+              color={new THREE.Color(0xffa95c)}
+              // lookAt={[100, 0, -200]}
+              shadow-mapSize-width={4096}
+              shadow-mapSize-height={4096}
+              shadow-bias={-0.0001}
+            />
+          ) : null} */}
+
           <directionalLight
             // color={0xffffbb}
             ref={light}
-            intensity={1.35}
+            intensity={environmentParam === 'Matrix' ? 0 : 1.35}
             position={[-100, 500, 500]}
             shadow-camera-left={d * -100}
             shadow-camera-bottom={d * -100}
@@ -341,7 +387,6 @@ const NounCanvas = () => {
             shadow-mapSize-width={4096}
             castShadow
           />
-
           {/* <directionalLight
             // color={0xffffbb}
 
@@ -405,21 +450,21 @@ const NounCanvas = () => {
     );
   };
 
-  // const saveAsImage = () => {
-  //   var imgData, imgNode;
-  //   try {
-  //     var strMime = 'image/jpeg';
-  //     imgData = sceneState.gl.domElement.toDataURL(strMime, 1.0);
+  const saveAsImage = () => {
+    var imgData, imgNode;
+    try {
+      var strMime = 'image/jpeg';
+      imgData = sceneState.gl.domElement.toDataURL(strMime, 1.0);
 
-  //     saveScreenshot(
-  //       imgData.replace(strMime, 'image/octet-stream'),
-  //       '3DNoun.jpg'
-  //     );
-  //   } catch (e) {
-  //     console.log(e);
-  //     return;
-  //   }
-  // };
+      saveScreenshot(
+        imgData.replace(strMime, 'image/octet-stream'),
+        '3DNoun.jpg'
+      );
+    } catch (e) {
+      console.log(e);
+      return;
+    }
+  };
 
   const modelDownloadMeshForward = useRef();
 
@@ -454,7 +499,7 @@ const NounCanvas = () => {
         }}
       >
         {/* <Lights /> */}
-        <VideoLights GlassesLogo={GlassesLogo} />
+        <VideoLights environmentParam={environment} glassesLogo={GlassesLogo} />
 
         <OrbitControls
           target={[0, 20, 0]}
@@ -608,12 +653,12 @@ const NounCanvas = () => {
             setDownloadingModel={setDownloadingModel}
             lockedTraits={lockedTraits}
             setLockedTraits={setLockedTraits}
-            // saveAsImage={saveAsImage}
             randomizerOn={randomizerOn}
             setRandomizerOn={setRandomizerOn}
             // setSceneState={setSceneState}
             showScreenshotModal={showScreenshotModal}
             setShowScreenshotModal={setShowScreenshotModal}
+            saveAsImage={saveAsImage}
           />
           {showDirections && (
             <div className="directions-popup">
@@ -724,6 +769,17 @@ function save(blob, filename) {
   link.click();
   // URL.revokeObjectURL( url ); breaks Firefox...
 }
+
+const saveScreenshot = (strData, filename) => {
+  var link = document.createElement('a');
+  if (typeof link.download === 'string') {
+    document.body.appendChild(link); //Firefox requires the link to be in the body
+    link.download = filename;
+    link.href = strData;
+    link.click();
+    document.body.removeChild(link); //remove the link when done
+  }
+};
 
 // const saveScreenshot = (strData, filename) => {
 //   var link = document.createElement('a');
