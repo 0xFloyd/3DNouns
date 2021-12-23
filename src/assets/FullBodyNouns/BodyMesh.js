@@ -30,13 +30,33 @@ const BodyMesh = React.memo(function ({
 
   const canvasTexture = new THREE.CanvasTexture(canvas);
   canvasTexture.flipY = false;
-  canvasTexture.minFilter = canvasTexture.magFilter = THREE.NearestFilter;
+  // canvasTexture.minFilter = THREE.NearestFilter;
+  // canvasTexture.magFilter = THREE.NearestFilter;
+  // for hi res textures
+  canvasTexture.minFilter = THREE.LinearMipMapNearestFilter;
+  canvasTexture.magFilter = THREE.LinearMipMapNearestFilter;
   canvasTexture.encoding = THREE.sRGBEncoding;
+
+  // useEffect(() => {
+  //   canvasTexture.needsUpdate = true;
+  //   canvasTexture.flipY = false;
+  //   canvasTexture.magFilter = THREE.LinearMipMapNearestFilter;
+  //   canvasTexture.minFilter = THREE.LinearMipMapNearestFilter;
+  //   canvasTexture.encoding = THREE.sRGBEncoding;
+
+  // }, [
+  //   canvasTexture.magFilter,
+  //   canvasTexture.minFilter,
+  //   canvasTexture.needsUpdate,
+  //   canvasTexture.encoding,
+  //   canvasTexture,
+  //   patternTexture,
+  // ]);
 
   let toLoad = 2;
   function onLoaded() {
     toLoad--;
-    if (toLoad === 0) {
+    if (ctx && toLoad === 0) {
       console.log('All loaded! Blending textures...');
       canvas.width = Math.max(bodyImg.width, patternImg.width);
       canvas.height = Math.max(bodyImg.height, patternImg.height);

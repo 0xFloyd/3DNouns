@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import data from './data.json';
+import React, { useEffect } from "react";
+import data from "./data.json";
 
 const RANDOMIZER = ({
   setBody,
@@ -25,7 +25,7 @@ const RANDOMIZER = ({
       );
       setPants(data.pants[Math.floor(Math.random() * data.pants.length)].name);
       setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
-    }, 500);
+    }, 200);
 
     // setTimeout(() => {
     //   let huh = data.tempAccessories.find(

@@ -10,7 +10,7 @@ const DuckHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/duckHead.glb');
+  const { nodes, materials } = useGLTF('/headModels/HeadDuck.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -54,6 +54,6 @@ const DuckHead = ({
   );
 };
 
-useGLTF.preload('/headModels/duckHead.glb');
+useGLTF.preload('/headModels/HeadDuck.glb');
 
 export default DuckHead;

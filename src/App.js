@@ -1,31 +1,33 @@
-import NounCanvas from "NounCanvas";
-import React, { useRef } from "react";
-import { useEffect, useState } from "react";
-import { Col, Container, Dropdown, Navbar, Row } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
-import "./GlowButton.css";
-import SplashScreen from "./SplashScreen";
+import NounCanvas from 'NounCanvas';
+import React, { useRef } from 'react';
+import { useEffect, useState } from 'react';
+import { Col, Container, Dropdown, Navbar, Row } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
+import './GlowButton.css';
+// import SplashScreen from './SplashScreen';
+import { useProgress } from '@react-three/drei';
+import InitialLoader from 'InitialLoader';
 
 const deviceType = () => {
   const ua = navigator.userAgent;
   if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-    return "tablet";
+    return 'tablet';
   } else if (
     /Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
       ua
     )
   ) {
-    return "mobile";
+    return 'mobile';
   }
-  return "desktop";
+  return 'desktop';
 };
 
 const App = () => {
-  const [head, setHead] = useState("rabbit"); //crab
-  const [glasses, setGlasses] = useState("orange"); //blue
-  const [body, setBody] = useState("purple"); //lightblue
-  const [pants, setPants] = useState("grey"); //black
+  const [head, setHead] = useState('rabbit'); //crab
+  const [glasses, setGlasses] = useState('orange'); //blue
+  const [body, setBody] = useState('purple'); //lightblue
+  const [pants, setPants] = useState('grey'); //black
 
   const device = deviceType();
 
@@ -40,6 +42,8 @@ const App = () => {
   };
 
   const store = { clicked, setClicked, ready, setReady, loadScene };
+
+  const { active, progress, errors, item, loaded, total } = useProgress();
 
   return (
     <div className="full-width">
@@ -77,10 +81,9 @@ const App = () => {
           <SplashScreen {...store} />
         </div>
       )} */}
+      <InitialLoader />
+      <div className="nouns-canvas">{loaded && <NounCanvas />}</div>
 
-      <div className="nouns-canvas">
-        <NounCanvas />
-      </div>
       {/* <div className="nouns-canvas">
         <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
       </div> */}

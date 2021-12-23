@@ -1,81 +1,85 @@
-import {
-  Canvas,
-  extend,
-  useFrame,
-  useLoader,
-  useThree,
-} from '@react-three/fiber';
+import { Canvas, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
-import React, {
+import {
   Suspense,
   useEffect,
-  useLayoutEffect,
-  useMemo,
+  // useLayoutEffect,
+  // useMemo,
   useRef,
   useState,
 } from 'react';
 import {
-  Environment,
+  // Environment,
+  // Loader,
   OrbitControls,
-  Stage,
+  // Stage,
   Stats,
   useGLTF,
   useHelper,
   useProgress,
+  // useHelper,
+  // useProgress,
   useTexture,
 } from '@react-three/drei';
-import { Col, Container, Row } from 'react-bootstrap';
+// import { Col, Container, Row } from 'react-bootstrap';
 import logo from './assets/3DNounsLogoSVG.svg';
-import './shaders/materials/ReflectorMaterial';
-import NounsLogo from 'World/NounsLogo';
-import ProgressLoader from 'Loader';
-import {
-  bodyAttributes,
-  accessoryAttributes,
-  glassesAttributes,
-  headAttributes,
-  pantsAttributes,
-  shoesAttributes,
-  environmentAttributes,
-} from 'attributes';
-import {
-  DirectionalLightHelper,
-  HemisphereLightHelper,
-  SpotLightHelper,
-  TextureLoader,
-} from 'three';
-import SeperateHeadBody from './assets/FullBodyNouns/SeperateHeadAndBodyTest';
+// import './shaders/materials/ReflectorMaterial';
+// import NounsLogo from 'World/NounsLogo';
+// import ProgressLoader from 'Loader';
+// import {
+//   bodyAttributes,
+//   accessoryAttributes,
+//   glassesAttributes,
+//   headAttributes,
+//   pantsAttributes,
+//   shoesAttributes,
+//   environmentAttributes,
+// } from 'attributes';
+import { TextureLoader } from 'three';
+
 import NormalEnvironment from 'World/NormalEnvironment';
-import OceanEnvironment from 'World/OceanEnvironment';
-import Menu from 'Menu';
+// import OceanEnvironment from 'World/OceanEnvironment';
+// import Menu from 'Menu';
 import data from './data.json';
-import FINALBODY from 'assets/FullBodyNouns/FinalPipelineTest';
-import FINALHEAD from 'assets/FullBodyNouns/FINALHEAD';
-import ModelHead from 'assets/FullBodyNouns/FINALHEAD';
-import HeadComponents from 'assets/FullBodyNouns/FINALHEAD';
+// import FINALBODY from 'assets/FullBodyNouns/FinalPipelineTest';
+// import FINALHEAD from 'assets/FullBodyNouns/FINALHEAD';
+// import ModelHead from 'assets/FullBodyNouns/FINALHEAD';
+// import HeadComponents from 'assets/FullBodyNouns/FINALHEAD';
 import { headComponents } from 'utils/AllHeadModels';
-import PreloadBodyTextures from 'utils/PreloadBodyTextures';
-import MasterHead from 'utils/MasterHead';
-import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
+// import PreloadBodyTextures from 'utils/PreloadBodyTextures';
+// import MasterHead from 'utils/MasterHead';
+// import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
 import RANDOMIZER from 'RANDOMIZER';
 import MatrixEnvironment from 'World/Matrix';
 // import { GLTFExporter } from 'three-stdlib';
 import NounHolder from 'NounHolder';
-import HorizontalNounsLogo from 'World/HorizontalNounsLogo';
+// import HorizontalNounsLogo from 'World/HorizontalNounsLogo';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
-import DownloadNoun from 'DownloadNoun';
+// import DownloadNoun from 'DownloadNoun';
 import MenuTwo from 'MenuTwo';
 import { isDesktop } from 'react-device-detect';
 import ThreeDLogo from 'ThreeDNounsLogo';
-import BillBoard from 'BillBoard';
-import SandboxItems from './SandboxItems';
+// import BillBoard from 'BillBoard';
+// import SandboxItems from './SandboxItems';
+import './styles/ProgressLoader.css';
+import InitialLoader from 'InitialLoader';
+import ProgressLoader from 'Loader';
+// import InitialLoader from 'InitialLoader';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
 const NounCanvas = () => {
   // 11/5/21 DELETE WHEN ALL ACCESSORIES
 
+  const { active, progress, errors, item, loaded, total } = useProgress();
+
   preloadAllAssets();
+
+  window.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  });
 
   const [optionsVisibility, setOptionsVisibility] = useState('block');
   const [autoRotate, setAutoRotate] = useState('false');
@@ -88,6 +92,7 @@ const NounCanvas = () => {
   const [animationState, setAnimationState] = useState(false);
   const [showDirections, setShowDirections] = useState(true);
   const [randomizerOn, setRandomizerOn] = useState(false);
+  const [showScreenshotModal, setShowScreenshotModal] = useState(false);
   const [animationValue, setAnimationValue] = useState(
     data.animations.find((animation) => animation.name === 'none').name
   );
@@ -178,12 +183,14 @@ const NounCanvas = () => {
     }
   };
 
-  useEffect(() => {
-    document.body.style.cursor = 'auto';
-    setTimeout(() => {
-      setShowDirections(false);
-    }, 10000);
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.cursor = 'auto';
+  //   if (loaded) {
+  //     setTimeout(() => {
+  //       setShowDirections(false);
+  //     }, 7000);
+  //   }
+  // }, []);
 
   const HeadComponents = headComponents.map((obj) => {
     const Component = obj.value;
@@ -262,15 +269,15 @@ const NounCanvas = () => {
     );
   };
 
-  const VideoLights = (ref) => {
+  const VideoLights = ({ environmentParam, glassesLogo }) => {
     const light = useRef();
     const spotLight = useRef();
     const logoLightRef = useRef();
 
-    // const logoLight = new THREE.SpotLight(0xffffff);
+    const logoLight = new THREE.SpotLight(0xffffff);
     // logoLight.intensity = 3;
     // useHelper(refTwo, DirectionalLightHelper, 'cyan');
-    // useHelper(logoLightRef, SpotLightHelper, 'red');
+    useHelper(logoLightRef, THREE.SpotLightHelper, 'red');
     // useHelper(hemiLight, HemisphereLightHelper, 'blue');
     const d = 5;
 
@@ -286,7 +293,9 @@ const NounCanvas = () => {
         {/* <color attach="background" args={['#101010']} /> */}
         {/* <fog attach="fog" args={['#101010', 1, 500]} /> */}
         <group>
-          <ambientLight intensity={1.35} />
+          <ambientLight
+            intensity={environmentParam === 'Matrix' ? 0.35 : 1.35}
+          />
           {/* <spotLight
             intensity={0.8}
             ref={logoLight}
@@ -300,7 +309,7 @@ const NounCanvas = () => {
           <hemisphereLight
             skyColor={new THREE.Color(0xffffbb)}
             groundColor={new THREE.Color(0x080820)}
-            intensity={1.85}
+            intensity={environmentParam === 'Matrix' ? 0.85 : 1.85}
           />
           {/* <primitive
             ref={logoLightRef}
@@ -325,10 +334,47 @@ const NounCanvas = () => {
           position={[0, 500, 0]}
           ref={hemiLight}
         /> */}
+          {environmentParam === 'Matrix' ? (
+            <spotLight
+              penumbra={1}
+              distance={1000}
+              angle={0.35}
+              attenuation={1}
+              anglePower={4}
+              intensity={500}
+              position={[0, 200, 0]}
+              castShadow
+              color={new THREE.Color(0xffa95c)}
+              // lookAt={[100, 0, -200]}
+              shadow-mapSize-width={4096}
+              shadow-mapSize-height={4096}
+              shadow-bias={-0.0001}
+            />
+          ) : null}
+          {/* {environmentParam === 'Matrix' ? (
+            <spotLight
+              ref={logoLightRef}
+              penumbra={1}
+              distance={500}
+              angle={0.35}
+              attenuation={1}
+              anglePower={4}
+              intensity={500}
+              position={[350, 100, -280]}
+              castShadow
+              target={logoLight}
+              color={new THREE.Color(0xffa95c)}
+              // lookAt={[100, 0, -200]}
+              shadow-mapSize-width={4096}
+              shadow-mapSize-height={4096}
+              shadow-bias={-0.0001}
+            />
+          ) : null} */}
+
           <directionalLight
             // color={0xffffbb}
             ref={light}
-            intensity={1.35}
+            intensity={environmentParam === 'Matrix' ? 0 : 1.35}
             position={[-100, 500, 500]}
             shadow-camera-left={d * -100}
             shadow-camera-bottom={d * -100}
@@ -341,7 +387,6 @@ const NounCanvas = () => {
             shadow-mapSize-width={4096}
             castShadow
           />
-
           {/* <directionalLight
             // color={0xffffbb}
 
@@ -409,7 +454,7 @@ const NounCanvas = () => {
     var imgData, imgNode;
     try {
       var strMime = 'image/jpeg';
-      imgData = sceneState.gl.domElement.toDataURL(strMime);
+      imgData = sceneState.gl.domElement.toDataURL(strMime, 1.0);
 
       saveScreenshot(
         imgData.replace(strMime, 'image/octet-stream'),
@@ -442,10 +487,10 @@ const NounCanvas = () => {
           physicallyCorrectLights: true,
         }}
         dpr={[1, 1.5]}
-        // camera={{ position: [5, 5, 5], fov: 55, near: 0.1, far: 100 }} // https://github.com/pmndrs/react-three-fiber/issues/67
+        // camera={{ near: 0.1, far: 5000 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
           // do things here
-          camera.position.x = 24;
+          camera.position.x = 0;
           camera.position.y = 32;
           camera.position.z = 48;
           camera.lookAt(lookAtPos);
@@ -454,7 +499,7 @@ const NounCanvas = () => {
         }}
       >
         {/* <Lights /> */}
-        <VideoLights GlassesLogo={GlassesLogo} />
+        <VideoLights environmentParam={environment} glassesLogo={GlassesLogo} />
 
         <OrbitControls
           target={[0, 20, 0]}
@@ -463,22 +508,28 @@ const NounCanvas = () => {
           enablePan={false}
           enableDamping={true}
           maxPolarAngle={Math.PI / 1.85}
-          maxDistance={150}
+          maxDistance={90}
           minDistance={20}
         />
 
-        <Suspense fallback={<ProgressLoader />}>
-          {environment === 'Normal' && <NormalEnvironment />}
-          {environment === 'Island' && <OceanEnvironment />}
-          {environment === 'Matrix' && <MatrixEnvironment />}
-          <fog
+        <Suspense fallback={null}>
+          {/* <Suspense fallback={<ProgressLoader />}> */}
+          {/* {environment === 'Normal' && (
+            <NormalEnvironment environment={environment} />
+          )} */}
+
+          <NormalEnvironment environment={environment} />
+
+          {/* {environment === 'Island' && <OceanEnvironment />} */}
+          {/* {environment === 'Matrix' && <MatrixEnvironment />} */}
+          {/* <fog
             attach="fog"
             args={[
               environment === 'Matrix' ? 0x181818 : 0xffffff,
               1,
               environment === 'Matrix' ? 1000 : 1500,
             ]}
-          />
+          /> */}
           {/* <BakeShadows /> */}
           {/* <PreloadBodyTextures /> */}
           {/* {HeadComponents} */}
@@ -501,22 +552,24 @@ const NounCanvas = () => {
             shoeProp={shoes}
           /> */}
 
-          <SandboxItems />
+          {/* <SandboxItems /> */}
 
-          <NounHolder
-            headProp={head}
-            glassesProp={glasses}
-            animationState={animationState}
-            animationValue={animationValue}
-            pantsProp={pants}
-            accessoryProp={accessory}
-            bodyProp={body}
-            shoeProp={shoes}
-            setSceneState={setSceneState}
-            ref={modelDownloadMeshForward}
-          />
+          {!showScreenshotModal && (
+            <NounHolder
+              headProp={head}
+              glassesProp={glasses}
+              animationState={animationState}
+              animationValue={animationValue}
+              pantsProp={pants}
+              accessoryProp={accessory}
+              bodyProp={body}
+              shoeProp={shoes}
+              setSceneState={setSceneState}
+              ref={modelDownloadMeshForward}
+            />
+          )}
 
-          <DownloadNoun
+          {/* <DownloadNoun
             headProp={head}
             glassesProp={glasses}
             animationState={animationState}
@@ -527,7 +580,7 @@ const NounCanvas = () => {
             shoeProp={shoes}
             setSceneState={setSceneState}
             ref={temporaryModel}
-          />
+          /> */}
 
           {/* <group ref={modelDownloadMesh}>
             <MasterHead
@@ -547,67 +600,89 @@ const NounCanvas = () => {
           </group> */}
           {/* <HorizontalNounsLogo environment={environment} /> */}
           {/* <NounsLogo environment={environment} /> */}
-          <ThreeDLogo ref={GlassesLogo} />
+          <ThreeDLogo environment={environment} ref={GlassesLogo} />
         </Suspense>
         {/* <Stats showPanel={0} className="stats" /> */}
       </Canvas>
+      {/* <Loader
+        containerStyles={{
+          width: '100vw',
+          // backgroundColor: 'red',
+          // justifyContent: 'center',
+          // alignItems: 'center',
+        }} // Flex layout styles
+        innerStyles={{
+          // textAlign: 'center',
+          // justifyContent: 'center',
+          // alignItems: 'center',
+          width: '50vw',
+        }} // Inner container styles
+        barStyles={{ height: '20px', maxWidth: '50vw' }} // Loading-bar styles
+        dataStyles={{ fontSize: '2rem', textAlign: 'center' }} // Text styles
+        dataInterpolation={(p) => `Loading 3D Nouns - ${p.toFixed(2)}%`} // Text
+      /> */}
+      {loaded && (
+        <>
+          <MenuTwo
+            isDesktop={deviceState}
+            optionsVisibility={optionsVisibility}
+            setOptionsVisibility={setOptionsVisibility}
+            head={head}
+            setHead={setHead}
+            body={body}
+            setBody={setBody}
+            accessory={accessory}
+            setAccessory={setAccessory}
+            pants={pants}
+            setPants={setPants}
+            glasses={glasses}
+            setGlasses={setGlasses}
+            shoes={shoes}
+            setShoes={setShoes}
+            environment={environment}
+            setEnvironment={setEnvironment}
+            autoRotate={autoRotate}
+            setAutoRotate={setAutoRotate}
+            generateRandomNoun={generateRandomNoun}
+            animationState={animationState}
+            animationValue={animationValue}
+            setAnimationState={setAnimationState}
+            setAnimationValue={setAnimationValue}
+            downloadModel={downloadModel}
+            downloadingModel={downloadingModel}
+            setDownloadingModel={setDownloadingModel}
+            lockedTraits={lockedTraits}
+            setLockedTraits={setLockedTraits}
+            randomizerOn={randomizerOn}
+            setRandomizerOn={setRandomizerOn}
+            // setSceneState={setSceneState}
+            showScreenshotModal={showScreenshotModal}
+            setShowScreenshotModal={setShowScreenshotModal}
+            saveAsImage={saveAsImage}
+          />
+          {showDirections && (
+            <div className="directions-popup">
+              <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
+              <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
+              <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
+              <div className="close-directions-container">
+                <button
+                  className="menu-button"
+                  onClick={() => setShowDirections(false)}
+                >
+                  CLOSE
+                </button>
+              </div>
+            </div>
+          )}
 
-      <MenuTwo
-        isDesktop={deviceState}
-        optionsVisibility={optionsVisibility}
-        setOptionsVisibility={setOptionsVisibility}
-        head={head}
-        setHead={setHead}
-        body={body}
-        setBody={setBody}
-        accessory={accessory}
-        setAccessory={setAccessory}
-        pants={pants}
-        setPants={setPants}
-        glasses={glasses}
-        setGlasses={setGlasses}
-        shoes={shoes}
-        setShoes={setShoes}
-        environment={environment}
-        setEnvironment={setEnvironment}
-        autoRotate={autoRotate}
-        setAutoRotate={setAutoRotate}
-        generateRandomNoun={generateRandomNoun}
-        animationState={animationState}
-        animationValue={animationValue}
-        setAnimationState={setAnimationState}
-        setAnimationValue={setAnimationValue}
-        downloadModel={downloadModel}
-        downloadingModel={downloadingModel}
-        setDownloadingModel={setDownloadingModel}
-        lockedTraits={lockedTraits}
-        setLockedTraits={setLockedTraits}
-        saveAsImage={saveAsImage}
-        randomizerOn={randomizerOn}
-        setRandomizerOn={setRandomizerOn}
-      />
-      {showDirections && (
-        <div className="directions-popup">
-          <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
-          <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
-          <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
-          <div className="close-directions-container">
-            <button
-              className="menu-button"
-              onClick={() => setShowDirections(false)}
-            >
-              CLOSE
-            </button>
+          <div className="logo-container">
+            <a href="https://3dnouns.com">
+              <img className="nouns-logo" src={logo} alt="NOUNS" />
+            </a>
           </div>
-        </div>
+        </>
       )}
-
-      <div className="logo-container">
-        <a href="https://3dnouns.com">
-          <img className="nouns-logo" src={logo} alt="NOUNS" />
-        </a>
-      </div>
-
       {/* {!isDesktop && optionsVisibility === 'block' ? null : (
         <div className="credit-container">
           <span className="credit-container-text">
@@ -705,6 +780,17 @@ const saveScreenshot = (strData, filename) => {
     document.body.removeChild(link); //remove the link when done
   }
 };
+
+// const saveScreenshot = (strData, filename) => {
+//   var link = document.createElement('a');
+//   if (typeof link.download === 'string') {
+//     document.body.appendChild(link); //Firefox requires the link to be in the body
+//     link.download = filename;
+//     link.href = strData;
+//     link.click();
+//     document.body.removeChild(link); //remove the link when done
+//   }
+// };
 
 {
   /* <MyCamera

@@ -10,7 +10,7 @@ const RangefinderHead = ({
   masterHeadModel,
 }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/headModels/rangefinderHead.glb');
+  const { nodes, materials } = useGLTF('/headModels/HeadRangefinder.glb');
 
   const { ref, mixer, names, actions } = useAnimations(
     masterHeadModel.animations,
@@ -54,6 +54,6 @@ const RangefinderHead = ({
   );
 };
 
-useGLTF.preload('/headModels/rangefinderHead.glb');
+useGLTF.preload('/headModels/HeadRangefinder.glb');
 
 export default RangefinderHead;
