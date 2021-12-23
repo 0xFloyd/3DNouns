@@ -72,7 +72,7 @@ const NormalEnvironment = () => {
         />
       </mesh> */}
       {/* position={[75, 6, 0]} */}
-      <group dispose={null} scale={[120, 120, 120]} position={[0, 1, 75]}>
+      <group dispose={null} scale={[120, 120, 120]} position={[0, 1, 85]}>
         {' '}
         {/* position={[2600, -24, 1700]} */}
         <mesh

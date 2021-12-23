@@ -99,6 +99,7 @@ const styles = {
     transition: 'opacity 300ms ease',
     zIndex: 1000,
     textAlign: 'center',
+    fontFamily: 'Londrina Solid',
   },
   inner: {
     height: 3,
@@ -120,7 +121,7 @@ const styles = {
     fontVariantNumeric: 'tabular-nums',
     marginTop: '0.8em',
     color: '#f0f0f0',
-    fontFamily: `-apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Helvetica Neue", Helvetica, Arial, Roboto, Ubuntu, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
+    fontFamily: 'Londrina Solid',
     whiteSpace: 'nowrap',
     fontSize: '1rem',
     textAlign: 'center',

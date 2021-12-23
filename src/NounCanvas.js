@@ -176,12 +176,14 @@ const NounCanvas = () => {
     }
   };
 
-  useEffect(() => {
-    document.body.style.cursor = 'auto';
-    setTimeout(() => {
-      setShowDirections(false);
-    }, 15000);
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.cursor = 'auto';
+  //   if (loaded) {
+  //     setTimeout(() => {
+  //       setShowDirections(false);
+  //     }, 7000);
+  //   }
+  // }, []);
 
   const HeadComponents = headComponents.map((obj) => {
     const Component = obj.value;
@@ -465,7 +467,7 @@ const NounCanvas = () => {
           minDistance={20}
         />
 
-        <Suspense fallback={<ProgressLoader />}>
+        <Suspense fallback={null}>
           {/* <Suspense fallback={<ProgressLoader />}> */}
           {environment === 'Normal' && <NormalEnvironment />}
           {/* {environment === 'Island' && <OceanEnvironment />} */}
