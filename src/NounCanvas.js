@@ -463,7 +463,7 @@ const NounCanvas = () => {
           enablePan={false}
           enableDamping={true}
           maxPolarAngle={Math.PI / 1.85}
-          maxDistance={100}
+          maxDistance={90}
           minDistance={20}
         />
 
@@ -555,7 +555,7 @@ const NounCanvas = () => {
           </group> */}
           {/* <HorizontalNounsLogo environment={environment} /> */}
           {/* <NounsLogo environment={environment} /> */}
-          <ThreeDLogo ref={GlassesLogo} />
+          <ThreeDLogo environment={environment} ref={GlassesLogo} />
         </Suspense>
         {/* <Stats showPanel={0} className="stats" /> */}
       </Canvas>

@@ -2,21 +2,37 @@ import React, { forwardRef, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
-const ThreeDLogo = ({}, ref) => {
+const ThreeDLogo = ({ environment }, ref) => {
   const group = useRef();
   const { nodes, materials } = useGLTF('/world/3Dglasses.glb');
 
   return (
-    <mesh
-      ref={ref}
-      castShadow
-      receiveShadow
-      geometry={nodes.NounsLogo.geometry}
-      material={materials['3DblueRedLogo_material']}
-      scale={[4, 4, 4]}
-      position={[120, 0, -20]}
-      rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
-    />
+    <>
+      {environment === 'Normal' || environment === 'Matrix' ? (
+        <mesh
+          ref={ref}
+          castShadow
+          receiveShadow
+          geometry={nodes.NounsLogo.geometry}
+          material={materials['3DblueRedLogo_material']}
+          scale={[4, 4, 4]}
+          position={[120, 0, -20]}
+          rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
+        />
+      ) : null}
+      {environment === 'VoidDay' || environment === 'VoidNight' ? (
+        <mesh
+          ref={ref}
+          castShadow
+          receiveShadow
+          geometry={nodes.NounsLogo.geometry}
+          material={materials['3DblueRedLogo_material']}
+          scale={[4, 4, 4]}
+          position={[120, 0, -150]}
+          rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
+        />
+      ) : null}
+    </>
 
     // <group
     //   ref={group}

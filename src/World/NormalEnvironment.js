@@ -40,21 +40,24 @@ const NormalEnvironment = ({ environment }) => {
 
   return (
     <>
-      {environment === 'Normal' && (
+      {environment === 'Normal' || environment === 'VoidDay' ? (
         <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 1500]} />
-      )}
-      {environment === 'Matrix' && (
+      ) : null}
+      {environment === 'Matrix' ? (
         <fog attach="fog" args={[new THREE.Color(0x181818), 1, 1500]} />
-      )}
+      ) : null}
+      {environment === 'VoidNight' ? (
+        <fog attach="fog" args={[new THREE.Color(0x181818), 1, 1000]} />
+      ) : null}
       {/* <Sky distance={1000} sunPosition={[-100, 500, 1000]0} /> */}
       {/* <color attach="background" args={[new THREE.Color(0x87ceeb)]} /> */}
       {/* <fog attach="fog" args={[new THREE.Color(0x87ceeb), 1, 5000]} /> */}
       {/* <Sky distance={5000} sunPosition={[-100, 500, 1000]} /> */}
 
-      {loaded && environment === 'Matrix' && (
+      {loaded && (environment === 'Matrix' || environment === 'VoidNight') ? (
         <color attach="background" args={[0x181818]} />
-      )}
-      {loaded && environment === 'Normal' && (
+      ) : null}
+      {loaded && (environment === 'Normal' || environment === 'VoidDay') ? (
         <Sky
           azimuth={0.5}
           turbidity={7.5}
@@ -63,7 +66,7 @@ const NormalEnvironment = ({ environment }) => {
           distance={3000}
           sunPosition={[-100, 500, 1000]}
         />
-      )}
+      ) : null}
       {loaded && environment === 'Matrix' && (
         <Stars
           radius={100}
@@ -92,25 +95,49 @@ const NormalEnvironment = ({ environment }) => {
         />
       </mesh> */}
       {/* position={[75, 6, 0]} */}
-      <group dispose={null} scale={[120, 120, 120]} position={[0, 1, 85]}>
-        {' '}
-        {/* position={[2600, -24, 1700]} */}
-        <mesh
-          castShadow
+      {environment === 'Normal' || environment === 'Matrix' ? (
+        <group dispose={null} scale={[120, 120, 120]} position={[0, 1, 85]}>
+          {' '}
+          {/* position={[2600, -24, 1700]} */}
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Union_142.geometry}
+            material={materials.city3_material}
+            position={[-3.99, -0.1, -3.54]}
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={[0.03, 0.03, 0.03]}
+          />
+        </group>
+      ) : null}
+      {environment === 'VoidDay' || environment === 'VoidNight' ? (
+        <gridHelper
           receiveShadow
-          geometry={nodes.Union_142.geometry}
-          material={materials.city3_material}
-          position={[-3.99, -0.1, -3.54]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={[0.03, 0.03, 0.03]}
+          // castShadow
+          args={[
+            5000,
+            150,
+            new THREE.Color(0x7d7d7d),
+            new THREE.Color(0x7d7d7d),
+          ]}
+          position={[0, 0.1, 0]}
         />
-      </group>
-      {/* <gridHelper
-        receiveShadow
-        // castShadow
-        args={[5000, 150, new THREE.Color(0x7d7d7d), new THREE.Color(0x7d7d7d)]}
-        position={[0, 0.1, 0]}
-      /> */}
+      ) : null}
+      {environment === 'VoidDay' || environment === 'VoidNight' ? (
+        <mesh
+          receiveShadow
+          position={[32, -1, 0]}
+          rotation={[0, Math.PI / 2, 0]}
+        >
+          <cylinderBufferGeometry args={[2000, 2000, 2, 32]} />
+          {/* <meshStandardMaterial map={texture_1} attach="material" /> */}
+          <meshStandardMaterial
+            color={new THREE.Color(0x404040).convertSRGBToLinear()}
+            // roughness={0.1}
+            // metalness={0}
+          />
+        </mesh>
+      ) : null}
     </>
   );
 };
