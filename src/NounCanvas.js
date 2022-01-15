@@ -1,79 +1,32 @@
 import { Canvas, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import {
-  Suspense,
-  useEffect,
-  // useLayoutEffect,
-  // useMemo,
-  useRef,
-  useState,
-} from 'react';
-import {
-  // Environment,
-  // Loader,
   OrbitControls,
-  // Stage,
   Stats,
   useGLTF,
   useHelper,
   useProgress,
-  // useHelper,
-  // useProgress,
   useTexture,
 } from '@react-three/drei';
-// import { Col, Container, Row } from 'react-bootstrap';
-import logo from './assets/3DNounsLogoSVG.svg';
-// import './shaders/materials/ReflectorMaterial';
-// import NounsLogo from 'World/NounsLogo';
-// import ProgressLoader from 'Loader';
-// import {
-//   bodyAttributes,
-//   accessoryAttributes,
-//   glassesAttributes,
-//   headAttributes,
-//   pantsAttributes,
-//   shoesAttributes,
-//   environmentAttributes,
-// } from 'attributes';
+import logo from './assets/images/3DNounsLogoSVG.svg';
 import { TextureLoader } from 'three';
 
 import NormalEnvironment from 'World/NormalEnvironment';
-// import OceanEnvironment from 'World/OceanEnvironment';
-// import Menu from 'Menu';
 import data from './data.json';
-// import FINALBODY from 'assets/FullBodyNouns/FinalPipelineTest';
-// import FINALHEAD from 'assets/FullBodyNouns/FINALHEAD';
-// import ModelHead from 'assets/FullBodyNouns/FINALHEAD';
-// import HeadComponents from 'assets/FullBodyNouns/FINALHEAD';
 import { headComponents } from 'utils/AllHeadModels';
-// import PreloadBodyTextures from 'utils/PreloadBodyTextures';
-// import MasterHead from 'utils/MasterHead';
-// import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
-import RANDOMIZER from 'RANDOMIZER';
-import MatrixEnvironment from 'World/Matrix';
-// import { GLTFExporter } from 'three-stdlib';
+import RANDOMIZER from 'past-ideas/RANDOMIZER';
 import NounHolder from 'NounHolder';
-// import HorizontalNounsLogo from 'World/HorizontalNounsLogo';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
-// import DownloadNoun from 'DownloadNoun';
-import MenuTwo from 'MenuTwo';
+import Menu from 'components/Menu';
 import { isDesktop } from 'react-device-detect';
-import ThreeDLogo from 'ThreeDNounsLogo';
-// import BillBoard from 'BillBoard';
-// import SandboxItems from './SandboxItems';
+import ThreeDLogo from 'World/ThreeDNounsLogo';
 import './styles/ProgressLoader.css';
-import InitialLoader from 'InitialLoader';
-import ProgressLoader from 'Loader';
-// import InitialLoader from 'InitialLoader';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
 const NounCanvas = () => {
-  // 11/5/21 DELETE WHEN ALL ACCESSORIES
-
   const { active, progress, errors, item, loaded, total } = useProgress();
-
-  preloadAllAssets();
 
   window.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -83,12 +36,8 @@ const NounCanvas = () => {
 
   const [optionsVisibility, setOptionsVisibility] = useState('block');
   const [autoRotate, setAutoRotate] = useState('false');
-  const [currentCameraPosition, setCurrentCameraPosition] = useState(lookAtPos);
   const [deviceState, setDeviceState] = useState(isDesktop);
   const [environment, setEnvironment] = useState('Normal');
-  const [wireframeOption, setWireframeOption] = useState(null);
-  const [walkAnimation, setWalkAnimation] = useState(false);
-  const [nodAnimation, setNodAnimation] = useState(false);
   const [animationState, setAnimationState] = useState(false);
   const [showDirections, setShowDirections] = useState(true);
   const [randomizerOn, setRandomizerOn] = useState(false);
@@ -110,25 +59,17 @@ const NounCanvas = () => {
   const [head, setHead] = useState(
     data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name
   );
-  // const [head, setHead] = useState(
-  //   data.head[Math.floor(Math.random() * data.head.length)].name
-  // );
   const [glasses, setGlasses] = useState(
     data.glasses[Math.floor(Math.random() * data.glasses.length)].value
   );
   const [body, setBody] = useState(
     data.body[Math.floor(Math.random() * data.body.length)].name
   );
-
   const [accessory, setAccessory] = useState(
     data.tempAccessories[
       Math.floor(Math.random() * data.tempAccessories.length)
     ].name
   );
-  // const [accessory, setAccessory] = useState(
-  //   data.accessory[Math.floor(Math.random() * data.accessory.length)].value
-  // );
-
   const [pants, setPants] = useState(
     data.pants[Math.floor(Math.random() * data.pants.length)].name
   );
@@ -137,22 +78,26 @@ const NounCanvas = () => {
   );
 
   const orbitControls = useRef();
+  const modelDownloadMeshForward = useRef();
+  const temporaryModel = useRef();
+  const GlassesLogo = useRef();
 
   useEffect(() => {
+    preloadAllAssets();
+
     function updateMedia() {
       setDeviceState(isDesktop);
     }
 
     window.addEventListener('resize', updateMedia);
     return () => window.removeEventListener('resize', updateMedia);
-  });
+  }, []);
 
   const generateRandomNoun = () => {
     if (!lockedTraits.head) {
       setHead(
         data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name
       );
-      // setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
     }
 
     if (!lockedTraits.glasses) {
@@ -170,9 +115,6 @@ const NounCanvas = () => {
           Math.floor(Math.random() * data.tempAccessories.length)
         ].name
       );
-      // setAccessory(
-      //   data.accessory[Math.floor(Math.random() * data.accessory.length)].value
-      // );
     }
 
     if (!lockedTraits.pants) {
@@ -182,15 +124,6 @@ const NounCanvas = () => {
       setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
     }
   };
-
-  // useEffect(() => {
-  //   document.body.style.cursor = 'auto';
-  //   if (loaded) {
-  //     setTimeout(() => {
-  //       setShowDirections(false);
-  //     }, 7000);
-  //   }
-  // }, []);
 
   const HeadComponents = headComponents.map((obj) => {
     const Component = obj.value;
@@ -204,72 +137,7 @@ const NounCanvas = () => {
     );
   });
 
-  const Lights = () => {
-    const light = useRef();
-    const spotLight = useRef();
-    const hemiLight = useRef();
-    // useHelper(light, DirectionalLightHelper, 'cyan');
-    // useHelper(spotLight, SpotLightHelper, 'red');
-    // useHelper(hemiLight, HemisphereLightHelper, 'blue');
-
-    let huh = new THREE.SpotLight();
-
-    const d = 5;
-
-    return (
-      <group>
-        <ambientLight intensity={0.25} />
-        {/* <spotLight
-          intensity={0.8}
-          ref={spotLight}
-          position={[-10, 300, 300]}
-          castShadow
-          color={new THREE.Color(0xffa95c)}
-          shadow-mapSize-width={4096}
-          shadow-mapSize-height={4096}
-        />
-        <hemisphereLight
-          skyColor={new THREE.Color(0xffffbb)}
-          groundColor={new THREE.Color(0x080820)}
-          intensity={0.75}
-          castShadow
-        />
-        <directionalLight
-          ref={light}
-          color={new THREE.Color(0xffa95c)}
-          position={[-5, 50, 100]}
-          castShadow
-          intensity={0.5}
-          shadow-mapSize-width={4096}
-          shadow-mapSize-height={4096}
-        /> */}
-        <hemisphereLight
-          skyColor={'black'}
-          groundColor={0xffffff}
-          intensity={0.5}
-          position={[0, 500, 0]}
-          ref={hemiLight}
-        />
-        <directionalLight
-          ref={light}
-          intensity={0.5}
-          position={[-500, 500, 500]}
-          shadow-camera-left={d * -100}
-          shadow-camera-bottom={d * -100}
-          shadow-camera-right={d * 100}
-          shadow-camera-top={d * 100}
-          shadow-camera-near={0.1}
-          shadow-camera-far={5000}
-          shadow-bias={-0.0005}
-          shadow-mapSize-height={1024}
-          shadow-mapSize-width={2048}
-          castShadow
-        />
-      </group>
-    );
-  };
-
-  const VideoLights = ({ environmentParam, glassesLogo }) => {
+  const Lighting = ({ environmentParam }) => {
     const light = useRef();
     const spotLight = useRef();
     const logoLightRef = useRef();
@@ -281,31 +149,13 @@ const NounCanvas = () => {
     // useHelper(hemiLight, HemisphereLightHelper, 'blue');
     const d = 5;
 
-    // useEffect(() => {
-    //   if (logoLight.current && GlassesLogo.current) {
-    //     logoLight.current.target = ref.current;
-    //     // helper.current.update();
-    //   }
-    // }, [logoLight, ref]);
-
     return (
       <>
-        {/* <color attach="background" args={['#101010']} /> */}
-        {/* <fog attach="fog" args={['#101010', 1, 500]} /> */}
         <group>
           <ambientLight
             intensity={environmentParam === 'Matrix' ? 0.35 : 1.35}
           />
-          {/* <spotLight
-            intensity={0.8}
-            ref={logoLight}
-            position={[100, 0, 200]}
-            castShadow
-            color={new THREE.Color(0xffa95c)}
-            // lookAt={[100, 0, -200]}
-            shadow-mapSize-width={2048}
-            shadow-mapSize-height={2048}
-          /> */}
+
           <hemisphereLight
             skyColor={new THREE.Color(0xffffbb)}
             groundColor={new THREE.Color(0x080820)}
@@ -318,22 +168,7 @@ const NounCanvas = () => {
             // rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
           />
           <primitive object={logoLight.target} position={[150, 10, -150]} /> */}
-          {/* <directionalLight
-          ref={light}
-          color={new THREE.Color(0xffa95c)}
-          position={[-5, 50, 100]}
-          castShadow
-          intensity={0.5}
-          shadow-mapSize-width={4096}
-          shadow-mapSize-height={4096}
-        /> */}
-          {/* <hemisphereLight
-          skyColor={'black'}
-          groundColor={0xffffff}
-          intensity={0.5}
-          position={[0, 500, 0]}
-          ref={hemiLight}
-        /> */}
+
           {environmentParam === 'Matrix' ? (
             <spotLight
               penumbra={1}
@@ -351,25 +186,6 @@ const NounCanvas = () => {
               shadow-bias={-0.0001}
             />
           ) : null}
-          {/* {environmentParam === 'Matrix' ? (
-            <spotLight
-              ref={logoLightRef}
-              penumbra={1}
-              distance={500}
-              angle={0.35}
-              attenuation={1}
-              anglePower={4}
-              intensity={500}
-              position={[350, 100, -280]}
-              castShadow
-              target={logoLight}
-              color={new THREE.Color(0xffa95c)}
-              // lookAt={[100, 0, -200]}
-              shadow-mapSize-width={4096}
-              shadow-mapSize-height={4096}
-              shadow-bias={-0.0001}
-            />
-          ) : null} */}
 
           <directionalLight
             // color={0xffffbb}
@@ -387,23 +203,6 @@ const NounCanvas = () => {
             shadow-mapSize-width={4096}
             castShadow
           />
-          {/* <directionalLight
-            // color={0xffffbb}
-
-            ref={logoLight}
-            intensity={0.55}
-            position={[0, 30, -100]}
-            shadow-camera-left={d * -100}
-            shadow-camera-bottom={d * -100}
-            shadow-camera-right={d * 100}
-            shadow-camera-top={d * 100}
-            shadow-camera-near={10}
-            shadow-camera-far={5000}
-            shadow-bias={-0.0001}
-            shadow-mapSize-height={4096}
-            shadow-mapSize-width={4096}
-            castShadow
-          /> */}
         </group>
       </>
     );
@@ -416,7 +215,6 @@ const NounCanvas = () => {
     let hiddenDownloadNoun = temporaryModel.current;
     let currentTest = modelDownloadMeshForward.current;
     // console.log('fule scene: ', holder);
-    console.log('current group object: ', fullScene);
 
     let currentNoun = fullScene?.scene?.children[1];
     let animations = [];
@@ -434,8 +232,6 @@ const NounCanvas = () => {
     gltfExporter.parse(
       hiddenDownloadNoun,
       function (result) {
-        // saveArrayBuffer(result, "Model.glb")
-
         if (result instanceof ArrayBuffer) {
           saveArrayBuffer(result, 'NounModel.glb');
         } else {
@@ -466,11 +262,12 @@ const NounCanvas = () => {
     }
   };
 
-  const modelDownloadMeshForward = useRef();
-
-  const temporaryModel = useRef();
-
-  const GlassesLogo = useRef();
+  useEffect(() => {
+    if (!showDirections && loaded) {
+      setAnimationState(true);
+      setAnimationValue('idle');
+    }
+  }, [showDirections, loaded]);
 
   return (
     <>
@@ -489,7 +286,6 @@ const NounCanvas = () => {
         dpr={[1, 1.5]}
         // camera={{ near: 0.1, far: 5000 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
-          // do things here
           camera.position.x = 0;
           camera.position.y = 32;
           camera.position.z = 48;
@@ -498,8 +294,7 @@ const NounCanvas = () => {
           // camera.fov =
         }}
       >
-        {/* <Lights /> */}
-        <VideoLights environmentParam={environment} glassesLogo={GlassesLogo} />
+        <Lighting environmentParam={environment} />
 
         <OrbitControls
           target={[0, 20, 0]}
@@ -533,26 +328,6 @@ const NounCanvas = () => {
           {/* <BakeShadows /> */}
           {/* <PreloadBodyTextures /> */}
           {/* {HeadComponents} */}
-          {randomizerOn && (
-            <RANDOMIZER
-              setBody={setBody}
-              setAccessory={setAccessory}
-              setHead={setHead}
-              setGlasses={setGlasses}
-              setPants={setPants}
-              setShoes={setShoes}
-            />
-          )}
-          {/* <FINALBODY
-            animationState={animationState}
-            animationValue={animationValue}
-            pantsProp={pants}
-            accessoryProp={accessory}
-            bodyProp={body}
-            shoeProp={shoes}
-          /> */}
-
-          {/* <SandboxItems /> */}
 
           {!showScreenshotModal && (
             <NounHolder
@@ -582,48 +357,14 @@ const NounCanvas = () => {
             ref={temporaryModel}
           /> */}
 
-          {/* <group ref={modelDownloadMesh}>
-            <MasterHead
-              headProp={head}
-              glassesProp={glasses}
-              animationState={animationState}
-              animationValue={animationValue}
-            />
-            <FINALBODY119
-              animationState={animationState}
-              animationValue={animationValue}
-              pantsProp={pants}
-              accessoryProp={accessory}
-              bodyProp={body}
-              shoeProp={shoes}
-            />
-          </group> */}
-          {/* <HorizontalNounsLogo environment={environment} /> */}
-          {/* <NounsLogo environment={environment} /> */}
           <ThreeDLogo environment={environment} ref={GlassesLogo} />
         </Suspense>
         {/* <Stats showPanel={0} className="stats" /> */}
       </Canvas>
-      {/* <Loader
-        containerStyles={{
-          width: '100vw',
-          // backgroundColor: 'red',
-          // justifyContent: 'center',
-          // alignItems: 'center',
-        }} // Flex layout styles
-        innerStyles={{
-          // textAlign: 'center',
-          // justifyContent: 'center',
-          // alignItems: 'center',
-          width: '50vw',
-        }} // Inner container styles
-        barStyles={{ height: '20px', maxWidth: '50vw' }} // Loading-bar styles
-        dataStyles={{ fontSize: '2rem', textAlign: 'center' }} // Text styles
-        dataInterpolation={(p) => `Loading 3D Nouns - ${p.toFixed(2)}%`} // Text
-      /> */}
+
       {loaded && (
         <>
-          <MenuTwo
+          <Menu
             isDesktop={deviceState}
             optionsVisibility={optionsVisibility}
             setOptionsVisibility={setOptionsVisibility}
@@ -683,50 +424,11 @@ const NounCanvas = () => {
           </div>
         </>
       )}
-      {/* {!isDesktop && optionsVisibility === 'block' ? null : (
-        <div className="credit-container">
-          <span className="credit-container-text">
-            <a className="credit-container-link" href="https://nouns.wtf">
-              nouns.wtf
-            </a>{' '}
-            ❤️ by{' '}
-            <a
-              className="credit-container-link"
-              href="https://twitter.com/0xFloyd"
-            >
-              0xFloyd
-            </a>{' '}
-            and{' '}
-            <a
-              className="credit-container-link"
-              href="https://twitter.com/coralorca"
-            >
-              CoralOrca
-            </a>
-          </span>
-        </div>
-      )} */}
     </>
   );
 };
 
 export default NounCanvas;
-
-// Extras
-const Ground = () => {
-  const texture_1 = useLoader(TextureLoader, '/grasslight-big.jpg');
-  texture_1.wrapS = texture_1.wrapT = THREE.RepeatWrapping;
-  texture_1.repeat.set(2, 2);
-  texture_1.anisotropy = 16;
-  texture_1.encoding = THREE.sRGBEncoding;
-
-  return (
-    <mesh receiveShadow position={[0, 0.01, 0]} rotation-x={-Math.PI / 2}>
-      <planeBufferGeometry args={[5, 5]} />
-      <meshStandardMaterial map={texture_1} attach="material" />
-    </mesh>
-  );
-};
 
 const preloadAllAssets = () => {
   data.tempHeads.forEach((headData) => {
@@ -753,7 +455,6 @@ const preloadAllAssets = () => {
   });
 };
 
-// functions from threejs repo --> https://github.com/mrdoob/three.js/blob/b5c272cf408cb33153190fa715d81581bd95ee47/examples/misc_exporter_gltf.html#L105
 function saveArrayBuffer(buffer, filename) {
   save(new Blob([buffer], { type: 'application/octet-stream' }), filename);
 }
@@ -780,47 +481,3 @@ const saveScreenshot = (strData, filename) => {
     document.body.removeChild(link); //remove the link when done
   }
 };
-
-// const saveScreenshot = (strData, filename) => {
-//   var link = document.createElement('a');
-//   if (typeof link.download === 'string') {
-//     document.body.appendChild(link); //Firefox requires the link to be in the body
-//     link.download = filename;
-//     link.href = strData;
-//     link.click();
-//     document.body.removeChild(link); //remove the link when done
-//   }
-// };
-
-{
-  /* <MyCamera
-          setCurrentCameraPosition={setCurrentCameraPosition}
-          orbitControls={orbitControls}
-        /> */
-}
-{
-  /* <Html>
-        <div style={{ position: "absolute", top: 200, left: 200 }}>
-          {" "}
-          <button onClick={() => setFarAway(!farAway)}>click</button>
-        </div>
-      </Html> */
-}
-
-{
-  /* <cylinderBufferGeometry args={[2, 1, 20, 32]} /> */
-}
-{
-  /* <meshStandardMaterial
-            color={new THREE.Color('#d63c5e')
-              .setHex(0xd63c5e)
-              .convertSRGBToLinear()}
-          /> */
-}
-{
-  /* <meshPhysicalMaterial
-            color={new THREE.Color('#d63c5e')
-              .setHex(0xd63c5e)
-              .convertSRGBToLinear()}
-          /> */
-}

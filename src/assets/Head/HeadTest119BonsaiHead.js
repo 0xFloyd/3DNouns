@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
-import glassesTexture from '../Textures/Glasses/glasses-square-fullblack.png';
-import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
+
+import { lookupAnimation } from 'utils/utils.js';
 
 export default function HeadTest119BonsaiHead({
   headProp,

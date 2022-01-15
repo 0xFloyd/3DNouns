@@ -1,5 +1,5 @@
 import { useThree } from '@react-three/fiber';
-import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
+import NounBody from 'assets/Models/NounBody';
 import MasterHead from 'utils/MasterHead';
 import React, { useEffect, useRef, forwardRef } from 'react';
 
@@ -42,7 +42,7 @@ const NounHolder = (
         animationState={animationState}
         animationValue={animationValue}
       />
-      <FINALBODY119
+      <NounBody
         headProp={headProp}
         animationState={animationState}
         animationValue={animationValue}

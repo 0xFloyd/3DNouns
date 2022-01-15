@@ -1,11 +1,9 @@
 import { useGLTF, useProgress, useTexture } from '@react-three/drei';
 import { useLoader, useThree } from '@react-three/fiber';
-import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
+
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import HeadTest119BonsaiHead from '../assets/Head/HeadTest119BonsaiHead';
-import HeadTest119PineappleHead from '../assets/Head/HeadTest119PineappleHead';
-import PlaceHolderHead from '../assets/Head/PlaceholderHead';
 
 // import data from 'data.json';
 import AardvarkHead from '../HeadFilesGenerated/AardvarkHead';
