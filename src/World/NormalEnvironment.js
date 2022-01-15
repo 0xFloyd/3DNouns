@@ -2,8 +2,7 @@ import { Sky, Stars, useGLTF, useProgress } from '@react-three/drei';
 import { useFrame, useLoader } from '@react-three/fiber';
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import House from './House';
-import SkyShader from './SkyBox';
+import House from '../past-ideas/House';
 
 const NormalEnvironment = ({ environment }) => {
   // color="#101010"
@@ -14,26 +13,47 @@ const NormalEnvironment = ({ environment }) => {
 
   const { nodes, materials } = useGLTF('/world/nountoun.glb');
   const truck = useGLTF('/world/cocatruck.glb');
+  const taxi = useGLTF('/world/taxi.glb');
 
   const truckRef = useRef();
+  const taxiRef = useRef();
 
   const [showTruck, setShowTruck] = useState(true);
+  const [showTaxi, setShowTaxi] = useState(true);
 
   useFrame(() => {
     if (truckRef.current && showTruck) {
-      truckRef.current.position.x += 0.3;
+      truckRef.current.position.x += 0.5;
       if (truckRef.current.position.x > 900) {
         setShowTruck(false);
-        truckRef.current.position.x = -200;
         delayTruck();
+      }
+    }
+    if (taxiRef.current && showTaxi) {
+      taxiRef.current.position.x -= 0.7;
+      if (taxiRef.current.position.x < -750) {
+        setShowTaxi(false);
+        delayTaxi();
       }
     }
   });
 
   const delayTruck = () => {
-    setTimeout(() => {
-      setShowTruck(true);
-    }, randomIntFromInterval(15000, 25000));
+    if (truckRef && truckRef.current) {
+      setTimeout(() => {
+        truckRef.current.position.x = -200;
+        setShowTruck(true);
+      }, randomIntFromInterval(10000, 25000));
+    }
+  };
+
+  const delayTaxi = () => {
+    if (taxiRef && taxiRef.current) {
+      setTimeout(() => {
+        taxiRef.current.position.x = 350;
+        setShowTaxi(true);
+      }, randomIntFromInterval(12000, 27000));
+    }
   };
 
   const Ground = () => {
@@ -145,6 +165,28 @@ const NormalEnvironment = ({ environment }) => {
                 geometry={truck.nodes.Oren_1117.geometry}
                 material={truck.materials.coca_material}
                 position={[-450, -49, -210]}
+                rotation={[Math.PI / 2, 0, 0]}
+                scale={[3, 3, 3]}
+              />
+            </group>
+          )}
+          {taxi && taxi.nodes && taxi.materials && (
+            <group ref={taxiRef} dispose={null} visible={showTaxi}>
+              {/* <mesh
+                castShadow
+                receiveShadow
+                geometry={truck.nodes.Oren_1117.geometry}
+                material={truck.materials.coca_material}
+                position={[-450, -49, -210]}
+                rotation={[Math.PI / 2, 0, 0]}
+                scale={[3, 3, 3]}
+              /> */}
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={taxi.nodes.Oren_1113.geometry}
+                material={taxi.materials.taxi1_material}
+                position={[100, -19, -105]}
                 rotation={[Math.PI / 2, 0, 0]}
                 scale={[3, 3, 3]}
               />

@@ -1,5 +1,5 @@
 import { useAnimations, useGLTF } from '@react-three/drei';
-import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
+import { lookupAnimation } from 'utils/utils.js';
 import React, { useEffect, useRef } from 'react';
 
 const PandaHead = ({

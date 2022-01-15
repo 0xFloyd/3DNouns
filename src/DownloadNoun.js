@@ -1,5 +1,4 @@
 import { useGraph, useLoader } from '@react-three/fiber';
-import FINALBODY119 from 'assets/FullBodyNouns/FINALBODY119';
 import React, { forwardRef, useMemo } from 'react';
 import { headComponents } from 'utils/AllHeadModels';
 import * as THREE from 'three';

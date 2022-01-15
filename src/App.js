@@ -3,11 +3,11 @@ import React, { useRef } from 'react';
 import { useEffect, useState } from 'react';
 import { Col, Container, Dropdown, Navbar, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
-import './GlowButton.css';
+import './styles/App.css';
+import './styles/GlowButton.css';
 // import SplashScreen from './SplashScreen';
 import { useProgress } from '@react-three/drei';
-import InitialLoader from 'InitialLoader';
+import InitialLoader from 'components/InitialLoader';
 
 const deviceType = () => {
   const ua = navigator.userAgent;
