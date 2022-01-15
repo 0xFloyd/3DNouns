@@ -1,6 +1,7 @@
 import { Sky, Stars, useGLTF, useProgress } from '@react-three/drei';
 import { useFrame, useLoader } from '@react-three/fiber';
 import React, { useEffect, useRef, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import * as THREE from 'three';
 import House from '../past-ideas/House';
 
@@ -10,6 +11,7 @@ const NormalEnvironment = ({ environment }) => {
   // depthWrite={false}
 
   // const { nodes, materials } = useGLTF('/world/voxelworld.glb');
+  const SPEED = isMobile ? 1.5 : 0.5;
 
   const { nodes, materials } = useGLTF('/world/nountoun.glb');
   const truck = useGLTF('/world/cocatruck.glb');
@@ -19,11 +21,11 @@ const NormalEnvironment = ({ environment }) => {
   const taxiRef = useRef();
 
   const [showTruck, setShowTruck] = useState(true);
-  const [showTaxi, setShowTaxi] = useState(true);
+  const [showTaxi, setShowTaxi] = useState(isMobile ? false : true);
 
   useFrame(() => {
     if (truckRef.current && showTruck) {
-      truckRef.current.position.x += 0.5;
+      truckRef.current.position.x += SPEED;
       if (truckRef.current.position.x > 900) {
         setShowTruck(false);
         delayTruck();

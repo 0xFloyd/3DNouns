@@ -273,7 +273,9 @@ const NounCanvas = () => {
     <>
       <Canvas
         shadows
+        mode="concurrent"
         gl={{
+          powerPreference: 'high-performance',
           preserveDrawingBuffer: true,
           // logarithmicDepthBuffer: true,
           antialias: true,
@@ -284,7 +286,7 @@ const NounCanvas = () => {
           physicallyCorrectLights: true,
         }}
         dpr={[1, 1.5]}
-        // camera={{ near: 0.1, far: 5000 }} // https://github.com/pmndrs/react-three-fiber/issues/67
+        camera={{ near: 0.1, far: 1000 }} // https://github.com/pmndrs/react-three-fiber/issues/67
         onCreated={({ camera }) => {
           camera.position.x = 0;
           camera.position.y = 32;

@@ -1,6 +1,7 @@
 import { useProgress } from '@react-three/drei';
 import * as React from 'react';
 import LoadingNoun from '../assets/loading.mp4';
+import LoadingNounImage from '../assets/images/loadingNounImage.jpg';
 
 // interface LoaderOptions {
 //   containerStyles: any;
@@ -60,10 +61,10 @@ const InitialLoader = React.memo(
           ...containerStyles,
         }}
       >
-        <video preload={'auto'} style={{ height: '300px' }} muted loop autoPlay>
+        {/* <video preload={'auto'} style={{ height: '300px' }} muted loop autoPlay>
           <source src={LoadingNoun} type="video/mp4" />
-        </video>
-        {/* <img src={loadingNounImage} style={{ height: '300px' }} alt="Noun" /> */}
+        </video> */}
+        <img src={LoadingNounImage} style={{ height: '300px' }} alt="Noun" />
         <div>
           <div style={{ ...styles.inner, ...innerStyles }}>
             <div
