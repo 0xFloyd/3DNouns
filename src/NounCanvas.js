@@ -1,14 +1,7 @@
 import { Canvas, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import { Suspense, useEffect, useRef, useState } from 'react';
-import {
-  OrbitControls,
-  Stats,
-  useGLTF,
-  useHelper,
-  useProgress,
-  useTexture,
-} from '@react-three/drei';
+import { OrbitControls, Stats, useGLTF, useHelper, useProgress, useTexture } from '@react-three/drei';
 import logo from './assets/images/3DNounsLogoSVG.svg';
 import { TextureLoader } from 'three';
 
@@ -22,6 +15,7 @@ import Menu from 'components/Menu';
 import { isDesktop } from 'react-device-detect';
 import ThreeDLogo from 'World/ThreeDNounsLogo';
 import './styles/ProgressLoader.css';
+import DownloadNoun from 'DownloadNoun';
 
 const lookAtPos = new THREE.Vector3(0, 5, 0);
 
@@ -42,9 +36,7 @@ const NounCanvas = () => {
   const [showDirections, setShowDirections] = useState(true);
   const [randomizerOn, setRandomizerOn] = useState(false);
   const [showScreenshotModal, setShowScreenshotModal] = useState(false);
-  const [animationValue, setAnimationValue] = useState(
-    data.animations.find((animation) => animation.name === 'none').name
-  );
+  const [animationValue, setAnimationValue] = useState(data.animations.find((animation) => animation.name === 'none').name);
   const [downloadingModel, setDownloadingModel] = useState(false);
   const [lockedTraits, setLockedTraits] = useState({
     head: false,
@@ -56,26 +48,12 @@ const NounCanvas = () => {
   });
   const [sceneState, setSceneState] = useState(null);
 
-  const [head, setHead] = useState(
-    data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name
-  );
-  const [glasses, setGlasses] = useState(
-    data.glasses[Math.floor(Math.random() * data.glasses.length)].value
-  );
-  const [body, setBody] = useState(
-    data.body[Math.floor(Math.random() * data.body.length)].name
-  );
-  const [accessory, setAccessory] = useState(
-    data.tempAccessories[
-      Math.floor(Math.random() * data.tempAccessories.length)
-    ].name
-  );
-  const [pants, setPants] = useState(
-    data.pants[Math.floor(Math.random() * data.pants.length)].name
-  );
-  const [shoes, setShoes] = useState(
-    data.shoes[Math.floor(Math.random() * data.shoes.length)].name
-  );
+  const [head, setHead] = useState(data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name);
+  const [glasses, setGlasses] = useState(data.glasses[Math.floor(Math.random() * data.glasses.length)].value);
+  const [body, setBody] = useState(data.body[Math.floor(Math.random() * data.body.length)].name);
+  const [accessory, setAccessory] = useState(data.tempAccessories[Math.floor(Math.random() * data.tempAccessories.length)].name);
+  const [pants, setPants] = useState(data.pants[Math.floor(Math.random() * data.pants.length)].name);
+  const [shoes, setShoes] = useState(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
 
   const orbitControls = useRef();
   const modelDownloadMeshForward = useRef();
@@ -95,26 +73,18 @@ const NounCanvas = () => {
 
   const generateRandomNoun = () => {
     if (!lockedTraits.head) {
-      setHead(
-        data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name
-      );
+      setHead(data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name);
     }
 
     if (!lockedTraits.glasses) {
-      setGlasses(
-        data.glasses[Math.floor(Math.random() * data.glasses.length)].value
-      );
+      setGlasses(data.glasses[Math.floor(Math.random() * data.glasses.length)].value);
     }
     if (!lockedTraits.body) {
       setBody(data.body[Math.floor(Math.random() * data.body.length)].name);
     }
 
     if (!lockedTraits.accessory) {
-      setAccessory(
-        data.tempAccessories[
-          Math.floor(Math.random() * data.tempAccessories.length)
-        ].name
-      );
+      setAccessory(data.tempAccessories[Math.floor(Math.random() * data.tempAccessories.length)].name);
     }
 
     if (!lockedTraits.pants) {
@@ -127,14 +97,7 @@ const NounCanvas = () => {
 
   const HeadComponents = headComponents.map((obj) => {
     const Component = obj.value;
-    return (
-      <Component
-        headProp={head}
-        glassesProp={glasses}
-        animationState={animationState}
-        animationValue={animationValue}
-      />
-    );
+    return <Component headProp={head} glassesProp={glasses} animationState={animationState} animationValue={animationValue} />;
   });
 
   const Lighting = ({ environmentParam }) => {
@@ -152,9 +115,7 @@ const NounCanvas = () => {
     return (
       <>
         <group>
-          <ambientLight
-            intensity={environmentParam === 'Matrix' ? 0.35 : 1.35}
-          />
+          <ambientLight intensity={environmentParam === 'Matrix' ? 0.35 : 1.35} />
 
           <hemisphereLight
             skyColor={new THREE.Color(0xffffbb)}
@@ -252,10 +213,7 @@ const NounCanvas = () => {
       var strMime = 'image/jpeg';
       imgData = sceneState.gl.domElement.toDataURL(strMime, 1.0);
 
-      saveScreenshot(
-        imgData.replace(strMime, 'image/octet-stream'),
-        '3DNoun.jpg'
-      );
+      saveScreenshot(imgData.replace(strMime, 'image/octet-stream'), '3DNoun.jpg');
     } catch (e) {
       console.log(e);
       return;
@@ -294,8 +252,7 @@ const NounCanvas = () => {
           camera.lookAt(lookAtPos);
           camera.updateProjectionMatrix();
           // camera.fov =
-        }}
-      >
+        }}>
         <Lighting environmentParam={environment} />
 
         <OrbitControls
@@ -346,7 +303,7 @@ const NounCanvas = () => {
             />
           )}
 
-          {/* <DownloadNoun
+          <DownloadNoun
             headProp={head}
             glassesProp={glasses}
             animationState={animationState}
@@ -357,7 +314,7 @@ const NounCanvas = () => {
             shoeProp={shoes}
             setSceneState={setSceneState}
             ref={temporaryModel}
-          /> */}
+          />
 
           <ThreeDLogo environment={environment} ref={GlassesLogo} />
         </Suspense>
@@ -409,10 +366,7 @@ const NounCanvas = () => {
               <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
               <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
               <div className="close-directions-container">
-                <button
-                  className="menu-button"
-                  onClick={() => setShowDirections(false)}
-                >
+                <button className="menu-button" onClick={() => setShowDirections(false)}>
                   CLOSE
                 </button>
               </div>

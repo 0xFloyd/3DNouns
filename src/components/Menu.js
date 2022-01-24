@@ -1,17 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  Col,
-  Container,
-  Form,
-  FormCheck,
-  Modal,
-  Nav,
-  Navbar,
-  NavDropdown,
-  Row,
-  Spinner,
-} from 'react-bootstrap';
+import { Button, Col, Container, Form, FormCheck, Modal, Nav, Navbar, NavDropdown, Row, Spinner } from 'react-bootstrap';
 import data from '../data.json';
 import '../styles/menu.css';
 import { FiRefreshCw, FiLock, FiUnlock } from 'react-icons/fi';
@@ -92,20 +80,11 @@ const MenuTwo = ({
     <>
       {progress === 100 && (
         <>
-          <div
-            className={
-              isDesktop ? 'options-container' : 'mobile-menu-container'
-            }
-            style={{ display: optionsVisibility }}
-          >
+          <div className={isDesktop ? 'options-container' : 'mobile-menu-container'} style={{ display: optionsVisibility }}>
             {optionsVisibility === 'block' ? (
               <div className="menu-header-row">
                 <button
-                  className={
-                    disabledButtonState
-                      ? 'screenshot-button-disabled'
-                      : 'screenshot-button'
-                  }
+                  className={disabledButtonState ? 'screenshot-button-disabled' : 'screenshot-button'}
                   onClick={() => {
                     // saveAsImage();
                     // stop animation
@@ -117,30 +96,22 @@ const MenuTwo = ({
                       setDisabledButtonState(false);
                     }, 1000);
                   }}
-                  disabled={disabledButtonState}
-                >
+                  disabled={disabledButtonState}>
                   {/* <BsCameraFill size={20} color="black" /> */}
-                  <img
-                    src={CameraIcon}
-                    alt="camera-icon"
-                    className="camera-noun-icon"
-                  />
+                  <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
                 </button>
 
                 <div className="header-randomize-container">
                   <button
                     className={
                       // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
-                      disabledButtonState
-                        ? 'rainbow-button-disabled'
-                        : 'rainbow-button'
+                      disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
                     }
                     onClick={() => {
                       generateRandomNoun();
                       throttleClicks();
                     }}
-                    disabled={disabledButtonState}
-                  >
+                    disabled={disabledButtonState}>
                     RANDOMIZE
                   </button>
                 </div>
@@ -149,17 +120,13 @@ const MenuTwo = ({
                   onClick={() => {
                     setOptionsVisibility('none');
                     setShowMintModal(false);
-                  }}
-                >
+                  }}>
                   X
                 </button>
               </div>
             ) : null}
 
-            <div
-              className="options-controls"
-              style={{ display: optionsVisibility }}
-            >
+            <div className="options-controls" style={{ display: optionsVisibility }}>
               {/* <h3 className="white-font attribute-label" style={{ textAlign: 'center' }}>
             Settings
           </h3> */}
@@ -185,11 +152,7 @@ const MenuTwo = ({
             </button> */}
                 <div className="inline-select-wrap">
                   <label className="trait-label">Head</label>
-                  <select
-                    value={head}
-                    className="trait-select"
-                    onChange={(e) => setHead(e.target.value)}
-                  >
+                  <select value={head} className="trait-select" onChange={(e) => setHead(e.target.value)}>
                     {data.tempHeads.map((head) => (
                       <option key={head.value} value={head.name}>
                         {head.name}
@@ -218,30 +181,21 @@ const MenuTwo = ({
                       });
                     }}
                     disabled={disabledButtonState}
-                    className="select-shuffle-icon-button"
-                  >
+                    className="select-shuffle-icon-button">
                     {lockedTraits.head ? (
                       // <FiLock
                       //   className="select-shuffle-icon"
                       //   color={'black'}
                       //   size={27.5}
                       // />
-                      <img
-                        src={ClosedLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     ) : (
                       // <FiUnlock
                       //   className="select-shuffle-icon"
                       //   color={'grey'}
                       //   size={27.5}
                       // />
-                      <img
-                        src={OpenLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     )}
                   </button>
                 </div>
@@ -292,11 +246,7 @@ const MenuTwo = ({
                 <div className="inline-select-wrap">
                   <label className="trait-label">Glasses</label>
 
-                  <select
-                    value={glasses}
-                    onChange={(e) => setGlasses(e.target.value)}
-                    className="trait-select"
-                  >
+                  <select value={glasses} onChange={(e) => setGlasses(e.target.value)} className="trait-select">
                     {data.glasses.map((glasses) => (
                       <option key={glasses.value} value={glasses.value}>
                         {truncateString(glasses.name)}
@@ -311,20 +261,11 @@ const MenuTwo = ({
                       });
                     }}
                     disabled={disabledButtonState}
-                    className="select-shuffle-icon-button"
-                  >
+                    className="select-shuffle-icon-button">
                     {lockedTraits.glasses ? (
-                      <img
-                        src={ClosedLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     ) : (
-                      <img
-                        src={OpenLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     )}
                   </button>
                   {/* <button
@@ -385,11 +326,7 @@ const MenuTwo = ({
                 <span />
                 <div className="inline-select-wrap">
                   <label className="trait-label">Body</label>
-                  <select
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                    className="trait-select"
-                  >
+                  <select value={body} onChange={(e) => setBody(e.target.value)} className="trait-select">
                     {data.body.map((body, index) => (
                       <option key={index} value={body.name}>
                         {body.name}
@@ -415,8 +352,7 @@ const MenuTwo = ({
                       });
                     }}
                     disabled={disabledButtonState}
-                    className="select-shuffle-icon-button"
-                  >
+                    className="select-shuffle-icon-button">
                     {lockedTraits.body ? (
                       // <FiLock
                       //   className="select-shuffle-icon"
@@ -424,22 +360,14 @@ const MenuTwo = ({
                       //   size={27.5}
                       // />
 
-                      <img
-                        src={ClosedLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     ) : (
                       // <FiUnlock
                       //   className="select-shuffle-icon"
                       //   color={'grey'}
                       //   size={27.5}
                       // />
-                      <img
-                        src={OpenLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     )}
                   </button>
                 </div>
@@ -486,11 +414,7 @@ const MenuTwo = ({
                 <span />
                 <div className="inline-select-wrap">
                   <label className="trait-label">Accessory</label>
-                  <select
-                    value={accessory}
-                    onChange={(e) => setAccessory(e.target.value)}
-                    className="trait-select"
-                  >
+                  <select value={accessory} onChange={(e) => setAccessory(e.target.value)} className="trait-select">
                     {data.tempAccessories.map((accessory, index) => (
                       <option key={index} value={accessory.name}>
                         {accessory.name}
@@ -519,8 +443,7 @@ const MenuTwo = ({
                       });
                     }}
                     disabled={disabledButtonState}
-                    className="select-shuffle-icon-button"
-                  >
+                    className="select-shuffle-icon-button">
                     {lockedTraits.accessory ? (
                       // <FiLock
                       //   className="select-shuffle-icon"
@@ -528,22 +451,14 @@ const MenuTwo = ({
                       //   size={27.5}
                       // />
 
-                      <img
-                        src={ClosedLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     ) : (
                       // <FiUnlock
                       //   className="select-shuffle-icon"
                       //   color={'grey'}
                       //   size={27.5}
                       // />
-                      <img
-                        src={OpenLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     )}
                   </button>
                 </div>{' '}
@@ -592,11 +507,7 @@ const MenuTwo = ({
                 <span />
                 <div className="inline-select-wrap">
                   <label className="trait-label">Pants</label>
-                  <select
-                    value={pants}
-                    onChange={(e) => setPants(e.target.value)}
-                    className="trait-select"
-                  >
+                  <select value={pants} onChange={(e) => setPants(e.target.value)} className="trait-select">
                     {data.pants.map((pants) => (
                       <option key={pants.value} value={pants.name}>
                         {pants.name}
@@ -623,8 +534,7 @@ const MenuTwo = ({
                       });
                     }}
                     disabled={disabledButtonState}
-                    className="select-shuffle-icon-button"
-                  >
+                    className="select-shuffle-icon-button">
                     {lockedTraits.pants ? (
                       // <FiLock
                       //   className="select-shuffle-icon"
@@ -632,22 +542,14 @@ const MenuTwo = ({
                       //   size={27.5}
                       // />
 
-                      <img
-                        src={ClosedLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     ) : (
                       // <FiUnlock
                       //   className="select-shuffle-icon"
                       //   color={'grey'}
                       //   size={27.5}
                       // />
-                      <img
-                        src={OpenLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     )}
                   </button>
                 </div>{' '}
@@ -695,11 +597,7 @@ const MenuTwo = ({
                 <div className="inline-select-wrap">
                   <label className="trait-label">Shoes</label>
 
-                  <select
-                    value={shoes}
-                    onChange={(e) => setShoes(e.target.value)}
-                    className="trait-select"
-                  >
+                  <select value={shoes} onChange={(e) => setShoes(e.target.value)} className="trait-select">
                     {data.shoes.map((shoes) => (
                       <option key={shoes.value} value={shoes.name}>
                         {shoes.name}
@@ -726,8 +624,7 @@ const MenuTwo = ({
                       });
                     }}
                     disabled={disabledButtonState}
-                    className="select-shuffle-icon-button"
-                  >
+                    className="select-shuffle-icon-button">
                     {lockedTraits.shoes ? (
                       // <FiLock
                       //   className="select-shuffle-icon"
@@ -735,22 +632,14 @@ const MenuTwo = ({
                       //   size={27.5}
                       // />
 
-                      <img
-                        src={ClosedLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     ) : (
                       // <FiUnlock
                       //   className="select-shuffle-icon"
                       //   color={'grey'}
                       //   size={27.5}
                       // />
-                      <img
-                        src={OpenLockIcon}
-                        alt="lock-icon"
-                        className="lock-noun-icon"
-                      />
+                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
                     )}
                   </button>
                 </div>
@@ -781,11 +670,7 @@ const MenuTwo = ({
                 <span />
                 <div className="inline-select-wrap">
                   <label className="trait-label">World</label>
-                  <select
-                    value={environment}
-                    onChange={(e) => setEnvironment(e.target.value)}
-                    className="trait-select"
-                  >
+                  <select value={environment} onChange={(e) => setEnvironment(e.target.value)} className="trait-select">
                     {data.world.map((arrayValue) => (
                       <option key={arrayValue.value} value={arrayValue.value}>
                         {arrayValue.name}
@@ -797,11 +682,7 @@ const MenuTwo = ({
               {/* end world */}
 
               {/*  Animation */}
-              <AnimationSelect
-                animationValue={animationValue}
-                setAnimationState={setAnimationState}
-                setAnimationValue={setAnimationValue}
-              />
+              <AnimationSelect animationValue={animationValue} setAnimationState={setAnimationState} setAnimationValue={setAnimationValue} />
 
               {/*  End animation */}
 
@@ -810,11 +691,7 @@ const MenuTwo = ({
                 <span />
                 <div className="inline-select-wrap">
                   <label className="trait-label">Rotate View</label>
-                  <select
-                    value={autoRotate}
-                    onChange={(e) => setAutoRotate(e.target.value)}
-                    className="trait-select"
-                  >
+                  <select value={autoRotate} onChange={(e) => setAutoRotate(e.target.value)} className="trait-select">
                     {rotateOptions.map((rotateObj, index) => (
                       <option key={index} value={rotateObj.value}>
                         {rotateObj.name}
@@ -839,8 +716,7 @@ const MenuTwo = ({
                     className="menu-button"
                     onClick={() => {
                       setShowMintModal(true);
-                    }}
-                  >
+                    }}>
                     MINT NOUN
                   </button>
                 </div>
@@ -848,28 +724,29 @@ const MenuTwo = ({
                   <button
                     className="download-menu-button"
                     onClick={() => {
-                      // setAnimationState(true);
-                      // setAnimationValue('tpose');
-                      // setDownloadingModel(true);
-                      // setTimeout(() => {
-                      //   downloadModel();
-                      // }, 1500);
+                      setAnimationState(true);
+                      setAnimationValue('tpose');
+                      setDownloadingModel(true);
+                      setTimeout(() => {
+                        downloadModel();
+                      }, 1500);
                     }}
-                    disabled={true}
+                    // disabled={true}
                   >
-                    DOWNLOAD NOUN
+                    DOWNLOAD
                     <br />
-                    {`< Coming soon! >`}
-                    {/* {downloadingModel && (
-                    <Spinner
-                      animation="border"
-                      style={{
-                        marginLeft: "10px",
-                        width: "20px",
-                        height: "20px",
-                      }}
-                    />
-                  )} */}
+                    NOUN
+                    {/* {`< Coming soon! >`} */}
+                    {downloadingModel && (
+                      <Spinner
+                        animation="border"
+                        style={{
+                          marginLeft: '10px',
+                          width: '20px',
+                          height: '20px',
+                        }}
+                      />
+                    )}
                   </button>
                 </div>
               </div>
@@ -907,25 +784,18 @@ const MenuTwo = ({
             <button
               className={
                 // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
-                disabledButtonState
-                  ? 'rainbow-button-disabled'
-                  : 'rainbow-button'
+                disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
               }
               onClick={() => {
                 generateRandomNoun();
                 throttleClicks();
               }}
-              disabled={disabledButtonState}
-            >
+              disabled={disabledButtonState}>
               RANDOMIZE
             </button>
             <button
               style={{ marginLeft: '20px', marginRight: '0px' }}
-              className={
-                disabledButtonState
-                  ? 'screenshot-button-disabled'
-                  : 'screenshot-button'
-              }
+              className={disabledButtonState ? 'screenshot-button-disabled' : 'screenshot-button'}
               onClick={() => {
                 // saveAsImage();
                 // stop animation
@@ -936,14 +806,9 @@ const MenuTwo = ({
                   setShowScreenshotModal(true);
                   setDisabledButtonState(false);
                 }, 1000);
-              }}
-            >
+              }}>
               {/* <BsCameraFill size={20} color="black" /> */}
-              <img
-                src={CameraIcon}
-                alt="camera-icon"
-                className="camera-noun-icon"
-              />
+              <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
             </button>
             <button
               className="menu-button"
@@ -955,8 +820,7 @@ const MenuTwo = ({
                 // setTimeout(() => {
                 //   setShowScreenshotModal(true);
                 // }, 1000);
-              }}
-            >
+              }}>
               SCREENSHOT
             </button>
             <button
@@ -965,8 +829,7 @@ const MenuTwo = ({
                 hideModals(setShowAboutModal, setShowMintModal);
               }}
               className="menu-button"
-              style={{ marginLeft: '20px' }}
-            >
+              style={{ marginLeft: '20px' }}>
               OPTIONS
             </button>
             <button
@@ -975,8 +838,7 @@ const MenuTwo = ({
                 setShowMintModal(false);
               }}
               className="menu-button"
-              style={{ marginLeft: '20px' }}
-            >
+              style={{ marginLeft: '20px' }}>
               ABOUT
             </button>
           </>
@@ -984,30 +846,21 @@ const MenuTwo = ({
 
         {isMobile && optionsVisibility === 'none' && (
           // <div className= <>
-          <Navbar
-            style={{ touchAction: 'manipulation' }}
-            expand="lg"
-            className="justify-content-end"
-          >
+          <Navbar style={{ touchAction: 'manipulation' }} expand="lg" className="justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse
-              id="basic-navbar-nav"
-              className="justify-content-end"
-            >
+            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
               <Nav.Link
                 onClick={() => {
                   setOptionsVisibility('block');
                   hideModals(setShowAboutModal, setShowMintModal);
-                }}
-              >
+                }}>
                 Options
               </Nav.Link>
               <Nav.Link
                 onClick={() => {
                   setShowAboutModal(true);
                   setShowMintModal(false);
-                }}
-              >
+                }}>
                 About
               </Nav.Link>
             </Navbar.Collapse>
@@ -1056,8 +909,7 @@ const MenuTwo = ({
               generateRandomNoun();
               throttleClicks();
             }}
-            disabled={disabledButtonState}
-          >
+            disabled={disabledButtonState}>
             RANDOMIZE
           </button>
           {/* <button
@@ -1073,11 +925,7 @@ const MenuTwo = ({
             SCREENSHOT
           </button> */}
           <button
-            className={
-              disabledButtonState
-                ? 'mobile-screenshot-button-disabled'
-                : 'mobile-screenshot-button'
-            }
+            className={disabledButtonState ? 'mobile-screenshot-button-disabled' : 'mobile-screenshot-button'}
             onClick={() => {
               // saveAsImage();
               // stop animation
@@ -1088,14 +936,9 @@ const MenuTwo = ({
                 setShowScreenshotModal(true);
                 setDisabledButtonState(false);
               }, 1000);
-            }}
-          >
+            }}>
             {/* <BsCameraFill size={20} color="black" /> */}
-            <img
-              src={CameraIcon}
-              alt="camera-icon"
-              className="camera-noun-icon"
-            />
+            <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
           </button>
           <button
             className="menu-button"
@@ -1106,8 +949,7 @@ const MenuTwo = ({
               // setTimeout(() => {
               //   setShowScreenshotModal(true);
               // }, 1000);
-            }}
-          >
+            }}>
             {/* <BsCameraFill size={20} color="black" /> */}
             SCREENSHOT
           </button>
@@ -1131,91 +973,53 @@ const InformationModal = (props) => {
         <h1 style={{ color: '#d63c5e', textAlign: 'center' }}>3D Nouns </h1>
 
         <h3 style={{ textAlign: 'center' }}>
-          3D Nouns is the first community extension of the Nouns ecosystem. The
-          project was proposed under Nouns DAO Proposal Two, where it passed
-          unanimously on September 2nd, 2021.
+          3D Nouns is the first community extension of the Nouns ecosystem. The project was proposed under Nouns DAO Proposal Two, where it passed unanimously
+          on September 2nd, 2021.
         </h3>
         <h5 className="about-paragraph-text">
           <a href="https://nouns.wtf" target="_blank" className="modal-link">
             Nouns
           </a>{' '}
-          are an experimental attempt to improve the formation of on-chain
-          avatar communities, attempting to bootstrap identity, community,
-          governance and a treasury for the community.
+          are an experimental attempt to improve the formation of on-chain avatar communities, attempting to bootstrap identity, community, governance and a
+          treasury for the community.
         </h5>
         <h5 className="about-paragraph-text">
-          3D Nouns aims to expand Nouns into the online metaverse by creating
-          avatars for existing and future digital platforms. Eventually, 3D
-          Nouns will extend into many different mediums, including gaming,
-          animation, virtual reality, and augmented reality.
+          3D Nouns aims to expand Nouns into the online metaverse by creating avatars for existing and future digital platforms. Eventually, 3D Nouns will
+          extend into many different mediums, including gaming, animation, virtual reality, and augmented reality.
         </h5>
         <h5 className="about-paragraph-text">
-          3D Nouns stay true to the original Nouns ethos by emulating the
-          original artwork and open source nature, while letting you craft your
-          own 3D Noun or randomly generating one of over one billion different
-          combinations.
+          3D Nouns stay true to the original Nouns ethos by emulating the original artwork and open source nature, while letting you craft your own 3D Noun or
+          randomly generating one of over one billion different combinations.
         </h5>
       </div>
       <div className="profile-section">
         <div className="profile-individual-section">
           <img className="profile-picture" src={FloydPicture} />
           <p className="bio-header">Engineer</p>
-          <SiTwitter
-            className="twitter-logo"
-            size={isDesktop ? 30 : 25}
-            color="#1DA1F2"
-          />{' '}
-          <a
-            className="social-link"
-            href="https://twitter.com/0xFloyd"
-            target="_blank"
-          >
+          <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />{' '}
+          <a className="social-link" href="https://twitter.com/0xFloyd" target="_blank">
             0xFloyd
           </a>
         </div>
         <div className="profile-individual-section">
           <img className="profile-picture" src={CoralPicture} />
           <p className="bio-header">Creator</p>
-          <SiTwitter
-            className="twitter-logo"
-            size={isDesktop ? 30 : 25}
-            color="#1DA1F2"
-          />
-          <a
-            className="social-link"
-            href="https://twitter.com/coralorca"
-            target="_blank"
-          >
+          <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
+          <a className="social-link" href="https://twitter.com/coralorca" target="_blank">
             CoralOrca
           </a>
         </div>
       </div>
       <div style={{ marginTop: '50px' }}>
         <div className="profile-individual-section">
-          <SiTwitter
-            className="twitter-logo"
-            size={isDesktop ? 30 : 25}
-            color="#1DA1F2"
-          />
-          <a
-            className="social-link"
-            href="https://twitter.com/3dnouns"
-            target="_blank"
-          >
+          <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
+          <a className="social-link" href="https://twitter.com/3dnouns" target="_blank">
             3D Nouns Twitter
           </a>
         </div>
         <div className="profile-individual-section">
-          <BsDiscord
-            className="twitter-logo"
-            size={isDesktop ? 30 : 25}
-            color="#5865F2"
-          />
-          <a
-            className="social-link"
-            href="https://discord.gg/kZZaz6jy2k"
-            target="_blank"
-          >
+          <BsDiscord className="twitter-logo" size={isDesktop ? 30 : 25} color="#5865F2" />
+          <a className="social-link" href="https://discord.gg/kZZaz6jy2k" target="_blank">
             3D Nouns Discord
           </a>
         </div>
@@ -1243,10 +1047,7 @@ const InformationModal = (props) => {
         </span>
       </div> */}
       <div className="modal-footer-container">
-        <button
-          className="modal-closer"
-          onClick={() => props.setShowAboutModal(false)}
-        >
+        <button className="modal-closer" onClick={() => props.setShowAboutModal(false)}>
           X
         </button>
       </div>
@@ -1257,35 +1058,21 @@ const InformationModal = (props) => {
 const MintModal = (props) => {
   return (
     <div className="modal-box-popup">
-      <button
-        onClick={() => props.setShowMintModal(false)}
-        className="modal-closer"
-      >
+      <button onClick={() => props.setShowMintModal(false)} className="modal-closer">
         X
       </button>
       <div>
         <h2>
-          Interested in minting your own custom{' '}
-          <span className="noun-color-h2">3D Noun</span>?
+          Interested in minting your own custom <span className="noun-color-h2">3D Noun</span>?
         </h2>
         <h4>
-          We're currently working on the feasibility of a 3D Noun NFT
-          collection. If this interests you, follow us on twitter{' '}
+          We're currently working on the feasibility of a 3D Noun NFT collection. If this interests you, follow us on twitter{' '}
           <SiTwitter className="mint-twitter-logo" size={25} color="#1DA1F2" />{' '}
-          <a
-            href="https://twitter.com/3dnouns"
-            target="_blank"
-            className="mint-modal-link"
-          >
+          <a href="https://twitter.com/3dnouns" target="_blank" className="mint-modal-link">
             @3DNouns
           </a>{' '}
-          and join the discord for updates{' '}
-          <BsDiscord className="mint-twitter-logo" size={25} color="#5865F2" />
-          <a
-            className="mint-modal-link"
-            href="https://discord.gg/kZZaz6jy2k"
-            target="_blank"
-          >
+          and join the discord for updates <BsDiscord className="mint-twitter-logo" size={25} color="#5865F2" />
+          <a className="mint-modal-link" href="https://discord.gg/kZZaz6jy2k" target="_blank">
             Discord
           </a>
           !
