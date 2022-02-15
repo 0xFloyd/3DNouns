@@ -242,49 +242,27 @@ import WizardhatHead from '../HeadFilesGenerated/WizardhatHead';
 import ZebraHead from '../HeadFilesGenerated/ZebraHead';
 import Head4156 from '../HeadFilesGenerated/Head4156';
 import { headComponents } from './AllHeadModels';
+import TestHead from './TestHead';
 
-const MasterHead = ({
-  headProp,
-  glassesProp,
-  animationState,
-  animationValue,
-}) => {
+const MasterHead = ({ headProp, glassesProp, animationState, animationValue }) => {
   const { gl } = useThree();
   const MasterHead = useGLTF('/pipeline1110/headAnim.glb');
 
   const [allheadsState, setAllHeadsState] = useState([]);
 
-  const glassesTest = useLoader(
-    THREE.TextureLoader,
-    `/textures/glasses/${glassesProp}`
-  );
-
-  useEffect(() => {
-    glassesTest.needsUpdate = true;
-    glassesTest.flipY = false;
-    glassesTest.magFilter = THREE.LinearMipMapNearestFilter;
-    glassesTest.minFilter = THREE.LinearMipMapNearestFilter;
-  }, [
-    glassesTest.magFilter,
-    glassesTest.minFilter,
-    glassesTest.needsUpdate,
-    glassesProp,
-    glassesTest,
-  ]);
-
-  const allHeadComponents = headComponents.map((obj, index) => {
-    const Component = obj.value;
-    return (
-      <Component
-        key={index}
-        headProp={headProp}
-        glassesProp={glassesTest}
-        animationState={animationState}
-        animationValue={animationValue}
-        masterHeadModel={MasterHead}
-      />
-    );
-  });
+  // const allHeadComponents = headComponents.map((obj, index) => {
+  //   const Component = obj.value;
+  //   return (
+  //     <Component
+  //       key={index}
+  //       headProp={headProp}
+  //       glassesProp={glassesTest}
+  //       animationState={animationState}
+  //       animationValue={animationValue}
+  //       masterHeadModel={MasterHead}
+  //     />
+  //   );
+  // });
 
   // const HeadComponent = () => {
   //   let foundHead = headComponents.find((obj, index) => obj.name === headProp);
@@ -306,17 +284,19 @@ const MasterHead = ({
 
   return (
     <>
-      <HeadTest119BonsaiHead
+      {/* <HeadTest119BonsaiHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
         animationValue={animationValue}
         masterHeadModel={MasterHead}
-      />
+      /> */}
       {/* {MasterHead.nodes && allHeadComponents} */}
       {/* <ExportHead/> */}
 
-      <AardvarkHead
+      <TestHead headProp={headProp} glassesProp={glassesProp} animationState={animationState} animationValue={animationValue} masterHeadModel={MasterHead} />
+
+      {/* <AardvarkHead
         headProp={headProp}
         glassesProp={glassesTest}
         animationState={animationState}
@@ -1960,12 +1940,12 @@ const MasterHead = ({
         animationState={animationState}
         animationValue={animationValue}
         masterHeadModel={MasterHead}
-      />
+      /> */}
     </>
   );
 };
 
-export default MasterHead;
+export default React.memo(MasterHead);
 
 useGLTF.preload('/pipeline1110/headAnim.glb');
 

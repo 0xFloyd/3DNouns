@@ -1,8 +1,9 @@
-import { Canvas, useLoader } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import { Suspense, useEffect, useRef, useState } from 'react';
-import { OrbitControls, Stats, useGLTF, useHelper, useProgress, useTexture } from '@react-three/drei';
-import logo from './assets/images/3DNounsLogoSVG.svg';
+import { OrbitControls, PerspectiveCamera, Stats, useGLTF, useHelper, useProgress, useTexture } from '@react-three/drei';
+// import logo from './assets/images/3DNounsLogoSVG.svg';
+import logo from './assets/images/3DNounsLogo.png';
 import { TextureLoader } from 'three';
 
 import NormalEnvironment from 'World/NormalEnvironment';
@@ -11,13 +12,14 @@ import { headComponents } from 'utils/AllHeadModels';
 import RANDOMIZER from 'past-ideas/RANDOMIZER';
 import NounHolder from 'NounHolder';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
+import { OBJExporter } from 'three/examples/jsm/exporters/OBJExporter.js';
 import Menu from 'components/Menu';
 import { isDesktop } from 'react-device-detect';
 import ThreeDLogo from 'World/ThreeDNounsLogo';
 import './styles/ProgressLoader.css';
 import DownloadNoun from 'DownloadNoun';
 
-const lookAtPos = new THREE.Vector3(0, 5, 0);
+const lookAtPos = new THREE.Vector3(10, 5, 0);
 
 const NounCanvas = () => {
   const { active, progress, errors, item, loaded, total } = useProgress();
@@ -59,6 +61,7 @@ const NounCanvas = () => {
   const modelDownloadMeshForward = useRef();
   const temporaryModel = useRef();
   const GlassesLogo = useRef();
+  const cameraRef = useRef();
 
   useEffect(() => {
     preloadAllAssets();
@@ -173,8 +176,8 @@ const NounCanvas = () => {
     const gltfExporter = new GLTFExporter();
 
     const fullScene = sceneState;
-    let hiddenDownloadNoun = temporaryModel.current;
-    let currentTest = modelDownloadMeshForward.current;
+    // let hiddenDownloadNoun = temporaryModel.current;
+    let hiddenDownloadNoun = modelDownloadMeshForward.current;
     // console.log('fule scene: ', holder);
 
     let currentNoun = fullScene?.scene?.children[1];
@@ -227,6 +230,25 @@ const NounCanvas = () => {
     }
   }, [showDirections, loaded]);
 
+  // useEffect(() => {
+  //   if (cameraRef && cameraRef.current) {
+  //     cameraRef.current.lookAt(lookAtPos);
+  //   }
+  // }, [])
+
+  // const [moveCamera, setMoveCamera] = useState(false);
+
+  // const TheCamera = () => {
+  //   // useFrame(() => {
+  //   //   if (cameraRef && cameraRef.current && moveCamera) {
+  //   //     cameraRef.current.position.lerp(new THREE.Vector3(0, 40, 70), 0.01);
+
+  //   //     cameraRef.current.updateProjectionMatrix();
+  //   //   }
+  //   // });
+  //   return <PerspectiveCamera makeDefault name="PerspectiveCamera" ref={cameraRef} position={[0, 20, 70]} near={0.1} far={1500} />;
+  // };
+
   return (
     <>
       <Canvas
@@ -244,15 +266,18 @@ const NounCanvas = () => {
           physicallyCorrectLights: true,
         }}
         dpr={[1, 1.5]}
-        camera={{ near: 0.1, far: 1000 }} // https://github.com/pmndrs/react-three-fiber/issues/67
-        onCreated={({ camera }) => {
-          camera.position.x = 0;
-          camera.position.y = 32;
-          camera.position.z = 48;
-          camera.lookAt(lookAtPos);
-          camera.updateProjectionMatrix();
-          // camera.fov =
-        }}>
+        // camera={{ near: 0.1, far: 1500 }} // https://github.com/pmndrs/react-three-fiber/issues/67
+        // onCreated={({ camera }) => {
+        //   // camera.position.x = 0;
+        //   // camera.position.y = 32;
+        //   // camera.position.z = 48;
+        //   camera.lookAt(lookAtPos);
+        //   camera.updateProjectionMatrix();
+        //   // camera.fov =
+        // }}
+      >
+        <PerspectiveCamera makeDefault name="PerspectiveCamera" ref={cameraRef} position={[-20, 40, 70]} near={0.1} far={1500} />
+        {/* {cameraRef && cameraRef.current && <cameraHelper args={cameraRef.current} />} */}
         <Lighting environmentParam={environment} />
 
         <OrbitControls
@@ -303,6 +328,21 @@ const NounCanvas = () => {
             />
           )}
 
+          <ThreeDLogo environment={environment} ref={GlassesLogo} />
+        </Suspense>
+        {/* <Stats showPanel={0} className="stats" /> */}
+      </Canvas>
+      {/* <Canvas
+        mode="concurrent"
+        gl={{
+          preserveDrawingBuffer: true,
+          // logarithmicDepthBuffer: true,
+          // pixelRatio: window.devicePixelRatio * 2,
+          // premultipliedAlpha: true,
+          // shadowMap:  THREE.PCFSoftShadowMap
+          // outputEncoding: THREE.sRGBEncoding,
+        }}>
+        <Suspense fallback={null}>
           <DownloadNoun
             headProp={head}
             glassesProp={glasses}
@@ -315,11 +355,8 @@ const NounCanvas = () => {
             setSceneState={setSceneState}
             ref={temporaryModel}
           />
-
-          <ThreeDLogo environment={environment} ref={GlassesLogo} />
         </Suspense>
-        {/* <Stats showPanel={0} className="stats" /> */}
-      </Canvas>
+      </Canvas> */}
 
       {loaded && (
         <>
@@ -377,6 +414,7 @@ const NounCanvas = () => {
             <a href="https://3dnouns.com">
               <img className="nouns-logo" src={logo} alt="NOUNS" />
             </a>
+            {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
           </div>
         </>
       )}

@@ -6,15 +6,7 @@ import data from 'data.json';
 // import BodyMesh from './BodyMesh';
 import BodyMeshTesting from './BodyMeshTesting';
 
-export default function NounBody({
-  headProp,
-  animationState,
-  animationValue,
-  pantsProp,
-  accessoryProp,
-  bodyProp,
-  shoeProp,
-}) {
+export default function NounBody({ headProp, animationState, animationValue, pantsProp, accessoryProp, bodyProp, shoeProp }) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF('/pipeline1110/body.glb');
   const { ref, mixer, names, actions } = useAnimations(animations, group);
@@ -39,10 +31,7 @@ export default function NounBody({
 
   const [preLoadedShoesTextures, setPreLoadedShoesTextures] = useState(
     data.shoes.map((shoeObj) => {
-      let shoeMaterial = useLoader(
-        THREE.TextureLoader,
-        `/textures/shoes/${shoeObj.value}`
-      );
+      let shoeMaterial = useLoader(THREE.TextureLoader, `/textures/shoes/${shoeObj.value}`);
 
       shoeMaterial.flipY = false;
       shoeMaterial.magFilter = shoeMaterial.minFilter = THREE.NearestFilter;
@@ -57,10 +46,7 @@ export default function NounBody({
 
   const [preloadedPantsTexture, setPreloadedPantsTexture] = useState(
     data.pants.map((pantObj) => {
-      let pantsMaterial = useLoader(
-        THREE.TextureLoader,
-        `/textures/pants/${pantObj.value}`
-      );
+      let pantsMaterial = useLoader(THREE.TextureLoader, `/textures/pants/${pantObj.value}`);
 
       pantsMaterial.flipY = false;
       pantsMaterial.magFilter = pantsMaterial.minFilter = THREE.NearestFilter;
@@ -93,10 +79,7 @@ export default function NounBody({
   // );
 
   // These were when we were passing the actual texture
-  let accessoryTextureFound = lookupAccessoryTexture(
-    accessoryProp,
-    data.tempAccessories
-  );
+  let accessoryTextureFound = lookupAccessoryTexture(accessoryProp, data.tempAccessories);
 
   let handTextureFound = lookupHandTexture(headProp, data.tempHeads);
   let bodyTextureFound = lookupBodyTexture(bodyProp, data.body);
@@ -124,11 +107,8 @@ export default function NounBody({
 
   useEffect(() => {
     if (animationState) {
-      actions[names[lookupAnimation(animationValue)]]
-        .reset()
-        .fadeIn(0.5)
-        .play();
-      return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.5);
+      actions[names[lookupAnimation(animationValue)]].reset().fadeIn(0.25).play();
+      return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.25);
     }
   }, [actions, names, animationState, animationValue]);
 
@@ -140,21 +120,15 @@ export default function NounBody({
         // material={materials.handsMAT}
         skeleton={nodes.hands.skeleton}
         castShadow
-        receiveShadow
-      >
-        <meshStandardMaterial
-          color={new THREE.Color(
-            Number(handTextureFound)
-          ).convertSRGBToLinear()}
-        />
+        receiveShadow>
+        <meshStandardMaterial color={new THREE.Color(Number(handTextureFound)).convertSRGBToLinear()} />
       </skinnedMesh>
       <skinnedMesh
         geometry={nodes.body.geometry}
         // material={materials.bodyMAT}
         skeleton={nodes.body.skeleton}
         castShadow
-        receiveShadow
-      >
+        receiveShadow>
         <BodyMeshTesting
           skeletonParts={nodes.body.skeleton}
           bodyTexture={bodyTextureFound}
@@ -176,8 +150,7 @@ export default function NounBody({
         // material={materials.shoesMAT}
         skeleton={nodes.shoes.skeleton}
         castShadow
-        receiveShadow
-      >
+        receiveShadow>
         <meshStandardMaterial map={shoeTextureFound} attach="material" />
       </skinnedMesh>
     </group>
@@ -208,10 +181,7 @@ export const lookupBodyTexture = (bodyTextureParam, preLoadedBodyTextures) => {
   }
 };
 
-export const lookupAccessoryTexture = (
-  accessoryTextureParam,
-  preLoadedAccessoryTextures
-) => {
+export const lookupAccessoryTexture = (accessoryTextureParam, preLoadedAccessoryTextures) => {
   let result = preLoadedAccessoryTextures.find((obj) => {
     return obj.name === accessoryTextureParam;
   });
@@ -222,10 +192,7 @@ export const lookupAccessoryTexture = (
   }
 };
 
-export const lookupPantsTexture = (
-  pantsTextureParam,
-  preloadedPantsTexture
-) => {
+export const lookupPantsTexture = (pantsTextureParam, preloadedPantsTexture) => {
   let result = preloadedPantsTexture.find((obj) => {
     return obj.name === pantsTextureParam;
   });
@@ -248,9 +215,7 @@ export const lookupShoeTexture = (shoeTextureParam, preLoadedShoeTextures) => {
 };
 
 export const lookupAnimation = (animationState) => {
-  let animationValue = data.animations.find(
-    (animation) => animation.name === animationState
-  );
+  let animationValue = data.animations.find((animation) => animation.name === animationState);
   if (animationValue) {
     return animationValue.value;
   } else {
