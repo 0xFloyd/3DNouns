@@ -5,27 +5,15 @@ import * as THREE from 'three';
 
 import { lookupAnimation } from 'utils/utils.js';
 
-export default function HeadTest119BonsaiHead({
-  headProp,
-  glassesProp,
-  animationState,
-  animationValue,
-  masterHeadModel,
-}) {
+export default function HeadTest119BonsaiHead({ headProp, glassesProp, animationState, animationValue, masterHeadModel }) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/pipeline1110/headAnim.glb');
 
-  const { ref, mixer, names, actions } = useAnimations(
-    masterHeadModel.animations,
-    group
-  );
+  const { ref, mixer, names, actions } = useAnimations(masterHeadModel.animations, group);
 
   useEffect(() => {
     if (animationState) {
-      actions[names[lookupAnimation(animationValue)]]
-        .reset()
-        .fadeIn(0.5)
-        .play();
+      actions[names[lookupAnimation(animationValue)]].reset().fadeIn(0.5).play();
       return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.5);
     }
   }, [actions, names, animationState, animationValue]);
@@ -39,16 +27,13 @@ export default function HeadTest119BonsaiHead({
       receiveShadow
       // position={[0, 1, 0]}
     >
-      <primitive
-        object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd}
-      />
+      <primitive object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd} />
       <skinnedMesh
         // geometry={masterHeadModel.nodes.HeadBonsai.geometry}
         // material={masterHeadModel.materials.bonzaiNoun_material}
         skeleton={masterHeadModel.nodes.HeadBonsai.skeleton}
         castShadow
-        receiveShadow
-      >
+        receiveShadow>
         <primitive object={nodes.HeadBonsai.geometry} attach="geometry" />
         <primitive object={materials.bonzaiNoun_material} attach="material" />
       </skinnedMesh>
@@ -57,8 +42,7 @@ export default function HeadTest119BonsaiHead({
         //  material={materials.HeadRabbit_material}
         skeleton={masterHeadModel.nodes.GlassesUV.skeleton}
         castShadow
-        receiveShadow
-      >
+        receiveShadow>
         {/* <primitive object={nodes.Glasses.geometry} attach="geometry" /> */}
         <meshStandardMaterial map={glassesProp} attach="material" />
       </skinnedMesh>

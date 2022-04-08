@@ -8,16 +8,13 @@ import './styles/GlowButton.css';
 // import SplashScreen from './SplashScreen';
 import { useProgress } from '@react-three/drei';
 import InitialLoader from 'components/InitialLoader';
+import HomePage from 'HomePage';
 
 const deviceType = () => {
   const ua = navigator.userAgent;
   if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
     return 'tablet';
-  } else if (
-    /Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
-      ua
-    )
-  ) {
+  } else if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
     return 'mobile';
   }
   return 'desktop';
@@ -82,6 +79,7 @@ const App = () => {
         </div>
       )} */}
       <InitialLoader />
+      {/* <HomePage /> */}
       <div className="nouns-canvas">{loaded && <NounCanvas />}</div>
 
       {/* <div className="nouns-canvas">

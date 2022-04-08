@@ -9,28 +9,68 @@ const ThreeDLogo = ({ environment }, ref) => {
   return (
     <>
       {environment === 'Normal' || environment === 'Matrix' ? (
-        <mesh
-          ref={ref}
-          castShadow
-          receiveShadow
-          geometry={nodes.NounsLogo.geometry}
-          material={materials['3DblueRedLogo_material']}
-          scale={[4, 4, 4]}
-          position={[120, 0, -20]}
-          rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
-        />
+        // <mesh
+        //   ref={ref}
+        //   castShadow
+        //   receiveShadow
+        //   geometry={nodes.NounsLogo.geometry}
+        //   material={materials['3DblueRedLogo_material']}
+        //   scale={[4, 4, 4]}
+        //   position={[120, 0, -20]}
+        //   rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
+        // />
+        <>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.GLASSES.geometry}
+            material={nodes.GLASSES.material}
+            position={[120, 12, -20]}
+            rotation={[Math.PI / 2, 0, Math.PI / 4]}
+            scale={[4, 4, 4]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.NOUNS.geometry}
+            material={nodes.NOUNS.material}
+            position={[120, 0, -20]}
+            rotation={[Math.PI / 2, 0, Math.PI / 4]}
+            scale={[4, 4, 4]}
+          />
+        </>
       ) : null}
       {environment === 'VoidDay' || environment === 'VoidNight' ? (
-        <mesh
-          ref={ref}
-          castShadow
-          receiveShadow
-          geometry={nodes.NounsLogo.geometry}
-          material={materials['3DblueRedLogo_material']}
-          scale={[4, 4, 4]}
-          position={[120, 0, -150]}
-          rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
-        />
+        // <mesh
+        //   ref={ref}
+        //   castShadow
+        //   receiveShadow
+        //   geometry={nodes.NounsLogo.geometry}
+        //   material={materials['3DblueRedLogo_material']}
+        //   scale={[4, 4, 4]}
+        //   position={[120, 0, -150]}
+        //   rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
+        // />
+        <>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.GLASSES.geometry}
+            material={nodes.GLASSES.material}
+            position={[120, 12, -150]}
+            rotation={[Math.PI / 2, 0, Math.PI / 4]}
+            scale={[4, 4, 4]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.NOUNS.geometry}
+            material={nodes.NOUNS.material}
+            position={[120, 0, -150]}
+            rotation={[Math.PI / 2, 0, Math.PI / 4]}
+            scale={[4, 4, 4]}
+          />
+        </>
       ) : null}
     </>
 

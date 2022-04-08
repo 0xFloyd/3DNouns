@@ -16,6 +16,7 @@ import AnimationSelect from 'components/AnimationSelect';
 import CameraIcon from '../assets/images/cameraIcon.svg';
 import ClosedLockIcon from '../assets/images/lockIconClosed.svg';
 import OpenLockIcon from '../assets/images/lockIconOpen.svg';
+import * as THREE from 'three';
 
 const MenuTwo = ({
   isDesktop,
@@ -724,8 +725,8 @@ const MenuTwo = ({
                   <button
                     className="download-menu-button"
                     onClick={() => {
-                      setAnimationState(true);
-                      setAnimationValue('tpose');
+                      setAnimationState(false);
+                      // setAnimationValue('tpose');
                       setDownloadingModel(true);
                       setTimeout(() => {
                         downloadModel();
