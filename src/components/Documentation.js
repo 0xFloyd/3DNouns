@@ -69,7 +69,7 @@ const Documentation = () => {
             <Accordion.Header className={classes.accordionHeader}>Bidding and Settling Auctions</Accordion.Header>
             <Accordion.Body>
               <p className={classes.aboutText}>
-                <h3>Bids</h3>
+                <p>Bids</p>
                 Once an auction starts, everyone has 15 minutes to bid. Anyone can bid an amount at/above 0.01 eth. The Amount bid is returned to bidder if they
                 lose the auction (minus gas spent on bid transaction).
                 <br />
@@ -78,14 +78,14 @@ const Documentation = () => {
                 result in bids coming in and winning an auction at the very last minute/seconds (irrespective of time increase).
                 <br />
                 <p className={classes.aboutText}>
-                  <h3>Bid Refunds</h3>
+                  <p>Bid Refunds</p>
                   Unsuccessful bids are refunded in full. The timing of refunds may be offset by 1 bidder. This means that a refund is processed for an
                   unsuccessful bid, when a higher bid is submitted.
                 </p>
               </p>
 
               <p className={classes.aboutText}>
-                <h3>Settlement</h3>
+                <p>Settlement</p>
                 When an auction ends, a gas-only transaction is required to mint the current Lil Noun to the winners wallet and start the next auction. Anyone
                 can settle an auction. As gas price fluctuates, the cost of settlement also fluctuates.
                 <br />

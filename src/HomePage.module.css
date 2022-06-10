@@ -24,6 +24,7 @@
   font-weight: 500;
   letter-spacing: -0.25px;
   line-height: 28px;
+  font-size: 1.5rem;
 }
 
 @media (max-width: 992px) {
@@ -38,7 +39,7 @@
 }
 
 .aboutText {
-  margin: 0px !important;
+  font-size: 1.4rem;
 }
 
 .accordionItem,
