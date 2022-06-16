@@ -11,7 +11,7 @@ const Documentation = () => {
   const compoundGovLink = <Link text="Compound Governance" url="https://compound.finance/governance" leavesPage={true} />;
   return (
     <Section fullWidth={false}>
-      <Col lg={{ span: 10, offset: 1 }}>
+      <Col lg={{ span: 8, offset: 2 }}>
         <div className={classes.headerWrapper}>
           <h1>WTF?</h1>
           <p className={classes.aboutText}>

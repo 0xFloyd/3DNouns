@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Section from './components/Section';
 import { Col } from 'react-bootstrap';
 import classes from './HomePage.module.css';
@@ -30,6 +30,29 @@ const HomePage = () => {
     setIsFadingOut(false);
   };
 
+  const [isDesktopSize, setIsDesktopSize] = useState(isDesktop);
+  const [isTabletSize, setIsTabletSize] = useState(isTablet);
+  const [isMobileSize, setIsMobileSize] = useState(isMobile);
+
+  useEffect(() => {
+    function autoResize() {
+      setIsDesktopSize(window.innerWidth <= 1280);
+      setIsTabletSize(window.innerWidth > 768 && window.innerWidth <= 1024);
+      setIsMobileSize(window.innerWidth <= 768);
+    }
+
+    window.addEventListener('resize', autoResize);
+
+    // This is likely unnecessary, as the initial state should capture
+    // the size, however if a resize occurs between initial state set by
+    // React and before the event listener is attached, this
+    // will just make sure it captures that.
+    autoResize();
+
+    // Return a function to disconnect the event listener
+    return () => window.removeEventListener('resize', autoResize);
+  }, []);
+
   return (
     <div className={`homepage-body ${isFadingOut ? 'item-fadeout' : ''}`} style={{ visibility: hidePage ? 'hidden' : 'visible' }}>
       <div className="container-huh">
@@ -40,7 +63,7 @@ const HomePage = () => {
             </a>
             {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
           </div>
-          <img src={isMobile ? mobileHeadImage : isTablet ? headerImage : headerImage} alt="Nounstoun" className="header-image" />
+          <img src={isMobileSize ? mobileHeadImage : headerImage} alt="Nounstoun" className="header-image" />
           <div className="welcome-container">
             <h1 className="welcome-nounstoun">WELCOME TO NOUNSTOUN!</h1>
           </div>
@@ -50,88 +73,95 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-        <Section fullWidth={true}>
+        <Section fullWidth={false}>
           <Col lg={{ span: 10, offset: 1 }}>
             <div className={classes.headerWrapper}>
               <h1 style={{ textAlign: 'center', color: '#d63c5e' }}>An Experiment in CC0 Avatars</h1>
               <p className={classes.genericText}>
                 3D NOUNS is a collection of composable characters turning{' '}
-                <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.4rem' }} /> art into 3D avatars. Enter the generator
+                <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} /> art into 3D avatars. Enter the generator
                 and test infinite possibilities with the randomize button or pick and choose your traits one by one. Our goal is to bring 3D NOUNS to a
                 multitude of metaverse platforms and extend the nouns ecosystem to other creative fields like gaming, animation and many more! 3D Nouns were the
                 first community extension of the Nouns ecosystem and received funding NounsDAO on September 2nd, 2021 under{' '}
-                <Link text={'NounsDAO Proposal #2.'} url={'https://nouns.wtf/vote/2'} leavesPage={true} style={{ fontSize: '1.4rem' }} />
+                <Link text={'NounsDAO Proposal #2.'} url={'https://nouns.wtf/vote/2'} leavesPage={true} style={{ fontSize: '1.3rem' }} />
                 <br />
                 <br />
               </p>
             </div>
-            <Accordion flush>
-              <Accordion.Item eventKey="0" className={classes.accordionItem}>
-                <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
-                <Accordion.Body>
-                  <p className={classes.aboutText}>
-                    All 3D Nouns are CC0 and can be used freely. Once you have customized your 3D noun, you can download it as a GLTF or FBX file and import it
-                    within a 3D modeler like Blender or Maya, or add it to a motion capture library like Mixamo.
-                  </p>
-                </Accordion.Body>
-              </Accordion.Item>
+            <div className="accordion-wrap">
+              <Accordion flush>
+                <Accordion.Item eventKey="0" className={classes.accordionItem}>
+                  <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
+                  <Accordion.Body>
+                    <p className={classes.genericText}>
+                      All 3D Nouns are CC0 and can be used freely. Once you have customized your 3D noun, you can download it as a GLTF or FBX file and import
+                      it within a 3D modeler like Blender or Maya, or add it to a motion capture library like Mixamo.
+                    </p>
+                  </Accordion.Body>
+                </Accordion.Item>
 
-              <Accordion.Item eventKey="1" className={classes.accordionItem}>
-                <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
-                <Accordion.Body>
-                  <p className={classes.aboutText}>
-                    We want to extend traits with the community and allow for customization beyond the original collection. Currently we have a few easter eggs
-                    but we are working with other NFTs project and will be featuring more collaborations in the future.
-                  </p>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="2" className={classes.accordionItem}>
-                <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
-                <Accordion.Body>
-                  <p className={classes.aboutText}>
-                    Nouns town is where the 3D NOUNS live, a web first microverse. We are currently building a environment assets and want to provide
-                    interoperability with other VR, AR and 3D platforms.
-                  </p>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="3" className={classes.accordionItem}>
-                <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
-                <Accordion.Body>
-                  <p className={classes.aboutText}>
-                    AR models will be available for download as USDZ files so that 3D NOUNS can populate the real world! We also have some fun 3D Snapchat
-                    filters that you can check out here. More to come!
-                  </p>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="4" className={classes.accordionItem}>
-                <Accordion.Header className={classes.accordionHeader}>NFTs</Accordion.Header>
-                <Accordion.Body>
-                  <p className={classes.aboutText}>
-                    Join the <Link text={'3D Nouns Discord'} url={'https://discord.gg/kZZaz6jy2k'} leavesPage={true} style={{ fontSize: '1.2rem' }} /> {` `}and
-                    follow the 3D Nouns <Link text={'Twitter'} url={'https://twitter.com/3dnouns'} leavesPage={true} style={{ fontSize: '1.2rem' }} /> account
-                    to stay updated on the project's future plans!
-                  </p>
-                </Accordion.Body>
-              </Accordion.Item>
-              <div className="profile-section-creators">
-                <div className="profile-individual-section">
-                  <img className="profile-picture" src={CoralPicture} />
-                  <p className="bio-header">Creator</p>
-                  <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
-                  <a className="social-link" href="https://twitter.com/coralorca" target="_blank">
-                    CoralOrca
-                  </a>
+                <Accordion.Item eventKey="1" className={classes.accordionItem}>
+                  <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
+                  <Accordion.Body>
+                    <p className={classes.genericText}>
+                      We want to extend traits with the community and allow for customization beyond the original collection. Currently we have a few easter
+                      eggs but we are working with other NFTs project and will be featuring more collaborations in the future.
+                    </p>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2" className={classes.accordionItem}>
+                  <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
+                  <Accordion.Body>
+                    <p className={classes.genericText}>
+                      Nouns town is where the 3D NOUNS live, a web first microverse. We are currently building a environment assets and want to provide
+                      interoperability with other VR, AR and 3D platforms.
+                    </p>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="3" className={classes.accordionItem}>
+                  <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
+                  <Accordion.Body>
+                    <p className={classes.genericText}>
+                      AR models will be available for download as USDZ files so that 3D NOUNS can populate the real world! We also have some fun 3D Snapchat
+                      filters that you can check out here. More to come!
+                    </p>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="4" className={classes.accordionItem}>
+                  <Accordion.Header className={classes.accordionHeader}>NFTs</Accordion.Header>
+                  <Accordion.Body>
+                    <p className={classes.genericText}>
+                      Join the <Link text={'3D Nouns Discord'} url={'https://discord.gg/kZZaz6jy2k'} leavesPage={true} style={{ fontSize: '1.2rem' }} /> {` `}
+                      and follow the 3D Nouns <Link
+                        text={'Twitter'}
+                        url={'https://twitter.com/3dnouns'}
+                        leavesPage={true}
+                        style={{ fontSize: '1.2rem' }}
+                      />{' '}
+                      account to stay updated on the project's future plans!
+                    </p>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <div className="profile-section-creators">
+                  <div className="profile-individual-section">
+                    <img className="profile-picture" src={CoralPicture} />
+                    <p className="bio-header">Creator</p>
+                    <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
+                    <a className="social-link" href="https://twitter.com/coralorca" target="_blank">
+                      CoralOrca
+                    </a>
+                  </div>
+                  <div className="profile-individual-section">
+                    <img className="profile-picture" src={FloydPicture} />
+                    <p className="bio-header">Engineer</p>
+                    <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />{' '}
+                    <a className="social-link" href="https://twitter.com/0xFloyd" target="_blank">
+                      0xFloyd
+                    </a>
+                  </div>
                 </div>
-                <div className="profile-individual-section">
-                  <img className="profile-picture" src={FloydPicture} />
-                  <p className="bio-header">Engineer</p>
-                  <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />{' '}
-                  <a className="social-link" href="https://twitter.com/0xFloyd" target="_blank">
-                    0xFloyd
-                  </a>
-                </div>
-              </div>
-            </Accordion>
+              </Accordion>
+            </div>
           </Col>
         </Section>
         <div>
