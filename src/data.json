@@ -1651,7 +1651,7 @@
       "value": "head-Panda",
       "filePath": "HeadPanda.glb",
       "componentName": "PandaHead",
-      "color": "0xFFC925"
+      "color": "0x000000"
     },
     {
       "name": "Paperclip",
