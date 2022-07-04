@@ -585,7 +585,7 @@
       "value": "accessory-tie-purple-on-white.png"
     },
     { "name": "Tie-Red", "value": "accessory-tie-red.png" },
-    { "name": "Txt-A2+B2", "value": "accessory-txt-a2+b2.png" },
+    { "name": "Txt-a2+b2", "value": "accessory-txt-a2+b2.png" },
     { "name": "Txt-Cc", "value": "accessory-txt-cc.png" },
     { "name": "Txt-Cc2", "value": "accessory-txt-cc2.png" },
     { "name": "Txt-Copy", "value": "accessory-txt-copy.png" },
