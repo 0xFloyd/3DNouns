@@ -8,7 +8,7 @@ import './styles/GlowButton.css';
 // import SplashScreen from './SplashScreen';
 import { useProgress } from '@react-three/drei';
 import InitialLoader from 'components/InitialLoader';
-import HomePage from 'HomePage';
+import HomePage from './HomePage';
 
 const deviceType = () => {
   const ua = navigator.userAgent;
@@ -43,7 +43,7 @@ const App = () => {
   const { active, progress, errors, item, loaded, total } = useProgress();
 
   return (
-    <div className="full-width">
+    <div style={{ height: '100%' }}>
       {/* <Navbar style={{ height: '80px' }} expand="lg">
         <img className="nouns-logo" src={logo} alt="NOUNS" />
       </Navbar> */}
@@ -78,8 +78,9 @@ const App = () => {
           <SplashScreen {...store} />
         </div>
       )} */}
-      <InitialLoader />
-      {/* <HomePage /> */}
+      <HomePage />
+      {/* <InitialLoader /> */}
+
       <div className="nouns-canvas">{loaded && <NounCanvas />}</div>
 
       {/* <div className="nouns-canvas">

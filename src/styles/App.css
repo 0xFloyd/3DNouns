@@ -10,11 +10,9 @@
 body {
   padding: 0px;
   margin: 0px;
-  /* font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif; */
-  /* background: linear-gradient(red, yellow); */
+
   overflow-x: hidden;
-  height: 100%;
+  height: auto;
   width: 100%;
 }
 .nouns-canvas {
@@ -23,6 +21,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: -1;
 }
 
 .splash-screen {
