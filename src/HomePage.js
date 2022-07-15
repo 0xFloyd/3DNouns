@@ -113,7 +113,7 @@ const HomePage = () => {
                   <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      Nouns town is where the 3D NOUNS live, a web first microverse. We are currently building a environment assets and want to provide
+                      Nouns town is where the 3D NOUNS live, a web first microverse. We are currently building environment assets and want to provide
                       interoperability with other VR, AR and 3D platforms.
                     </p>
                   </Accordion.Body>
@@ -123,7 +123,7 @@ const HomePage = () => {
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       AR models will be available for download as USDZ files so that 3D NOUNS can populate the real world! We also have some fun 3D Snapchat
-                      filters that you can check out here. More to come!
+                      filters that you can check out <a href="https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw">here</a>. More to come!
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
