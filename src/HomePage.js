@@ -123,7 +123,7 @@ const HomePage = () => {
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       AR models will be available for download as USDZ files so that 3D NOUNS can populate the real world! We also have some fun 3D Snapchat
-                      filters that you can check out <a href="https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw">here</a>. More to come!
+                      filters that you can check out <Link text={'here'} url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'} leavesPage={true} style={{ fontSize: '1.2rem' }} /> {` `}. More to come!
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
