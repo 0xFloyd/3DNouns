@@ -64,9 +64,9 @@ const HomePage = () => {
             {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
           </div>
           <img src={isMobileSize ? mobileHeadImage : headerImage} alt="Nounstoun" className="header-image" />
-          <div className="welcome-container">
+          <!--<div className="welcome-container">
             <h1 className="welcome-nounstoun">WELCOME TO NOUNSTOUN!</h1>
-          </div>
+          </div>-->
           <div className="enter-container">
             <button className="enter-button" onClick={() => fadeOut()}>
               ENTER
