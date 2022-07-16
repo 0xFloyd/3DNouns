@@ -94,8 +94,8 @@ const HomePage = () => {
                   <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      All 3D Nouns are CC0 and can be used freely. Once you have customized your 3D noun, you can download it as a GLTF or FBX file and import
-                      it within a 3D modeler like Blender or Maya, or add it to a motion capture library like Mixamo.
+                      All 3D Nouns are CC0 and can be used freely. Once you have customized your 3D noun, you can download it as a GLTF file and import
+                      it within a 3D modeler like Blender, or import it to a motion capture library like Mixamo.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -105,7 +105,7 @@ const HomePage = () => {
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       We want to extend traits with the community and allow for customization beyond the original collection. Currently we have a few easter
-                      eggs but we are working with other NFTs project and will be featuring more collaborations in the future.
+                      eggs but we are working with other NFTs projects and will be featuring more collaborations in the future.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -113,7 +113,7 @@ const HomePage = () => {
                   <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      Nouns town is where the 3D NOUNS live, a web first microverse. We are currently building environment assets and want to provide
+                      Nouns town is where the 3D NOUNS live, a web-first microverse. We are currently building environment assets and want to provide
                       interoperability with other VR, AR and 3D platforms.
                     </p>
                   </Accordion.Body>
@@ -122,8 +122,7 @@ const HomePage = () => {
                   <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      AR models will be available for download as USDZ files so that 3D NOUNS can populate the real world! We also have some fun 3D Snapchat
-                      filters that you can check out <Link text={'here'} url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'} leavesPage={true} style={{ fontSize: '1.2rem' }} /> {` `}. More to come!
+                      We have some fun 3D Snapchat filters that you can check out <Link text={'here'} url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'} leavesPage={true} style={{ fontSize: '1.2rem' }} /> {` `}. More to come!
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
