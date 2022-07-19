@@ -12,7 +12,7 @@ import FloydPicture from './assets/images/FloydProfilePicture400.jpg';
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
 import { SiTwitter } from 'react-icons/si';
 import logo from './assets/images/3DNounsLogo.png';
-import nounsArmy from './assets/images/ArmyFooter.jpeg';
+import nounsArmy from './assets/images/ArmyFooter.jpg';
 import './index.css';
 import { BsDiscord } from 'react-icons/bs';
 
