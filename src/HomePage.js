@@ -9,10 +9,12 @@ import headerImage from './assets/images/nounstown.png';
 import mobileHeadImage from './assets/images/mobile-toun.png';
 import CoralPicture from './assets/images/CoralOrcaProfilePicture400.jpg';
 import FloydPicture from './assets/images/FloydProfilePicture400.jpg';
+import ThreeDNounsPicture from './assets/images/3DnounsProfilePicture.jpg';
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
 import { SiTwitter } from 'react-icons/si';
 import logo from './assets/images/3DNounsLogo.png';
-import nounsArmy from './assets/images/ArmyFooter.jpg';
+import nounsArmy from './assets/images/ArmyFooterLarge.jpg';
+import nounsHeart from './assets/images/nounsHeart.gif';
 import './index.css';
 import { BsDiscord } from 'react-icons/bs';
 
@@ -79,10 +81,10 @@ const HomePage = () => {
               <h1 style={{ textAlign: 'center', color: '#d63c5e' }}>An Experiment in CC0 Avatars</h1>
               <p className={classes.genericText}>
                 3D NOUNS is a collection of composable characters turning{' '}
-                <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} /> art into 3D avatars. Enter the generator
-                and test infinite possibilities with the randomize button or pick and choose your traits one by one. Our goal is to bring 3D NOUNS to a
-                multitude of metaverse platforms and extend the nouns ecosystem to other creative fields like gaming, animation and many more! 3D Nouns were the
-                first community extension of the Nouns ecosystem and received funding NounsDAO on September 2nd, 2021 under{' '}
+                <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} /> pixel art into 3D avatars. Enter the generator
+                and test infinite possibilities with the randomize button or pick and choose your traits one by one. <br></br>Our goal is to bring 3D NOUNS to a
+                multitude of metaverse platforms and extend the nouns ecosystem to other creative fields like gaming, animation and many more! <br></br>3D Nouns were the
+                first community extension of the Nouns ecosystem and received funding from NounsDAO on September 2nd, 2021 under{' '}
                 <Link text={'NounsDAO Proposal #2.'} url={'https://nouns.wtf/vote/2'} leavesPage={true} style={{ fontSize: '1.3rem' }} />
                 <br />
                 <br />
@@ -94,7 +96,7 @@ const HomePage = () => {
                   <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      All 3D Nouns are CC0 and can be used freely. Once you have customized your 3D noun, you can download it as a GLTF file and import
+                      All 3D Nouns are CC0 and can be used freely. Once you have customized your 3D noun, you can download it as a GLTF file and open 
                       it within a 3D modeler like Blender, or import it to a motion capture library like Mixamo.
                     </p>
                   </Accordion.Body>
@@ -114,7 +116,7 @@ const HomePage = () => {
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       Nouns town is where the 3D NOUNS live, a web-first microverse. We are currently building environment assets and want to provide
-                      interoperability with other VR, AR and 3D platforms.
+                      interoperability with other VR, AR and gaming platforms.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -141,7 +143,9 @@ const HomePage = () => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
+
                 <div className="profile-section-creators">
+
                   <div className="profile-individual-section">
                     <img className="profile-picture" src={CoralPicture} />
                     <p className="bio-header">Creator</p>
@@ -150,6 +154,7 @@ const HomePage = () => {
                       CoralOrca
                     </a>
                   </div>
+
                   <div className="profile-individual-section">
                     <img className="profile-picture" src={FloydPicture} />
                     <p className="bio-header">Engineer</p>
@@ -158,7 +163,33 @@ const HomePage = () => {
                       0xFloyd
                     </a>
                   </div>
+
+
+
                 </div>
+              
+                <div className="profile-individual-section "  >
+
+                <img className="profile-picture" src={ThreeDNounsPicture } />
+                <div className="profile-individual-section ">
+                    <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
+                    <a style={{ color: 'black' }} className="social-link" href="https://twitter.com/3dnouns" target="_blank">
+                      3D Nouns Twitter
+                    </a>
+                </div>
+
+
+
+                  <div className="profile-individual-section">
+                    <BsDiscord className="twitter-logo" size={isDesktop ? 30 : 25} color="#5865F2" />
+                    <a style={{ color: 'black' }} className="social-link" href="https://discord.gg/kZZaz6jy2k" target="_blank">
+                      3D Nouns Discord
+                    </a>
+                  </div>
+
+                </div>
+         
+              
               </Accordion>
             </div>
           </Col>
@@ -167,21 +198,7 @@ const HomePage = () => {
           <img src={nounsArmy} className="footer-image" />
         </div>
         <div className="footer-info">
-          <div className="footer-social-section">
-            <div className="profile-individual-section">
-              <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
-              <a style={{ color: 'white' }} className="social-link" href="https://twitter.com/3dnouns" target="_blank">
-                3D Nouns Twitter
-              </a>
-            </div>
-            <div className="profile-individual-section">
-              <BsDiscord className="twitter-logo" size={isDesktop ? 30 : 25} color="#5865F2" />
-              <a style={{ color: 'white' }} className="social-link" href="https://discord.gg/kZZaz6jy2k" target="_blank">
-                3D Nouns Discord
-              </a>
-            </div>
-          </div>
-          <p>nouns.wtf ❤️ by CoralOrca and 0xFloyd</p>
+          <p>nouns.wtf <img className="nouns-heart" src={nounsHeart}></img> by CoralOrca and 0xFloyd</p>
         </div>
       </div>
     </div>

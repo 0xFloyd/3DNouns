@@ -1,7 +1,6 @@
 {
   "world": [
     { "name": "Day", "value": "Normal" },
-    { "name": "Night", "value": "Matrix" },
     { "name": "Void Day", "value": "VoidDay" },
     { "name": "Void Night", "value": "VoidNight" }
   ],
@@ -172,6 +171,7 @@
       "name": "accessory-grid-simple-bege",
       "value": "accessory-grid-simple-bege.png"
     },
+    { "name": "grease", "value": "accessory-grease.png" },
     { "name": "accessory-heart", "value": "accessory-heart.png" },
     {
       "name": "accessory-hoodiestrings-uneven",
@@ -247,6 +247,7 @@
       "value": "accessory-stripes-red-cold.png"
     },
     { "name": "accessory-sunset", "value": "accessory-sunset.png" },
+    { "name": "tatewaku", "value": "accessory-tatewaku.png" },
     {
       "name": "accessory-taxi-checkers",
       "value": "accessory-taxi-checkers.png"
@@ -305,6 +306,7 @@
     { "name": "accessory-txt-rofl", "value": "accessory-txt-rofl.png" },
     { "name": "accessory-txt-we", "value": "accessory-txt-we.png" },
     { "name": "accessory-txt-yay", "value": "accessory-txt-yay.png" },
+    { "name": "accessory-uroko", "value": "accessory-uroko.png" },
     { "name": "accessory-wall", "value": "accessory-wall.png" },
     { "name": "accessory-wave", "value": "accessory-wave.png" },
     { "name": "accessory-wet-money", "value": "accessory-wet-money.png" },
@@ -356,10 +358,17 @@
       "name": "Yellow-Saturated",
       "value": "glasses-square-yellow-saturated.png"
     },
+    { "name": "Grass", "value": "glasses-square-grass.png" },
+    { "name": "Deep-Teal", "value": "glasses-square-deep-teal.png" },
     {
-      "name": "3D",
+      "name": "3D-Black",
       "value": "glasses-3D.png"
+    },
+    {
+      "name": "3D-Black",
+      "value": "glasses-3D-Black.png"
     }
+    
   ],
   "pants": [
     { "name": "Bege-Bsod", "value": "pants-bege-bsod.png" },
@@ -527,6 +536,7 @@
     { "name": "Glasses-Logo", "value": "accessory-glasses-logo.png" },
     { "name": "Glasses", "value": "accessory-glasses.png" },
     { "name": "Grid-Simple-Beige", "value": "accessory-grid-simple-beige.png" },
+    { "name": "Grease", "value": "accessory-grease.png" },
     { "name": "Heart", "value": "accessory-heart.png" },
     {
       "name": "Hoodiestrings-Uneven",
@@ -571,6 +581,7 @@
     { "name": "Stripes-Olive", "value": "accessory-stripes-olive.png" },
     { "name": "Stripes-Red-Cold", "value": "accessory-stripes-red-cold.png" },
     { "name": "Sunset", "value": "accessory-sunset.png" },
+    { "name": "Tatewaku", "value": "accessory-tatewaku.png" },
     { "name": "Taxi-Checkers", "value": "accessory-taxi-checkers.png" },
     { "name": "Tee-Yo", "value": "accessory-tee-yo.png" },
     { "name": "Text-Yolo", "value": "accessory-text-yolo.png" },
@@ -611,6 +622,7 @@
     { "name": "Txt-Rofl", "value": "accessory-txt-rofl.png" },
     { "name": "Txt-We", "value": "accessory-txt-we.png" },
     { "name": "Txt-Yay", "value": "accessory-txt-yay.png" },
+    { "name": "Uroko", "value": "accessory-uroko.png" },
     { "name": "Wall", "value": "accessory-wall.png" },
     { "name": "Wave", "value": "accessory-wave.png" },
     { "name": "Wet-Money", "value": "accessory-wet-money.png" },
@@ -856,6 +868,13 @@
       "color": "0x5648ED"
     },
     {
+      "name": "Capybara",
+      "value": "head-Capybara",
+      "filePath": "CapybaraHead.glb",
+      "componentName": "CapybaraHead",
+      "color": "0xD56333"
+    },
+    {
       "name": "Car",
       "value": "head-Car",
       "filePath": "HeadCar.glb",
@@ -1036,6 +1055,13 @@
       "filePath": "HeadCottonBall.glb",
       "componentName": "CottonballHead",
       "color": "0xFFFFFF"
+    },
+    {
+      "name": "Couch",
+      "value": "head-Couch",
+      "filePath": "CouchHead.glb",
+      "componentName": "CouchHead",
+      "color": "0xC16923"
     },
     {
       "name": "Cow",
@@ -1325,6 +1351,13 @@
       "color": "0xC16710"
     },
     {
+      "name": "Hanger",
+      "value": "head-Hanger",
+      "filePath": "HangerHead.glb",
+      "componentName": "HangerHead",
+      "color": "0xFFFFFF"
+    },
+    {
       "name": "Hardhat",
       "value": "head-Hardhat",
       "filePath": "HeadHardHat.glb",
@@ -1386,6 +1419,13 @@
       "filePath": "icepopHead.glb",
       "componentName": "IcepopHead",
       "color": "0x4BEA69"
+    },
+    {
+      "name": "IndexCard",
+      "value": "head-IndexCard",
+      "filePath": "IndexCardHead.glb",
+      "componentName": "IndexCardHead",
+      "color": "0xFFFFFF"
     },
     {
       "name": "Igloo",
@@ -1983,6 +2023,13 @@
       "color": "0x5A423F"
     },
     {
+      "name": "Snowman",
+      "value": "head-Snowman",
+      "filePath": "SnowmanHead.glb",
+      "componentName": "SnowmanHead",
+      "color": "0xFFFFFF"
+    },
+    {
       "name": "Snowmobile",
       "value": "head-Snowmobile",
       "filePath": "SnowMobileHead.glb",
@@ -2102,6 +2149,13 @@
       "color": "0x807F7E"
     },
     {
+      "name": "Treasurechest",
+      "value": "head-Treasurechest",
+      "filePath": "TreasureChestHead.glb",
+      "componentName": "TreasureChestHead",
+      "color": "0x733E39"
+    },
+    {
       "name": "Turing",
       "value": "head-Turing",
       "filePath": "HeadTuring.glb",
@@ -2128,6 +2182,13 @@
       "filePath": "HeadUnicorn.glb",
       "componentName": "UnicornHead",
       "color": "0xFDF8FF"
+    },
+    {
+      "name": "VendingMachine",
+      "value": "head-VendingMachine",
+      "filePath": "VendingMachineHead.glb",
+      "componentName": "VendingMachineHead",
+      "color": "0xF20422"
     },
     {
       "name": "Vent",
@@ -2254,6 +2315,13 @@
       "filePath": "HeadWizardHat.glb",
       "componentName": "WizardhatHead",
       "color": "0x395ED1"
+    },
+    {
+      "name": "WineBarrel",
+      "value": "head-WineBarrel",
+      "filePath": "WineBarrelHead.glb",
+      "componentName": "WineBarrelHead",
+      "color": "0x85634F"
     },
     {
       "name": "Zebra",

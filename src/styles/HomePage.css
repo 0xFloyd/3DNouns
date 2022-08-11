@@ -29,6 +29,7 @@
   width: 100vw;
   max-height: 50vh;
   object-fit: cover;
+  padding-top: 5%;
 }
 
 .enter-container {
@@ -64,7 +65,7 @@
 
 .footer-info {
   width: 100vw;
-  height: 50vh;
+  height: 15vh;
   background-color: black;
   display: flex;
   justify-content: center;
@@ -166,3 +167,9 @@
     max-height: 90vh;
   }
 }
+
+img.nouns-heart{
+  width: 25px; /* you can use % */
+  height: auto;
+}
+
