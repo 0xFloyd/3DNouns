@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
 
+
+@font-face {
+    font-family: 'pt_root_uimedium';
+    src: 
+         
+         url('PT Root UI_Medium-webfont.woff') format('woff');
+         
+         
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 /* noun color: #d63c5e */
 * {
   box-sizing: border-box;
@@ -10,7 +23,7 @@
 body {
   padding: 0px;
   margin: 0px;
-
+  font-family: 'pt_root_uimedium';
   overflow-x: hidden;
   height: auto;
   width: 100%;
@@ -347,7 +360,7 @@ a {
   right: 37.5%;
   width: 25vw;
   max-height: 75vh;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
   border-radius: 10px;
   padding: 25px;
@@ -362,6 +375,18 @@ a {
   margin-top: 50px;
 }
 
+.blocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  content: ' ';
+  background: rgba(0,0,0,0.2);
+}
+
+
+
 @media (max-width: 768px) {
   .directions-popup {
     z-index: 100 !important;
@@ -372,7 +397,7 @@ a {
     text-align: center;
     width: 87.5vw;
     max-height: 65vh;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
     font-size: 1rem;
     border-radius: 10px;
     padding: 25px;

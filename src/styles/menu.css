@@ -242,6 +242,65 @@
   /* color: grey; */
 }
 
+
+/*---------------Toggle rotate button----------------------------*/
+
+.switchtoggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 56px;
+}
+
+.switchtoggle input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slidertoggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slidertoggle:before {
+  position: absolute;
+  content: "";
+  height: 48px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slidertoggle {
+  background-color: black;
+}
+
+input:focus + .slidertoggle {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slidertoggle:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+/*-------------------------------------------*/
+
+
+
 .options-container {
   z-index: 100 !important;
   position: fixed;
@@ -417,6 +476,32 @@
 }
 .menu-button-disabled:hover {
   background: rgba(255, 255, 255);
+}
+
+.menu-button-options {
+  display: inline-block;
+  text-align: center;
+  padding: 0px 10px 0px 10px;
+  height: 40px;
+  outline: none;
+  color: white;
+  background: #d63c5e;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  font-size: 1em;
+  touch-action: manipulation;
+  user-select: none;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.menu-button-options:hover {
+  background: #00c7d1;
+  color: rgb(0, 0,0);
+  /*font-size: 1.25em;*/
+  transition: 500ms;
+  animation: hueRotation 2s linear infinite;
 }
 
 .header-randomize-container {
@@ -653,13 +738,13 @@
   height: 40px;
   cursor: pointer;
   margin: 0px;
-  background: #6dd6d1;
-  border: 1px solid rgb(128, 128, 128);
+  background: #00c7d1;
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
-  color: rgb(51, 51, 51);
-  /* font-size: 1.25em; */
+  color: rgb(0, 0,0);
+  /*font-size: 1.25em;*/
   transition: 500ms;
   animation: hueRotation 2s linear infinite;
 }

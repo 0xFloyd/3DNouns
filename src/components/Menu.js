@@ -700,6 +700,10 @@ const MenuTwo = ({
                     ))}
                   </select>
                 </div>
+
+
+
+
               </div>
               {/* end Rotate */}
               {/* <Form>
@@ -712,7 +716,7 @@ const MenuTwo = ({
               />
             </Form> */}
               <div className="menu-footer-row">
-                <div className="menu-footer-row-container">
+                {/*<div className="menu-footer-row-container">
                   <button
                     className="menu-button"
                     onClick={() => {
@@ -721,6 +725,7 @@ const MenuTwo = ({
                     MINT NOUN
                   </button>
                 </div>
+                */}
                 <div className="menu-footer-row-container">
                   <button
                     className="download-menu-button"
@@ -829,19 +834,11 @@ const MenuTwo = ({
                 setOptionsVisibility('block');
                 hideModals(setShowAboutModal, setShowMintModal);
               }}
-              className="menu-button"
+              className="menu-button-options"
               style={{ marginLeft: '20px' }}>
               OPTIONS
             </button>
-            <button
-              onClick={() => {
-                setShowAboutModal(true);
-                setShowMintModal(false);
-              }}
-              className="menu-button"
-              style={{ marginLeft: '20px' }}>
-              ABOUT
-            </button>
+
           </>
         ) : null}
 
@@ -967,6 +964,7 @@ const hideModals = (setShowAboutModal, setShowMintModal) => {
   setShowMintModal(false);
 };
 
+//hidden for now
 const InformationModal = (props) => {
   return (
     <div className="modal-box-popup">
@@ -1056,6 +1054,7 @@ const InformationModal = (props) => {
   );
 };
 
+//hidden for now
 const MintModal = (props) => {
   return (
     <div className="modal-box-popup">

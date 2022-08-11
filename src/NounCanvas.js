@@ -399,7 +399,10 @@ const NounCanvas = () => {
             saveAsImage={saveAsImage}
           />
           {showDirections && (
+
+            <div className="blocker" onClick={() => setShowDirections(false)} >
             <div className="directions-popup">
+              
               <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
               <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
               <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
@@ -408,6 +411,7 @@ const NounCanvas = () => {
                   CLOSE
                 </button>
               </div>
+            </div>
             </div>
           )}
 
