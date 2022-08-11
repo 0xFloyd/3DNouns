@@ -82,8 +82,8 @@ const HomePage = () => {
               <p className={classes.genericText}>
                 3D NOUNS is a collection of composable characters turning{' '}
                 <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} /> pixel art into 3D avatars. Enter the generator
-                and test infinite possibilities with the randomize button or pick and choose your traits one by one. Our goal is to bring 3D NOUNS to a
-                multitude of metaverse platforms and extend the nouns ecosystem to other creative fields like gaming, animation and many more! 3D Nouns were the
+                and test infinite possibilities with the randomize button or pick and choose your traits one by one. <br></br>Our goal is to bring 3D NOUNS to a
+                multitude of metaverse platforms and extend the nouns ecosystem to other creative fields like gaming, animation and many more! <br></br>3D Nouns were the
                 first community extension of the Nouns ecosystem and received funding from NounsDAO on September 2nd, 2021 under{' '}
                 <Link text={'NounsDAO Proposal #2.'} url={'https://nouns.wtf/vote/2'} leavesPage={true} style={{ fontSize: '1.3rem' }} />
                 <br />
@@ -143,6 +143,7 @@ const HomePage = () => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
+
                 <div className="profile-section-creators">
 
                   <div className="profile-individual-section">
@@ -166,16 +167,16 @@ const HomePage = () => {
 
 
                 </div>
-
-                <div className="profile-individual-section">
+              
+                <div className="profile-individual-section "  >
 
                 <img className="profile-picture" src={ThreeDNounsPicture } />
-                <div className="profile-individual-section">
+                <div className="profile-individual-section ">
                     <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
                     <a style={{ color: 'black' }} className="social-link" href="https://twitter.com/3dnouns" target="_blank">
                       3D Nouns Twitter
                     </a>
-                  </div>
+                </div>
 
 
 
@@ -186,10 +187,9 @@ const HomePage = () => {
                     </a>
                   </div>
 
-                  <div></div>
-                
                 </div>
-
+         
+              
               </Accordion>
             </div>
           </Col>

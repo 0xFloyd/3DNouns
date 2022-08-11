@@ -29,6 +29,7 @@
   width: 100vw;
   max-height: 50vh;
   object-fit: cover;
+  padding-top: 5%;
 }
 
 .enter-container {
