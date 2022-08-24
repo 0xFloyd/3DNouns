@@ -171,7 +171,7 @@
       "name": "accessory-grid-simple-bege",
       "value": "accessory-grid-simple-bege.png"
     },
-    { "name": "grease", "value": "accessory-grease.png" },
+    { "name": "accessory-grease", "value": "accessory-grease.png" },
     { "name": "accessory-heart", "value": "accessory-heart.png" },
     {
       "name": "accessory-hoodiestrings-uneven",
@@ -247,7 +247,7 @@
       "value": "accessory-stripes-red-cold.png"
     },
     { "name": "accessory-sunset", "value": "accessory-sunset.png" },
-    { "name": "tatewaku", "value": "accessory-tatewaku.png" },
+    { "name": "accessory-tatewaku", "value": "accessory-tatewaku.png" },
     {
       "name": "accessory-taxi-checkers",
       "value": "accessory-taxi-checkers.png"
