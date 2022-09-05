@@ -18,6 +18,7 @@ import { isDesktop } from 'react-device-detect';
 import ThreeDLogo from 'World/ThreeDNounsLogo';
 import './styles/ProgressLoader.css';
 import DownloadNoun from 'DownloadNoun';
+import NounData from 'components/NounData';
 
 const lookAtPos = new THREE.Vector3(10, 5, 0);
 
@@ -50,12 +51,14 @@ const NounCanvas = () => {
   });
   const [sceneState, setSceneState] = useState(null);
 
-  const [head, setHead] = useState(data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name);
+  const [head, setHead] = useState(data.head[Math.floor(Math.random() * data.head.length)].name);
   const [glasses, setGlasses] = useState(data.glasses[Math.floor(Math.random() * data.glasses.length)].value);
   const [body, setBody] = useState(data.body[Math.floor(Math.random() * data.body.length)].name);
-  const [accessory, setAccessory] = useState(data.tempAccessories[Math.floor(Math.random() * data.tempAccessories.length)].name);
+  const [accessory, setAccessory] = useState(data.accessory[Math.floor(Math.random() * data.accessory.length)].name);
   const [pants, setPants] = useState(data.pants[Math.floor(Math.random() * data.pants.length)].name);
   const [shoes, setShoes] = useState(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
+
+  const [seed, setSeed] = useState(null);
 
   const orbitControls = useRef();
   const modelDownloadMeshForward = useRef();
@@ -76,7 +79,7 @@ const NounCanvas = () => {
 
   const generateRandomNoun = () => {
     if (!lockedTraits.head) {
-      setHead(data.tempHeads[Math.floor(Math.random() * data.tempHeads.length)].name);
+      setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
     }
 
     if (!lockedTraits.glasses) {
@@ -87,7 +90,7 @@ const NounCanvas = () => {
     }
 
     if (!lockedTraits.accessory) {
-      setAccessory(data.tempAccessories[Math.floor(Math.random() * data.tempAccessories.length)].name);
+      setAccessory(data.accessory[Math.floor(Math.random() * data.accessory.length)].name);
     }
 
     if (!lockedTraits.pants) {
@@ -98,10 +101,10 @@ const NounCanvas = () => {
     }
   };
 
-  const HeadComponents = headComponents.map((obj) => {
-    const Component = obj.value;
-    return <Component headProp={head} glassesProp={glasses} animationState={animationState} animationValue={animationValue} />;
-  });
+  // const HeadComponents = headComponents.map((obj) => {
+  //   const Component = obj.value;
+  //   return <Component headProp={head} glassesProp={glasses} animationState={animationState} animationValue={animationValue} />;
+  // });
 
   const Lighting = ({ environmentParam }) => {
     const light = useRef();
@@ -397,21 +400,21 @@ const NounCanvas = () => {
             showScreenshotModal={showScreenshotModal}
             setShowScreenshotModal={setShowScreenshotModal}
             saveAsImage={saveAsImage}
+            seed={seed}
+            setSeed={setSeed}
           />
           {showDirections && (
-
-            <div className="blocker" onClick={() => setShowDirections(false)} >
-            <div className="directions-popup">
-              
-              <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
-              <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
-              <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
-              <div className="close-directions-container">
-                <button className="menu-button" onClick={() => setShowDirections(false)}>
-                  CLOSE
-                </button>
+            <div className="blocker" onClick={() => setShowDirections(false)}>
+              <div className="directions-popup">
+                <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
+                <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
+                <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
+                <div className="close-directions-container">
+                  <button className="menu-button" onClick={() => setShowDirections(false)}>
+                    CLOSE
+                  </button>
+                </div>
               </div>
-            </div>
             </div>
           )}
 
@@ -430,7 +433,7 @@ const NounCanvas = () => {
 export default NounCanvas;
 
 const preloadAllAssets = () => {
-  data.tempHeads.forEach((headData) => {
+  data.head.forEach((headData) => {
     useGLTF.preload(`/headModels/${headData.filePath}`);
   });
 

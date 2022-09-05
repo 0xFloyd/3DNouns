@@ -16,14 +16,7 @@ import LoadingNounImage from '../assets/images/loadingNounImage.jpg';
 const defaultDataInterpolation = (p) => `Loading 3D Nouns ${p.toFixed()}%`;
 
 const InitialLoader = React.memo(
-  ({
-    containerStyles,
-    innerStyles,
-    barStyles,
-    dataStyles,
-    dataInterpolation = defaultDataInterpolation,
-    initialState = (active) => active,
-  }) => {
+  ({ containerStyles, innerStyles, barStyles, dataStyles, dataInterpolation = defaultDataInterpolation, initialState = (active) => active }) => {
     const { active, progress } = useProgress();
     const progressRef = React.useRef(0);
     const rafRef = React.useRef(0);
@@ -39,13 +32,9 @@ const InitialLoader = React.memo(
     const updateProgress = React.useCallback(() => {
       if (!progressSpanRef.current) return;
       progressRef.current += (progress - progressRef.current) / 2;
-      if (progressRef.current > 0.95 * progress || progress === 100)
-        progressRef.current = progress;
-      progressSpanRef.current.innerText = dataInterpolation(
-        progressRef.current
-      );
-      if (progressRef.current < progress)
-        rafRef.current = requestAnimationFrame(updateProgress);
+      if (progressRef.current > 0.95 * progress || progress === 100) progressRef.current = progress;
+      progressSpanRef.current.innerText = dataInterpolation(progressRef.current);
+      if (progressRef.current < progress) rafRef.current = requestAnimationFrame(updateProgress);
     }, [dataInterpolation, progress]);
 
     React.useEffect(() => {
@@ -54,34 +43,25 @@ const InitialLoader = React.memo(
     }, [updateProgress]);
 
     return shown ? (
-      <div
-        style={{
-          ...styles.container,
-          opacity: active ? 1 : 0,
-          ...containerStyles,
-        }}
-      >
-        {/* <video preload={'auto'} style={{ height: '300px' }} muted loop autoPlay>
-          <source src={LoadingNoun} type="video/mp4" />
-        </video> */}
-        <img src={LoadingNounImage} style={{ height: '300px' }} alt="Noun" />
-        <div>
-          <div style={{ ...styles.inner, ...innerStyles }}>
-            <div
-              style={{
-                ...styles.bar,
-                transform: `scaleX(${progress / 100})`,
-                ...barStyles,
-              }}
-            ></div>
-            <span
-              ref={progressSpanRef}
-              style={{ ...styles.data, ...dataStyles }}
-            />
-          </div>
+      // <div
+      //   style={{
+      //     ...styles.container,
+      //     opacity: active ? 1 : 0,
+      //     ...containerStyles,
+      //   }}>
+      <div>
+        <div style={{ ...styles.inner, ...innerStyles }}>
+          <div
+            style={{
+              ...styles.bar,
+              transform: `scaleX(${progress / 100})`,
+              ...barStyles,
+            }}></div>
+          <span ref={progressSpanRef} style={{ ...styles.data, ...dataStyles }} />
         </div>
       </div>
-    ) : null;
+    ) : /* </div> */
+    null;
   }
 );
 
@@ -106,7 +86,7 @@ const styles = {
     height: 3,
     background: '#272727',
     textAlign: 'center',
-    width: '50vw',
+    width: '100%',
   },
   bar: {
     width: '100%',
@@ -114,7 +94,7 @@ const styles = {
     transition: 'transform 200ms',
     transformOrigin: 'left center',
     height: '20px',
-    maxWidth: '50vw',
+    maxWidth: '100%',
   },
   data: {
     display: 'inline-block',

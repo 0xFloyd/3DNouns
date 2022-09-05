@@ -55,10 +55,7 @@ const Menu = ({
 
   return (
     <>
-      <div
-        className={isDesktop ? 'options-container' : 'mobile-menu-container'}
-        style={{ display: optionsVisibility }}
-      >
+      <div className={isDesktop ? 'options-container' : 'mobile-menu-container'} style={{ display: optionsVisibility }}>
         {optionsVisibility === 'block' ? (
           <Container>
             <Row>
@@ -66,11 +63,7 @@ const Menu = ({
                 <p style={{ fontSize: '1.2rem' }}>Build your Noun!</p>
               </Col>
               <Col xs={{ span: 2 }}>
-                <span
-                  className="menu-x-button"
-                  onClick={() => setOptionsVisibility('none')}
-                  style={{ textAlign: 'right', fontSize: '1.2em' }}
-                >
+                <span className="menu-x-button" onClick={() => setOptionsVisibility('none')} style={{ textAlign: 'right', fontSize: '1.2em' }}>
                   ❌
                 </span>
               </Col>
@@ -78,10 +71,7 @@ const Menu = ({
           </Container>
         ) : null}
 
-        <div
-          className="options-controls"
-          style={{ display: optionsVisibility }}
-        >
+        <div className="options-controls" style={{ display: optionsVisibility }}>
           {/* <h3 className="white-font attribute-label" style={{ textAlign: 'center' }}>
             Settings
           </h3> */}
@@ -92,27 +82,18 @@ const Menu = ({
               <Col xs={12} className="attribute-column">
                 <button
                   onClick={() => {
-                    setHead(
-                      data.tempHeads[
-                        Math.floor(Math.random() * data.tempHeads.length)
-                      ].name
-                    );
+                    setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
                     throttleClicks();
                   }}
                   disabled={disabledButtonState}
-                  className="no-style-button"
-                >
+                  className="no-style-button">
                   <FiRefreshCw
                     size={30}
-                    className={
-                      disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
-                    }
+                    className={disabledButtonState ? 'disabled-random-trait-icon' : 'random-trait-icon'}
                     // onClick={() =>
                     //   setHead(
-                    //     data.tempHeads[
-                    //       Math.floor(Math.random() * data.tempHeads.length)
+                    //     data.head[
+                    //       Math.floor(Math.random() * data.head.length)
                     //     ].name
                     //   )
                     // }
@@ -124,12 +105,8 @@ const Menu = ({
                     <span className="trait-divider"></span>
                   </label>
 
-                  <select
-                    value={head}
-                    onChange={(e) => setHead(e.target.value)}
-                    className="trait-select-box"
-                  >
-                    {data.tempHeads.map((head) => (
+                  <select value={head} onChange={(e) => setHead(e.target.value)} className="trait-select-box">
+                    {data.head.map((head) => (
                       <option key={head.value} value={head.name}>
                         {head.name}
                       </option>
@@ -156,35 +133,19 @@ const Menu = ({
               <Col xs={12} className="attribute-column">
                 <button
                   onClick={() => {
-                    setGlasses(
-                      data.glasses[
-                        Math.floor(Math.random() * data.glasses.length)
-                      ].value
-                    );
+                    setGlasses(data.glasses[Math.floor(Math.random() * data.glasses.length)].value);
                     throttleClicks();
                   }}
                   disabled={disabledButtonState}
-                  className="no-style-button"
-                >
-                  <FiRefreshCw
-                    size={30}
-                    className={
-                      disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
-                    }
-                  />{' '}
+                  className="no-style-button">
+                  <FiRefreshCw size={30} className={disabledButtonState ? 'disabled-random-trait-icon' : 'random-trait-icon'} />{' '}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
                     Glasses<span className="trait-divider"></span>
                   </label>
 
-                  <select
-                    value={glasses}
-                    onChange={(e) => setGlasses(e.target.value)}
-                    className="trait-select-box"
-                  >
+                  <select value={glasses} onChange={(e) => setGlasses(e.target.value)} className="trait-select-box">
                     {data.glasses.map((glasses) => (
                       <option key={glasses.value} value={glasses.value}>
                         {glasses.name}
@@ -201,33 +162,18 @@ const Menu = ({
               <Col xs={12} className="attribute-column">
                 <button
                   onClick={() => {
-                    setBody(
-                      data.body[Math.floor(Math.random() * data.body.length)]
-                        .name
-                    );
+                    setBody(data.body[Math.floor(Math.random() * data.body.length)].name);
                     throttleClicks();
                   }}
                   disabled={disabledButtonState}
-                  className="no-style-button"
-                >
-                  <FiRefreshCw
-                    size={30}
-                    className={
-                      disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
-                    }
-                  />{' '}
+                  className="no-style-button">
+                  <FiRefreshCw size={30} className={disabledButtonState ? 'disabled-random-trait-icon' : 'random-trait-icon'} />{' '}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
                     Body<span className="trait-divider"></span>
                   </label>
-                  <select
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                    className="trait-select-box"
-                  >
+                  <select value={body} onChange={(e) => setBody(e.target.value)} className="trait-select-box">
                     {data.body.map((body, index) => (
                       <option key={index} value={body.name}>
                         {body.name}
@@ -243,35 +189,19 @@ const Menu = ({
               <Col xs={12} className="attribute-column">
                 <button
                   onClick={() => {
-                    setAccessory(
-                      data.tempAccessories[
-                        Math.floor(Math.random() * data.tempAccessories.length)
-                      ].name
-                    );
+                    setAccessory(data.accessory[Math.floor(Math.random() * data.accessory.length)].name);
                     throttleClicks();
                   }}
                   disabled={disabledButtonState}
-                  className="no-style-button"
-                >
-                  <FiRefreshCw
-                    size={30}
-                    className={
-                      disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
-                    }
-                  />{' '}
+                  className="no-style-button">
+                  <FiRefreshCw size={30} className={disabledButtonState ? 'disabled-random-trait-icon' : 'random-trait-icon'} />{' '}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
                     Accessory<span className="trait-divider"></span>
                   </label>
-                  <select
-                    value={accessory}
-                    onChange={(e) => setAccessory(e.target.value)}
-                    className="trait-select-box"
-                  >
-                    {data.tempAccessories.map((accessory, index) => (
+                  <select value={accessory} onChange={(e) => setAccessory(e.target.value)} className="trait-select-box">
+                    {data.accessory.map((accessory, index) => (
                       <option key={index} value={accessory.name}>
                         {accessory.name}
                       </option>
@@ -296,33 +226,18 @@ const Menu = ({
               <Col xs={12} className="attribute-column">
                 <button
                   onClick={() => {
-                    setPants(
-                      data.pants[Math.floor(Math.random() * data.pants.length)]
-                        .name
-                    );
+                    setPants(data.pants[Math.floor(Math.random() * data.pants.length)].name);
                     throttleClicks();
                   }}
                   disabled={disabledButtonState}
-                  className="no-style-button"
-                >
-                  <FiRefreshCw
-                    size={30}
-                    className={
-                      disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
-                    }
-                  />
+                  className="no-style-button">
+                  <FiRefreshCw size={30} className={disabledButtonState ? 'disabled-random-trait-icon' : 'random-trait-icon'} />
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
                     Pants<span className="trait-divider"></span>
                   </label>
-                  <select
-                    value={pants}
-                    onChange={(e) => setPants(e.target.value)}
-                    className="trait-select-box"
-                  >
+                  <select value={pants} onChange={(e) => setPants(e.target.value)} className="trait-select-box">
                     {data.pants.map((pants) => (
                       <option key={pants.value} value={pants.name}>
                         {pants.name}
@@ -337,34 +252,19 @@ const Menu = ({
               <Col xs={12} className="attribute-column">
                 <button
                   onClick={() => {
-                    setShoes(
-                      data.shoes[Math.floor(Math.random() * data.shoes.length)]
-                        .name
-                    );
+                    setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
                     throttleClicks();
                   }}
                   disabled={disabledButtonState}
-                  className="no-style-button"
-                >
-                  <FiRefreshCw
-                    size={30}
-                    className={
-                      disabledButtonState
-                        ? 'disabled-random-trait-icon'
-                        : 'random-trait-icon'
-                    }
-                  />{' '}
+                  className="no-style-button">
+                  <FiRefreshCw size={30} className={disabledButtonState ? 'disabled-random-trait-icon' : 'random-trait-icon'} />{' '}
                 </button>
                 <div className="trait-dropdown-container">
                   <label className="trait-select-box-label">
                     Shoes<span className="trait-divider"></span>
                   </label>
 
-                  <select
-                    value={shoes}
-                    onChange={(e) => setShoes(e.target.value)}
-                    className="trait-select-box"
-                  >
+                  <select value={shoes} onChange={(e) => setShoes(e.target.value)} className="trait-select-box">
                     {data.shoes.map((shoes) => (
                       <option key={shoes.value} value={shoes.name}>
                         {shoes.name}
@@ -382,11 +282,7 @@ const Menu = ({
                   <label className="trait-select-box-label">
                     World<span className="trait-divider"></span>
                   </label>
-                  <select
-                    value={environment}
-                    onChange={(e) => setEnvironment(e.target.value)}
-                    className="trait-select-box"
-                  >
+                  <select value={environment} onChange={(e) => setEnvironment(e.target.value)} className="trait-select-box">
                     {environmentAttributes.map((arrayValue) => (
                       <option key={arrayValue.value} value={arrayValue.value}>
                         {arrayValue.name}
@@ -416,13 +312,9 @@ const Menu = ({
                         setAnimationValue(e.target.value);
                       }
                     }}
-                    className="trait-select-box"
-                  >
+                    className="trait-select-box">
                     {data.animations.map((animationObj) => (
-                      <option
-                        key={animationObj.value}
-                        value={animationObj.name}
-                      >
+                      <option key={animationObj.value} value={animationObj.name}>
                         {animationObj.name}
                       </option>
                     ))}
@@ -439,11 +331,7 @@ const Menu = ({
                   <label className="trait-select-box-label">
                     Rotate<span className="trait-divider"></span>
                   </label>
-                  <select
-                    value={autoRotate}
-                    onChange={(e) => setAutoRotate(e.target.value)}
-                    className="trait-select-box"
-                  >
+                  <select value={autoRotate} onChange={(e) => setAutoRotate(e.target.value)} className="trait-select-box">
                     {rotateOptions.map((rotateObj, index) => (
                       <option key={index} value={rotateObj.value}>
                         {rotateObj.name}
@@ -466,8 +354,7 @@ const Menu = ({
                       generateRandomNoun();
                       throttleClicks();
                     }}
-                    disabled={disabledButtonState}
-                  >
+                    disabled={disabledButtonState}>
                     Random Noun
                   </button>
                 </Col>
@@ -489,8 +376,7 @@ const Menu = ({
                       setTimeout(() => {
                         downloadModel();
                       }, 1500);
-                    }}
-                  >
+                    }}>
                     Download Noun
                     {downloadingModel && <Spinner animation="border" />}
                   </button>
@@ -508,18 +394,13 @@ const Menu = ({
                   });
                 }}
                 disabled={disabledButtonState}
-                className="no-style-button"
-              >
-                {lockedTraits.head ? (
-                  <FiLock color={'red'} size={40} />
-                ) : (
-                  <FiUnlock color={'green'} size={40} />
-                )}
+                className="no-style-button">
+                {lockedTraits.head ? <FiLock color={'red'} size={40} /> : <FiUnlock color={'green'} size={40} />}
               </button>
               <div className="inline-select-wrap">
                 <label>Head</label>
                 <select value={head} className="trait-select">
-                  {data.tempHeads.map((head) => (
+                  {data.head.map((head) => (
                     <option key={head.value} value={head.name}>
                       {head.name}
                     </option>
@@ -528,11 +409,7 @@ const Menu = ({
               </div>
               <button
                 onClick={() => {
-                  setHead(
-                    data.tempHeads[
-                      Math.floor(Math.random() * data.tempHeads.length)
-                    ].name
-                  );
+                  setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
                   setLockedTraits({
                     ...lockedTraits,
                     head: false,
@@ -540,16 +417,8 @@ const Menu = ({
                   throttleClicks();
                 }}
                 disabled={disabledButtonState}
-                className="no-style-button"
-              >
-                <FiRefreshCw
-                  className={
-                    disabledButtonState
-                      ? 'disabled-random-trait-icon'
-                      : 'random-trait-icon'
-                  }
-                  size={30}
-                />
+                className="no-style-button">
+                <FiRefreshCw className={disabledButtonState ? 'disabled-random-trait-icon' : 'random-trait-icon'} size={30} />
               </button>
             </div>
             {/* END HEAD */}
@@ -565,15 +434,10 @@ const Menu = ({
                 generateRandomNoun();
                 throttleClicks();
               }}
-              disabled={disabledButtonState}
-            >
+              disabled={disabledButtonState}>
               Random Noun
             </button>
-            <button
-              onClick={() => setOptionsVisibility('block')}
-              className={'show-menu-button'}
-              style={{ marginLeft: '10px' }}
-            >
+            <button onClick={() => setOptionsVisibility('block')} className={'show-menu-button'} style={{ marginLeft: '10px' }}>
               Options
             </button>
           </>

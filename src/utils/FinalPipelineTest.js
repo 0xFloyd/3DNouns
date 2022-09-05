@@ -7,14 +7,7 @@ import * as THREE from 'three';
 import data from 'data.json';
 import BodyMesh from '../assets/Models/BodyMesh';
 
-export default function FINALBODY({
-  animationState,
-  animationValue,
-  pantsProp,
-  accessoryProp,
-  bodyProp,
-  shoeProp,
-}) {
+export default function FINALBODY({ animationState, animationValue, pantsProp, accessoryProp, bodyProp, shoeProp }) {
   const group = useRef();
   // const { nodes, materials, animations } = useGLTF(finalBody);
   // const { ref, mixer, names, actions } = useAnimations(animations, group);
@@ -56,7 +49,7 @@ export default function FINALBODY({
   // );
 
   // const [preLoadedAccessoryTextures, setPreLoadedAccessoryTextures] = useState(
-  //   data.tempAccessories.map((accessoryObj) => {
+  //   data.accessory.map((accessoryObj) => {
   //     let accessoryMaterial = useLoader(
   //       THREE.TextureLoader,
   //       `/textures/accessories/${accessoryObj.value}`
@@ -180,10 +173,7 @@ export const lookupBodyTexture = (bodyTextureParam, preLoadedBodyTextures) => {
   }
 };
 
-export const lookupAccessoryTexture = (
-  accessoryTextureParam,
-  preLoadedAccessoryTextures
-) => {
+export const lookupAccessoryTexture = (accessoryTextureParam, preLoadedAccessoryTextures) => {
   let result = preLoadedAccessoryTextures.find((obj) => {
     return obj.name === accessoryTextureParam;
   });
@@ -206,9 +196,7 @@ export const lookupShoeTexture = (shoeTextureParam, preLoadedShoeTextures) => {
 };
 
 export const lookupAnimation = (animationState) => {
-  let animationValue = data.animations.find(
-    (animation) => animation.name === animationState
-  );
+  let animationValue = data.animations.find((animation) => animation.name === animationState);
   if (animationValue) {
     return animationValue.value;
   } else {

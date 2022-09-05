@@ -1,5 +1,4 @@
-import NounCanvas from 'NounCanvas';
-import React, { useRef } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { useEffect, useState } from 'react';
 import { Col, Container, Dropdown, Navbar, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -9,6 +8,10 @@ import './styles/GlowButton.css';
 import { useProgress } from '@react-three/drei';
 import InitialLoader from 'components/InitialLoader';
 import HomePage from './HomePage';
+import NounCanvas from 'NounCanvas';
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+
+// const NounCanvas = React.lazy(() => import('./NounCanvas'));
 
 const deviceType = () => {
   const ua = navigator.userAgent;
@@ -20,35 +23,20 @@ const deviceType = () => {
   return 'desktop';
 };
 
+const client = new ApolloClient({
+  uri: 'https://api.thegraph.com/subgraphs/name/nounsdao/nouns-subgraph',
+  cache: new InMemoryCache(),
+});
+
 const App = () => {
-  const [head, setHead] = useState('rabbit'); //crab
-  const [glasses, setGlasses] = useState('orange'); //blue
-  const [body, setBody] = useState('purple'); //lightblue
-  const [pants, setPants] = useState('grey'); //black
-
-  const device = deviceType();
-
-  const [showSplashScreen, setShowSplashSscreen] = useState(true);
-
-  const [clicked, setClicked] = useState(false);
-  const [ready, setReady] = useState(false);
-
-  const loadScene = () => {
-    setClicked(true);
-    setTimeout(() => setReady(true), 3000);
-  };
-
-  const store = { clicked, setClicked, ready, setReady, loadScene };
-
-  const { active, progress, errors, item, loaded, total } = useProgress();
-
   return (
-    <div style={{ height: '100%' }}>
-      {/* <Navbar style={{ height: '80px' }} expand="lg">
+    <ApolloProvider client={client}>
+      <div style={{ height: '100%' }}>
+        {/* <Navbar style={{ height: '80px' }} expand="lg">
         <img className="nouns-logo" src={logo} alt="NOUNS" />
       </Navbar> */}
-      {/* <Row style={{ height: 'calc(100vh - 80px)' }}> */}
-      {/* <Row style={{ height: '100vh' }}>
+        {/* <Row style={{ height: 'calc(100vh - 80px)' }}> */}
+        {/* <Row style={{ height: '100vh' }}>
         <Col xs={2}>
           <div></div>
           <form>
@@ -71,22 +59,28 @@ const App = () => {
           </div>
         </Col>
       </Row> */}
-      {/* {!ready && (
+        {/* {!ready && (
         <div
           className={`splash-screen ${clicked ? " elementToFadeInAndOut" : ""}`}
         >
           <SplashScreen {...store} />
         </div>
       )} */}
-      <HomePage />
-      {/* <InitialLoader /> */}
+        <HomePage />
+        {/* <InitialLoader /> */}
+        {/* 
+      <div className="nouns-canvas">{loaded && <NounCanvas />}</div> */}
+        {/* <Suspense fallback={<div>Loading...</div>}> */}
+        <div className="nouns-canvas">
+          <NounCanvas />
+        </div>
+        {/* </Suspense> */}
 
-      <div className="nouns-canvas">{loaded && <NounCanvas />}</div>
-
-      {/* <div className="nouns-canvas">
+        {/* <div className="nouns-canvas">
         <NounCanvas autoRotate={autoRotate} setAutoRotate={setAutoRotate} />
       </div> */}
-    </div>
+      </div>
+    </ApolloProvider>
   );
 };
 

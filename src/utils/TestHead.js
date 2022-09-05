@@ -17,7 +17,7 @@ const TestHead = ({ headProp, glassesProp, animationState, animationValue, maste
     }
   }, [actions, names, animationState, animationValue]);
 
-  console.count('test head render');
+  // console.count('test head render');
 
   let glassesTest = useLoader(THREE.TextureLoader, `/textures/glasses/${glassesProp}`);
   glassesTest.flipY = false;

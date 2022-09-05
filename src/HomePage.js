@@ -5,7 +5,7 @@ import classes from './HomePage.module.css';
 import Accordion from 'react-bootstrap/Accordion';
 import Link from './components/Link';
 import './styles/HomePage.css';
-import headerImage from './assets/images/nounstown.png';
+import headerImage from './assets/images/nounstown.webp';
 import mobileHeadImage from './assets/images/mobile-toun.png';
 import CoralPicture from './assets/images/CoralOrcaProfilePicture400.jpg';
 import FloydPicture from './assets/images/FloydProfilePicture400.jpg';
@@ -13,15 +13,19 @@ import ThreeDNounsPicture from './assets/images/3DnounsProfilePicture.jpg';
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
 import { SiTwitter } from 'react-icons/si';
 import logo from './assets/images/3DNounsLogo.png';
-import nounsArmy from './assets/images/ArmyFooterLarge.jpg';
+import nounsArmy from './assets/images/ArmyFooterLarge.webp';
 import nounsHeart from './assets/images/nounsHeart.gif';
 import './index.css';
 import { BsDiscord } from 'react-icons/bs';
+import { useProgress } from '@react-three/drei';
+import Spinner from 'react-bootstrap/Spinner';
+import InitialLoader from 'components/InitialLoader';
 
 const HomePage = () => {
   const [hidePage, setHidePage] = useState(false);
-
   const [isFadingOut, setIsFadingOut] = useState(false);
+
+  const { active, progress, errors, item, loaded, total } = useProgress();
 
   const fadeOut = () => {
     setIsFadingOut(true);
@@ -70,9 +74,17 @@ const HomePage = () => {
             <h1 className="welcome-nounstoun">WELCOME TO NOUNSTOUN!</h1>
           </div>
           <div className="enter-container">
-            <button className="enter-button" onClick={() => fadeOut()}>
-              ENTER
-            </button>
+            {!loaded || progress !== 100 ? (
+              <InitialLoader />
+            ) : (
+              <button
+                style={{ flexDirection: 'row', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                className="enter-button"
+                disabled={!loaded || progress !== 100}
+                onClick={() => fadeOut()}>
+                {loaded && progress === 100 ? 'ENTER' : 'LOADING...'}
+              </button>
+            )}
           </div>
         </div>
         <Section fullWidth={false}>
@@ -81,10 +93,10 @@ const HomePage = () => {
               <h1 style={{ textAlign: 'center', color: '#d63c5e' }}>An Experiment in CC0 Avatars</h1>
               <p className={classes.genericText}>
                 3D NOUNS is a collection of composable characters turning{' '}
-                <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} /> pixel art into 3D avatars. Enter the generator
-                and test infinite possibilities with the randomize button or pick and choose your traits one by one. <br></br>Our goal is to bring 3D NOUNS to a
-                multitude of metaverse platforms and extend the nouns ecosystem to other creative fields like gaming, animation and many more! <br></br>3D Nouns were the
-                first community extension of the Nouns ecosystem and received funding from NounsDAO on September 2nd, 2021 under{' '}
+                <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} /> pixel art into 3D avatars. Enter the
+                generator and test infinite possibilities with the randomize button or pick and choose your traits one by one. <br></br>Our goal is to bring 3D
+                NOUNS to a multitude of metaverse platforms and extend the nouns ecosystem to other creative fields like gaming, animation and many more!{' '}
+                <br></br>3D Nouns were the first community extension of the Nouns ecosystem and received funding from NounsDAO on September 2nd, 2021 under{' '}
                 <Link text={'NounsDAO Proposal #2.'} url={'https://nouns.wtf/vote/2'} leavesPage={true} style={{ fontSize: '1.3rem' }} />
                 <br />
                 <br />
@@ -96,8 +108,8 @@ const HomePage = () => {
                   <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      All 3D Nouns are CC0 and can be used freely. Once you have customized your 3D noun, you can download it as a GLTF file and open 
-                      it within a 3D modeler like Blender, or import it to a motion capture library like Mixamo.
+                      All 3D Nouns are CC0 and can be used freely. Once you have customized your 3D noun, you can download it as a GLTF file and open it within
+                      a 3D modeler like Blender, or import it to a motion capture library like Mixamo.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -124,7 +136,14 @@ const HomePage = () => {
                   <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      We have some fun 3D Snapchat filters that you can check out <Link text={'here'} url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'} leavesPage={true} style={{ fontSize: '1.2rem' }} /> {` `}. More to come!
+                      We have some fun 3D Snapchat filters that you can check out{' '}
+                      <Link
+                        text={'here'}
+                        url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
+                        leavesPage={true}
+                        style={{ fontSize: '1.2rem' }}
+                      />{' '}
+                      {` `}. More to come!
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -145,7 +164,6 @@ const HomePage = () => {
                 </Accordion.Item>
 
                 <div className="profile-section-creators">
-
                   <div className="profile-individual-section">
                     <img className="profile-picture" src={CoralPicture} />
                     <p className="bio-header">Creator</p>
@@ -163,22 +181,16 @@ const HomePage = () => {
                       0xFloyd
                     </a>
                   </div>
-
-
-
                 </div>
-              
-                <div className="profile-individual-section "  >
 
-                <img className="profile-picture" src={ThreeDNounsPicture } />
                 <div className="profile-individual-section ">
+                  <img className="profile-picture" src={ThreeDNounsPicture} />
+                  <div className="profile-individual-section ">
                     <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
                     <a style={{ color: 'black' }} className="social-link" href="https://twitter.com/3dnouns" target="_blank">
                       3D Nouns Twitter
                     </a>
-                </div>
-
-
+                  </div>
 
                   <div className="profile-individual-section">
                     <BsDiscord className="twitter-logo" size={isDesktop ? 30 : 25} color="#5865F2" />
@@ -186,10 +198,7 @@ const HomePage = () => {
                       3D Nouns Discord
                     </a>
                   </div>
-
                 </div>
-         
-              
               </Accordion>
             </div>
           </Col>
@@ -198,7 +207,9 @@ const HomePage = () => {
           <img src={nounsArmy} className="footer-image" />
         </div>
         <div className="footer-info">
-          <p>nouns.wtf <img className="nouns-heart" src={nounsHeart}></img> by CoralOrca and 0xFloyd</p>
+          <p>
+            nouns.wtf <img className="nouns-heart" src={nounsHeart}></img> by CoralOrca and 0xFloyd
+          </p>
         </div>
       </div>
     </div>

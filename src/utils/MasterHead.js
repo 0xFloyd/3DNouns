@@ -1966,7 +1966,7 @@ useGLTF.preload('/pipeline1110/headAnim.glb');
   /* {allheadsState.length > 0 ? allheadsState : null} */
 }
 {
-  /* {data.tempHeads.map((headData, index) => (
+  /* {data.head.map((headData, index) => (
         <PlaceHolderHead
           currentHead={headProp}
           glassesProp={glassesTest}
@@ -2001,7 +2001,7 @@ useGLTF.preload('/pipeline1110/headAnim.glb');
 /*
     useEffect(() => {
       setAllHeadsState(
-        data.tempHeads.map((headData, index) => (
+        data.head.map((headData, index) => (
           <PlaceHolderHead
             currentHead={headProp}
             glassesProp={glassesTest}
@@ -2015,7 +2015,7 @@ useGLTF.preload('/pipeline1110/headAnim.glb');
       );
     }, []);
   
-    // const HeadComponents = data.tempHeads.map((headData, index) => {
+    // const HeadComponents = data.head.map((headData, index) => {
     //   return (
     //     <PlaceHolderHead
     //       currentHead={headProp}

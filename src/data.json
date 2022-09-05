@@ -5,370 +5,63 @@
     { "name": "Void Night", "value": "VoidNight" }
   ],
   "body": [
-    { "name": "Bege-Bsod", "value": "body-bege-bsod.png" },
-    { "name": "Bege-Crt", "value": "body-bege-crt.png" },
-    { "name": "Blue-Sky", "value": "body-blue-sky.png" },
-    { "name": "Bluegrey", "value": "body-bluegrey.png" },
-    { "name": "Cold", "value": "body-cold.png" },
-    { "name": "Computerblue", "value": "body-computerblue.png" },
-    { "name": "Darkbrown", "value": "body-darkbrown.png" },
-    { "name": "Darkpink", "value": "body-darkpink.png" },
-    { "name": "Foggrey", "value": "body-foggrey.png" },
-    { "name": "Gold", "value": "body-gold.png" },
-    { "name": "Grayscale-1", "value": "body-grayscale-1.png" },
-    { "name": "Grayscale-7", "value": "body-grayscale-7.png" },
-    { "name": "Grayscale-8", "value": "body-grayscale-8.png" },
-    { "name": "Grayscale-9", "value": "body-grayscale-9.png" },
-    { "name": "Green", "value": "body-green.png" },
-    { "name": "Gunk", "value": "body-gunk.png" },
-    { "name": "Hotbrown", "value": "body-hotbrown.png" },
-    { "name": "Magenta", "value": "body-magenta.png" },
-    { "name": "Orange-Yellow", "value": "body-orange-yellow.png" },
-    { "name": "Orange", "value": "body-orange.png" },
-    { "name": "Peachy-B", "value": "body-peachy-B.png" },
-    { "name": "Peachy-A", "value": "body-peachy-a.png" },
-    { "name": "Purple", "value": "body-purple.png" },
-    { "name": "Red", "value": "body-red.png" },
-    { "name": "Redpinkish", "value": "body-redpinkish.png" },
-    { "name": "Rust", "value": "body-rust.png" },
-    { "name": "Slimegreen", "value": "body-slimegreen.png" },
-    { "name": "Teal-Light", "value": "body-teal-light.png" },
-    { "name": "Teal", "value": "body-teal.png" },
-    { "name": "Yellow", "value": "body-yellow.png" }
-  ],
-  "accessory": [
-    { "name": "accessory-1n", "value": "accessory-1n.png" },
-    { "name": "accessory-aardvark", "value": "accessory-aardvark.png" },
-    { "name": "accessory-axe", "value": "accessory-axe.png" },
-    {
-      "name": "accessory-belly-chameleon",
-      "value": "accessory-belly-chameleon.png"
-    },
-    { "name": "accessory-bird-flying", "value": "accessory-bird-flying.png" },
-    { "name": "accessory-bird-side", "value": "accessory-bird-side.png" },
-    { "name": "accessory-bling-anchor", "value": "accessory-bling-anchor.png" },
-    { "name": "accessory-bling-anvil", "value": "accessory-bling-anvil.png" },
-    { "name": "accessory-bling-arrow", "value": "accessory-bling-arrow.png" },
-    { "name": "accessory-bling-cheese", "value": "accessory-bling-cheese.png" },
-    {
-      "name": "accessory-bling-gold-ingot",
-      "value": "accessory-bling-gold-ingot.png"
-    },
-    { "name": "accessory-bling-love", "value": "accessory-bling-love.png" },
-    { "name": "accessory-bling-mask", "value": "accessory-bling-mask.png" },
-    { "name": "accessory-bling-rings", "value": "accessory-bling-rings.png" },
-    {
-      "name": "accessory-bling-scissors",
-      "value": "accessory-bling-scissors.png"
-    },
-    {
-      "name": "accessory-body-gradient-checkerdisco",
-      "value": "accessory-body-gradient-checkerdisco.png"
-    },
-    {
-      "name": "accessory-body-gradient-dawn",
-      "value": "accessory-body-gradient-dawn.png"
-    },
-    {
-      "name": "accessory-body-gradient-dusk",
-      "value": "accessory-body-gradient-dusk.png"
-    },
-    {
-      "name": "accessory-body-gradient-glacier",
-      "value": "accessory-body-gradient-glacier.png"
-    },
-    {
-      "name": "accessory-body-gradient-ice",
-      "value": "accessory-body-gradient-ice.png"
-    },
-    {
-      "name": "accessory-body-gradient-pride",
-      "value": "accessory-body-gradient-pride.png"
-    },
-    {
-      "name": "accessory-body-gradient-redpink",
-      "value": "accessory-body-gradient-redpink.png"
-    },
-    {
-      "name": "accessory-body-gradient-sunset",
-      "value": "accessory-body-gradient-sunset.png"
-    },
-    { "name": "accessory-carrot", "value": "accessory-carrot.png" },
-    { "name": "accessory-chain-logo", "value": "accessory-chain-logo.png" },
-    { "name": "accessory-checker-RGB", "value": "accessory-checker-RGB.png" },
-    {
-      "name": "accessory-checker-bigwalk-blue-prime",
-      "value": "accessory-checker-bigwalk-blue-prime.png"
-    },
-    {
-      "name": "accessory-checker-bigwalk-greylight",
-      "value": "accessory-checker-bigwalk-greylight.png"
-    },
-    {
-      "name": "accessory-checker-bigwalk-rainbow",
-      "value": "accessory-checker-bigwalk-rainbow.png"
-    },
-    {
-      "name": "accessory-checker-spaced-black",
-      "value": "accessory-checker-spaced-black.png"
-    },
-    {
-      "name": "accessory-checker-spaced-white",
-      "value": "accessory-checker-spaced-white.png"
-    },
-    {
-      "name": "accessory-checker-vibrant",
-      "value": "accessory-checker-vibrant.png"
-    },
-    {
-      "name": "accessory-checkers-big-green",
-      "value": "accessory-checkers-big-green.png"
-    },
-    {
-      "name": "accessory-checkers-big-red-cold",
-      "value": "accessory-checkers-big-red-cold.png"
-    },
-    {
-      "name": "accessory-checkers-black",
-      "value": "accessory-checkers-black.png"
-    },
-    {
-      "name": "accessory-checkers-blue",
-      "value": "accessory-checkers-blue.png"
-    },
-    {
-      "name": "accessory-checkers-magenta-80",
-      "value": "accessory-checkers-magenta-80.png"
-    },
-    { "name": "accessory-chicken", "value": "accessory-chicken.png" },
-    { "name": "accessory-cloud", "value": "accessory-cloud.png" },
-    { "name": "accessory-clover", "value": "accessory-clover.png" },
-    {
-      "name": "accessory-collar-sunset",
-      "value": "accessory-collar-sunset.png"
-    },
-    { "name": "accessory-cow", "value": "accessory-cow.png" },
-    {
-      "name": "accessory-decay-gray-dark",
-      "value": "accessory-decay-gray-dark.png"
-    },
-    { "name": "accessory-decay-pride", "value": "accessory-decay-pride.png" },
-    { "name": "accessory-dinosaur", "value": "accessory-dinosaur.png" },
-    { "name": "accessory-dollar-bling", "value": "accessory-dollar-bling.png" },
-    { "name": "accessory-dragon", "value": "accessory-dragon.png" },
-    { "name": "accessory-ducky", "value": "accessory-ducky.png" },
-    { "name": "accessory-eth", "value": "accessory-eth.png" },
-    { "name": "accessory-eye", "value": "accessory-eye.png" },
-    { "name": "accessory-flash", "value": "accessory-flash.png" },
-    { "name": "accessory-fries", "value": "accessory-fries.png" },
-    {
-      "name": "accessory-glasses-logo-sun",
-      "value": "accessory-glasses-logo-sun.png"
-    },
-    { "name": "accessory-glasses-logo", "value": "accessory-glasses-logo.png" },
-    { "name": "accessory-glasses", "value": "accessory-glasses.png" },
-    {
-      "name": "accessory-grid-simple-bege",
-      "value": "accessory-grid-simple-bege.png"
-    },
-    { "name": "accessory-grease", "value": "accessory-grease.png" },
-    { "name": "accessory-heart", "value": "accessory-heart.png" },
-    {
-      "name": "accessory-hoodiestrings-uneven",
-      "value": "accessory-hoodiestrings-uneven.png"
-    },
-    { "name": "accessory-id", "value": "accessory-id.png" },
-    { "name": "accessory-infinity", "value": "accessory-infinity.png" },
-    { "name": "accessory-insignia", "value": "accessory-insignia.png" },
-    { "name": "accessory-leaf", "value": "accessory-leaf.png" },
-    { "name": "accessory-lightbulb", "value": "accessory-lightbulb.png" },
-    {
-      "name": "accessory-lines-45-greens",
-      "value": "accessory-lines-45-greens.png"
-    },
-    {
-      "name": "accessory-lines-45-rose",
-      "value": "accessory-lines-45-rose.png"
-    },
-    { "name": "accessory-lp", "value": "accessory-lp.png" },
-    { "name": "accessory-marsface", "value": "accessory-marsface.png" },
-    { "name": "accessory-matrix-white", "value": "accessory-matrix-white.png" },
-    { "name": "accessory-moon-block", "value": "accessory-moon-block.png" },
-    { "name": "accessory-none", "value": "accessory-none.png" },
-    { "name": "accessory-oldshirt", "value": "accessory-oldshirt.png" },
-    { "name": "accessory-pizza-bling", "value": "accessory-pizza-bling.png" },
-    {
-      "name": "accessory-pocket-pencil",
-      "value": "accessory-pocket-pencil.png"
-    },
-    { "name": "accessory-rain", "value": "accessory-rain.png" },
-    {
-      "name": "accessory-rainbow-steps",
-      "value": "accessory-rainbow-steps.png"
-    },
-    { "name": "accessory-rgb", "value": "accessory-rgb.png" },
-    { "name": "accessory-robot", "value": "accessory-robot.png" },
-    { "name": "accessory-safety-vest", "value": "accessory-safety-vest.png" },
-    { "name": "accessory-scarf-clown", "value": "accessory-scarf-clown.png" },
-    { "name": "accessory-secret-x", "value": "accessory-secret-x.png" },
-    { "name": "accessory-shirt-black", "value": "accessory-shirt-black.png" },
-    { "name": "accessory-shrimp", "value": "accessory-shrimp.png" },
-    { "name": "accessory-slimesplat", "value": "accessory-slimesplat.png" },
-    { "name": "accessory-small-bling", "value": "accessory-small-bling.png" },
-    { "name": "accessory-snowflake", "value": "accessory-snowflake.png" },
-    { "name": "accessory-stains-blood", "value": "accessory-stains-blood.png" },
-    {
-      "name": "accessory-stains-zombie",
-      "value": "accessory-stains-zombie.png"
-    },
-    {
-      "name": "accessory-stripes-and-checks",
-      "value": "accessory-stripes-and-checks.png"
-    },
-    {
-      "name": "accessory-stripes-big-red",
-      "value": "accessory-stripes-big-red.png"
-    },
-    { "name": "accessory-stripes-blit", "value": "accessory-stripes-blit.png" },
-    {
-      "name": "accessory-stripes-blue-med",
-      "value": "accessory-stripes-blue-med.png"
-    },
-    {
-      "name": "accessory-stripes-brown",
-      "value": "accessory-stripes-brown.png"
-    },
-    {
-      "name": "accessory-stripes-olive",
-      "value": "accessory-stripes-olive.png"
-    },
-    {
-      "name": "accessory-stripes-red-cold",
-      "value": "accessory-stripes-red-cold.png"
-    },
-    { "name": "accessory-sunset", "value": "accessory-sunset.png" },
-    { "name": "accessory-tatewaku", "value": "accessory-Tatewaku.png" },
-    {
-      "name": "accessory-taxi-checkers",
-      "value": "accessory-taxi-checkers.png"
-    },
-    { "name": "accessory-tee-yo", "value": "accessory-tee-yo.png" },
-    { "name": "accessory-text-yolo", "value": "accessory-text-yolo.png" },
-    { "name": "accessory-think", "value": "accessory-think.png" },
-    {
-      "name": "accessory-tie-black-on-white",
-      "value": "accessory-tie-black-on-white.png"
-    },
-    { "name": "accessory-tie-dye", "value": "accessory-tie-dye.png" },
-    {
-      "name": "accessory-tie-purple-on-white",
-      "value": "accessory-tie-purple-on-white.png"
-    },
-    { "name": "accessory-tie-red", "value": "accessory-tie-red.png" },
-    { "name": "accessory-txt-a2+b2", "value": "accessory-txt-a2+b2.png" },
-    { "name": "accessory-txt-cc", "value": "accessory-txt-cc.png" },
-    { "name": "accessory-txt-cc2", "value": "accessory-txt-cc2.png" },
-    { "name": "accessory-txt-copy", "value": "accessory-txt-copy.png" },
-    {
-      "name": "accessory-txt-dao-black",
-      "value": "accessory-txt-dao-black.png"
-    },
-    { "name": "accessory-txt-doom", "value": "accessory-txt-doom.png" },
-    {
-      "name": "accessory-txt-dope-text",
-      "value": "accessory-txt-dope-text.png"
-    },
-    {
-      "name": "accessory-txt-foo-black",
-      "value": "accessory-txt-foo-black.png"
-    },
-    { "name": "accessory-txt-ico", "value": "accessory-txt-ico.png" },
-    { "name": "accessory-txt-io", "value": "accessory-txt-io.png" },
-    { "name": "accessory-txt-lmao", "value": "accessory-txt-lmao.png" },
-    { "name": "accessory-txt-lol", "value": "accessory-txt-lol.png" },
-    { "name": "accessory-txt-mint", "value": "accessory-txt-mint.png" },
-    {
-      "name": "accessory-txt-nil-grey-dark",
-      "value": "accessory-txt-nil-grey-dark.png"
-    },
-    { "name": "accessory-txt-noun-f0f", "value": "accessory-txt-noun-f0f.png" },
-    {
-      "name": "accessory-txt-noun-green",
-      "value": "accessory-txt-noun-green.png"
-    },
-    {
-      "name": "accessory-txt-noun-multicolor",
-      "value": "accessory-txt-noun-multicolor.png"
-    },
-    { "name": "accessory-txt-noun", "value": "accessory-txt-noun.png" },
-    { "name": "accessory-txt-pi", "value": "accessory-txt-pi.png" },
-    { "name": "accessory-txt-pop", "value": "accessory-txt-pop.png" },
-    { "name": "accessory-txt-rofl", "value": "accessory-txt-rofl.png" },
-    { "name": "accessory-txt-we", "value": "accessory-txt-we.png" },
-    { "name": "accessory-txt-yay", "value": "accessory-txt-yay.png" },
-    { "name": "accessory-uroko", "value": "accessory-uroko.png" },
-    { "name": "accessory-wall", "value": "accessory-wall.png" },
-    { "name": "accessory-wave", "value": "accessory-wave.png" },
-    { "name": "accessory-wet-money", "value": "accessory-wet-money.png" },
-    {
-      "name": "accessory-woolweave-bicolor",
-      "value": "accessory-woolweave-bicolor.png"
-    },
-    {
-      "name": "accessory-woolweave-dirt",
-      "value": "accessory-woolweave-dirt.png"
-    },
-    { "name": "accessory-yingyang", "value": "accessory-yingyang.png" },
-    { "name": "body-bege", "value": "body-bege.png" },
-    { "name": "body-gray-scale-1", "value": "body-gray-scale-1.png" },
-    { "name": "body-gray-scale-9", "value": "body-gray-scale-9.png" },
-    { "name": "body-ice-cold", "value": "body-ice-cold.png" }
+    { "name": "Bege-Bsod", "value": "body-bege-bsod.png", "trait": "body-bege-bsod", "id": "0" },
+    { "name": "Bege-Crt", "value": "body-bege-crt.png", "trait": "body-bege-crt", "id": "1" },
+    { "name": "Blue-Sky", "value": "body-blue-sky.png", "trait": "body-blue-sky", "id": "2" },
+    { "name": "Bluegrey", "value": "body-bluegrey.png", "trait": "body-bluegrey", "id": "3" },
+    { "name": "Cold", "value": "body-cold.png", "trait": "body-cold", "id": "4" },
+    { "name": "Computerblue", "value": "body-computerblue.png", "trait": "body-computerblue", "id": "5" },
+    { "name": "Darkbrown", "value": "body-darkbrown.png", "trait": "body-darkbrown", "id": "6" },
+    { "name": "Darkpink", "value": "body-darkpink.png", "trait": "body-darkpink", "id": "7" },
+    { "name": "Foggrey", "value": "body-foggrey.png", "trait": "body-foggrey", "id": "8" },
+    { "name": "Gold", "value": "body-gold.png", "trait": "body-gold", "id": "9" },
+    { "name": "Grayscale-1", "value": "body-grayscale-1.png", "trait": "body-grayscale-1", "id": "10" },
+    { "name": "Grayscale-7", "value": "body-grayscale-7.png", "trait": "body-grayscale-7", "id": "11" },
+    { "name": "Grayscale-8", "value": "body-grayscale-8.png", "trait": "body-grayscale-8", "id": "12" },
+    { "name": "Grayscale-9", "value": "body-grayscale-9.png", "trait": "body-grayscale-9", "id": "13" },
+    { "name": "Green", "value": "body-green.png", "trait": "body-green", "id": "14" },
+    { "name": "Gunk", "value": "body-gunk.png", "trait": "body-gunk", "id": "15" },
+    { "name": "Hotbrown", "value": "body-hotbrown.png", "trait": "body-hotbrown", "id": "16" },
+    { "name": "Magenta", "value": "body-magenta.png", "trait": "body-magenta", "id": "17" },
+    { "name": "Orange-Yellow", "value": "body-orange-yellow.png", "trait": "body-orange-yellow", "id": "18" },
+    { "name": "Orange", "value": "body-orange.png", "trait": "body-orange", "id": "19" },
+    { "name": "Peachy-B", "value": "body-peachy-B.png", "trait": "body-peachy-B", "id": "20" },
+    { "name": "Peachy-A", "value": "body-peachy-a.png", "trait": "body-peachy-a", "id": "21" },
+    { "name": "Purple", "value": "body-purple.png", "trait": "body-purple", "id": "22" },
+    { "name": "Red", "value": "body-red.png", "trait": "body-red", "id": "23" },
+    { "name": "Redpinkish", "value": "body-redpinkish.png", "trait": "body-redpinkish", "id": "24" },
+    { "name": "Rust", "value": "body-rust.png", "trait": "body-rust", "id": "25" },
+    { "name": "Slimegreen", "value": "body-slimegreen.png", "trait": "body-slimegreen", "id": "26" },
+    { "name": "Teal-Light", "value": "body-teal-light.png", "trait": "body-teal-light", "id": "27" },
+    { "name": "Teal", "value": "body-teal.png", "trait": "body-teal", "id": "28" },
+    { "name": "Yellow", "value": "body-yellow.png", "trait": "body-yellow", "id": "29" }
   ],
   "glasses": [
-    { "name": "Black-Eyes-Red", "value": "glasses-square-black-eyes-red.png" },
-    { "name": "Black-Rgb", "value": "glasses-square-black-rgb.png" },
-    { "name": "Black", "value": "glasses-square-black.png" },
-    {
-      "name": "Blue-Med-Saturated",
-      "value": "glasses-square-blue-med-saturated.png"
-    },
-    { "name": "Blue", "value": "glasses-square-blue.png" },
-    { "name": "Frog-Green", "value": "glasses-square-frog-green.png" },
-    { "name": "Fullblack", "value": "glasses-square-fullblack.png" },
-    {
-      "name": "Green-Blue-Multi",
-      "value": "glasses-square-green-blue-multi.png"
-    },
-    { "name": "Grey-Light", "value": "glasses-square-grey-light.png" },
-    { "name": "Guava", "value": "glasses-square-guava.png" },
-    { "name": "Hip-Rose", "value": "glasses-square-hip-rose.png" },
-    { "name": "Honey", "value": "glasses-square-honey.png" },
-    { "name": "Magenta", "value": "glasses-square-magenta.png" },
-    { "name": "Orange-Multi", "value": "glasses-square-orange-multi.png" },
-    { "name": "Orange", "value": "glasses-square-orange.png" },
-    {
-      "name": "Pink-Purple-Multi",
-      "value": "glasses-square-pink-purple-multi.png"
-    },
-    { "name": "Red", "value": "glasses-square-red.png" },
-    { "name": "Smoke", "value": "glasses-square-smoke.png" },
-    { "name": "Teal", "value": "glasses-square-teal.png" },
-    { "name": "Watermelon", "value": "glasses-square-watermelon.png" },
-    {
-      "name": "Yellow-Saturated",
-      "value": "glasses-square-yellow-saturated.png"
-    },
-    { "name": "Grass", "value": "glasses-square-grass.png" },
-    { "name": "Deep-Teal", "value": "glasses-square-deep-teal.png" },
-    {
-      "name": "3D-Black",
-      "value": "glasses-3D.png"
-    },
-    {
-      "name": "3D-Black",
-      "value": "glasses-3D-Black.png"
-    }
-    
+    { "name": "Hip-Rose", "value": "glasses-hip-rose.png", "trait": "glasses-hip-rose", "id": "0" },
+    { "name": "Square-Black-Eyes-Red", "value": "glasses-square-black-eyes-red.png", "trait": "glasses-square-black-eyes-red", "id": "1" },
+    { "name": "Square-Black-Rgb", "value": "glasses-square-black-rgb.png", "trait": "glasses-square-black-rgb", "id": "2" },
+    { "name": "Square-Black", "value": "glasses-square-black.png", "trait": "glasses-square-black", "id": "3" },
+    { "name": "Square-Blue-Med-Saturated", "value": "glasses-square-blue-med-saturated.png", "trait": "glasses-square-blue-med-saturated", "id": "4" },
+    { "name": "Square-Blue", "value": "glasses-square-blue.png", "trait": "glasses-square-blue", "id": "5" },
+    { "name": "Square-Frog-Green", "value": "glasses-square-frog-green.png", "trait": "glasses-square-frog-green", "id": "6" },
+    { "name": "Square-Fullblack", "value": "glasses-square-fullblack.png", "trait": "glasses-square-fullblack", "id": "7" },
+    { "name": "Square-Green-Blue-Multi", "value": "glasses-square-green-blue-multi.png", "trait": "glasses-square-green-blue-multi", "id": "8" },
+    { "name": "Square-Grey-Light", "value": "glasses-square-grey-light.png", "trait": "glasses-square-grey-light", "id": "9" },
+    { "name": "Square-Guava", "value": "glasses-square-guava.png", "trait": "glasses-square-guava", "id": "10" },
+    { "name": "Square-Honey", "value": "glasses-square-honey.png", "trait": "glasses-square-honey", "id": "11" },
+    { "name": "Square-Magenta", "value": "glasses-square-magenta.png", "trait": "glasses-square-magenta", "id": "12" },
+    { "name": "Square-Orange", "value": "glasses-square-orange.png", "trait": "glasses-square-orange", "id": "13" },
+    { "name": "Square-Pink-Purple-Multi", "value": "glasses-square-pink-purple-multi.png", "trait": "glasses-square-pink-purple-multi", "id": "14" },
+    { "name": "Square-Red", "value": "glasses-square-red.png", "trait": "glasses-square-red", "id": "15" },
+    { "name": "Square-Smoke", "value": "glasses-square-smoke.png", "trait": "glasses-square-smoke", "id": "16" },
+    { "name": "Square-Teal", "value": "glasses-square-teal.png", "trait": "glasses-square-teal", "id": "17" },
+    { "name": "Square-Watermelon", "value": "glasses-square-watermelon.png", "trait": "glasses-square-watermelon", "id": "18" },
+    { "name": "Square-Yellow-Orange-Multi", "value": "glasses-square-yellow-orange-multi.png", "trait": "glasses-square-yellow-orange-multi", "id": "19" },
+    { "name": "Square-Yellow-Saturated", "value": "glasses-square-yellow-saturated.png", "trait": "glasses-square-yellow-saturated", "id": "20" },
+    { "name": "Deep-Teal", "value": "glasses-deep-teal.png", "trait": "glasses-deep-teal", "id": "21" },
+    { "name": "Grass", "value": "glasses-grass.png", "trait": "glasses-grass", "id": "22" },
+    { "name": "3D", "value": "glasses-3D.png", "trait": "glasses-3d", "id": "10000" },
+    { "name": "3D-Black", "value": "glasses-3D-Black.png", "trait": "glasses-3d-black", "id": "10001" }
   ],
   "pants": [
     { "name": "Bege-Bsod", "value": "pants-bege-bsod.png" },
@@ -433,1909 +126,573 @@
     { "name": "tpose", "index": 7, "value": 7 }
   ],
 
-  "tempAccessories": [
-    { "name": "1N", "value": "accessory-1n.png" },
-    { "name": "Aardvark", "value": "accessory-aardvark.png" },
-    { "name": "Axe", "value": "accessory-axe.png" },
-    { "name": "Belly-Chameleon", "value": "accessory-belly-chameleon.png" },
-    { "name": "Bird-Flying", "value": "accessory-bird-flying.png" },
-    { "name": "Bird-Side", "value": "accessory-bird-side.png" },
-    { "name": "Blind-Anchor", "value": "accessory-blind-anchor.png" },
-    { "name": "Bling-Anvil", "value": "accessory-bling-anvil.png" },
-    { "name": "Bling-Arrow", "value": "accessory-bling-arrow.png" },
-    { "name": "Bling-Cheese", "value": "accessory-bling-cheese.png" },
-    { "name": "Bling-Gold-Ingot", "value": "accessory-bling-gold-ingot.png" },
-    { "name": "Bling-Love", "value": "accessory-bling-love.png" },
-    { "name": "Bling-Mask", "value": "accessory-bling-mask.png" },
-    { "name": "Bling-Ring", "value": "accessory-bling-ring.png" },
-    { "name": "Bling-Scissors", "value": "accessory-bling-scissors.png" },
-    { "name": "Bling-Sparkles", "value": "accessory-bling-sparkles.png" },
-    {
-      "name": "Body-Gradient-Checkerdisco",
-      "value": "accessory-body-gradient-checkerdisco.png"
-    },
-    {
-      "name": "Body-Gradient-Dawn",
-      "value": "accessory-body-gradient-dawn.png"
-    },
-    {
-      "name": "Body-Gradient-Dusk",
-      "value": "accessory-body-gradient-dusk.png"
-    },
-    {
-      "name": "Body-Gradient-Glacier",
-      "value": "accessory-body-gradient-glacier.png"
-    },
-    { "name": "Body-Gradient-Ice", "value": "accessory-body-gradient-ice.png" },
-    {
-      "name": "Body-Gradient-Pride",
-      "value": "accessory-body-gradient-pride.png"
-    },
-    {
-      "name": "Body-Gradient-Redpink",
-      "value": "accessory-body-gradient-redpink.png"
-    },
-    {
-      "name": "Body-Gradient-Sunset",
-      "value": "accessory-body-gradient-sunset.png"
-    },
-    { "name": "Carrot", "value": "accessory-carrot.png" },
-    { "name": "Chain", "value": "accessory-chain.png" },
-    {
-      "name": "Checker-Bigwalk-Blue-Prime",
-      "value": "accessory-checker-bigwalk-blue-prime.png"
-    },
-    {
-      "name": "Checker-Bigwalk-Greylight",
-      "value": "accessory-checker-bigwalk-greylight.png"
-    },
-    {
-      "name": "Checker-Bigwalk-Rainbow",
-      "value": "accessory-checker-bigwalk-rainbow.png"
-    },
-    { "name": "Checker-Rgb", "value": "accessory-checker-RGB.png" },
-    {
-      "name": "Checkers-Big-Green",
-      "value": "accessory-checkers-big-green.png"
-    },
-    {
-      "name": "Checkers-Big-Red-Cold",
-      "value": "accessory-checkers-big-red-cold.png"
-    },
-    {
-      "name": "Checkers-Black",
-      "value": "accessory-checkers-black.png"
-    },
-    { "name": "Checkers-Blue", "value": "accessory-checkers-blue.png" },
-    { "name": "Checkers-Magenta", "value": "accessory-checkers-magenta.png" },
-    {
-      "name": "Checkers-Spaced-Black",
-      "value": "accessory-checkers-spaced-black.png"
-    },
-    {
-      "name": "Checkers-Spaced-White",
-      "value": "accessory-checkers-spaced-white.png"
-    },
-    { "name": "Checkers-Vibrant", "value": "accessory-checkers-vibrant.png" },
-    { "name": "Chicken", "value": "accessory-chicken.png" },
-    { "name": "Cloud", "value": "accessory-cloud.png" },
-    { "name": "Clover", "value": "accessory-clover.png" },
-    { "name": "Collar-Sunset", "value": "accessory-collar-sunset.png" },
-    { "name": "Cow", "value": "accessory-cow.png" },
-    { "name": "Decay-Gray-Dark", "value": "accessory-decay-gray-dark.png" },
-    { "name": "Decay-Pride", "value": "accessory-decay-pride.png" },
-    { "name": "Dinosaur", "value": "accessory-dinosaur.png" },
-    { "name": "Dollar-Bling", "value": "accessory-dollar-bling.png" },
-    { "name": "Dragon", "value": "accessory-dragon.png" },
-    { "name": "Ducky", "value": "accessory-ducky.png" },
-    { "name": "Eth", "value": "accessory-eth.png" },
-    { "name": "Eye", "value": "accessory-eye.png" },
-    { "name": "Flash", "value": "accessory-flash.png" },
-    { "name": "Fries", "value": "accessory-fries.png" },
-    { "name": "Glasses-Logo-Sun", "value": "accessory-glasses-logo-sun.png" },
-    { "name": "Glasses-Logo", "value": "accessory-glasses-logo.png" },
-    { "name": "Glasses", "value": "accessory-glasses.png" },
-    { "name": "Grid-Simple-Beige", "value": "accessory-grid-simple-beige.png" },
-    { "name": "Grease", "value": "accessory-grease.png" },
-    { "name": "Heart", "value": "accessory-heart.png" },
-    {
-      "name": "Hoodiestrings-Uneven",
-      "value": "accessory-hoodiestrings-uneven.png"
-    },
-    { "name": "Id", "value": "accessory-id.png" },
-    { "name": "Infinity", "value": "accessory-infinity.png" },
-    { "name": "Insignia", "value": "accessory-insignia.png" },
-    { "name": "Leaf", "value": "accessory-leaf.png" },
-    { "name": "Lightbulb", "value": "accessory-lightbulb.png" },
-    { "name": "Lines-45-Greens", "value": "accessory-lines-45-greens.png" },
-    { "name": "Lines-45-Rose", "value": "accessory-lines-45-rose.png" },
-    { "name": "Lp", "value": "accessory-lp.png" },
-    { "name": "Marsface", "value": "accessory-marsface.png" },
-    { "name": "Matrix", "value": "accessory-matrix.png" },
-    { "name": "Moon-Block", "value": "accessory-moon-block.png" },
-    { "name": "Oldshirt", "value": "accessory-oldshirt.png" },
-    { "name": "Pizza-Bling", "value": "accessory-pizza-bling.png" },
-    { "name": "Pocket-Pencil", "value": "accessory-pocket-pencil.png" },
-    { "name": "Rain", "value": "accessory-rain.png" },
-    { "name": "Rainbow-Steps", "value": "accessory-rainbow-steps.png" },
-    { "name": "Rgb", "value": "accessory-rgb.png" },
-    { "name": "Robot", "value": "accessory-robot.png" },
-    { "name": "Safety-Vest", "value": "accessory-safety-vest.png" },
-    { "name": "Scarf-Clown", "value": "accessory-scarf-clown.png" },
-    { "name": "Secret-X", "value": "accessory-secret-x.png" },
-    { "name": "Shirt-Black", "value": "accessory-shirt-black.png" },
-    { "name": "Shrimp", "value": "accessory-shrimp.png" },
-    { "name": "Slimesplat", "value": "accessory-slimesplat.png" },
-    { "name": "Small-Bling", "value": "accessory-small-bling.png" },
-    { "name": "Snowflake", "value": "accessory-snowflake.png" },
-    { "name": "Stains-Blood", "value": "accessory-stains-blood.png" },
-    { "name": "Stains-Zombie", "value": "accessory-stains-zombie.png" },
-    {
-      "name": "Stripes-And-Checks",
-      "value": "accessory-stripes-and-checks.png"
-    },
-    { "name": "Stripes-Big-Red", "value": "accessory-stripes-big-red.png" },
-    { "name": "Stripes-Blit", "value": "accessory-stripes-blit.png" },
-    { "name": "Stripes-Blue-Med", "value": "accessory-stripes-blue-med.png" },
-    { "name": "Stripes-Brown", "value": "accessory-stripes-brown.png" },
-    { "name": "Stripes-Olive", "value": "accessory-stripes-olive.png" },
-    { "name": "Stripes-Red-Cold", "value": "accessory-stripes-red-cold.png" },
-    { "name": "Sunset", "value": "accessory-sunset.png" },
-    { "name": "Tatewaku", "value": "accessory-tatewaku.png" },
-    { "name": "Taxi-Checkers", "value": "accessory-taxi-checkers.png" },
-    { "name": "Tee-Yo", "value": "accessory-tee-yo.png" },
-    { "name": "Text-Yolo", "value": "accessory-text-yolo.png" },
-    { "name": "Think", "value": "accessory-think.png" },
-    {
-      "name": "Tie-Black-On-White",
-      "value": "accessory-tie-black-on-white.png"
-    },
-    { "name": "Tie-Dye", "value": "accessory-tie-dye.png" },
-    {
-      "name": "Tie-Purple-On-White",
-      "value": "accessory-tie-purple-on-white.png"
-    },
-    { "name": "Tie-Red", "value": "accessory-tie-red.png" },
-    { "name": "Txt-A2+B2", "value": "accessory-txt-a2+b2.png" },
-    { "name": "Txt-Cc", "value": "accessory-txt-cc.png" },
-    { "name": "Txt-Cc2", "value": "accessory-txt-cc2.png" },
-    { "name": "Txt-Copy", "value": "accessory-txt-copy.png" },
-    { "name": "Txt-Dao", "value": "accessory-txt-dao.png" },
-    { "name": "Txt-Doom", "value": "accessory-txt-doom.png" },
-    { "name": "Txt-Dope-Text", "value": "accessory-txt-dope-text.png" },
-    { "name": "Txt-Foo-Black", "value": "accessory-txt-foo-black.png" },
-    { "name": "Txt-Ico", "value": "accessory-txt-ico.png" },
-    { "name": "Txt-Io", "value": "accessory-txt-io.png" },
-    { "name": "Txt-Lmao", "value": "accessory-txt-lmao.png" },
-    { "name": "Txt-Lol", "value": "accessory-txt-lol.png" },
-    { "name": "Txt-Mint", "value": "accessory-txt-mint.png" },
-    { "name": "Txt-Nil-Grey-Dark", "value": "accessory-txt-nil-grey-dark.png" },
-    { "name": "Txt-Noun", "value": "accessory-txt-noun-f0f.png" },
-    { "name": "Txt-Noun-Green", "value": "accessory-txt-noun-green.png" },
-    {
-      "name": "Txt-Noun-Multicolor",
-      "value": "accessory-txt-noun-multicolor.png"
-    },
-    { "name": "Txt-Noun", "value": "accessory-txt-noun.png" },
-    { "name": "Txt-Pi", "value": "accessory-txt-pi.png" },
-    { "name": "Txt-Pop", "value": "accessory-txt-pop.png" },
-    { "name": "Txt-Rofl", "value": "accessory-txt-rofl.png" },
-    { "name": "Txt-We", "value": "accessory-txt-we.png" },
-    { "name": "Txt-Yay", "value": "accessory-txt-yay.png" },
-    { "name": "Uroko", "value": "accessory-uroko.png" },
-    { "name": "Wall", "value": "accessory-wall.png" },
-    { "name": "Wave", "value": "accessory-wave.png" },
-    { "name": "Wet-Money", "value": "accessory-wet-money.png" },
-    { "name": "Woolweave-Bicolor", "value": "accessory-woolweave-bicolor.png" },
-    { "name": "Woolweave-Dirt", "value": "accessory-woolweave-dirt.png" },
-    { "name": "Yingyang", "value": "accessory-yingyang.png" },
-    { "name": "Body-Bege", "value": "body-bege.png" },
-    { "name": "Body-Gray-Scale-1", "value": "body-gray-scale-1.png" },
-    { "name": "Body-Gray-Scale-9", "value": "body-gray-scale-9.png" },
-    { "name": "Body-Ice-Cold", "value": "body-ice-cold.png" },
-    { "name": "None", "value": "none.png" }
+  "accessory": [
+    { "name": "1N", "value": "accessory-1n.png", "trait": "accessory-1n", "id": "0" },
+    { "name": "Aardvark", "value": "accessory-aardvark.png", "trait": "accessory-aardvark", "id": "1" },
+    { "name": "Axe", "value": "accessory-axe.png", "trait": "accessory-axe", "id": "2" },
+    { "name": "Belly-Chameleon", "value": "accessory-belly-chameleon.png", "trait": "accessory-belly-chameleon", "id": "3" },
+    { "name": "Bird-Flying", "value": "accessory-bird-flying.png", "trait": "accessory-bird-flying", "id": "4" },
+    { "name": "Bird-Side", "value": "accessory-bird-side.png", "trait": "accessory-bird-side", "id": "5" },
+    { "name": "Bling-Anchor", "value": "accessory-bling-anchor.png", "trait": "accessory-bling-anchor", "id": "6" },
+    { "name": "Bling-Anvil", "value": "accessory-bling-anvil.png", "trait": "accessory-bling-anvil", "id": "7" },
+    { "name": "Bling-Arrow", "value": "accessory-bling-arrow.png", "trait": "accessory-bling-arrow", "id": "8" },
+    { "name": "Bling-Cheese", "value": "accessory-bling-cheese.png", "trait": "accessory-bling-cheese", "id": "9" },
+    { "name": "Bling-Gold-Ingot", "value": "accessory-bling-gold-ingot.png", "trait": "accessory-bling-gold-ingot", "id": "10" },
+    { "name": "Bling-Love", "value": "accessory-bling-love.png", "trait": "accessory-bling-love", "id": "11" },
+    { "name": "Bling-Mask", "value": "accessory-bling-mask.png", "trait": "accessory-bling-mask", "id": "12" },
+    { "name": "Bling-Rings", "value": "accessory-bling-rings.png", "trait": "accessory-bling-rings", "id": "13" },
+    { "name": "Bling-Scissors", "value": "accessory-bling-scissors.png", "trait": "accessory-bling-scissors", "id": "14" },
+    { "name": "Bling-Sparkles", "value": "accessory-bling-sparkles.png", "trait": "accessory-bling-sparkles", "id": "15" },
+    { "name": "Body-Gradient-Checkerdisco", "value": "accessory-body-gradient-checkerdisco.png", "trait": "accessory-body-gradient-checkerdisco", "id": "16" },
+    { "name": "Body-Gradient-Dawn", "value": "accessory-body-gradient-dawn.png", "trait": "accessory-body-gradient-dawn", "id": "17" },
+    { "name": "Body-Gradient-Dusk", "value": "accessory-body-gradient-dusk.png", "trait": "accessory-body-gradient-dusk", "id": "18" },
+    { "name": "Body-Gradient-Glacier", "value": "accessory-body-gradient-glacier.png", "trait": "accessory-body-gradient-glacier", "id": "19" },
+    { "name": "Body-Gradient-Ice", "value": "accessory-body-gradient-ice.png", "trait": "accessory-body-gradient-ice", "id": "20" },
+    { "name": "Body-Gradient-Pride", "value": "accessory-body-gradient-pride.png", "trait": "accessory-body-gradient-pride", "id": "21" },
+    { "name": "Body-Gradient-Redpink", "value": "accessory-body-gradient-redpink.png", "trait": "accessory-body-gradient-redpink", "id": "22" },
+    { "name": "Body-Gradient-Sunset", "value": "accessory-body-gradient-sunset.png", "trait": "accessory-body-gradient-sunset", "id": "23" },
+    { "name": "Carrot", "value": "accessory-carrot.png", "trait": "accessory-carrot", "id": "24" },
+    { "name": "Chain-Logo", "value": "accessory-chain-logo.png", "trait": "accessory-chain-logo", "id": "25" },
+    { "name": "Checker-Rgb", "value": "accessory-checker-RGB.png", "trait": "accessory-checker-RGB", "id": "26" },
+    { "name": "Checker-Bigwalk-Blue-Prime", "value": "accessory-checker-bigwalk-blue-prime.png", "trait": "accessory-checker-bigwalk-blue-prime", "id": "27" },
+    { "name": "Checker-Bigwalk-Greylight", "value": "accessory-checker-bigwalk-greylight.png", "trait": "accessory-checker-bigwalk-greylight", "id": "28" },
+    { "name": "Checker-Bigwalk-Rainbow", "value": "accessory-checker-bigwalk-rainbow.png", "trait": "accessory-checker-bigwalk-rainbow", "id": "29" },
+    { "name": "Checker-Spaced-Black", "value": "accessory-checker-spaced-black.png", "trait": "accessory-checker-spaced-black", "id": "30" },
+    { "name": "Checker-Spaced-White", "value": "accessory-checker-spaced-white.png", "trait": "accessory-checker-spaced-white", "id": "31" },
+    { "name": "Checker-Vibrant", "value": "accessory-checker-vibrant.png", "trait": "accessory-checker-vibrant", "id": "32" },
+    { "name": "Checkers-Big-Green", "value": "accessory-checkers-big-green.png", "trait": "accessory-checkers-big-green", "id": "33" },
+    { "name": "Checkers-Big-Red-Cold", "value": "accessory-checkers-big-red-cold.png", "trait": "accessory-checkers-big-red-cold", "id": "34" },
+    { "name": "Checkers-Black", "value": "accessory-checkers-black.png", "trait": "accessory-checkers-black", "id": "35" },
+    { "name": "Checkers-Blue", "value": "accessory-checkers-blue.png", "trait": "accessory-checkers-blue", "id": "36" },
+    { "name": "Checkers-Magenta-80", "value": "accessory-checkers-magenta-80.png", "trait": "accessory-checkers-magenta-80", "id": "37" },
+    { "name": "Chicken", "value": "accessory-chicken.png", "trait": "accessory-chicken", "id": "38" },
+    { "name": "Cloud", "value": "accessory-cloud.png", "trait": "accessory-cloud", "id": "39" },
+    { "name": "Clover", "value": "accessory-clover.png", "trait": "accessory-clover", "id": "40" },
+    { "name": "Collar-Sunset", "value": "accessory-collar-sunset.png", "trait": "accessory-collar-sunset", "id": "41" },
+    { "name": "Cow", "value": "accessory-cow.png", "trait": "accessory-cow", "id": "42" },
+    { "name": "Decay-Gray-Dark", "value": "accessory-decay-gray-dark.png", "trait": "accessory-decay-gray-dark", "id": "43" },
+    { "name": "Decay-Pride", "value": "accessory-decay-pride.png", "trait": "accessory-decay-pride", "id": "44" },
+    { "name": "Dinosaur", "value": "accessory-dinosaur.png", "trait": "accessory-dinosaur", "id": "45" },
+    { "name": "Dollar-Bling", "value": "accessory-dollar-bling.png", "trait": "accessory-dollar-bling", "id": "46" },
+    { "name": "Dragon", "value": "accessory-dragon.png", "trait": "accessory-dragon", "id": "47" },
+    { "name": "Ducky", "value": "accessory-ducky.png", "trait": "accessory-ducky", "id": "48" },
+    { "name": "Eth", "value": "accessory-eth.png", "trait": "accessory-eth", "id": "49" },
+    { "name": "Eye", "value": "accessory-eye.png", "trait": "accessory-eye", "id": "50" },
+    { "name": "Flash", "value": "accessory-flash.png", "trait": "accessory-flash", "id": "51" },
+    { "name": "Fries", "value": "accessory-fries.png", "trait": "accessory-fries", "id": "52" },
+    { "name": "Glasses-Logo-Sun", "value": "accessory-glasses-logo-sun.png", "trait": "accessory-glasses-logo-sun", "id": "53" },
+    { "name": "Glasses-Logo", "value": "accessory-glasses-logo.png", "trait": "accessory-glasses-logo", "id": "54" },
+    { "name": "Glasses", "value": "accessory-glasses.png", "trait": "accessory-glasses", "id": "55" },
+    { "name": "Grid-Simple-Bege", "value": "accessory-grid-simple-bege.png", "trait": "accessory-grid-simple-bege", "id": "56" },
+    { "name": "Heart", "value": "accessory-heart.png", "trait": "accessory-heart", "id": "57" },
+    { "name": "Hoodiestrings-Uneven", "value": "accessory-hoodiestrings-uneven.png", "trait": "accessory-hoodiestrings-uneven", "id": "58" },
+    { "name": "Id", "value": "accessory-id.png", "trait": "accessory-id", "id": "59" },
+    { "name": "Infinity", "value": "accessory-infinity.png", "trait": "accessory-infinity", "id": "60" },
+    { "name": "Insignia", "value": "accessory-insignia.png", "trait": "accessory-insignia", "id": "61" },
+    { "name": "Leaf", "value": "accessory-leaf.png", "trait": "accessory-leaf", "id": "62" },
+    { "name": "Lightbulb", "value": "accessory-lightbulb.png", "trait": "accessory-lightbulb", "id": "63" },
+    { "name": "Lines-45-Greens", "value": "accessory-lines-45-greens.png", "trait": "accessory-lines-45-greens", "id": "64" },
+    { "name": "Lines-45-Rose", "value": "accessory-lines-45-rose.png", "trait": "accessory-lines-45-rose", "id": "65" },
+    { "name": "Lp", "value": "accessory-lp.png", "trait": "accessory-lp", "id": "66" },
+    { "name": "Marsface", "value": "accessory-marsface.png", "trait": "accessory-marsface", "id": "67" },
+    { "name": "Matrix-White", "value": "accessory-matrix-white.png", "trait": "accessory-matrix-white", "id": "68" },
+    { "name": "Moon-Block", "value": "accessory-moon-block.png", "trait": "accessory-moon-block", "id": "69" },
+    { "name": "None", "value": "accessory-none.png", "trait": "accessory-none", "id": "70" },
+    { "name": "Oldshirt", "value": "accessory-oldshirt.png", "trait": "accessory-oldshirt", "id": "71" },
+    { "name": "Pizza-Bling", "value": "accessory-pizza-bling.png", "trait": "accessory-pizza-bling", "id": "72" },
+    { "name": "Pocket-Pencil", "value": "accessory-pocket-pencil.png", "trait": "accessory-pocket-pencil", "id": "73" },
+    { "name": "Rain", "value": "accessory-rain.png", "trait": "accessory-rain", "id": "74" },
+    { "name": "Rainbow-Steps", "value": "accessory-rainbow-steps.png", "trait": "accessory-rainbow-steps", "id": "75" },
+    { "name": "Rgb", "value": "accessory-rgb.png", "trait": "accessory-rgb", "id": "76" },
+    { "name": "Robot", "value": "accessory-robot.png", "trait": "accessory-robot", "id": "77" },
+    { "name": "Safety-Vest", "value": "accessory-safety-vest.png", "trait": "accessory-safety-vest", "id": "78" },
+    { "name": "Scarf-Clown", "value": "accessory-scarf-clown.png", "trait": "accessory-scarf-clown", "id": "79" },
+    { "name": "Secret-X", "value": "accessory-secret-x.png", "trait": "accessory-secret-x", "id": "80" },
+    { "name": "Shirt-Black", "value": "accessory-shirt-black.png", "trait": "accessory-shirt-black", "id": "81" },
+    { "name": "Shrimp", "value": "accessory-shrimp.png", "trait": "accessory-shrimp", "id": "82" },
+    { "name": "Slimesplat", "value": "accessory-slimesplat.png", "trait": "accessory-slimesplat", "id": "83" },
+    { "name": "Small-Bling", "value": "accessory-small-bling.png", "trait": "accessory-small-bling", "id": "84" },
+    { "name": "Snowflake", "value": "accessory-snowflake.png", "trait": "accessory-snowflake", "id": "85" },
+    { "name": "Stains-Blood", "value": "accessory-stains-blood.png", "trait": "accessory-stains-blood", "id": "86" },
+    { "name": "Stains-Zombie", "value": "accessory-stains-zombie.png", "trait": "accessory-stains-zombie", "id": "87" },
+    { "name": "Stripes-And-Checks", "value": "accessory-stripes-and-checks.png", "trait": "accessory-stripes-and-checks", "id": "88" },
+    { "name": "Stripes-Big-Red", "value": "accessory-stripes-big-red.png", "trait": "accessory-stripes-big-red", "id": "89" },
+    { "name": "Stripes-Blit", "value": "accessory-stripes-blit.png", "trait": "accessory-stripes-blit", "id": "90" },
+    { "name": "Stripes-Blue-Med", "value": "accessory-stripes-blue-med.png", "trait": "accessory-stripes-blue-med", "id": "91" },
+    { "name": "Stripes-Brown", "value": "accessory-stripes-brown.png", "trait": "accessory-stripes-brown", "id": "92" },
+    { "name": "Stripes-Olive", "value": "accessory-stripes-olive.png", "trait": "accessory-stripes-olive", "id": "93" },
+    { "name": "Stripes-Red-Cold", "value": "accessory-stripes-red-cold.png", "trait": "accessory-stripes-red-cold", "id": "94" },
+    { "name": "Sunset", "value": "accessory-sunset.png", "trait": "accessory-sunset", "id": "95" },
+    { "name": "Taxi-Checkers", "value": "accessory-taxi-checkers.png", "trait": "accessory-taxi-checkers", "id": "96" },
+    { "name": "Tee-Yo", "value": "accessory-tee-yo.png", "trait": "accessory-tee-yo", "id": "97" },
+    { "name": "Text-Yolo", "value": "accessory-text-yolo.png", "trait": "accessory-text-yolo", "id": "98" },
+    { "name": "Think", "value": "accessory-think.png", "trait": "accessory-think", "id": "99" },
+    { "name": "Tie-Black-On-White", "value": "accessory-tie-black-on-white.png", "trait": "accessory-tie-black-on-white", "id": "100" },
+    { "name": "Tie-Dye", "value": "accessory-tie-dye.png", "trait": "accessory-tie-dye", "id": "101" },
+    { "name": "Tie-Purple-On-White", "value": "accessory-tie-purple-on-white.png", "trait": "accessory-tie-purple-on-white", "id": "102" },
+    { "name": "Tie-Red", "value": "accessory-tie-red.png", "trait": "accessory-tie-red", "id": "103" },
+    { "name": "Txt-A2+B2", "value": "accessory-txt-a2+b2.png", "trait": "accessory-txt-a2+b2", "id": "104" },
+    { "name": "Txt-Cc", "value": "accessory-txt-cc.png", "trait": "accessory-txt-cc", "id": "105" },
+    { "name": "Txt-Cc2", "value": "accessory-txt-cc2.png", "trait": "accessory-txt-cc2", "id": "106" },
+    { "name": "Txt-Copy", "value": "accessory-txt-copy.png", "trait": "accessory-txt-copy", "id": "107" },
+    { "name": "Txt-Dao-Black", "value": "accessory-txt-dao-black.png", "trait": "accessory-txt-dao-black", "id": "108" },
+    { "name": "Txt-Doom", "value": "accessory-txt-doom.png", "trait": "accessory-txt-doom", "id": "109" },
+    { "name": "Txt-Dope-Text", "value": "accessory-txt-dope-text.png", "trait": "accessory-txt-dope-text", "id": "110" },
+    { "name": "Txt-Foo-Black", "value": "accessory-txt-foo-black.png", "trait": "accessory-txt-foo-black", "id": "111" },
+    { "name": "Txt-Ico", "value": "accessory-txt-ico.png", "trait": "accessory-txt-ico", "id": "112" },
+    { "name": "Txt-Io", "value": "accessory-txt-io.png", "trait": "accessory-txt-io", "id": "113" },
+    { "name": "Txt-Lmao", "value": "accessory-txt-lmao.png", "trait": "accessory-txt-lmao", "id": "114" },
+    { "name": "Txt-Lol", "value": "accessory-txt-lol.png", "trait": "accessory-txt-lol", "id": "115" },
+    { "name": "Txt-Mint", "value": "accessory-txt-mint.png", "trait": "accessory-txt-mint", "id": "116" },
+    { "name": "Txt-Nil-Grey-Dark", "value": "accessory-txt-nil-grey-dark.png", "trait": "accessory-txt-nil-grey-dark", "id": "117" },
+    { "name": "Txt-Noun-F0F", "value": "accessory-txt-noun-f0f.png", "trait": "accessory-txt-noun-f0f", "id": "118" },
+    { "name": "Txt-Noun-Green", "value": "accessory-txt-noun-green.png", "trait": "accessory-txt-noun-green", "id": "119" },
+    { "name": "Txt-Noun-Multicolor", "value": "accessory-txt-noun-multicolor.png", "trait": "accessory-txt-noun-multicolor", "id": "120" },
+    { "name": "Txt-Noun", "value": "accessory-txt-noun.png", "trait": "accessory-txt-noun", "id": "121" },
+    { "name": "Txt-Pi", "value": "accessory-txt-pi.png", "trait": "accessory-txt-pi", "id": "122" },
+    { "name": "Txt-Pop", "value": "accessory-txt-pop.png", "trait": "accessory-txt-pop", "id": "123" },
+    { "name": "Txt-Rofl", "value": "accessory-txt-rofl.png", "trait": "accessory-txt-rofl", "id": "124" },
+    { "name": "Txt-We", "value": "accessory-txt-we.png", "trait": "accessory-txt-we", "id": "125" },
+    { "name": "Txt-Yay", "value": "accessory-txt-yay.png", "trait": "accessory-txt-yay", "id": "126" },
+    { "name": "Wall", "value": "accessory-wall.png", "trait": "accessory-wall", "id": "127" },
+    { "name": "Wave", "value": "accessory-wave.png", "trait": "accessory-wave", "id": "128" },
+    { "name": "Wet-Money", "value": "accessory-wet-money.png", "trait": "accessory-wet-money", "id": "129" },
+    { "name": "Woolweave-Bicolor", "value": "accessory-woolweave-bicolor.png", "trait": "accessory-woolweave-bicolor", "id": "130" },
+    { "name": "Woolweave-Dirt", "value": "accessory-woolweave-dirt.png", "trait": "accessory-woolweave-dirt", "id": "131" },
+    { "name": "Yingyang", "value": "accessory-yingyang.png", "trait": "accessory-yingyang", "id": "132" },
+    { "name": "Bege", "value": "body-bege.png", "trait": "body-bege", "id": "133" },
+    { "name": "Gray-Scale-1", "value": "body-gray-scale-1.png", "trait": "body-gray-scale-1", "id": "134" },
+    { "name": "Gray-Scale-9", "value": "body-gray-scale-9.png", "trait": "body-gray-scale-9", "id": "135" },
+    { "name": "Ice-Cold", "value": "body-ice-cold.png", "trait": "body-ice-cold", "id": "136" },
+    { "name": "Grease", "value": "accessory-grease.png", "trait": "accessory-grease", "id": "137" },
+    { "name": "Tatewaku", "value": "accessory-tatewaku.png", "trait": "accessory-tatewaku", "id": "138" },
+    { "name": "Uroko", "value": "accessory-uroko.png", "trait": "accessory-uroko", "id": "139" }
   ],
-  "tempHeads": [
+  "head": [
+    { "name": "Aardvark", "trait": "head-aardvark", "filePath": "HeadAardvark.glb", "componentName": "AardvarkHead", "color": "0xE8705B", "id": "0" },
+    { "name": "Abstract", "trait": "head-abstract", "filePath": "abstractHead.glb", "componentName": "AbstractHead", "color": "0x000000", "id": "1" },
+    { "name": "Ape", "trait": "head-ape", "filePath": "HeadApe.glb", "componentName": "ApeHead", "color": "0x6F597A", "id": "2" },
+    { "name": "Bag", "trait": "head-bag", "filePath": "HeadBag.glb", "componentName": "BagHead", "color": "0x5648ED", "id": "3" },
+    { "name": "Bagpipe", "trait": "head-bagpipe", "filePath": "HeadBagPipe.glb", "componentName": "BagpipeHead", "color": "0x68940", "id": "4" },
+    { "name": "Banana", "trait": "head-banana", "filePath": "HeadBanana.glb", "componentName": "BananaHead", "color": "0xFBC800", "id": "5" },
+    { "name": "Bank", "trait": "head-bank", "filePath": "HeadBank.glb", "componentName": "BankHead", "color": "0x62616D", "id": "6" },
     {
-      "name": "Aardvark",
-      "value": "head-Aardvark",
-      "filePath": "HeadAardvark.glb",
-      "componentName": "AardvarkHead",
-      "color": "0xE8705B"
-    },
-    {
-      "name": "Abstract",
-      "value": "head-Abstract",
-      "filePath": "abstractHead.glb",
-      "componentName": "AbstractHead",
-      "color": "0x000000"
-    },
-    {
-      "name": "Ape",
-      "value": "head-Ape",
-      "filePath": "HeadApe.glb",
-      "componentName": "ApeHead",
-      "color": "0x6F597A"
-    },
-    {
-      "name": "Bag",
-      "value": "head-Bag",
-      "filePath": "HeadBag.glb",
-      "componentName": "BagHead",
-      "color": "0x5648ED"
-    },
-    {
-      "name": "Bagpipe",
-      "value": "head-Bagpipe",
-      "filePath": "HeadBagPipe.glb",
-      "componentName": "BagpipeHead",
-      "color": "0x68940"
-    },
-    {
-      "name": "Banana",
-      "value": "head-Banana",
-      "filePath": "HeadBanana.glb",
-      "componentName": "BananaHead",
-      "color": "0xFBC800"
-    },
-    {
-      "name": "Bank",
-      "value": "head-Bank",
-      "filePath": "HeadBank.glb",
-      "componentName": "BankHead",
-      "color": "0x62616D"
-    },
-    {
-      "name": "Baseball",
-      "value": "head-Baseball",
+      "name": "Baseball-Gameball",
+      "trait": "head-baseball-gameball",
       "filePath": "HeadBaseball.glb",
       "componentName": "BaseballHead",
-      "color": "0xFFFDF2"
+      "color": "0xFFFDF2",
+      "id": "7"
     },
+    { "name": "Basketball", "trait": "head-basketball", "filePath": "HeadBasketball.glb", "componentName": "BasketballHead", "color": "0xF78A18", "id": "8" },
+    { "name": "Bat", "trait": "head-bat", "filePath": "HeadBat.glb", "componentName": "BatHead", "color": "0x4D271B", "id": "9" },
+    { "name": "Bear", "trait": "head-bear", "filePath": "HeadBear.glb", "componentName": "BearHead", "color": "0x85634F", "id": "10" },
+    { "name": "Beer", "trait": "head-beer", "filePath": "beerHead.glb", "componentName": "BeerHead", "color": "0xF78A18", "id": "11" },
+    { "name": "Beet", "trait": "head-beet", "filePath": "HeadBeet.glb", "componentName": "BeetHead", "color": "0xB92B3C", "id": "12" },
+    { "name": "Bell", "trait": "head-bell", "filePath": "HeadBell.glb", "componentName": "BellHead", "color": "0xFFC110", "id": "13" },
     {
-      "name": "Basketball",
-      "value": "head-Basketball",
-      "filePath": "HeadBasketball.glb",
-      "componentName": "BasketballHead",
-      "color": "0xF78A18"
-    },
-    {
-      "name": "Bat",
-      "value": "head-Bat",
-      "filePath": "HeadBat.glb",
-      "componentName": "BatHead",
-      "color": "0x4D271B"
-    },
-    {
-      "name": "Bear",
-      "value": "head-Bear",
-      "filePath": "HeadBear.glb",
-      "componentName": "BearHead",
-      "color": "0x85634F"
-    },
-    {
-      "name": "Beer",
-      "value": "head-Beer",
-      "filePath": "beerHead.glb",
-      "componentName": "BeerHead",
-      "color": "0xF78A18"
-    },
-    {
-      "name": "Beet",
-      "value": "head-Beet",
-      "filePath": "HeadBeet.glb",
-      "componentName": "BeetHead",
-      "color": "0xB92B3C"
-    },
-    {
-      "name": "Bell",
-      "value": "head-Bell",
-      "filePath": "HeadBell.glb",
-      "componentName": "BellHead",
-      "color": "0xFFC110"
-    },
-    {
-      "name": "Bigfoot",
-      "value": "head-Bigfoot",
-      "filePath": "HeadBigfoot.glb",
-      "componentName": "BigfootHead",
-      "color": "0x903707"
-    },
-    {
-      "name": "Bigfootyeti",
-      "value": "head-Bigfootyeti",
+      "name": "Bigfoot-Yeti",
+      "trait": "head-bigfoot-yeti",
       "filePath": "bigfootyetiHead.glb",
       "componentName": "BigfootyetiHead",
-      "color": "0xEFF2FA"
+      "color": "0xEFF2FA",
+      "id": "14"
     },
-    {
-      "name": "Blackhole",
-      "value": "head-Blackhole",
-      "filePath": "HeadBlackhole.glb",
-      "componentName": "BlackholeHead",
-      "color": "0xFEB9D5"
-    },
-    {
-      "name": "Blueberry",
-      "value": "head-Blueberry",
-      "filePath": "HeadBlueberry.glb",
-      "componentName": "BlueberryHead",
-      "color": "0x67B1E3"
-    },
-    {
-      "name": "Bomb",
-      "value": "head-Bomb",
-      "filePath": "HeadBomb.glb",
-      "componentName": "BombHead",
-      "color": "0x312E3B"
-    },
-    {
-      "name": "Bonsai",
-      "value": "head-Bonsai",
-      "filePath": "HeadBonsai.glb",
-      "componentName": "BonsaiHead",
-      "color": "0xB1948C"
-    },
-    {
-      "name": "Boombox",
-      "value": "head-Boombox",
-      "filePath": "boomboxHead.glb",
-      "componentName": "BoomboxHead",
-      "color": "0xADC8CC"
-    },
-    {
-      "name": "Boot",
-      "value": "head-Boot",
-      "filePath": "bootHead.glb",
-      "componentName": "BootHead",
-      "color": "0x7E5243"
-    },
-    {
-      "name": "Box",
-      "value": "head-Box",
-      "filePath": "HeadBox.glb",
-      "componentName": "BoxHead",
-      "color": "0x8D6F5B"
-    },
+    { "name": "Bigfoot", "trait": "head-bigfoot", "filePath": "HeadBigfoot.glb", "componentName": "BigfootHead", "color": "0x903707", "id": "15" },
+    { "name": "Blackhole", "trait": "head-blackhole", "filePath": "HeadBlackhole.glb", "componentName": "BlackholeHead", "color": "0xFEB9D5", "id": "16" },
+    { "name": "Blueberry", "trait": "head-blueberry", "filePath": "HeadBlueberry.glb", "componentName": "BlueberryHead", "color": "0x67B1E3", "id": "17" },
+    { "name": "Bomb", "trait": "head-bomb", "filePath": "HeadBomb.glb", "componentName": "BombHead", "color": "0x312E3B", "id": "18" },
+    { "name": "Bonsai", "trait": "head-bonsai", "filePath": "HeadBonsai.glb", "componentName": "BonsaiHead", "color": "0xB1948C", "id": "19" },
+    { "name": "Boombox", "trait": "head-boombox", "filePath": "boomboxHead.glb", "componentName": "BoomboxHead", "color": "0xADC8CC", "id": "20" },
+    { "name": "Boot", "trait": "head-boot", "filePath": "bootHead.glb", "componentName": "BootHead", "color": "0x7E5243", "id": "21" },
+    { "name": "Box", "trait": "head-box", "filePath": "HeadBox.glb", "componentName": "BoxHead", "color": "0x8D6F5B", "id": "22" },
     {
       "name": "Boxingglove",
-      "value": "head-Boxingglove",
+      "trait": "head-boxingglove",
       "filePath": "HeadBoxingGlove.glb",
       "componentName": "BoxinggloveHead",
-      "color": "0xE11833"
+      "color": "0xE11833",
+      "id": "23"
     },
+    { "name": "Brain", "trait": "head-brain", "filePath": "HeadBrain.glb", "componentName": "BrainHead", "color": "0xFF82AD", "id": "24" },
     {
-      "name": "Brain",
-      "value": "head-Brain",
-      "filePath": "HeadBrain.glb",
-      "componentName": "BrainHead",
-      "color": "0xFF82AD"
-    },
-    {
-      "name": "Bubblegum",
-      "value": "head-Bubblegum",
-      "filePath": "HeadBubbleGum.glb",
-      "componentName": "BubblegumHead",
-      "color": "0xF938D8"
-    },
-    {
-      "name": "Bubblespeech",
-      "value": "head-Bubblespeech",
+      "name": "Bubble-Speech",
+      "trait": "head-bubble-speech",
       "filePath": "HeadBubbleSpeech.glb",
       "componentName": "BubblespeechHead",
-      "color": "0xFFFFFF"
+      "color": "0xFFFFFF",
+      "id": "25"
     },
+    { "name": "Bubblegum", "trait": "head-bubblegum", "filePath": "HeadBubbleGum.glb", "componentName": "BubblegumHead", "color": "0xF938D8", "id": "26" },
     {
-      "name": "Burgerdollarmenu",
-      "value": "head-Burgerdollarmenu",
+      "name": "Burger-Dollarmenu",
+      "trait": "head-burger-dollarmenu",
       "filePath": "HeadBurgerDollarMenu.glb",
       "componentName": "BurgerdollarmenuHead",
-      "color": "0xB87B11"
+      "color": "0xB87B11",
+      "id": "27"
     },
+    { "name": "Cake", "trait": "head-cake", "filePath": "cakeHead.glb", "componentName": "CakeHead", "color": "0xFF638D", "id": "28" },
+    { "name": "Calculator", "trait": "head-calculator", "filePath": "HeadCalculator.glb", "componentName": "CalculatorHead", "color": "0xCFC2AB", "id": "29" },
+    { "name": "Calendar", "trait": "head-calendar", "filePath": "HeadCalendar.glb", "componentName": "CalendarHead", "color": "0xFFFFFF", "id": "30" },
+    { "name": "Camcorder", "trait": "head-camcorder", "filePath": "HeadCamcorder.glb", "componentName": "CamcorderHead", "color": "0xB2958D", "id": "31" },
+    { "name": "Cannedham", "trait": "head-cannedham", "filePath": "cannedhamHead.glb", "componentName": "CannedhamHead", "color": "0x5648ED", "id": "32" },
+    { "name": "Car", "trait": "head-car", "filePath": "HeadCar.glb", "componentName": "CarHead", "color": "0xE11833", "id": "33" },
     {
-      "name": "Cake",
-      "value": "head-Cake",
-      "filePath": "cakeHead.glb",
-      "componentName": "CakeHead",
-      "color": "0xFF638D"
-    },
-    {
-      "name": "Calculator",
-      "value": "head-Calculator",
-      "filePath": "HeadCalculator.glb",
-      "componentName": "CalculatorHead",
-      "color": "0xCFC2AB"
-    },
-    {
-      "name": "Calendar",
-      "value": "head-Calendar",
-      "filePath": "HeadCalendar.glb",
-      "componentName": "CalendarHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Camcorder",
-      "value": "head-Camcorder",
-      "filePath": "HeadCamcorder.glb",
-      "componentName": "CamcorderHead",
-      "color": "0xB2958D"
-    },
-    {
-      "name": "Cannedham",
-      "value": "head-Cannedham",
-      "filePath": "cannedhamHead.glb",
-      "componentName": "CannedhamHead",
-      "color": "0x5648ED"
-    },
-    {
-      "name": "Capybara",
-      "value": "head-Capybara",
-      "filePath": "CapybaraHead.glb",
-      "componentName": "CapybaraHead",
-      "color": "0xD56333"
-    },
-    {
-      "name": "Car",
-      "value": "head-Car",
-      "filePath": "HeadCar.glb",
-      "componentName": "CarHead",
-      "color": "0xE11833"
-    },
-    {
-      "name": "Cashregister",
-      "value": "head-Cashregister",
+      "name": "Cash-Register",
+      "trait": "head-cash-register",
       "filePath": "HeadCashRegister.glb",
       "componentName": "CashregisterHead",
-      "color": "0x5D6061"
+      "color": "0x5D6061",
+      "id": "34"
     },
+    { "name": "Cassettetape", "trait": "head-cassettetape", "filePath": "cassetteHead.glb", "componentName": "CassetteHead", "color": "0x1F1D29", "id": "35" },
+    { "name": "Cat", "trait": "head-cat", "filePath": "catHead.glb", "componentName": "CatHead", "color": "0x1F1D29", "id": "36" },
+    { "name": "Cd", "trait": "head-cd", "filePath": "cdHead.glb", "componentName": "CdHead", "color": "0x70E890", "id": "37" },
+    { "name": "Chain", "trait": "head-chain", "filePath": "HeadChain.glb", "componentName": "ChainHead", "color": "0xFFD067", "id": "38" },
+    { "name": "Chainsaw", "trait": "head-chainsaw", "filePath": "HeadChainsaw.glb", "componentName": "ChainsawHead", "color": "0x757576", "id": "39" },
+    { "name": "Chameleon", "trait": "head-chameleon", "filePath": "HeadChameleon.glb", "componentName": "ChameleonHead", "color": "0x34AC80", "id": "40" },
+    { "name": "Chart-Bars", "trait": "head-chart-bars", "filePath": "HeadChartBars.glb", "componentName": "ChartbarsHead", "color": "0x4B65F7", "id": "41" },
+    { "name": "Cheese", "trait": "head-cheese", "filePath": "HeadCheese.glb", "componentName": "CheeseHead", "color": "0xFFF685", "id": "42" },
+    { "name": "Chefhat", "trait": "head-chefhat", "filePath": "HeadChefHat.glb", "componentName": "ChefhatHead", "color": "0xFFFFFF", "id": "43" },
+    { "name": "Cherry", "trait": "head-cherry", "filePath": "HeadCherry.glb", "componentName": "CherryHead", "color": "0xFF1A0B", "id": "44" },
+    { "name": "Chicken", "trait": "head-chicken", "filePath": "HeadChicken.glb", "componentName": "ChickenHead", "color": "0xFFFFFF", "id": "45" },
+    { "name": "Chilli", "trait": "head-chilli", "filePath": "HeadChili.glb", "componentName": "ChiliHead", "color": "0xF3322C", "id": "46" },
+    { "name": "Chipboard", "trait": "head-chipboard", "filePath": "HeadChipBoard.glb", "componentName": "ChipboardHead", "color": "0x34AC80", "id": "47" },
+    { "name": "Chips", "trait": "head-chips", "filePath": "HeadChips.glb", "componentName": "ChipsHead", "color": "0x5648ED", "id": "48" },
+    { "name": "Chocolate", "trait": "head-chocolate", "filePath": "HeadChocolate.glb", "componentName": "ChocolateHead", "color": "0x4D271B", "id": "49" },
+    { "name": "Cloud", "trait": "head-cloud", "filePath": "cloudHead.glb", "componentName": "CloudHead", "color": "0xFFFFFF", "id": "50" },
+    { "name": "Clover", "trait": "head-clover", "filePath": "cloverHead.glb", "componentName": "CloverHead", "color": "0x34AC80", "id": "51" },
+    { "name": "Clutch", "trait": "head-clutch", "filePath": "HeadClutch.glb", "componentName": "ClutchHead", "color": "0xDA42CB", "id": "52" },
+    { "name": "Coffeebean", "trait": "head-coffeebean", "filePath": "HeadCoffeebean.glb", "componentName": "CoffeebeanHead", "color": "0x9F4B27", "id": "53" },
+    { "name": "Cone", "trait": "head-cone", "filePath": "HeadCone.glb", "componentName": "ConeHead", "color": "0xF3322C", "id": "54" },
     {
-      "name": "Cassette",
-      "value": "head-Cassette",
-      "filePath": "cassetteHead.glb",
-      "componentName": "CassetteHead",
-      "color": "0x1F1D29"
-    },
-    {
-      "name": "Cat",
-      "value": "head-Cat",
-      "filePath": "catHead.glb",
-      "componentName": "CatHead",
-      "color": "0x1F1D29"
-    },
-    {
-      "name": "Cd",
-      "value": "head-Cd",
-      "filePath": "cdHead.glb",
-      "componentName": "CdHead",
-      "color": "0x70E890"
-    },
-    {
-      "name": "Chain",
-      "value": "head-Chain",
-      "filePath": "HeadChain.glb",
-      "componentName": "ChainHead",
-      "color": "0xFFD067"
-    },
-    {
-      "name": "Chainsaw",
-      "value": "head-Chainsaw",
-      "filePath": "HeadChainsaw.glb",
-      "componentName": "ChainsawHead",
-      "color": "0x757576"
-    },
-    {
-      "name": "Chameleon",
-      "value": "head-Chameleon",
-      "filePath": "HeadChameleon.glb",
-      "componentName": "ChameleonHead",
-      "color": "0x34AC80"
-    },
-    {
-      "name": "Chartbars",
-      "value": "head-Chartbars",
-      "filePath": "HeadChartBars.glb",
-      "componentName": "ChartbarsHead",
-      "color": "0x4B65F7"
-    },
-    {
-      "name": "Cheese",
-      "value": "head-Cheese",
-      "filePath": "HeadCheese.glb",
-      "componentName": "CheeseHead",
-      "color": "0xFFF685"
-    },
-    {
-      "name": "Chefhat",
-      "value": "head-Chefhat",
-      "filePath": "HeadChefHat.glb",
-      "componentName": "ChefhatHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Cherry",
-      "value": "head-Cherry",
-      "filePath": "HeadCherry.glb",
-      "componentName": "CherryHead",
-      "color": "0xFF1A0B"
-    },
-    {
-      "name": "Chicken",
-      "value": "head-Chicken",
-      "filePath": "HeadChicken.glb",
-      "componentName": "ChickenHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Chili",
-      "value": "head-Chili",
-      "filePath": "HeadChili.glb",
-      "componentName": "ChiliHead",
-      "color": "0xF3322C"
-    },
-    {
-      "name": "Chipboard",
-      "value": "head-Chipboard",
-      "filePath": "HeadChipBoard.glb",
-      "componentName": "ChipboardHead",
-      "color": "0x34AC80"
-    },
-    {
-      "name": "Chips",
-      "value": "head-Chips",
-      "filePath": "HeadChips.glb",
-      "componentName": "ChipsHead",
-      "color": "0x5648ED"
-    },
-    {
-      "name": "Chocolate",
-      "value": "head-Chocolate",
-      "filePath": "HeadChocolate.glb",
-      "componentName": "ChocolateHead",
-      "color": "0x4D271B"
-    },
-    {
-      "name": "Cloud",
-      "value": "head-Cloud",
-      "filePath": "cloudHead.glb",
-      "componentName": "CloudHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Clover",
-      "value": "head-Clover",
-      "filePath": "cloverHead.glb",
-      "componentName": "CloverHead",
-      "color": "0x34AC80"
-    },
-    {
-      "name": "Clutch",
-      "value": "head-Clutch",
-      "filePath": "HeadClutch.glb",
-      "componentName": "ClutchHead",
-      "color": "0xDA42CB"
-    },
-    {
-      "name": "Coffeebean",
-      "value": "head-Coffeebean",
-      "filePath": "HeadCoffeebean.glb",
-      "componentName": "CoffeebeanHead",
-      "color": "0x9F4B27"
-    },
-    {
-      "name": "Cone",
-      "value": "head-Cone",
-      "filePath": "HeadCone.glb",
-      "componentName": "ConeHead",
-      "color": "0xF3322C"
-    },
-    {
-      "name": "Consolehandheld",
-      "value": "head-Consolehandheld",
+      "name": "Console-Handheld",
+      "trait": "head-console-handheld",
       "filePath": "consolehandheldHead.glb",
       "componentName": "ConsolehandheldHead",
-      "color": "0xCFC2AB"
+      "color": "0xCFC2AB",
+      "id": "55"
     },
-    {
-      "name": "Cookie",
-      "value": "head-Cookie",
-      "filePath": "HeadCookie.glb",
-      "componentName": "CookieHead",
-      "color": "0xA86F60"
-    },
+    { "name": "Cookie", "trait": "head-cookie", "filePath": "HeadCookie.glb", "componentName": "CookieHead", "color": "0xA86F60", "id": "56" },
     {
       "name": "Cordlessphone",
-      "value": "head-Cordlessphone",
+      "trait": "head-cordlessphone",
       "filePath": "HeadCordlessphone.glb",
       "componentName": "CordlessphoneHead",
-      "color": "0xCFC2AB"
+      "color": "0xCFC2AB",
+      "id": "57"
     },
-    {
-      "name": "Cottonball",
-      "value": "head-Cottonball",
-      "filePath": "HeadCottonBall.glb",
-      "componentName": "CottonballHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Couch",
-      "value": "head-Couch",
-      "filePath": "CouchHead.glb",
-      "componentName": "CouchHead",
-      "color": "0xC16923"
-    },
-    {
-      "name": "Cow",
-      "value": "head-Cow",
-      "filePath": "HeadCow.glb",
-      "componentName": "CowHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Crab",
-      "value": "head-Crab",
-      "filePath": "crabHead.glb",
-      "componentName": "CrabHead",
-      "color": "0xF39D44"
-    },
-    {
-      "name": "Crane",
-      "value": "head-Crane",
-      "filePath": "HeadCrane.glb",
-      "componentName": "CraneHead",
-      "color": "0x000000"
-    },
-    {
-      "name": "Crochat",
-      "value": "head-Crochat",
-      "filePath": "HeadCrocHat.glb",
-      "componentName": "CrochatHead",
-      "color": "0x27A463"
-    },
-    {
-      "name": "Crown",
-      "value": "head-Crown",
-      "filePath": "crownHead.glb",
-      "componentName": "CrownHead",
-      "color": "0xEAB118"
-    },
-    {
-      "name": "Crtbsod",
-      "value": "head-Crtbsod",
-      "filePath": "HeadCrtBsod.glb",
-      "componentName": "CrtbsodHead",
-      "color": "0xC5B9A1"
-    },
+    { "name": "Cottonball", "trait": "head-cottonball", "filePath": "HeadCottonBall.glb", "componentName": "CottonballHead", "color": "0xFFFFFF", "id": "58" },
+    { "name": "Cow", "trait": "head-cow", "filePath": "HeadCow.glb", "componentName": "CowHead", "color": "0xFFFFFF", "id": "59" },
+    { "name": "Crab", "trait": "head-crab", "filePath": "crabHead.glb", "componentName": "CrabHead", "color": "0xF39D44", "id": "60" },
+    { "name": "Crane", "trait": "head-crane", "filePath": "HeadCrane.glb", "componentName": "CraneHead", "color": "0x000000", "id": "61" },
+    { "name": "Croc-Hat", "trait": "head-croc-hat", "filePath": "HeadCrocHat.glb", "componentName": "CrochatHead", "color": "0x27A463", "id": "62" },
+    { "name": "Crown", "trait": "head-crown", "filePath": "crownHead.glb", "componentName": "CrownHead", "color": "0xEAB118", "id": "63" },
+    { "name": "Crt-Bsod", "trait": "head-crt-bsod", "filePath": "HeadCrtBsod.glb", "componentName": "CrtbsodHead", "color": "0xC5B9A1", "id": "64" },
     {
       "name": "Crystalball",
-      "value": "head-Crystalball",
+      "trait": "head-crystalball",
       "filePath": "HeadCrystalBall.glb",
       "componentName": "CrystalballHead",
-      "color": "0x410D66"
+      "color": "0x410D66",
+      "id": "65"
     },
     {
-      "name": "Diamondblue",
-      "value": "head-Diamondblue",
+      "name": "Diamond-Blue",
+      "trait": "head-diamond-blue",
       "filePath": "HeadDiamondBlue.glb",
       "componentName": "DiamondblueHead",
-      "color": "0x254EFB"
+      "color": "0x254EFB",
+      "id": "66"
     },
     {
-      "name": "Diamondred",
-      "value": "head-Diamondred",
+      "name": "Diamond-Red",
+      "trait": "head-diamond-red",
       "filePath": "HeadDiamondRed.glb",
       "componentName": "DiamondredHead",
-      "color": "0xF71248"
+      "color": "0xF71248",
+      "id": "67"
     },
-    {
-      "name": "Dictionary",
-      "value": "head-Dictionary",
-      "filePath": "HeadDictionary.glb",
-      "componentName": "DictionaryHead",
-      "color": "0x1929F4"
-    },
-    {
-      "name": "Dino",
-      "value": "head-Dino",
-      "filePath": "HeadDino.glb",
-      "componentName": "DinoHead",
-      "color": "0x34AC80"
-    },
-    {
-      "name": "Dna",
-      "value": "head-Dna",
-      "filePath": "DNAHead.glb",
-      "componentName": "DnaHead",
-      "color": "0x2B83F6"
-    },
-    {
-      "name": "Dog",
-      "value": "head-Dog",
-      "filePath": "HeadDog.glb",
-      "componentName": "DogHead",
-      "color": "0x7E5243"
-    },
-    {
-      "name": "Doughnut",
-      "value": "head-Doughnut",
-      "filePath": "HeadDoughnut.glb",
-      "componentName": "DoughnutHead",
-      "color": "0xFA6FE2"
-    },
-    {
-      "name": "Drill",
-      "value": "head-Drill",
-      "filePath": "HeadDrill.glb",
-      "componentName": "DrillHead",
-      "color": "0xFE500C"
-    },
-    {
-      "name": "Duck",
-      "value": "head-Duck",
-      "filePath": "HeadDuck.glb",
-      "componentName": "DuckHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Ducky",
-      "value": "head-Ducky",
-      "filePath": "HeadDucky.glb",
-      "componentName": "DuckyHead",
-      "color": "0xFFC110"
-    },
-    {
-      "name": "Earth",
-      "value": "head-Earth",
-      "filePath": "HeadEarth.glb",
-      "componentName": "EarthHead",
-      "color": "0x2B83F6"
-    },
-    {
-      "name": "Eggs",
-      "value": "head-Eggs",
-      "filePath": "HeadEggs.glb",
-      "componentName": "EggsHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Faberge",
-      "value": "head-Faberge",
-      "filePath": "HeadFaberge.glb",
-      "componentName": "FabergeHead",
-      "color": "0x5052FA"
-    },
-    {
-      "name": "Factory",
-      "value": "head-Factory",
-      "filePath": "HeadFactory.glb",
-      "componentName": "FactoryHead",
-      "color": "0x1F1D29"
-    },
-    {
-      "name": "Fan",
-      "value": "head-Fan",
-      "filePath": "HeadFan.glb",
-      "componentName": "FanHead",
-      "color": "0xFFF0EE"
-    },
-    {
-      "name": "Fence",
-      "value": "head-Fence",
-      "filePath": "HeadFence.glb",
-      "componentName": "FenceHead",
-      "color": "0xC16923"
-    },
-    {
-      "name": "Film35Mm",
-      "value": "head-Film35Mm",
-      "filePath": "HeadFilm35mm.glb",
-      "componentName": "Film35MmHead",
-      "color": "0xFFC110"
-    },
-    {
-      "name": "Filmstrip",
-      "value": "head-Filmstrip",
-      "filePath": "HeadFilmStrip.glb",
-      "componentName": "FilmstripHead",
-      "color": "0x2B2834"
-    },
-    {
-      "name": "Fir",
-      "value": "head-Fir",
-      "filePath": "HeadFir.glb",
-      "componentName": "FirHead",
-      "color": "0x68940"
-    },
+    { "name": "Dictionary", "trait": "head-dictionary", "filePath": "HeadDictionary.glb", "componentName": "DictionaryHead", "color": "0x1929F4", "id": "68" },
+    { "name": "Dino", "trait": "head-dino", "filePath": "HeadDino.glb", "componentName": "DinoHead", "color": "0x34AC80", "id": "69" },
+    { "name": "Dna", "trait": "head-dna", "filePath": "DNAHead.glb", "componentName": "DnaHead", "color": "0x2B83F6", "id": "70" },
+    { "name": "Dog", "trait": "head-dog", "filePath": "HeadDog.glb", "componentName": "DogHead", "color": "0x7E5243", "id": "71" },
+    { "name": "Doughnut", "trait": "head-doughnut", "filePath": "HeadDoughnut.glb", "componentName": "DoughnutHead", "color": "0xFA6FE2", "id": "72" },
+    { "name": "Drill", "trait": "head-drill", "filePath": "HeadDrill.glb", "componentName": "DrillHead", "color": "0xFE500C", "id": "73" },
+    { "name": "Duck", "trait": "head-duck", "filePath": "HeadDuck.glb", "componentName": "DuckHead", "color": "0xFFFFFF", "id": "74" },
+    { "name": "Ducky", "trait": "head-ducky", "filePath": "HeadDucky.glb", "componentName": "DuckyHead", "color": "0xFFC110", "id": "75" },
+    { "name": "Earth", "trait": "head-earth", "filePath": "HeadEarth.glb", "componentName": "EarthHead", "color": "0x2B83F6", "id": "76" },
+    { "name": "Egg", "trait": "head-egg", "filePath": "HeadEggs.glb", "componentName": "EggsHead", "color": "0xFFFFFF", "id": "77" },
+    { "name": "Faberge", "trait": "head-faberge", "filePath": "HeadFaberge.glb", "componentName": "FabergeHead", "color": "0x5052FA", "id": "78" },
+    { "name": "Factory-Dark", "trait": "head-factory-dark", "filePath": "HeadFactory.glb", "componentName": "FactoryHead", "color": "0x1F1D29", "id": "79" },
+    { "name": "Fan", "trait": "head-fan", "filePath": "HeadFan.glb", "componentName": "FanHead", "color": "0xFFF0EE", "id": "80" },
+    { "name": "Fence", "trait": "head-fence", "filePath": "HeadFence.glb", "componentName": "FenceHead", "color": "0xC16923", "id": "81" },
+    { "name": "Film-35Mm", "trait": "head-film-35mm", "filePath": "HeadFilm35mm.glb", "componentName": "Film35MmHead", "color": "0xFFC110", "id": "82" },
+    { "name": "Film-Strip", "trait": "head-film-strip", "filePath": "HeadFilmStrip.glb", "componentName": "FilmstripHead", "color": "0x2B2834", "id": "83" },
+    { "name": "Fir", "trait": "head-fir", "filePath": "HeadFir.glb", "componentName": "FirHead", "color": "0x68940", "id": "84" },
     {
       "name": "Firehydrant",
-      "value": "head-Firehydrant",
+      "trait": "head-firehydrant",
       "filePath": "HeadFireHydrant.glb",
       "componentName": "FirehydrantHead",
-      "color": "0xF83001"
+      "color": "0xF83001",
+      "id": "85"
     },
+    { "name": "Flamingo", "trait": "head-flamingo", "filePath": "HeadFlamingo.glb", "componentName": "FlamingoHead", "color": "0xFF638D", "id": "86" },
+    { "name": "Flower", "trait": "head-flower", "filePath": "HeadFlower.glb", "componentName": "FlowerHead", "color": "0xFEE3F3", "id": "87" },
+    { "name": "Fox", "trait": "head-fox", "filePath": "FoxHead.glb", "componentName": "FoxHead", "color": "0xF78A18", "id": "88" },
+    { "name": "Frog", "trait": "head-frog", "filePath": "frogHead.glb", "componentName": "FrogHead", "color": "0x4BEA69", "id": "89" },
+    { "name": "Garlic", "trait": "head-garlic", "filePath": "HeadGarlic.glb", "componentName": "GarlicHead", "color": "0xFFFDF2", "id": "90" },
+    { "name": "Gavel", "trait": "head-gavel", "filePath": "HeadGavel.glb", "componentName": "GavelHead", "color": "0xC16710", "id": "91" },
+    { "name": "Ghost-B", "trait": "head-ghost-B", "filePath": "ghostHead.glb", "componentName": "GhostHead", "color": "0xABC1EE", "id": "92" },
+    { "name": "Glasses-Big", "trait": "head-glasses-big", "filePath": "HeadGlasses.glb", "componentName": "GlassesHead", "color": "0x6F597A", "id": "93" },
+    { "name": "Gnome", "trait": "head-gnome", "filePath": "gnomeHead.glb", "componentName": "GnomeHead", "color": "0xFFA21E", "id": "94" },
+    { "name": "Goat", "trait": "head-goat", "filePath": "goatHead.glb", "componentName": "GoatHead", "color": "0x9D8E6E", "id": "95" },
+    { "name": "Goldcoin", "trait": "head-goldcoin", "filePath": "HeadGoldcoin.glb", "componentName": "GoldcoinHead", "color": "0xFFC110", "id": "96" },
+    { "name": "Goldfish", "trait": "head-goldfish", "filePath": "HeadGoldFish.glb", "componentName": "GoldfishHead", "color": "0x8BC0C5", "id": "97" },
+    { "name": "Grouper", "trait": "head-grouper", "filePath": "grouperHead.glb", "componentName": "GrouperHead", "color": "0x70591F", "id": "98" },
+    { "name": "Hair", "trait": "head-hair", "filePath": "HeadHair.glb", "componentName": "HairHead", "color": "0xC16710", "id": "99" },
+    { "name": "Hardhat", "trait": "head-hardhat", "filePath": "HeadHardHat.glb", "componentName": "HardhatHead", "color": "0xFFF006", "id": "100" },
+    { "name": "Heart", "trait": "head-heart", "filePath": "heartHead.glb", "componentName": "HeartHead", "color": "0xF3322C", "id": "101" },
+    { "name": "Helicopter", "trait": "head-helicopter", "filePath": "HelicopterHead.glb", "componentName": "HelicopterHead", "color": "0xFF638D", "id": "102" },
+    { "name": "Highheel", "trait": "head-highheel", "filePath": "HeadHighHeels.glb", "componentName": "HighheelsHead", "color": "0xD22209", "id": "103" },
+    { "name": "Hockeypuck", "trait": "head-hockeypuck", "filePath": "HeadHockeyPuck.glb", "componentName": "HockeypuckHead", "color": "0x4B4949", "id": "104" },
     {
-      "name": "Flamingo",
-      "value": "head-Flamingo",
-      "filePath": "HeadFlamingo.glb",
-      "componentName": "FlamingoHead",
-      "color": "0xFF638D"
-    },
-    {
-      "name": "Flower",
-      "value": "head-Flower",
-      "filePath": "HeadFlower.glb",
-      "componentName": "FlowerHead",
-      "color": "0xFEE3F3"
-    },
-    {
-      "name": "Fox",
-      "value": "head-Fox",
-      "filePath": "FoxHead.glb",
-      "componentName": "FoxHead",
-      "color": "0xF78A18"
-    },
-    {
-      "name": "Frog",
-      "value": "head-Frog",
-      "filePath": "frogHead.glb",
-      "componentName": "FrogHead",
-      "color": "0x4BEA69"
-    },
-    {
-      "name": "Garlic",
-      "value": "head-Garlic",
-      "filePath": "HeadGarlic.glb",
-      "componentName": "GarlicHead",
-      "color": "0xFFFDF2"
-    },
-    {
-      "name": "Gavel",
-      "value": "head-Gavel",
-      "filePath": "HeadGavel.glb",
-      "componentName": "GavelHead",
-      "color": "0xC16710"
-    },
-    {
-      "name": "Ghost",
-      "value": "head-Ghost",
-      "filePath": "ghostHead.glb",
-      "componentName": "GhostHead",
-      "color": "0xABC1EE"
-    },
-    {
-      "name": "Glasses",
-      "value": "head-Glasses",
-      "filePath": "HeadGlasses.glb",
-      "componentName": "GlassesHead",
-      "color": "0x6F597A"
-    },
-    {
-      "name": "Gnome",
-      "value": "head-Gnome",
-      "filePath": "gnomeHead.glb",
-      "componentName": "GnomeHead",
-      "color": "0xFFA21E"
-    },
-    {
-      "name": "Goat",
-      "value": "head-Goat",
-      "filePath": "goatHead.glb",
-      "componentName": "GoatHead",
-      "color": "0x9D8E6E"
-    },
-    {
-      "name": "Goldcoin",
-      "value": "head-Goldcoin",
-      "filePath": "HeadGoldcoin.glb",
-      "componentName": "GoldcoinHead",
-      "color": "0xFFC110"
-    },
-    {
-      "name": "Goldfish",
-      "value": "head-Goldfish",
-      "filePath": "HeadGoldFish.glb",
-      "componentName": "GoldfishHead",
-      "color": "0x8BC0C5"
-    },
-    {
-      "name": "Grouper",
-      "value": "head-Grouper",
-      "filePath": "grouperHead.glb",
-      "componentName": "GrouperHead",
-      "color": "0x70591F"
-    },
-    {
-      "name": "Hair",
-      "value": "head-Hair",
-      "filePath": "HeadHair.glb",
-      "componentName": "HairHead",
-      "color": "0xC16710"
-    },
-    {
-      "name": "Hanger",
-      "value": "head-Hanger",
-      "filePath": "HangerHead.glb",
-      "componentName": "HangerHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Hardhat",
-      "value": "head-Hardhat",
-      "filePath": "HeadHardHat.glb",
-      "componentName": "HardhatHead",
-      "color": "0xFFF006"
-    },
-    {
-      "name": "Heart",
-      "value": "head-Heart",
-      "filePath": "heartHead.glb",
-      "componentName": "HeartHead",
-      "color": "0xF3322C"
-    },
-    {
-      "name": "Helicopter",
-      "value": "head-Helicopter",
-      "filePath": "HelicopterHead.glb",
-      "componentName": "HelicopterHead",
-      "color": "0xFF638D"
-    },
-    {
-      "name": "Highheels",
-      "value": "head-Highheels",
-      "filePath": "HeadHighHeels.glb",
-      "componentName": "HighheelsHead",
-      "color": "0xD22209"
-    },
-    {
-      "name": "Hockeypuck",
-      "value": "head-Hockeypuck",
-      "filePath": "HeadHockeyPuck.glb",
-      "componentName": "HockeypuckHead",
-      "color": "0x4B4949"
-    },
-    {
-      "name": "Horsedeepfried",
-      "value": "head-Horsedeepfried",
+      "name": "Horse-Deepfried",
+      "trait": "head-horse-deepfried",
       "filePath": "HeadHorseDeepFried.glb",
       "componentName": "HorsedeepfriedHead",
-      "color": "0xD08B11"
+      "color": "0xD08B11",
+      "id": "105"
     },
+    { "name": "Hotdog", "trait": "head-hotdog", "filePath": "HotDog.glb", "componentName": "HotdogHead", "color": "0xDD9B78", "id": "106" },
+    { "name": "House", "trait": "head-house", "filePath": "HeadHouse.glb", "componentName": "HouseHead", "color": "0xFFF0EE", "id": "107" },
+    { "name": "Icepop-B", "trait": "head-icepop-b", "filePath": "icepopHead.glb", "componentName": "IcepopHead", "color": "0x4BEA69", "id": "108" },
+    { "name": "Igloo", "trait": "head-igloo", "filePath": "HeadIgloo.glb", "componentName": "IglooHead", "color": "0x7CC4F2", "id": "109" },
+    { "name": "Island", "trait": "head-island", "filePath": "HeadIsland.glb", "componentName": "IslandHead", "color": "0xFFC110", "id": "110" },
+    { "name": "Jellyfish", "trait": "head-jellyfish", "filePath": "HeadJellyFish.glb", "componentName": "JellyfishHead", "color": "0xFF82AD", "id": "111" },
+    { "name": "Jupiter", "trait": "head-jupiter", "filePath": "HeadJupiter.glb", "componentName": "JupiterHead", "color": "0xE8705B", "id": "112" },
+    { "name": "Kangaroo", "trait": "head-kangaroo", "filePath": "HeadKangaroo.glb", "componentName": "KangarooHead", "color": "0x7D635E", "id": "113" },
+    { "name": "Ketchup", "trait": "head-ketchup", "filePath": "HeadKetchup.glb", "componentName": "KetchupHead", "color": "0xF3322C", "id": "114" },
+    { "name": "Laptop", "trait": "head-laptop", "filePath": "laptopHead.glb", "componentName": "LaptopHead", "color": "0x62616D", "id": "115" },
     {
-      "name": "Hotdog",
-      "value": "head-Hotdog",
-      "filePath": "HotDog.glb",
-      "componentName": "HotdogHead",
-      "color": "0xDD9B78"
-    },
-    {
-      "name": "House",
-      "value": "head-House",
-      "filePath": "HeadHouse.glb",
-      "componentName": "HouseHead",
-      "color": "0xFFF0EE"
-    },
-    {
-      "name": "Icepop",
-      "value": "head-Icepop",
-      "filePath": "icepopHead.glb",
-      "componentName": "IcepopHead",
-      "color": "0x4BEA69"
-    },
-    {
-      "name": "IndexCard",
-      "value": "head-IndexCard",
-      "filePath": "IndexCardHead.glb",
-      "componentName": "IndexCardHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Igloo",
-      "value": "head-Igloo",
-      "filePath": "HeadIgloo.glb",
-      "componentName": "IglooHead",
-      "color": "0x7CC4F2"
-    },
-    {
-      "name": "Island",
-      "value": "head-Island",
-      "filePath": "HeadIsland.glb",
-      "componentName": "IslandHead",
-      "color": "0xFFC110"
-    },
-    {
-      "name": "Jellyfish",
-      "value": "head-Jellyfish",
-      "filePath": "HeadJellyFish.glb",
-      "componentName": "JellyfishHead",
-      "color": "0xFF82AD"
-    },
-    {
-      "name": "Jupiter",
-      "value": "head-Jupiter",
-      "filePath": "HeadJupiter.glb",
-      "componentName": "JupiterHead",
-      "color": "0xE8705B"
-    },
-    {
-      "name": "Kangaroo",
-      "value": "head-Kangaroo",
-      "filePath": "HeadKangaroo.glb",
-      "componentName": "KangarooHead",
-      "color": "0x7D635E"
-    },
-    {
-      "name": "Ketchup",
-      "value": "head-Ketchup",
-      "filePath": "HeadKetchup.glb",
-      "componentName": "KetchupHead",
-      "color": "0xF3322C"
-    },
-    {
-      "name": "Laptop",
-      "value": "head-Laptop",
-      "filePath": "laptopHead.glb",
-      "componentName": "LaptopHead",
-      "color": "0x62616D"
-    },
-    {
-      "name": "Lightningbolt",
-      "value": "head-Lightningbolt",
+      "name": "Lightning-Bolt",
+      "trait": "head-lightning-bolt",
       "filePath": "HeadLightningBolt.glb",
       "componentName": "LightningboltHead",
-      "color": "0xEED811"
+      "color": "0xEED811",
+      "id": "116"
     },
+    { "name": "Lint", "trait": "head-lint", "filePath": "HeadLint.glb", "componentName": "LintHead", "color": "0x71BDE4", "id": "117" },
+    { "name": "Lips", "trait": "head-lips", "filePath": "HeadLips.glb", "componentName": "LipsHead", "color": "0xF3322C", "id": "118" },
+    { "name": "Lipstick2", "trait": "head-lipstick2", "filePath": "HeadLipstick.glb", "componentName": "LipstickHead", "color": "0x343235", "id": "119" },
+    { "name": "Lock", "trait": "head-lock", "filePath": "HeadLock.glb", "componentName": "LockHead", "color": "0xD08B11", "id": "120" },
+    { "name": "Macaroni", "trait": "head-macaroni", "filePath": "HeadMacaroni.glb", "componentName": "MacaroniHead", "color": "0xFFC110", "id": "121" },
+    { "name": "Mailbox", "trait": "head-mailbox", "filePath": "HeadMailbox.glb", "componentName": "MailboxHead", "color": "0x807F7E", "id": "122" },
+    { "name": "Maze", "trait": "head-maze", "filePath": "HeadMaze.glb", "componentName": "MazeHead", "color": "0x2BB26B", "id": "123" },
+    { "name": "Microwave", "trait": "head-microwave", "filePath": "microwaveHead.glb", "componentName": "MicrowaveHead", "color": "0xD3F1FA", "id": "124" },
+    { "name": "Milk", "trait": "head-milk", "filePath": "HeadMilk.glb", "componentName": "MilkHead", "color": "0x2B83F6", "id": "125" },
+    { "name": "Mirror", "trait": "head-mirror", "filePath": "HeadMirror.glb", "componentName": "MirrorHead", "color": "0x7E5243", "id": "126" },
+    { "name": "Mixer", "trait": "head-mixer", "filePath": "mixerHead.glb", "componentName": "MixerHead", "color": "0x4B4949", "id": "127" },
+    { "name": "Moon", "trait": "head-moon", "filePath": "HeadMoon.glb", "componentName": "MoonHead", "color": "0xFBF7E7", "id": "128" },
+    { "name": "Moose", "trait": "head-moose", "filePath": "HeadMoose.glb", "componentName": "MooseHead", "color": "0x4D271B", "id": "129" },
+    { "name": "Mosquito", "trait": "head-mosquito", "filePath": "HeadMosquito.glb", "componentName": "MosquitoHead", "color": "0xAE3208", "id": "130" },
     {
-      "name": "Lint",
-      "value": "head-Lint",
-      "filePath": "HeadLint.glb",
-      "componentName": "LintHead",
-      "color": "0x71BDE4"
-    },
-    {
-      "name": "Lips",
-      "value": "head-Lips",
-      "filePath": "HeadLips.glb",
-      "componentName": "LipsHead",
-      "color": "0xF3322C"
-    },
-    {
-      "name": "Lipstick",
-      "value": "head-Lipstick",
-      "filePath": "HeadLipstick.glb",
-      "componentName": "LipstickHead",
-      "color": "0x343235"
-    },
-    {
-      "name": "Lock",
-      "value": "head-Lock",
-      "filePath": "HeadLock.glb",
-      "componentName": "LockHead",
-      "color": "0xD08B11"
-    },
-    {
-      "name": "Macaroni",
-      "value": "head-Macaroni",
-      "filePath": "HeadMacaroni.glb",
-      "componentName": "MacaroniHead",
-      "color": "0xFFC110"
-    },
-    {
-      "name": "Mailbox",
-      "value": "head-Mailbox",
-      "filePath": "HeadMailbox.glb",
-      "componentName": "MailboxHead",
-      "color": "0x807F7E"
-    },
-    {
-      "name": "Maze",
-      "value": "head-Maze",
-      "filePath": "HeadMaze.glb",
-      "componentName": "MazeHead",
-      "color": "0x2BB26B"
-    },
-    {
-      "name": "Microwave",
-      "value": "head-Microwave",
-      "filePath": "microwaveHead.glb",
-      "componentName": "MicrowaveHead",
-      "color": "0xD3F1FA"
-    },
-    {
-      "name": "Milk",
-      "value": "head-Milk",
-      "filePath": "HeadMilk.glb",
-      "componentName": "MilkHead",
-      "color": "0x2B83F6"
-    },
-    {
-      "name": "Mirror",
-      "value": "head-Mirror",
-      "filePath": "HeadMirror.glb",
-      "componentName": "MirrorHead",
-      "color": "0x7E5243"
-    },
-    {
-      "name": "Mixer",
-      "value": "head-Mixer",
-      "filePath": "mixerHead.glb",
-      "componentName": "MixerHead",
-      "color": "0x4B4949"
-    },
-    {
-      "name": "Moon",
-      "value": "head-Moon",
-      "filePath": "HeadMoon.glb",
-      "componentName": "MoonHead",
-      "color": "0xFBF7E7"
-    },
-    {
-      "name": "Moose",
-      "value": "head-Moose",
-      "filePath": "HeadMoose.glb",
-      "componentName": "MooseHead",
-      "color": "0x4D271B"
-    },
-    {
-      "name": "Mosquito",
-      "value": "head-Mosquito",
-      "filePath": "HeadMosquito.glb",
-      "componentName": "MosquitoHead",
-      "color": "0xAE3208"
-    },
-    {
-      "name": "Mountain",
-      "value": "head-Mountain",
+      "name": "Mountain-Snowcap",
+      "trait": "head-mountain-snowcap",
       "filePath": "HeadMountain.glb",
       "componentName": "MountainHead",
-      "color": "0x34AC80"
+      "color": "0x34AC80",
+      "id": "131"
     },
-    {
-      "name": "Mouse",
-      "value": "head-Mouse",
-      "filePath": "HeadMouse.glb",
-      "componentName": "MouseHead",
-      "color": "0x808081"
-    },
-    {
-      "name": "Mug",
-      "value": "head-Mug",
-      "filePath": "HeadMug.glb",
-      "componentName": "MugHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Mushroom",
-      "value": "head-Mushroom",
-      "filePath": "mushroomHead.glb",
-      "componentName": "MushroomHead",
-      "color": "0xF9E8DD"
-    },
-    {
-      "name": "Mustard",
-      "value": "head-Mustard",
-      "filePath": "HeadMustard.glb",
-      "componentName": "MustardHead",
-      "color": "0xFFC925"
-    },
-    {
-      "name": "Nigiri",
-      "value": "head-Nigiri",
-      "filePath": "nigiriHead.glb",
-      "componentName": "NigiriHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Noodles",
-      "value": "head-Noodles",
-      "filePath": "NoodlesHead.glb",
-      "componentName": "NoodlesHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Onion",
-      "value": "head-Onion",
-      "filePath": "HeadOnion.glb",
-      "componentName": "OnionHead",
-      "color": "0xD56333"
-    },
-    {
-      "name": "Orangutan",
-      "value": "head-Orangutan",
-      "filePath": "OrangutanHead.glb",
-      "componentName": "OrangutanHead",
-      "color": "0x241A17"
-    },
-    {
-      "name": "Orca",
-      "value": "head-Orca",
-      "filePath": "HeadOrca.glb",
-      "componentName": "OrcaHead",
-      "color": "0x343235"
-    },
-    {
-      "name": "Otter",
-      "value": "head-Otter",
-      "filePath": "HeadOtter.glb",
-      "componentName": "OtterHead",
-      "color": "0x85634F"
-    },
-    {
-      "name": "Outlet",
-      "value": "head-Outlet",
-      "filePath": "HeadOutlet.glb",
-      "componentName": "OutletHead",
-      "color": "0xFEF2F0"
-    },
-    {
-      "name": "Owl",
-      "value": "head-Owl",
-      "filePath": "owlHead.glb",
-      "componentName": "OwlHead",
-      "color": "0xF39D44"
-    },
-    {
-      "name": "Oyster",
-      "value": "head-Oyster",
-      "filePath": "HeadOyster.glb",
-      "componentName": "OysterHead",
-      "color": "0xD4B7B2"
-    },
-    {
-      "name": "Paintbrush",
-      "value": "head-Paintbrush",
-      "filePath": "HeadPaintbrush.glb",
-      "componentName": "PaintbrushHead",
-      "color": "0xFFC925"
-    },
-    {
-      "name": "Panda",
-      "value": "head-Panda",
-      "filePath": "HeadPanda.glb",
-      "componentName": "PandaHead",
-      "color": "0x000000"
-    },
-    {
-      "name": "Paperclip",
-      "value": "head-Paperclip",
-      "filePath": "paperclipHead.glb",
-      "componentName": "PaperclipHead",
-      "color": "0xAAA6A4"
-    },
-    {
-      "name": "Peanut",
-      "value": "head-Peanut",
-      "filePath": "HeadPeanut.glb",
-      "componentName": "PeanutHead",
-      "color": "0xCAA26A"
-    },
-    {
-      "name": "Pencil",
-      "value": "head-Pencil",
-      "filePath": "HeadPencil.glb",
-      "componentName": "PencilHead",
-      "color": "0xFFC110"
-    },
-    {
-      "name": "Peyote",
-      "value": "head-Peyote",
-      "filePath": "HeadPeyote.glb",
-      "componentName": "PeyoteHead",
-      "color": "0x27A463"
-    },
-    {
-      "name": "Piano",
-      "value": "head-Piano",
-      "filePath": "HeadPiano.glb",
-      "componentName": "PianoHead",
-      "color": "0x1F1D29"
-    },
-    {
-      "name": "Pickle",
-      "value": "head-Pickle",
-      "filePath": "HeadPickle.glb",
-      "componentName": "PickleHead",
-      "color": "0x68940"
-    },
-    {
-      "name": "Pie",
-      "value": "head-Pie",
-      "filePath": "HeadPie.glb",
-      "componentName": "PieHead",
-      "color": "0xD19A54"
-    },
-    {
-      "name": "Piggybank",
-      "value": "head-Piggybank",
-      "filePath": "HeadPiggyBank.glb",
-      "componentName": "PiggybankHead",
-      "color": "0xFA6FE2"
-    },
-    {
-      "name": "Pill",
-      "value": "head-Pill",
-      "filePath": "HeadPill.glb",
-      "componentName": "PillHead",
-      "color": "0x34AC80"
-    },
-    {
-      "name": "Pillow",
-      "value": "head-Pillow",
-      "filePath": "HeadPillow.glb",
-      "componentName": "PillowHead",
-      "color": "0xF5FCFF"
-    },
-    {
-      "name": "Pineapple",
-      "value": "head-Pineapple",
-      "filePath": "pineappleHead.glb",
-      "componentName": "PineappleHead",
-      "color": "0xFFC110"
-    },
-    {
-      "name": "Pipe",
-      "value": "head-Pipe",
-      "filePath": "HeadPipe.glb",
-      "componentName": "PipeHead",
-      "color": "0x5A423F"
-    },
-    {
-      "name": "Pirateship",
-      "value": "head-Pirateship",
-      "filePath": "pirateshipHead.glb",
-      "componentName": "PirateshipHead",
-      "color": "0x62616D"
-    },
-    {
-      "name": "Pizza",
-      "value": "head-Pizza",
-      "filePath": "HeadPizza.glb",
-      "componentName": "PizzaHead",
-      "color": "0xFFEF16"
-    },
-    {
-      "name": "Plane",
-      "value": "head-Plane",
-      "filePath": "HeadPlane.glb",
-      "componentName": "PlaneHead",
-      "color": "0x34AC80"
-    },
-    {
-      "name": "Pop",
-      "value": "head-Pop",
-      "filePath": "HeadPop.glb",
-      "componentName": "PopHead",
-      "color": "0xF84C05"
-    },
-    {
-      "name": "Porkbao",
-      "value": "head-Porkbao",
-      "filePath": "porkbaoHead.glb",
-      "componentName": "PorkbaoHead",
-      "color": "0xFFF0BE"
-    },
-    {
-      "name": "Potato",
-      "value": "head-Potato",
-      "filePath": "HeadPotato.glb",
-      "componentName": "PotatoHead",
-      "color": "0x74580D"
-    },
-    {
-      "name": "Pufferfish",
-      "value": "head-Pufferfish",
-      "filePath": "HeadPufferFish.glb",
-      "componentName": "PufferfishHead",
-      "color": "0xF7913D"
-    },
-    {
-      "name": "Pumpkin",
-      "value": "head-Pumpkin",
-      "filePath": "HeadPumpkin.glb",
-      "componentName": "PumpkinHead",
-      "color": "0xF3322C"
-    },
-    {
-      "name": "Pyramid",
-      "value": "head-Pyramid",
-      "filePath": "HeadPyramid.glb",
-      "componentName": "PyramidHead",
-      "color": "0x9D8E6E"
-    },
-    {
-      "name": "Queencrown",
-      "value": "head-Queencrown",
-      "filePath": "queencrownHead.glb",
-      "componentName": "QueencrownHead",
-      "color": "0xF82905"
-    },
-    {
-      "name": "Rabbit",
-      "value": "head-Rabbit",
-      "filePath": "rabbitHead.glb",
-      "componentName": "RabbitHead",
-      "color": "0xA99FA2"
-    },
-    {
-      "name": "Rainbow",
-      "value": "head-Rainbow",
-      "filePath": "HeadRainbow.glb",
-      "componentName": "RainbowHead",
-      "color": "0x9F21A0"
-    },
+    { "name": "Mouse", "trait": "head-mouse", "filePath": "HeadMouse.glb", "componentName": "MouseHead", "color": "0x808081", "id": "132" },
+    { "name": "Mug", "trait": "head-mug", "filePath": "HeadMug.glb", "componentName": "MugHead", "color": "0xFFFFFF", "id": "133" },
+    { "name": "Mushroom", "trait": "head-mushroom", "filePath": "mushroomHead.glb", "componentName": "MushroomHead", "color": "0xF9E8DD", "id": "134" },
+    { "name": "Mustard", "trait": "head-mustard", "filePath": "HeadMustard.glb", "componentName": "MustardHead", "color": "0xFFC925", "id": "135" },
+    { "name": "Nigiri", "trait": "head-nigiri", "filePath": "nigiriHead.glb", "componentName": "NigiriHead", "color": "0xFFFFFF", "id": "136" },
+    { "name": "Noodles", "trait": "head-noodles", "filePath": "NoodlesHead.glb", "componentName": "NoodlesHead", "color": "0xFFFFFF", "id": "137" },
+    { "name": "Onion", "trait": "head-onion", "filePath": "HeadOnion.glb", "componentName": "OnionHead", "color": "0xD56333", "id": "138" },
+    { "name": "Orangutan", "trait": "head-orangutan", "filePath": "OrangutanHead.glb", "componentName": "OrangutanHead", "color": "0x241A17", "id": "139" },
+    { "name": "Orca", "trait": "head-orca", "filePath": "HeadOrca.glb", "componentName": "OrcaHead", "color": "0x343235", "id": "140" },
+    { "name": "Otter", "trait": "head-otter", "filePath": "HeadOtter.glb", "componentName": "OtterHead", "color": "0x85634F", "id": "141" },
+    { "name": "Outlet", "trait": "head-outlet", "filePath": "HeadOutlet.glb", "componentName": "OutletHead", "color": "0xFEF2F0", "id": "142" },
+    { "name": "Owl", "trait": "head-owl", "filePath": "owlHead.glb", "componentName": "OwlHead", "color": "0xF39D44", "id": "143" },
+    { "name": "Oyster", "trait": "head-oyster", "filePath": "HeadOyster.glb", "componentName": "OysterHead", "color": "0xD4B7B2", "id": "144" },
+    { "name": "Paintbrush", "trait": "head-paintbrush", "filePath": "HeadPaintbrush.glb", "componentName": "PaintbrushHead", "color": "0xFFC925", "id": "145" },
+    { "name": "Panda", "trait": "head-panda", "filePath": "HeadPanda.glb", "componentName": "PandaHead", "color": "0x000000", "id": "146" },
+    { "name": "Paperclip", "trait": "head-paperclip", "filePath": "paperclipHead.glb", "componentName": "PaperclipHead", "color": "0xAAA6A4", "id": "147" },
+    { "name": "Peanut", "trait": "head-peanut", "filePath": "HeadPeanut.glb", "componentName": "PeanutHead", "color": "0xCAA26A", "id": "148" },
+    { "name": "Pencil-Tip", "trait": "head-pencil-tip", "filePath": "HeadPencil.glb", "componentName": "PencilHead", "color": "0xFFC110", "id": "149" },
+    { "name": "Peyote", "trait": "head-peyote", "filePath": "HeadPeyote.glb", "componentName": "PeyoteHead", "color": "0x27A463", "id": "150" },
+    { "name": "Piano", "trait": "head-piano", "filePath": "HeadPiano.glb", "componentName": "PianoHead", "color": "0x1F1D29", "id": "151" },
+    { "name": "Pickle", "trait": "head-pickle", "filePath": "HeadPickle.glb", "componentName": "PickleHead", "color": "0x68940", "id": "152" },
+    { "name": "Pie", "trait": "head-pie", "filePath": "HeadPie.glb", "componentName": "PieHead", "color": "0xD19A54", "id": "153" },
+    { "name": "Piggybank", "trait": "head-piggybank", "filePath": "HeadPiggyBank.glb", "componentName": "PiggybankHead", "color": "0xFA6FE2", "id": "154" },
+    { "name": "Pill", "trait": "head-pill", "filePath": "HeadPill.glb", "componentName": "PillHead", "color": "0x34AC80", "id": "155" },
+    { "name": "Pillow", "trait": "head-pillow", "filePath": "HeadPillow.glb", "componentName": "PillowHead", "color": "0xF5FCFF", "id": "156" },
+    { "name": "Pineapple", "trait": "head-pineapple", "filePath": "pineappleHead.glb", "componentName": "PineappleHead", "color": "0xFFC110", "id": "157" },
+    { "name": "Pipe", "trait": "head-pipe", "filePath": "HeadPipe.glb", "componentName": "PipeHead", "color": "0x5A423F", "id": "158" },
+    { "name": "Pirateship", "trait": "head-pirateship", "filePath": "pirateshipHead.glb", "componentName": "PirateshipHead", "color": "0x62616D", "id": "159" },
+    { "name": "Pizza", "trait": "head-pizza", "filePath": "HeadPizza.glb", "componentName": "PizzaHead", "color": "0xFFEF16", "id": "160" },
+    { "name": "Plane", "trait": "head-plane", "filePath": "HeadPlane.glb", "componentName": "PlaneHead", "color": "0x34AC80", "id": "161" },
+    { "name": "Pop", "trait": "head-pop", "filePath": "HeadPop.glb", "componentName": "PopHead", "color": "0xF84C05", "id": "162" },
+    { "name": "Porkbao", "trait": "head-porkbao", "filePath": "porkbaoHead.glb", "componentName": "PorkbaoHead", "color": "0xFFF0BE", "id": "163" },
+    { "name": "Potato", "trait": "head-potato", "filePath": "HeadPotato.glb", "componentName": "PotatoHead", "color": "0x74580D", "id": "164" },
+    { "name": "Pufferfish", "trait": "head-pufferfish", "filePath": "HeadPufferFish.glb", "componentName": "PufferfishHead", "color": "0xF7913D", "id": "165" },
+    { "name": "Pumpkin", "trait": "head-pumpkin", "filePath": "HeadPumpkin.glb", "componentName": "PumpkinHead", "color": "0xF3322C", "id": "166" },
+    { "name": "Pyramid", "trait": "head-pyramid", "filePath": "HeadPyramid.glb", "componentName": "PyramidHead", "color": "0x9D8E6E", "id": "167" },
+    { "name": "Queencrown", "trait": "head-queencrown", "filePath": "queencrownHead.glb", "componentName": "QueencrownHead", "color": "0xF82905", "id": "168" },
+    { "name": "Rabbit", "trait": "head-rabbit", "filePath": "rabbitHead.glb", "componentName": "RabbitHead", "color": "0xA99FA2", "id": "169" },
+    { "name": "Rainbow", "trait": "head-rainbow", "filePath": "HeadRainbow.glb", "componentName": "RainbowHead", "color": "0x9F21A0", "id": "170" },
     {
       "name": "Rangefinder",
-      "value": "head-Rangefinder",
+      "trait": "head-rangefinder",
       "filePath": "HeadRangefinder.glb",
       "componentName": "RangefinderHead",
-      "color": "0xABAAA8"
+      "color": "0xABAAA8",
+      "id": "171"
     },
+    { "name": "Raven", "trait": "head-raven", "filePath": "HeadRaven.glb", "componentName": "RavenHead", "color": "0x0F1420", "id": "172" },
+    { "name": "Retainer", "trait": "head-retainer", "filePath": "HeadRetainer.glb", "componentName": "RetainerHead", "color": "0xFF638D", "id": "173" },
+    { "name": "Rgb", "trait": "head-rgb", "filePath": "HeadRGB.glb", "componentName": "RgbHead", "color": "0x1929F4", "id": "174" },
+    { "name": "Ring", "trait": "head-ring", "filePath": "HeadRing.glb", "componentName": "RingHead", "color": "0xFFF449", "id": "175" },
+    { "name": "Road", "trait": "head-road", "filePath": "HeadRoad.glb", "componentName": "RoadHead", "color": "0x4A5358", "id": "176" },
+    { "name": "Robot", "trait": "head-robot", "filePath": "robotHead.glb", "componentName": "RobotHead", "color": "0x808082", "id": "177" },
+    { "name": "Rock", "trait": "head-rock", "filePath": "HeadRock.glb", "componentName": "RockHead", "color": "0x62616D", "id": "178" },
+    { "name": "Rosebud", "trait": "head-rosebud", "filePath": "HeadRose.glb", "componentName": "RoseHead", "color": "0x962236", "id": "179" },
     {
-      "name": "Raven",
-      "value": "head-Raven",
-      "filePath": "HeadRaven.glb",
-      "componentName": "RavenHead",
-      "color": "0x0F1420"
-    },
-    {
-      "name": "Retainer",
-      "value": "head-Retainer",
-      "filePath": "HeadRetainer.glb",
-      "componentName": "RetainerHead",
-      "color": "0xFF638D"
-    },
-    {
-      "name": "Rgb",
-      "value": "head-Rgb",
-      "filePath": "HeadRGB.glb",
-      "componentName": "RgbHead",
-      "color": "0x1929F4"
-    },
-    {
-      "name": "Ring",
-      "value": "head-Ring",
-      "filePath": "HeadRing.glb",
-      "componentName": "RingHead",
-      "color": "0xFFF449"
-    },
-    {
-      "name": "Road",
-      "value": "head-Road",
-      "filePath": "HeadRoad.glb",
-      "componentName": "RoadHead",
-      "color": "0x4A5358"
-    },
-    {
-      "name": "Robot",
-      "value": "head-Robot",
-      "filePath": "robotHead.glb",
-      "componentName": "RobotHead",
-      "color": "0x808082"
-    },
-    {
-      "name": "Rock",
-      "value": "head-Rock",
-      "filePath": "HeadRock.glb",
-      "componentName": "RockHead",
-      "color": "0x62616D"
-    },
-    {
-      "name": "Rose",
-      "value": "head-Rose",
-      "filePath": "HeadRose.glb",
-      "componentName": "RoseHead",
-      "color": "0x962236"
-    },
-    {
-      "name": "Rulertriangular",
-      "value": "head-Rulertriangular",
+      "name": "Ruler-Triangular",
+      "trait": "head-ruler-triangular",
       "filePath": "HeadRulerTriangular.glb",
       "componentName": "RulertriangularHead",
-      "color": "0xFB4694"
+      "color": "0xFB4694",
+      "id": "180"
     },
+    { "name": "Saguaro", "trait": "head-saguaro", "filePath": "HeadSaguaro.glb", "componentName": "SaguaroHead", "color": "0x909B0E", "id": "181" },
+    { "name": "Sailboat", "trait": "head-sailboat", "filePath": "sailboatHead.glb", "componentName": "SailboatHead", "color": "0xCD916D", "id": "182" },
+    { "name": "Sandwich", "trait": "head-sandwich", "filePath": "sandwichHead.glb", "componentName": "SandwichHead", "color": "0xC59268", "id": "183" },
+    { "name": "Saturn", "trait": "head-saturn", "filePath": "HeadSaturn.glb", "componentName": "SaturnHead", "color": "0xE11833", "id": "184" },
+    { "name": "Saw", "trait": "head-saw", "filePath": "HeadSaw.glb", "componentName": "SawHead", "color": "0xB2A8A5", "id": "185" },
+    { "name": "Scorpion", "trait": "head-scorpion", "filePath": "HeadScorpion.glb", "componentName": "ScorpionHead", "color": "0xE9BA12", "id": "186" },
+    { "name": "Shark", "trait": "head-shark", "filePath": "sharkHead.glb", "componentName": "SharkHead", "color": "0x2B83F6", "id": "187" },
+    { "name": "Shower", "trait": "head-shower", "filePath": "HeadShower.glb", "componentName": "ShowerHead", "color": "0x3CBCFC", "id": "188" },
+    { "name": "Skateboard", "trait": "head-skateboard", "filePath": "skateHead.glb", "componentName": "SkateHead", "color": "0x8DD122", "id": "189" },
     {
-      "name": "Saguaro",
-      "value": "head-Saguaro",
-      "filePath": "HeadSaguaro.glb",
-      "componentName": "SaguaroHead",
-      "color": "0x909B0E"
-    },
-    {
-      "name": "Sailboat",
-      "value": "head-Sailboat",
-      "filePath": "sailboatHead.glb",
-      "componentName": "SailboatHead",
-      "color": "0xCD916D"
-    },
-    {
-      "name": "Sandwich",
-      "value": "head-Sandwich",
-      "filePath": "sandwichHead.glb",
-      "componentName": "SandwichHead",
-      "color": "0xC59268"
-    },
-    {
-      "name": "Saturn",
-      "value": "head-Saturn",
-      "filePath": "HeadSaturn.glb",
-      "componentName": "SaturnHead",
-      "color": "0xE11833"
-    },
-    {
-      "name": "Saw",
-      "value": "head-Saw",
-      "filePath": "HeadSaw.glb",
-      "componentName": "SawHead",
-      "color": "0xB2A8A5"
-    },
-    {
-      "name": "Scorpion",
-      "value": "head-Scorpion",
-      "filePath": "HeadScorpion.glb",
-      "componentName": "ScorpionHead",
-      "color": "0xE9BA12"
-    },
-    {
-      "name": "Shark",
-      "value": "head-Shark",
-      "filePath": "sharkHead.glb",
-      "componentName": "SharkHead",
-      "color": "0x2B83F6"
-    },
-    {
-      "name": "Shower",
-      "value": "head-Shower",
-      "filePath": "HeadShower.glb",
-      "componentName": "ShowerHead",
-      "color": "0x3CBCFC"
-    },
-    {
-      "name": "Skate",
-      "value": "head-Skate",
-      "filePath": "skateHead.glb",
-      "componentName": "SkateHead",
-      "color": "0x8DD122"
-    },
-    {
-      "name": "Skeletonhat",
-      "value": "head-Skeletonhat",
+      "name": "Skeleton-Hat",
+      "trait": "head-skeleton-hat",
       "filePath": "skeletonhatHead.glb",
       "componentName": "SkeletonhatHead",
-      "color": "0xF9E8DD"
+      "color": "0xF9E8DD",
+      "id": "190"
     },
+    { "name": "Skilift", "trait": "head-skilift", "filePath": "HeadSkilift.glb", "componentName": "SkiliftHead", "color": "0xD32A09", "id": "191" },
+    { "name": "Smile", "trait": "head-smile", "filePath": "HeadSmile.glb", "componentName": "SmileHead", "color": "0xF3322C", "id": "192" },
+    { "name": "Snowglobe", "trait": "head-snowglobe", "filePath": "HeadSnowglobe.glb", "componentName": "SnowglobeHead", "color": "0x5A423F", "id": "193" },
+    { "name": "Snowmobile", "trait": "head-snowmobile", "filePath": "SnowMobileHead.glb", "componentName": "SnowmobileHead", "color": "0xFFFFFF", "id": "194" },
+    { "name": "Spaghetti", "trait": "head-spaghetti", "filePath": "HeadSpaghetti.glb", "componentName": "SpaghettiHead", "color": "0xEFAD81", "id": "195" },
+    { "name": "Sponge", "trait": "head-sponge", "filePath": "HeadSponge.glb", "componentName": "SpongeHead", "color": "0xFFF671", "id": "196" },
+    { "name": "Squid", "trait": "head-squid", "filePath": "squidHead.glb", "componentName": "SquidHead", "color": "0xFF638D", "id": "197" },
+    { "name": "Stapler", "trait": "head-stapler", "filePath": "HeadStapler.glb", "componentName": "StaplerHead", "color": "0xF3322C", "id": "198" },
     {
-      "name": "Skilift",
-      "value": "head-Skilift",
-      "filePath": "HeadSkilift.glb",
-      "componentName": "SkiliftHead",
-      "color": "0xD32A09"
-    },
-    {
-      "name": "Smile",
-      "value": "head-Smile",
-      "filePath": "HeadSmile.glb",
-      "componentName": "SmileHead",
-      "color": "0xF3322C"
-    },
-    {
-      "name": "Snowglobe",
-      "value": "head-Snowglobe",
-      "filePath": "HeadSnowglobe.glb",
-      "componentName": "SnowglobeHead",
-      "color": "0x5A423F"
-    },
-    {
-      "name": "Snowman",
-      "value": "head-Snowman",
-      "filePath": "SnowmanHead.glb",
-      "componentName": "SnowmanHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Snowmobile",
-      "value": "head-Snowmobile",
-      "filePath": "SnowMobileHead.glb",
-      "componentName": "SnowmobileHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Spaghetti",
-      "value": "head-Spaghetti",
-      "filePath": "HeadSpaghetti.glb",
-      "componentName": "SpaghettiHead",
-      "color": "0xEFAD81"
-    },
-    {
-      "name": "Sponge",
-      "value": "head-Sponge",
-      "filePath": "HeadSponge.glb",
-      "componentName": "SpongeHead",
-      "color": "0xFFF671"
-    },
-    {
-      "name": "Squid",
-      "value": "head-Squid",
-      "filePath": "squidHead.glb",
-      "componentName": "SquidHead",
-      "color": "0xFF638D"
-    },
-    {
-      "name": "Stapler",
-      "value": "head-Stapler",
-      "filePath": "HeadStapler.glb",
-      "componentName": "StaplerHead",
-      "color": "0xF3322C"
-    },
-    {
-      "name": "Starsparkle",
-      "value": "head-Starsparkle",
+      "name": "Star-Sparkles",
+      "trait": "head-star-sparkles",
       "filePath": "HeadStarSparkle.glb",
       "componentName": "StarsparkleHead",
-      "color": "0xFFF671"
+      "color": "0xFFF671",
+      "id": "199"
     },
+    { "name": "Steak", "trait": "head-steak", "filePath": "HeadSteak.glb", "componentName": "SteakHead", "color": "0xD22209", "id": "200" },
+    { "name": "Sunset", "trait": "head-sunset", "filePath": "sunsetHead.glb", "componentName": "SunsetHead", "color": "0xFFEF16", "id": "201" },
+    { "name": "Taco-Classic", "trait": "head-taco-classic", "filePath": "HeadTaco.glb", "componentName": "TacoHead", "color": "0xE7A32C", "id": "202" },
+    { "name": "Taxi", "trait": "head-taxi", "filePath": "Headtaxi.glb", "componentName": "TaxiHead", "color": "0xFFB913", "id": "203" },
+    { "name": "Thumbsup", "trait": "head-thumbsup", "filePath": "HeadThumbsUp.glb", "componentName": "ThumbsupHead", "color": "0xFFB913", "id": "204" },
+    { "name": "Toaster", "trait": "head-toaster", "filePath": "toasterHead.glb", "componentName": "ToasterHead", "color": "0xABAAA8", "id": "205" },
     {
-      "name": "Steak",
-      "value": "head-Steak",
-      "filePath": "HeadSteak.glb",
-      "componentName": "SteakHead",
-      "color": "0xD22209"
-    },
-    {
-      "name": "Sunset",
-      "value": "head-Sunset",
-      "filePath": "sunsetHead.glb",
-      "componentName": "SunsetHead",
-      "color": "0xFFEF16"
-    },
-    {
-      "name": "Taco",
-      "value": "head-Taco",
-      "filePath": "HeadTaco.glb",
-      "componentName": "TacoHead",
-      "color": "0xE7A32C"
-    },
-    {
-      "name": "Taxi",
-      "value": "head-Taxi",
-      "filePath": "Headtaxi.glb",
-      "componentName": "TaxiHead",
-      "color": "0xFFB913"
-    },
-    {
-      "name": "Thumbsup",
-      "value": "head-Thumbsup",
-      "filePath": "HeadThumbsUp.glb",
-      "componentName": "ThumbsupHead",
-      "color": "0xFFB913"
-    },
-    {
-      "name": "Toaster",
-      "value": "head-Toaster",
-      "filePath": "toasterHead.glb",
-      "componentName": "ToasterHead",
-      "color": "0xABAAA8"
-    },
-    {
-      "name": "Toiletpaper",
-      "value": "head-Toiletpaper",
+      "name": "Toiletpaper-Full",
+      "trait": "head-toiletpaper-full",
       "filePath": "HeadToiletPaper.glb",
       "componentName": "ToiletpaperHead",
-      "color": "0xFFFFFF"
+      "color": "0xFFFFFF",
+      "id": "206"
     },
+    { "name": "Tooth", "trait": "head-tooth", "filePath": "HeadTooth.glb", "componentName": "ToothHead", "color": "0xFFFFFF", "id": "207" },
     {
-      "name": "Tooth",
-      "value": "head-Tooth",
-      "filePath": "HeadTooth.glb",
-      "componentName": "ToothHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Toothbrush",
-      "value": "head-Toothbrush",
+      "name": "Toothbrush-Fresh",
+      "trait": "head-toothbrush-fresh",
       "filePath": "HeadToothBrush.glb",
       "componentName": "ToothbrushHead",
-      "color": "0x2B83F6"
+      "color": "0x2B83F6",
+      "id": "208"
     },
-    {
-      "name": "Tornado",
-      "value": "head-Tornado",
-      "filePath": "HeadTornado.glb",
-      "componentName": "TornadoHead",
-      "color": "0xD4B7B2"
-    },
-    {
-      "name": "Trashcan",
-      "value": "head-Trashcan",
-      "filePath": "trashcanHead.glb",
-      "componentName": "TrashcanHead",
-      "color": "0x807F7E"
-    },
-    {
-      "name": "Treasurechest",
-      "value": "head-Treasurechest",
-      "filePath": "TreasureChestHead.glb",
-      "componentName": "TreasureChestHead",
-      "color": "0x733E39"
-    },
-    {
-      "name": "Turing",
-      "value": "head-Turing",
-      "filePath": "HeadTuring.glb",
-      "componentName": "TuringHead",
-      "color": "0x5D6061"
-    },
-    {
-      "name": "Ufo",
-      "value": "head-Ufo",
-      "filePath": "HeadUFO.glb",
-      "componentName": "UfoHead",
-      "color": "0xFB4694"
-    },
-    {
-      "name": "Undead",
-      "value": "head-Undead",
-      "filePath": "undeadHead.glb",
-      "componentName": "UndeadHead",
-      "color": "0x909B0E"
-    },
-    {
-      "name": "Unicorn",
-      "value": "head-Unicorn",
-      "filePath": "HeadUnicorn.glb",
-      "componentName": "UnicornHead",
-      "color": "0xFDF8FF"
-    },
-    {
-      "name": "VendingMachine",
-      "value": "head-VendingMachine",
-      "filePath": "VendingMachineHead.glb",
-      "componentName": "VendingMachineHead",
-      "color": "0xF20422"
-    },
-    {
-      "name": "Vent",
-      "value": "head-Vent",
-      "filePath": "Headvent.glb",
-      "componentName": "VentHead",
-      "color": "0xFFFFFF"
-    },
-    {
-      "name": "Void",
-      "value": "head-Void",
-      "filePath": "HeadVoid.glb",
-      "componentName": "VoidHead",
-      "color": "0x000000"
-    },
-    {
-      "name": "Volcano",
-      "value": "head-Volcano",
-      "filePath": "HeadVolcano.glb",
-      "componentName": "VolcanoHead",
-      "color": "0x62616D"
-    },
-    {
-      "name": "Volleyball",
-      "value": "head-Volleyball",
-      "filePath": "HeadVolleyBall.glb",
-      "componentName": "VolleyballHead",
-      "color": "0xF9F5E9"
-    },
-    {
-      "name": "Wall",
-      "value": "head-Wall",
-      "filePath": "HeadWall.glb",
-      "componentName": "WallHead",
-      "color": "0xC54E38"
-    },
-    {
-      "name": "Wallet",
-      "value": "head-Wallet",
-      "filePath": "HeadWallet.glb",
-      "componentName": "WalletHead",
-      "color": "0x7E5243"
-    },
-    {
-      "name": "Wallsafe",
-      "value": "head-Wallsafe",
-      "filePath": "HeadWallSafe.glb",
-      "componentName": "WallsafeHead",
-      "color": "0x5A423F"
-    },
+    { "name": "Tornado", "trait": "head-tornado", "filePath": "HeadTornado.glb", "componentName": "TornadoHead", "color": "0xD4B7B2", "id": "209" },
+    { "name": "Trashcan", "trait": "head-trashcan", "filePath": "trashcanHead.glb", "componentName": "TrashcanHead", "color": "0x807F7E", "id": "210" },
+    { "name": "Turing", "trait": "head-turing", "filePath": "HeadTuring.glb", "componentName": "TuringHead", "color": "0x5D6061", "id": "211" },
+    { "name": "Ufo", "trait": "head-ufo", "filePath": "HeadUFO.glb", "componentName": "UfoHead", "color": "0xFB4694", "id": "212" },
+    { "name": "Undead", "trait": "head-undead", "filePath": "undeadHead.glb", "componentName": "UndeadHead", "color": "0x909B0E", "id": "213" },
+    { "name": "Unicorn", "trait": "head-unicorn", "filePath": "HeadUnicorn.glb", "componentName": "UnicornHead", "color": "0xFDF8FF", "id": "214" },
+    { "name": "Vent", "trait": "head-vent", "filePath": "Headvent.glb", "componentName": "VentHead", "color": "0xFFFFFF", "id": "215" },
+    { "name": "Void", "trait": "head-void", "filePath": "HeadVoid.glb", "componentName": "VoidHead", "color": "0x000000", "id": "216" },
+    { "name": "Volcano", "trait": "head-volcano", "filePath": "HeadVolcano.glb", "componentName": "VolcanoHead", "color": "0x62616D", "id": "217" },
+    { "name": "Volleyball", "trait": "head-volleyball", "filePath": "HeadVolleyBall.glb", "componentName": "VolleyballHead", "color": "0xF9F5E9", "id": "218" },
+    { "name": "Wall", "trait": "head-wall", "filePath": "HeadWall.glb", "componentName": "WallHead", "color": "0xC54E38", "id": "219" },
+    { "name": "Wallet", "trait": "head-wallet", "filePath": "HeadWallet.glb", "componentName": "WalletHead", "color": "0x7E5243", "id": "220" },
+    { "name": "Wallsafe", "trait": "head-wallsafe", "filePath": "HeadWallSafe.glb", "componentName": "WallsafeHead", "color": "0x5A423F", "id": "221" },
     {
       "name": "Washingmachine",
-      "value": "head-Washingmachine",
+      "trait": "head-washingmachine",
       "filePath": "HeadWashingMachine.glb",
       "componentName": "WashingmachineHead",
-      "color": "0xFFF0EE"
+      "color": "0xFFF0EE",
+      "id": "222"
     },
+    { "name": "Watch", "trait": "head-watch", "filePath": "HeadWatch.glb", "componentName": "WatchHead", "color": "0xFFC110", "id": "223" },
+    { "name": "Watermelon", "trait": "head-watermelon", "filePath": "HeadWatermelon.glb", "componentName": "WatermelonHead", "color": "0x34AC80", "id": "224" },
+    { "name": "Wave", "trait": "head-wave", "filePath": "WaveHead.glb", "componentName": "WaveHead", "color": "0x254EFB", "id": "225" },
+    { "name": "Weed", "trait": "head-weed", "filePath": "weedHead.glb", "componentName": "WeedHead", "color": "0x68940", "id": "226" },
+    { "name": "Weight", "trait": "head-weight", "filePath": "HeadWeight.glb", "componentName": "WeightHead", "color": "0x5A6B7B", "id": "227" },
+    { "name": "Werewolf", "trait": "head-werewolf", "filePath": "HeadWerewolf.glb", "componentName": "WerewolfHead", "color": "0x7E5243", "id": "228" },
     {
-      "name": "Watch",
-      "value": "head-Watch",
-      "filePath": "HeadWatch.glb",
-      "componentName": "WatchHead",
-      "color": "0xFFC110"
-    },
-    {
-      "name": "Watermelon",
-      "value": "head-Watermelon",
-      "filePath": "HeadWatermelon.glb",
-      "componentName": "WatermelonHead",
-      "color": "0x34AC80"
-    },
-    {
-      "name": "Wave",
-      "value": "head-Wave",
-      "filePath": "WaveHead.glb",
-      "componentName": "WaveHead",
-      "color": "0x254EFB"
-    },
-    {
-      "name": "Weed",
-      "value": "head-Weed",
-      "filePath": "weedHead.glb",
-      "componentName": "WeedHead",
-      "color": "0x68940"
-    },
-    {
-      "name": "Weight",
-      "value": "head-Weight",
-      "filePath": "HeadWeight.glb",
-      "componentName": "WeightHead",
-      "color": "0x5A6B7B"
-    },
-    {
-      "name": "Werewolf",
-      "value": "head-Werewolf",
-      "filePath": "HeadWerewolf.glb",
-      "componentName": "WerewolfHead",
-      "color": "0x7E5243"
-    },
-    {
-      "name": "Whale",
-      "value": "head-Whale",
-      "filePath": "HeadWhale.glb",
-      "componentName": "WhaleHead",
-      "color": "0xC3A199"
-    },
-    {
-      "name": "Whalealive",
-      "value": "head-Whalealive",
+      "name": "Whale-Alive",
+      "trait": "head-whale-alive",
       "filePath": "HeadWhaleAlive.glb",
       "componentName": "WhalealiveHead",
-      "color": "0x254EFB"
+      "color": "0x254EFB",
+      "id": "229"
+    },
+    { "name": "Whale", "trait": "head-whale", "filePath": "HeadWhale.glb", "componentName": "WhaleHead", "color": "0xC3A199", "id": "230" },
+    { "name": "Wine", "trait": "head-wine", "filePath": "HeadWine.glb", "componentName": "WineHead", "color": "0xADC8CC", "id": "231" },
+    { "name": "Wizardhat", "trait": "head-wizardhat", "filePath": "HeadWizardHat.glb", "componentName": "WizardhatHead", "color": "0x395ED1", "id": "232" },
+    { "name": "Zebra", "trait": "head-zebra", "filePath": "HeadZebra.glb", "componentName": "ZebraHead", "color": "0xCFC9B8", "id": "233" },
+    { "name": "Capybara", "trait": "head-capybara", "filePath": "CapybaraHead.glb", "componentName": "CapybaraHead", "color": "0xD56333", "id": "234" },
+    { "name": "Couch", "trait": "head-couch", "filePath": "CouchHead.glb", "componentName": "CouchHead", "color": "0xC16923", "id": "235" },
+    { "name": "Hanger", "trait": "head-hanger", "filePath": "HangerHead.glb", "componentName": "HangerHead", "color": "0xFFFFFF", "id": "236" },
+    { "name": "Index-Card", "trait": "head-index-card", "filePath": "IndexCardHead.glb", "componentName": "IndexCardHead", "color": "0xFFFFFF", "id": "237" },
+    { "name": "Snowman", "trait": "head-snowman", "filePath": "SnowmanHead.glb", "componentName": "SnowmanHead", "color": "0xFFFFFF", "id": "238" },
+    {
+      "name": "Treasurechest",
+      "trait": "head-treasurechest",
+      "filePath": "TreasureChestHead.glb",
+      "componentName": "TreasureChestHead",
+      "color": "0x733E39",
+      "id": "239"
     },
     {
-      "name": "Wine",
-      "value": "head-Wine",
-      "filePath": "HeadWine.glb",
-      "componentName": "WineHead",
-      "color": "0xADC8CC"
+      "name": "Vending-Machine",
+      "trait": "head-vending-machine",
+      "filePath": "VendingMachineHead.glb",
+      "componentName": "VendingMachineHead",
+      "color": "0xF20422",
+      "id": "240"
     },
     {
-      "name": "Wizardhat",
-      "value": "head-Wizardhat",
-      "filePath": "HeadWizardHat.glb",
-      "componentName": "WizardhatHead",
-      "color": "0x395ED1"
-    },
-    {
-      "name": "WineBarrel",
-      "value": "head-WineBarrel",
+      "name": "Wine-Barrel",
+      "trait": "head-wine-barrel",
       "filePath": "WineBarrelHead.glb",
       "componentName": "WineBarrelHead",
-      "color": "0x85634F"
+      "color": "0x85634F",
+      "id": "241"
     },
-    {
-      "name": "Zebra",
-      "value": "head-Zebra",
-      "filePath": "HeadZebra.glb",
-      "componentName": "ZebraHead",
-      "color": "0xCFC9B8"
-    },
-    {
-      "name": "4156",
-      "value": "head-4156",
-      "filePath": "Head4156.glb",
-      "componentName": "Head4156",
-      "color": "0x352410"
-    }
+    { "name": "4156", "trait": "head-4156", "filePath": "Head4156.glb", "componentName": "Head4156", "color": "0x352410", "id": "10000" }
   ]
 }

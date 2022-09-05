@@ -5,12 +5,7 @@ import * as THREE from 'three';
 import data from 'data.json';
 // import { lookupAnimation } from 'assets/FullBodyNouns/FinalPipelineTest';
 
-export default function DownloadHead({
-  headProp,
-  glassesProp,
-  animationState,
-  animationValue,
-}) {
+export default function DownloadHead({ headProp, glassesProp, animationState, animationValue }) {
   // const group = useRef();
   const { nodes, materials } = useGLTF(`/headModels/${getHeadPath(headProp)}`);
 
@@ -58,6 +53,6 @@ export default function DownloadHead({
 useGLTF.preload('/pipeline1110/headAnim.glb');
 
 const getHeadPath = (headProp) => {
-  let headFound = data.tempHeads.find((headObj) => headObj.name === headProp);
+  let headFound = data.head.find((headObj) => headObj.name === headProp);
   return headFound.filePath;
 };

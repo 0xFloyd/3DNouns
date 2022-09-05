@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, FormCheck, Modal, Nav, Navbar, NavDropdown, Row, Spinner } from 'react-bootstrap';
 import data from '../data.json';
 import '../styles/menu.css';
@@ -17,6 +17,26 @@ import CameraIcon from '../assets/images/cameraIcon.svg';
 import ClosedLockIcon from '../assets/images/lockIconClosed.svg';
 import OpenLockIcon from '../assets/images/lockIconOpen.svg';
 import * as THREE from 'three';
+import NounData from './NounData';
+import { gql, useQuery } from '@apollo/client';
+
+const GET_NOUNS = gql`
+  {
+    nouns(first: 1000) {
+      id
+      seed {
+        background
+        body
+        accessory
+        head
+        glasses
+      }
+      owner {
+        id
+      }
+    }
+  }
+`;
 
 const MenuTwo = ({
   isDesktop,
@@ -55,6 +75,8 @@ const MenuTwo = ({
   showScreenshotModal,
   setShowScreenshotModal,
   saveAsImage,
+  seed,
+  setSeed,
 }) => {
   const rotateOptions = [
     { name: 'Off', value: 'false' },
@@ -66,6 +88,7 @@ const MenuTwo = ({
   const [showMintModal, setShowMintModal] = useState(false);
   // const [showScreenshotModal, setShowScreenshotModal] = useState(false);
   const [sceneScreenshotState, setSceneScreenshotState] = useState(null);
+  const [userInput, setUserInput] = useState('');
 
   const throttleClicks = () => {
     // throttle random button clicks
@@ -76,6 +99,44 @@ const MenuTwo = ({
   };
 
   const { progress } = useProgress();
+
+  const { loading, error, data: graphQLData } = useQuery(GET_NOUNS);
+
+  useEffect(() => {
+    try {
+      if (graphQLData && seed && data) {
+        let traitData = graphQLData.nouns.find((element) => element.id === seed);
+
+        if (traitData) {
+          let head = data.head.find((element) => element.id == traitData.seed.head);
+          let body = data.body.find((element) => element.id == traitData.seed.body);
+          let glasses = data.glasses.find((element) => element.id == traitData.seed.glasses);
+          let accessory = data.accessory.find((element) => element.id == traitData.seed.accessory);
+
+          if (head) {
+            console.log('set head: ', head.name);
+            setHead(head.name);
+          }
+          if (body) {
+            console.log('set body: ', body.name);
+            setBody(body.name);
+          }
+          if (accessory) {
+            console.log('set accessory: ', accessory.name);
+            setAccessory(accessory.name);
+          }
+          if (glasses) {
+            console.log('set glasses: ', glasses.name);
+            setGlasses(glasses.value);
+          }
+        } else {
+          // console.log('no trait data');
+        }
+      } else {
+        //  console.log('no graphql data');
+      }
+    } catch {}
+  }, [seed, graphQLData]);
 
   return (
     <>
@@ -131,6 +192,22 @@ const MenuTwo = ({
               {/* <h3 className="white-font attribute-label" style={{ textAlign: 'center' }}>
             Settings
           </h3> */}
+              <div className="inline-option-row" style={{ marginBottom: '20px' }}>
+                <p>Search for Noun by ID</p>
+                <div className="inline-option-row" style={{ width: '100%' }}>
+                  <input style={{ flex: 0, width: '50%' }} type="number" min="0" max="10]00" onChange={(e) => setUserInput(e.target.value)} />
+                  <button
+                    style={{ flexShrink: 0 }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSeed(userInput);
+                    }}>
+                    Search
+                  </button>
+                </div>
+
+                {/* <NounData seed={seed} setHead={setHead} setGlasses={setGlasses} setBody={setBody} setAccessory={setAccessory} /> */}
+              </div>
 
               {/* HEAD */}
               <div className="inline-option-row">
@@ -153,9 +230,15 @@ const MenuTwo = ({
             </button> */}
                 <div className="inline-select-wrap">
                   <label className="trait-label">Head</label>
-                  <select value={head} className="trait-select" onChange={(e) => setHead(e.target.value)}>
-                    {data.tempHeads.map((head) => (
-                      <option key={head.value} value={head.name}>
+                  <select
+                    value={head}
+                    className="trait-select"
+                    onChange={(e) => {
+                      console.log('head changed: ', e.target.value);
+                      setHead(e.target.value);
+                    }}>
+                    {data.head.map((head) => (
+                      <option key={head.id} value={head.name}>
                         {head.name}
                       </option>
                     ))}
@@ -163,8 +246,8 @@ const MenuTwo = ({
                   {/* <button
                 onClick={() => {
                   setHead(
-                    data.tempHeads[
-                      Math.floor(Math.random() * data.tempHeads.length)
+                    data.head[
+                      Math.floor(Math.random() * data.head.length)
                     ].name
                   );
 
@@ -203,8 +286,8 @@ const MenuTwo = ({
                 {/* <button
               onClick={() => {
                 setHead(
-                  data.tempHeads[
-                    Math.floor(Math.random() * data.tempHeads.length)
+                  data.head[
+                    Math.floor(Math.random() * data.head.length)
                   ].name
                 );
 
@@ -224,7 +307,6 @@ const MenuTwo = ({
             </button> */}
               </div>
               {/* END HEAD */}
-
               {/*  GLASSES */}
               <div className="inline-option-row">
                 {/* <button
@@ -247,7 +329,13 @@ const MenuTwo = ({
                 <div className="inline-select-wrap">
                   <label className="trait-label">Glasses</label>
 
-                  <select value={glasses} onChange={(e) => setGlasses(e.target.value)} className="trait-select">
+                  <select
+                    value={glasses}
+                    onChange={(e) => {
+                      console.log('new glasses: ', e.target.value);
+                      setGlasses(e.target.value);
+                    }}
+                    className="trait-select">
                     {data.glasses.map((glasses) => (
                       <option key={glasses.value} value={glasses.value}>
                         {truncateString(glasses.name)}
@@ -305,7 +393,6 @@ const MenuTwo = ({
             </button> */}
               </div>
               {/*  END GLASSES */}
-
               {/*  BODY */}
               <div className="inline-option-row">
                 {/* <button
@@ -327,7 +414,13 @@ const MenuTwo = ({
                 <span />
                 <div className="inline-select-wrap">
                   <label className="trait-label">Body</label>
-                  <select value={body} onChange={(e) => setBody(e.target.value)} className="trait-select">
+                  <select
+                    value={body}
+                    onChange={(e) => {
+                      console.log('new body: ', e.target.value);
+                      setBody(e.target.value);
+                    }}
+                    className="trait-select">
                     {data.body.map((body, index) => (
                       <option key={index} value={body.name}>
                         {body.name}
@@ -393,7 +486,6 @@ const MenuTwo = ({
             </button> */}
               </div>
               {/*  END BODY */}
-
               {/*  ACCESSORY */}
               <div className="inline-option-row">
                 {/* <button
@@ -415,8 +507,14 @@ const MenuTwo = ({
                 <span />
                 <div className="inline-select-wrap">
                   <label className="trait-label">Accessory</label>
-                  <select value={accessory} onChange={(e) => setAccessory(e.target.value)} className="trait-select">
-                    {data.tempAccessories.map((accessory, index) => (
+                  <select
+                    value={accessory}
+                    onChange={(e) => {
+                      console.log('new accessory: ', e.target.value);
+                      setAccessory(e.target.value);
+                    }}
+                    className="trait-select">
+                    {data.accessory.map((accessory, index) => (
                       <option key={index} value={accessory.name}>
                         {accessory.name}
                         {/* {truncateString(accessory.name)} */}
@@ -426,8 +524,8 @@ const MenuTwo = ({
                   {/* <button
                 onClick={() => {
                   setAccessory(
-                    data.tempAccessories[
-                      Math.floor(Math.random() * data.tempAccessories.length)
+                    data.accessory[
+                      Math.floor(Math.random() * data.accessory.length)
                     ].name
                   );
                   throttleClicks();
@@ -466,8 +564,8 @@ const MenuTwo = ({
                 {/* <button
               onClick={() => {
                 setAccessory(
-                  data.tempAccessories[
-                    Math.floor(Math.random() * data.tempAccessories.length)
+                  data.accessory[
+                    Math.floor(Math.random() * data.accessory.length)
                   ].name
                 );
                 throttleClicks();
@@ -486,7 +584,6 @@ const MenuTwo = ({
             </button> */}
               </div>
               {/*  END ACCESSORY */}
-
               {/*  Pants */}
               <div className="inline-option-row">
                 {/* <button
@@ -575,7 +672,6 @@ const MenuTwo = ({
             </button> */}
               </div>
               {/*  END PANTS */}
-
               {/*  SHOES */}
               <div className="inline-option-row">
                 {/* <button
@@ -665,7 +761,6 @@ const MenuTwo = ({
             </button> */}
               </div>
               {/* END SHOES */}
-
               {/* world */}
               <div className="inline-option-row">
                 <span />
@@ -681,12 +776,9 @@ const MenuTwo = ({
                 </div>{' '}
               </div>
               {/* end world */}
-
               {/*  Animation */}
               <AnimationSelect animationValue={animationValue} setAnimationState={setAnimationState} setAnimationValue={setAnimationValue} />
-
               {/*  End animation */}
-
               {/*  Rotate */}
               <div className="inline-option-row">
                 <span />
@@ -700,10 +792,6 @@ const MenuTwo = ({
                     ))}
                   </select>
                 </div>
-
-
-
-
               </div>
               {/* end Rotate */}
               {/* <Form>
@@ -838,7 +926,6 @@ const MenuTwo = ({
               style={{ marginLeft: '20px' }}>
               OPTIONS
             </button>
-
           </>
         ) : null}
 

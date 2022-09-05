@@ -60,7 +60,7 @@ export default function NounBody({ headProp, animationState, animationValue, pan
   );
 
   // const [preLoadedAccessoryTextures, setPreLoadedAccessoryTextures] = useState(
-  //   data.tempAccessories.map((accessoryObj) => {
+  //   data.accessory.map((accessoryObj) => {
   //     let accessoryMaterial = useLoader(
   //       THREE.TextureLoader,
   //       `/textures/accessories/${accessoryObj.value}`
@@ -79,9 +79,9 @@ export default function NounBody({ headProp, animationState, animationValue, pan
   // );
 
   // These were when we were passing the actual texture
-  let accessoryTextureFound = lookupAccessoryTexture(accessoryProp, data.tempAccessories);
+  let accessoryTextureFound = lookupAccessoryTexture(accessoryProp, data.accessory);
 
-  let handTextureFound = lookupHandTexture(headProp, data.tempHeads);
+  let handTextureFound = lookupHandTexture(headProp, data.head);
   let bodyTextureFound = lookupBodyTexture(bodyProp, data.body);
   let shoeTextureFound = lookupShoeTexture(shoeProp, preLoadedShoesTextures);
   let pantsTextureFound = lookupPantsTexture(pantsProp, preloadedPantsTexture);
@@ -227,7 +227,7 @@ export const lookupAnimation = (animationState) => {
 //   useTexture.preload(`/textures/body/${bodyObj.value}`);
 // });
 
-// data.tempHeads.forEach((headData) => {
+// data.head.forEach((headData) => {
 //   useGLTF.preload(`/headModels/${headData.filePath}`);
 // });
 
