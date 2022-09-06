@@ -272,6 +272,11 @@ const NounCanvas = () => {
             ref={GlassesLogo}
           />
         </Suspense>
+        {active || !loaded ? (
+          <Html center>
+            <p style={{ color: 'white', fontSize: '2rem' }}>Loading...</p>
+          </Html>
+        ) : null}
         <Suspense fallback={null}>
           {!showScreenshotModal && loaded ? (
             <NounHolder
