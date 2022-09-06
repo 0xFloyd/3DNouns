@@ -74,7 +74,7 @@ const NounCanvas = () => {
   const cameraRef = useRef();
 
   useEffect(() => {
-    // preloadAllAssets();
+    preloadAllAssets();
 
     function updateMedia() {
       setDeviceState(isDesktop);
@@ -375,9 +375,9 @@ const NounCanvas = () => {
 export default NounCanvas;
 
 const preloadAllAssets = () => {
-  data.head.forEach((headData) => {
-    useGLTF.preload(`/headModels/${headData.filePath}`);
-  });
+  // data.head.forEach((headData) => {
+  //   useGLTF.preload(`/headModels/${headData.filePath}`);
+  // });
 
   data.body.forEach((bodyObj) => {
     useTexture.preload(`/textures/body/${bodyObj.value}`);
@@ -386,17 +386,17 @@ const preloadAllAssets = () => {
     useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
   });
 
-  data.pants.forEach((pantsObj) => {
-    useTexture.preload(`/textures/pants/${pantsObj.value}`);
-  });
+  // data.pants.forEach((pantsObj) => {
+  //   useTexture.preload(`/textures/pants/${pantsObj.value}`);
+  // });
 
-  data.shoes.forEach((shoeObj) => {
-    useTexture.preload(`/textures/shoes/${shoeObj.value}`);
-  });
+  // data.shoes.forEach((shoeObj) => {
+  //   useTexture.preload(`/textures/shoes/${shoeObj.value}`);
+  // });
 
-  data.glasses.forEach((glassesObj) => {
-    useTexture.preload(`/textures/glasses/${glassesObj.value}`);
-  });
+  // data.glasses.forEach((glassesObj) => {
+  //   useTexture.preload(`/textures/glasses/${glassesObj.value}`);
+  // });
 };
 
 function saveArrayBuffer(buffer, filename) {
