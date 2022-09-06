@@ -1,6 +1,5 @@
 import { useProgress } from '@react-three/drei';
 import * as React from 'react';
-import LoadingNoun from '../assets/loading.mp4';
 import LoadingNounImage from '../assets/images/loadingNounImage.jpg';
 
 // interface LoaderOptions {
@@ -16,7 +15,14 @@ import LoadingNounImage from '../assets/images/loadingNounImage.jpg';
 const defaultDataInterpolation = (p) => `Loading 3D Nouns ${p.toFixed()}%`;
 
 const InitialLoader = React.memo(
-  ({ containerStyles, innerStyles, barStyles, dataStyles, dataInterpolation = defaultDataInterpolation, initialState = (active) => active }) => {
+  ({
+    containerStyles,
+    innerStyles,
+    barStyles,
+    dataStyles,
+    dataInterpolation = defaultDataInterpolation,
+    initialState = (active) => active,
+  }) => {
     const { active, progress } = useProgress();
     const progressRef = React.useRef(0);
     const rafRef = React.useRef(0);
@@ -56,8 +62,12 @@ const InitialLoader = React.memo(
               ...styles.bar,
               transform: `scaleX(${progress / 100})`,
               ...barStyles,
-            }}></div>
-          <span ref={progressSpanRef} style={{ ...styles.data, ...dataStyles }} />
+            }}
+          ></div>
+          <span
+            ref={progressSpanRef}
+            style={{ ...styles.data, ...dataStyles }}
+          />
         </div>
       </div>
     ) : /* </div> */

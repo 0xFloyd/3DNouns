@@ -1,23 +1,29 @@
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import { Suspense, useEffect, useRef, useState } from 'react';
-import { OrbitControls, PerspectiveCamera, Stats, useGLTF, useHelper, useProgress, useTexture } from '@react-three/drei';
+import {
+  Html,
+  OrbitControls,
+  PerspectiveCamera,
+  Stats,
+  useGLTF,
+  useHelper,
+  useProgress,
+  useTexture,
+} from '@react-three/drei';
 // import logo from './assets/images/3DNounsLogoSVG.svg';
 import logo from './assets/images/3DNounsLogo.png';
 import { TextureLoader } from 'three';
-
-import NormalEnvironment from 'World/NormalEnvironment';
+import NormalEnvironment from 'Scene/NormalEnvironment';
 import data from './data.json';
-import RANDOMIZER from 'past-ideas/RANDOMIZER';
-import NounHolder from 'NounHolder';
+import NounHolder from 'Scene/NounHolder';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
 import { OBJExporter } from 'three/examples/jsm/exporters/OBJExporter.js';
-import Menu from 'components/Menu';
 import { isDesktop } from 'react-device-detect';
-import ThreeDLogo from 'World/ThreeDNounsLogo';
+import ThreeDLogo from 'Scene/ThreeDNounsLogo';
 import './styles/ProgressLoader.css';
-import DownloadNoun from 'DownloadNoun';
-import NounData from 'components/NounData';
+import DownloadNoun from 'Scene/DownloadNoun';
+import Menu from 'components/Menu';
 
 const lookAtPos = new THREE.Vector3(10, 5, 0);
 
@@ -38,7 +44,9 @@ const NounCanvas = () => {
   const [showDirections, setShowDirections] = useState(true);
   const [randomizerOn, setRandomizerOn] = useState(false);
   const [showScreenshotModal, setShowScreenshotModal] = useState(false);
-  const [animationValue, setAnimationValue] = useState(data.animations.find((animation) => animation.name === 'none').name);
+  const [animationValue, setAnimationValue] = useState(
+    data.animations.find((animation) => animation.name === 'none').name
+  );
   const [downloadingModel, setDownloadingModel] = useState(false);
   const [lockedTraits, setLockedTraits] = useState({
     head: false,
@@ -100,11 +108,6 @@ const NounCanvas = () => {
     }
   };
 
-  // const HeadComponents = headComponents.map((obj) => {
-  //   const Component = obj.value;
-  //   return <Component headProp={head} glassesProp={glasses} animationState={animationState} animationValue={animationValue} />;
-  // });
-
   const Lighting = ({ environmentParam }) => {
     const light = useRef();
     const spotLight = useRef();
@@ -127,13 +130,6 @@ const NounCanvas = () => {
             groundColor={new THREE.Color(0x080820)}
             intensity={environmentParam === 'Matrix' ? 0.85 : 1.85}
           />
-          {/* <primitive
-            ref={logoLightRef}
-            object={logoLight}
-            position={[75, 10, -75]}
-            // rotation={new THREE.Euler(0, -Math.PI / 4, 0)}
-          />
-          <primitive object={logoLight.target} position={[150, 10, -150]} /> */}
 
           {environmentParam === 'Matrix' ? (
             <spotLight
@@ -232,25 +228,6 @@ const NounCanvas = () => {
     }
   }, [showDirections, loaded]);
 
-  // useEffect(() => {
-  //   if (cameraRef && cameraRef.current) {
-  //     cameraRef.current.lookAt(lookAtPos);
-  //   }
-  // }, [])
-
-  // const [moveCamera, setMoveCamera] = useState(false);
-
-  // const TheCamera = () => {
-  //   // useFrame(() => {
-  //   //   if (cameraRef && cameraRef.current && moveCamera) {
-  //   //     cameraRef.current.position.lerp(new THREE.Vector3(0, 40, 70), 0.01);
-
-  //   //     cameraRef.current.updateProjectionMatrix();
-  //   //   }
-  //   // });
-  //   return <PerspectiveCamera makeDefault name="PerspectiveCamera" ref={cameraRef} position={[0, 20, 70]} near={0.1} far={1500} />;
-  // };
-
   return (
     <>
       <Canvas
@@ -268,17 +245,15 @@ const NounCanvas = () => {
           physicallyCorrectLights: true,
         }}
         dpr={[1, 1.5]}
-        // camera={{ near: 0.1, far: 1500 }} // https://github.com/pmndrs/react-three-fiber/issues/67
-        // onCreated={({ camera }) => {
-        //   // camera.position.x = 0;
-        //   // camera.position.y = 32;
-        //   // camera.position.z = 48;
-        //   camera.lookAt(lookAtPos);
-        //   camera.updateProjectionMatrix();
-        //   // camera.fov =
-        // }}
       >
-        <PerspectiveCamera makeDefault name="PerspectiveCamera" ref={cameraRef} position={[-20, 40, 70]} near={0.1} far={1500} />
+        <PerspectiveCamera
+          makeDefault
+          name="PerspectiveCamera"
+          ref={cameraRef}
+          position={[-20, 40, 70]}
+          near={0.1}
+          far={1500}
+        />
         {/* {cameraRef && cameraRef.current && <cameraHelper args={cameraRef.current} />} */}
         <Lighting environmentParam={environment} />
 
@@ -295,30 +270,20 @@ const NounCanvas = () => {
 
         <Suspense fallback={null}>
           <NormalEnvironment environment={environment} />
-          <ThreeDLogo environment={environment} ref={GlassesLogo} />
+          <ThreeDLogo
+            environment={environment}
+            ref={GlassesLogo}
+          />
         </Suspense>
 
+        {active || !loaded ? (
+          <Html center>
+            <p style={{ color: 'white', fontSize: '2rem' }}>Loading...</p>
+          </Html>
+        ) : null}
+
         <Suspense fallback={null}>
-          {/* <Suspense fallback={<ProgressLoader />}> */}
-          {/* {environment === 'Normal' && (
-            <NormalEnvironment environment={environment} />
-          )} */}
-
-          {/* {environment === 'Island' && <OceanEnvironment />} */}
-          {/* {environment === 'Matrix' && <MatrixEnvironment />} */}
-          {/* <fog
-            attach="fog"
-            args={[
-              environment === 'Matrix' ? 0x181818 : 0xffffff,
-              1,
-              environment === 'Matrix' ? 1000 : 1500,
-            ]}
-          /> */}
-          {/* <BakeShadows /> */}
-          {/* <PreloadBodyTextures /> */}
-          {/* {HeadComponents} */}
-
-          {!showScreenshotModal && (
+          {!showScreenshotModal && loaded && (
             <NounHolder
               headProp={head}
               glassesProp={glasses}
@@ -335,33 +300,7 @@ const NounCanvas = () => {
         </Suspense>
         {/* <Stats showPanel={0} className="stats" /> */}
       </Canvas>
-      {/* <Canvas
-        mode="concurrent"
-        gl={{
-          preserveDrawingBuffer: true,
-          // logarithmicDepthBuffer: true,
-          // pixelRatio: window.devicePixelRatio * 2,
-          // premultipliedAlpha: true,
-          // shadowMap:  THREE.PCFSoftShadowMap
-          // outputEncoding: THREE.sRGBEncoding,
-        }}>
-        <Suspense fallback={null}>
-          <DownloadNoun
-            headProp={head}
-            glassesProp={glasses}
-            animationState={animationState}
-            animationValue={animationValue}
-            pantsProp={pants}
-            accessoryProp={accessory}
-            bodyProp={body}
-            shoeProp={shoes}
-            setSceneState={setSceneState}
-            ref={temporaryModel}
-          />
-        </Suspense>
-      </Canvas> */}
 
-      {/* {loaded && ( */}
       <>
         <Menu
           isDesktop={deviceState}
@@ -403,13 +342,19 @@ const NounCanvas = () => {
           setSeed={setSeed}
         />
         {showDirections && (
-          <div className="blocker" onClick={() => setShowDirections(false)}>
+          <div
+            className="blocker"
+            onClick={() => setShowDirections(false)}
+          >
             <div className="directions-popup">
               <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
               <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
               <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
               <div className="close-directions-container">
-                <button className="menu-button" onClick={() => setShowDirections(false)}>
+                <button
+                  className="menu-button"
+                  onClick={() => setShowDirections(false)}
+                >
                   CLOSE
                 </button>
               </div>
@@ -419,7 +364,11 @@ const NounCanvas = () => {
 
         <div className="logo-container">
           <a href="https://3dnouns.com">
-            <img className="nouns-logo" src={logo} alt="NOUNS" />
+            <img
+              className="nouns-logo"
+              src={logo}
+              alt="NOUNS"
+            />
           </a>
           {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
         </div>
