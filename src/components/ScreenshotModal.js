@@ -1,7 +1,7 @@
 import { Backdrop, Html, OrbitControls, useHelper } from '@react-three/drei';
 import { Canvas, useThree } from '@react-three/fiber';
 import ProgressLoader from 'components/Loader';
-import NounHolder from 'NounHolder';
+import NounHolder from 'Scene/NounHolder';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { CompactPicker } from 'react-color';
@@ -55,10 +55,7 @@ const ScreenshotModal = ({
       var strMime = 'image/jpeg';
       imgData = sceneScreenshotState.gl.domElement.toDataURL(strMime, 1.0);
 
-      saveScreenshot(
-        imgData.replace(strMime, 'image/octet-stream'),
-        '3DNoun.jpg'
-      );
+      saveScreenshot(imgData.replace(strMime, 'image/octet-stream'), '3DNoun.jpg');
     } catch (e) {
       console.log(e);
       return;
@@ -141,8 +138,14 @@ const ScreenshotModal = ({
               minDistance={15}
             />
 
-            <color attach="background" args={[new THREE.Color(sceneColor)]} />
-            <fog attach="fog" args={[sceneColor, 1, 1000]} />
+            <color
+              attach="background"
+              args={[new THREE.Color(sceneColor)]}
+            />
+            <fog
+              attach="fog"
+              args={[sceneColor, 1, 1000]}
+            />
             <Suspense fallback={<ProgressLoader />}>
               {/* <ScreenshotBackdrop color={new THREE.Color(sceneColor)} /> */}
               <Backdrop
@@ -208,9 +211,7 @@ const ScreenshotModal = ({
               max="3"
               step="0.1"
               value={directionalLightIntensity}
-              onChange={(e) =>
-                setDirectionalLightIntensity(Number(e.target.value))
-              }
+              onChange={(e) => setDirectionalLightIntensity(Number(e.target.value))}
             />
             <label className="slider-label">World Light</label>
             <input
@@ -220,9 +221,7 @@ const ScreenshotModal = ({
               max="3"
               step="0.1"
               value={hemisphereLightIntensity}
-              onChange={(e) =>
-                setHemisphereLightIntensity(Number(e.target.value))
-              }
+              onChange={(e) => setHemisphereLightIntensity(Number(e.target.value))}
             />
             <label className="slider-label">Light Direction</label>
             <input

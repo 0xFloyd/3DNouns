@@ -10,7 +10,7 @@ export const lookupAnimation = (animationState) => {
 };
 
 export const lookupHead = (headProp) => {
-  let head = data.tempHeads.find((headData) => headData.name === headProp);
+  let head = data.head.find((headData) => headData.name === headProp);
   if (head) {
     return head.filePath;
   } else {
