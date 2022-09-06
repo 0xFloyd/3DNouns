@@ -273,7 +273,7 @@ const NounCanvas = () => {
           />
         </Suspense>
         <Suspense fallback={null}>
-          {!showScreenshotModal && loaded && (
+          {/* {!showScreenshotModal && loaded && (
             <NounHolder
               headProp={head}
               glassesProp={glasses}
@@ -286,7 +286,7 @@ const NounCanvas = () => {
               setSceneState={setSceneState}
               ref={modelDownloadMeshForward}
             />
-          )}
+          )} */}
         </Suspense>
       </Canvas>
 
