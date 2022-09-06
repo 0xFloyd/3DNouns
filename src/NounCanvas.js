@@ -276,14 +276,14 @@ const NounCanvas = () => {
           />
         </Suspense>
 
-        {active || !loaded ? (
+        {/* {active || !loaded ? (
           <Html
             center
             style={{ color: 'white', fontSize: '2rem' }}
           >
             Loading...
           </Html>
-        ) : null}
+        ) : null} */}
 
         <Suspense fallback={null}>
           {!showScreenshotModal && loaded && (
