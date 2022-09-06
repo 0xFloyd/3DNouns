@@ -277,8 +277,11 @@ const NounCanvas = () => {
         </Suspense>
 
         {active || !loaded ? (
-          <Html center>
-            <p style={{ color: 'white', fontSize: '2rem' }}>Loading...</p>
+          <Html
+            center
+            style={{ color: 'white', fontSize: '2rem' }}
+          >
+            Loading...
           </Html>
         ) : null}
 
