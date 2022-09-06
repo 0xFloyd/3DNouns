@@ -140,79 +140,79 @@ const MenuTwo = ({
 
   return (
     <>
-      {progress === 100 && (
-        <>
-          <div className={isDesktop ? 'options-container' : 'mobile-menu-container'} style={{ display: optionsVisibility }}>
-            {optionsVisibility === 'block' ? (
-              <div className="menu-header-row">
+      {/* {progress === 100 && ( */}
+      <>
+        <div className={isDesktop ? 'options-container' : 'mobile-menu-container'} style={{ display: optionsVisibility }}>
+          {optionsVisibility === 'block' ? (
+            <div className="menu-header-row">
+              <button
+                className={disabledButtonState ? 'screenshot-button-disabled' : 'screenshot-button'}
+                onClick={() => {
+                  // saveAsImage();
+                  // stop animation
+                  setDisabledButtonState(true);
+                  setAnimationState(false);
+                  setAnimationValue('none');
+                  setTimeout(() => {
+                    setShowScreenshotModal(true);
+                    setDisabledButtonState(false);
+                  }, 1000);
+                }}
+                disabled={disabledButtonState}>
+                {/* <BsCameraFill size={20} color="black" /> */}
+                <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
+              </button>
+
+              <div className="header-randomize-container">
                 <button
-                  className={disabledButtonState ? 'screenshot-button-disabled' : 'screenshot-button'}
+                  className={
+                    // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
+                    disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
+                  }
                   onClick={() => {
-                    // saveAsImage();
-                    // stop animation
-                    setDisabledButtonState(true);
-                    setAnimationState(false);
-                    setAnimationValue('none');
-                    setTimeout(() => {
-                      setShowScreenshotModal(true);
-                      setDisabledButtonState(false);
-                    }, 1000);
+                    generateRandomNoun();
+                    throttleClicks();
                   }}
                   disabled={disabledButtonState}>
-                  {/* <BsCameraFill size={20} color="black" /> */}
-                  <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
-                </button>
-
-                <div className="header-randomize-container">
-                  <button
-                    className={
-                      // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
-                      disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
-                    }
-                    onClick={() => {
-                      generateRandomNoun();
-                      throttleClicks();
-                    }}
-                    disabled={disabledButtonState}>
-                    RANDOMIZE
-                  </button>
-                </div>
-                <button
-                  className="options-menu-x-button"
-                  onClick={() => {
-                    setOptionsVisibility('none');
-                    setShowMintModal(false);
-                  }}>
-                  X
+                  RANDOMIZE
                 </button>
               </div>
-            ) : null}
+              <button
+                className="options-menu-x-button"
+                onClick={() => {
+                  setOptionsVisibility('none');
+                  setShowMintModal(false);
+                }}>
+                X
+              </button>
+            </div>
+          ) : null}
 
-            <div className="options-controls" style={{ display: optionsVisibility }}>
-              {/* <h3 className="white-font attribute-label" style={{ textAlign: 'center' }}>
+          <div className="options-controls" style={{ display: optionsVisibility }}>
+            {/* <h3 className="white-font attribute-label" style={{ textAlign: 'center' }}>
             Settings
           </h3> */}
-              <div className="inline-option-row" style={{ marginBottom: '20px' }}>
-                <p>Search for Noun by ID</p>
-                <div className="inline-option-row" style={{ width: '100%' }}>
-                  <input style={{ flex: 0, width: '50%' }} type="number" min="0" max="10]00" onChange={(e) => setUserInput(e.target.value)} />
-                  <button
-                    style={{ flexShrink: 0 }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setSeed(userInput);
-                    }}>
-                    Search
-                  </button>
-                </div>
-
-                {/* <NounData seed={seed} setHead={setHead} setGlasses={setGlasses} setBody={setBody} setAccessory={setAccessory} /> */}
+            <div className="inline-option-row" style={{ marginBottom: '20px' }}>
+              <p>Search for Noun by ID</p>
+              <div className="inline-option-row" style={{ width: '100%' }}>
+                <input style={{ flex: 0, width: '50%' }} type="number" min="0" max="10]00" onChange={(e) => setUserInput(e.target.value)} />
+                <button
+                  style={{ flexShrink: 0 }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSeed(userInput);
+                  }}>
+                  Search
+                </button>
               </div>
 
-              {/* HEAD */}
-              <div className="inline-option-row">
-                <span />
-                {/* <button
+              {/* <NounData seed={seed} setHead={setHead} setGlasses={setGlasses} setBody={setBody} setAccessory={setAccessory} /> */}
+            </div>
+
+            {/* HEAD */}
+            <div className="inline-option-row">
+              <span />
+              {/* <button
               onClick={() => {
                 setLockedTraits({
                   ...lockedTraits,
@@ -228,22 +228,22 @@ const MenuTwo = ({
                 <FiUnlock color={'black'} size={30} />
               )}
             </button> */}
-                <div className="inline-select-wrap">
-                  <label className="trait-label">Head</label>
-                  <select
-                    value={head}
-                    className="trait-select"
-                    onChange={(e) => {
-                      console.log('head changed: ', e.target.value);
-                      setHead(e.target.value);
-                    }}>
-                    {data.head.map((head) => (
-                      <option key={head.id} value={head.name}>
-                        {head.name}
-                      </option>
-                    ))}
-                  </select>
-                  {/* <button
+              <div className="inline-select-wrap">
+                <label className="trait-label">Head</label>
+                <select
+                  value={head}
+                  className="trait-select"
+                  onChange={(e) => {
+                    console.log('head changed: ', e.target.value);
+                    setHead(e.target.value);
+                  }}>
+                  {data.head.map((head) => (
+                    <option key={head.id} value={head.name}>
+                      {head.name}
+                    </option>
+                  ))}
+                </select>
+                {/* <button
                 onClick={() => {
                   setHead(
                     data.head[
@@ -257,33 +257,33 @@ const MenuTwo = ({
               >
                 <FiRefreshCw size={30} className="select-shuffle-icon" />
               </button> */}
-                  <button
-                    onClick={() => {
-                      setLockedTraits({
-                        ...lockedTraits,
-                        head: !lockedTraits.head,
-                      });
-                    }}
-                    disabled={disabledButtonState}
-                    className="select-shuffle-icon-button">
-                    {lockedTraits.head ? (
-                      // <FiLock
-                      //   className="select-shuffle-icon"
-                      //   color={'black'}
-                      //   size={27.5}
-                      // />
-                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    ) : (
-                      // <FiUnlock
-                      //   className="select-shuffle-icon"
-                      //   color={'grey'}
-                      //   size={27.5}
-                      // />
-                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    )}
-                  </button>
-                </div>
-                {/* <button
+                <button
+                  onClick={() => {
+                    setLockedTraits({
+                      ...lockedTraits,
+                      head: !lockedTraits.head,
+                    });
+                  }}
+                  disabled={disabledButtonState}
+                  className="select-shuffle-icon-button">
+                  {lockedTraits.head ? (
+                    // <FiLock
+                    //   className="select-shuffle-icon"
+                    //   color={'black'}
+                    //   size={27.5}
+                    // />
+                    <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  ) : (
+                    // <FiUnlock
+                    //   className="select-shuffle-icon"
+                    //   color={'grey'}
+                    //   size={27.5}
+                    // />
+                    <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  )}
+                </button>
+              </div>
+              {/* <button
               onClick={() => {
                 setHead(
                   data.head[
@@ -305,11 +305,11 @@ const MenuTwo = ({
                 size={25}
               />
             </button> */}
-              </div>
-              {/* END HEAD */}
-              {/*  GLASSES */}
-              <div className="inline-option-row">
-                {/* <button
+            </div>
+            {/* END HEAD */}
+            {/*  GLASSES */}
+            <div className="inline-option-row">
+              {/* <button
               onClick={() => {
                 setLockedTraits({
                   ...lockedTraits,
@@ -325,39 +325,39 @@ const MenuTwo = ({
                 <FiUnlock color={'black'} size={30} />
               )}
             </button> */}
-                <span />
-                <div className="inline-select-wrap">
-                  <label className="trait-label">Glasses</label>
+              <span />
+              <div className="inline-select-wrap">
+                <label className="trait-label">Glasses</label>
 
-                  <select
-                    value={glasses}
-                    onChange={(e) => {
-                      console.log('new glasses: ', e.target.value);
-                      setGlasses(e.target.value);
-                    }}
-                    className="trait-select">
-                    {data.glasses.map((glasses) => (
-                      <option key={glasses.value} value={glasses.value}>
-                        {truncateString(glasses.name)}
-                      </option>
-                    ))}
-                  </select>
-                  <button
-                    onClick={() => {
-                      setLockedTraits({
-                        ...lockedTraits,
-                        glasses: !lockedTraits.glasses,
-                      });
-                    }}
-                    disabled={disabledButtonState}
-                    className="select-shuffle-icon-button">
-                    {lockedTraits.glasses ? (
-                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    ) : (
-                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    )}
-                  </button>
-                  {/* <button
+                <select
+                  value={glasses}
+                  onChange={(e) => {
+                    console.log('new glasses: ', e.target.value);
+                    setGlasses(e.target.value);
+                  }}
+                  className="trait-select">
+                  {data.glasses.map((glasses) => (
+                    <option key={glasses.value} value={glasses.value}>
+                      {truncateString(glasses.name)}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  onClick={() => {
+                    setLockedTraits({
+                      ...lockedTraits,
+                      glasses: !lockedTraits.glasses,
+                    });
+                  }}
+                  disabled={disabledButtonState}
+                  className="select-shuffle-icon-button">
+                  {lockedTraits.glasses ? (
+                    <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  ) : (
+                    <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  )}
+                </button>
+                {/* <button
                 onClick={() => {
                   setGlasses(
                     data.glasses[
@@ -370,8 +370,8 @@ const MenuTwo = ({
               >
                 <FiRefreshCw size={30} className="select-shuffle-icon" />
               </button> */}
-                </div>
-                {/* <button
+              </div>
+              {/* <button
               onClick={() => {
                 setGlasses(
                   data.glasses[Math.floor(Math.random() * data.glasses.length)]
@@ -391,11 +391,11 @@ const MenuTwo = ({
                 }
               />{' '}
             </button> */}
-              </div>
-              {/*  END GLASSES */}
-              {/*  BODY */}
-              <div className="inline-option-row">
-                {/* <button
+            </div>
+            {/*  END GLASSES */}
+            {/*  BODY */}
+            <div className="inline-option-row">
+              {/* <button
               onClick={() => {
                 setLockedTraits({
                   ...lockedTraits,
@@ -411,23 +411,23 @@ const MenuTwo = ({
                 <FiUnlock color={'black'} size={30} />
               )}
             </button> */}
-                <span />
-                <div className="inline-select-wrap">
-                  <label className="trait-label">Body</label>
-                  <select
-                    value={body}
-                    onChange={(e) => {
-                      console.log('new body: ', e.target.value);
-                      setBody(e.target.value);
-                    }}
-                    className="trait-select">
-                    {data.body.map((body, index) => (
-                      <option key={index} value={body.name}>
-                        {body.name}
-                      </option>
-                    ))}
-                  </select>
-                  {/* <button
+              <span />
+              <div className="inline-select-wrap">
+                <label className="trait-label">Body</label>
+                <select
+                  value={body}
+                  onChange={(e) => {
+                    console.log('new body: ', e.target.value);
+                    setBody(e.target.value);
+                  }}
+                  className="trait-select">
+                  {data.body.map((body, index) => (
+                    <option key={index} value={body.name}>
+                      {body.name}
+                    </option>
+                  ))}
+                </select>
+                {/* <button
                 onClick={() => {
                   setBody(
                     data.body[Math.floor(Math.random() * data.body.length)].name
@@ -438,34 +438,34 @@ const MenuTwo = ({
               >
                 <FiRefreshCw size={30} className="select-shuffle-icon" />
               </button> */}
-                  <button
-                    onClick={() => {
-                      setLockedTraits({
-                        ...lockedTraits,
-                        body: !lockedTraits.body,
-                      });
-                    }}
-                    disabled={disabledButtonState}
-                    className="select-shuffle-icon-button">
-                    {lockedTraits.body ? (
-                      // <FiLock
-                      //   className="select-shuffle-icon"
-                      //   color={'black'}
-                      //   size={27.5}
-                      // />
+                <button
+                  onClick={() => {
+                    setLockedTraits({
+                      ...lockedTraits,
+                      body: !lockedTraits.body,
+                    });
+                  }}
+                  disabled={disabledButtonState}
+                  className="select-shuffle-icon-button">
+                  {lockedTraits.body ? (
+                    // <FiLock
+                    //   className="select-shuffle-icon"
+                    //   color={'black'}
+                    //   size={27.5}
+                    // />
 
-                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    ) : (
-                      // <FiUnlock
-                      //   className="select-shuffle-icon"
-                      //   color={'grey'}
-                      //   size={27.5}
-                      // />
-                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    )}
-                  </button>
-                </div>
-                {/* <button
+                    <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  ) : (
+                    // <FiUnlock
+                    //   className="select-shuffle-icon"
+                    //   color={'grey'}
+                    //   size={27.5}
+                    // />
+                    <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  )}
+                </button>
+              </div>
+              {/* <button
               onClick={() => {
                 setBody(
                   data.body[Math.floor(Math.random() * data.body.length)].name
@@ -484,11 +484,11 @@ const MenuTwo = ({
                 }
               />{' '}
             </button> */}
-              </div>
-              {/*  END BODY */}
-              {/*  ACCESSORY */}
-              <div className="inline-option-row">
-                {/* <button
+            </div>
+            {/*  END BODY */}
+            {/*  ACCESSORY */}
+            <div className="inline-option-row">
+              {/* <button
               onClick={() => {
                 setLockedTraits({
                   ...lockedTraits,
@@ -504,24 +504,24 @@ const MenuTwo = ({
                 <FiUnlock color={'black'} size={30} />
               )}
             </button> */}
-                <span />
-                <div className="inline-select-wrap">
-                  <label className="trait-label">Accessory</label>
-                  <select
-                    value={accessory}
-                    onChange={(e) => {
-                      console.log('new accessory: ', e.target.value);
-                      setAccessory(e.target.value);
-                    }}
-                    className="trait-select">
-                    {data.accessory.map((accessory, index) => (
-                      <option key={index} value={accessory.name}>
-                        {accessory.name}
-                        {/* {truncateString(accessory.name)} */}
-                      </option>
-                    ))}
-                  </select>
-                  {/* <button
+              <span />
+              <div className="inline-select-wrap">
+                <label className="trait-label">Accessory</label>
+                <select
+                  value={accessory}
+                  onChange={(e) => {
+                    console.log('new accessory: ', e.target.value);
+                    setAccessory(e.target.value);
+                  }}
+                  className="trait-select">
+                  {data.accessory.map((accessory, index) => (
+                    <option key={index} value={accessory.name}>
+                      {accessory.name}
+                      {/* {truncateString(accessory.name)} */}
+                    </option>
+                  ))}
+                </select>
+                {/* <button
                 onClick={() => {
                   setAccessory(
                     data.accessory[
@@ -534,34 +534,34 @@ const MenuTwo = ({
               >
                 <FiRefreshCw size={30} className="select-shuffle-icon" />
               </button> */}
-                  <button
-                    onClick={() => {
-                      setLockedTraits({
-                        ...lockedTraits,
-                        accessory: !lockedTraits.accessory,
-                      });
-                    }}
-                    disabled={disabledButtonState}
-                    className="select-shuffle-icon-button">
-                    {lockedTraits.accessory ? (
-                      // <FiLock
-                      //   className="select-shuffle-icon"
-                      //   color={'black'}
-                      //   size={27.5}
-                      // />
+                <button
+                  onClick={() => {
+                    setLockedTraits({
+                      ...lockedTraits,
+                      accessory: !lockedTraits.accessory,
+                    });
+                  }}
+                  disabled={disabledButtonState}
+                  className="select-shuffle-icon-button">
+                  {lockedTraits.accessory ? (
+                    // <FiLock
+                    //   className="select-shuffle-icon"
+                    //   color={'black'}
+                    //   size={27.5}
+                    // />
 
-                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    ) : (
-                      // <FiUnlock
-                      //   className="select-shuffle-icon"
-                      //   color={'grey'}
-                      //   size={27.5}
-                      // />
-                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    )}
-                  </button>
-                </div>{' '}
-                {/* <button
+                    <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  ) : (
+                    // <FiUnlock
+                    //   className="select-shuffle-icon"
+                    //   color={'grey'}
+                    //   size={27.5}
+                    // />
+                    <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  )}
+                </button>
+              </div>{' '}
+              {/* <button
               onClick={() => {
                 setAccessory(
                   data.accessory[
@@ -582,11 +582,11 @@ const MenuTwo = ({
                 }
               />{' '}
             </button> */}
-              </div>
-              {/*  END ACCESSORY */}
-              {/*  Pants */}
-              <div className="inline-option-row">
-                {/* <button
+            </div>
+            {/*  END ACCESSORY */}
+            {/*  Pants */}
+            <div className="inline-option-row">
+              {/* <button
               onClick={() => {
                 setLockedTraits({
                   ...lockedTraits,
@@ -602,17 +602,17 @@ const MenuTwo = ({
                 <FiUnlock color={'black'} size={30} />
               )}
             </button> */}
-                <span />
-                <div className="inline-select-wrap">
-                  <label className="trait-label">Pants</label>
-                  <select value={pants} onChange={(e) => setPants(e.target.value)} className="trait-select">
-                    {data.pants.map((pants) => (
-                      <option key={pants.value} value={pants.name}>
-                        {pants.name}
-                      </option>
-                    ))}
-                  </select>
-                  {/* <button
+              <span />
+              <div className="inline-select-wrap">
+                <label className="trait-label">Pants</label>
+                <select value={pants} onChange={(e) => setPants(e.target.value)} className="trait-select">
+                  {data.pants.map((pants) => (
+                    <option key={pants.value} value={pants.name}>
+                      {pants.name}
+                    </option>
+                  ))}
+                </select>
+                {/* <button
                 onClick={() => {
                   setPants(
                     data.pants[Math.floor(Math.random() * data.pants.length)]
@@ -624,34 +624,34 @@ const MenuTwo = ({
               >
                 <FiRefreshCw size={30} className="select-shuffle-icon" />
               </button> */}
-                  <button
-                    onClick={() => {
-                      setLockedTraits({
-                        ...lockedTraits,
-                        pants: !lockedTraits.pants,
-                      });
-                    }}
-                    disabled={disabledButtonState}
-                    className="select-shuffle-icon-button">
-                    {lockedTraits.pants ? (
-                      // <FiLock
-                      //   className="select-shuffle-icon"
-                      //   color={'black'}
-                      //   size={27.5}
-                      // />
+                <button
+                  onClick={() => {
+                    setLockedTraits({
+                      ...lockedTraits,
+                      pants: !lockedTraits.pants,
+                    });
+                  }}
+                  disabled={disabledButtonState}
+                  className="select-shuffle-icon-button">
+                  {lockedTraits.pants ? (
+                    // <FiLock
+                    //   className="select-shuffle-icon"
+                    //   color={'black'}
+                    //   size={27.5}
+                    // />
 
-                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    ) : (
-                      // <FiUnlock
-                      //   className="select-shuffle-icon"
-                      //   color={'grey'}
-                      //   size={27.5}
-                      // />
-                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    )}
-                  </button>
-                </div>{' '}
-                {/* <button
+                    <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  ) : (
+                    // <FiUnlock
+                    //   className="select-shuffle-icon"
+                    //   color={'grey'}
+                    //   size={27.5}
+                    // />
+                    <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  )}
+                </button>
+              </div>{' '}
+              {/* <button
               onClick={() => {
                 setPants(
                   data.pants[Math.floor(Math.random() * data.pants.length)].name
@@ -670,11 +670,11 @@ const MenuTwo = ({
                 }
               />
             </button> */}
-              </div>
-              {/*  END PANTS */}
-              {/*  SHOES */}
-              <div className="inline-option-row">
-                {/* <button
+            </div>
+            {/*  END PANTS */}
+            {/*  SHOES */}
+            <div className="inline-option-row">
+              {/* <button
               onClick={() => {
                 setLockedTraits({
                   ...lockedTraits,
@@ -690,18 +690,18 @@ const MenuTwo = ({
                 <FiUnlock color={'black'} size={30} />
               )}
             </button> */}
-                <span />
-                <div className="inline-select-wrap">
-                  <label className="trait-label">Shoes</label>
+              <span />
+              <div className="inline-select-wrap">
+                <label className="trait-label">Shoes</label>
 
-                  <select value={shoes} onChange={(e) => setShoes(e.target.value)} className="trait-select">
-                    {data.shoes.map((shoes) => (
-                      <option key={shoes.value} value={shoes.name}>
-                        {shoes.name}
-                      </option>
-                    ))}
-                  </select>
-                  {/* <button
+                <select value={shoes} onChange={(e) => setShoes(e.target.value)} className="trait-select">
+                  {data.shoes.map((shoes) => (
+                    <option key={shoes.value} value={shoes.name}>
+                      {shoes.name}
+                    </option>
+                  ))}
+                </select>
+                {/* <button
                 onClick={() => {
                   setShoes(
                     data.shoes[Math.floor(Math.random() * data.shoes.length)]
@@ -713,34 +713,34 @@ const MenuTwo = ({
               >
                 <FiRefreshCw size={30} className="select-shuffle-icon" />
               </button> */}
-                  <button
-                    onClick={() => {
-                      setLockedTraits({
-                        ...lockedTraits,
-                        shoes: !lockedTraits.shoes,
-                      });
-                    }}
-                    disabled={disabledButtonState}
-                    className="select-shuffle-icon-button">
-                    {lockedTraits.shoes ? (
-                      // <FiLock
-                      //   className="select-shuffle-icon"
-                      //   color={'black'}
-                      //   size={27.5}
-                      // />
+                <button
+                  onClick={() => {
+                    setLockedTraits({
+                      ...lockedTraits,
+                      shoes: !lockedTraits.shoes,
+                    });
+                  }}
+                  disabled={disabledButtonState}
+                  className="select-shuffle-icon-button">
+                  {lockedTraits.shoes ? (
+                    // <FiLock
+                    //   className="select-shuffle-icon"
+                    //   color={'black'}
+                    //   size={27.5}
+                    // />
 
-                      <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    ) : (
-                      // <FiUnlock
-                      //   className="select-shuffle-icon"
-                      //   color={'grey'}
-                      //   size={27.5}
-                      // />
-                      <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
-                    )}
-                  </button>
-                </div>
-                {/* <button
+                    <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  ) : (
+                    // <FiUnlock
+                    //   className="select-shuffle-icon"
+                    //   color={'grey'}
+                    //   size={27.5}
+                    // />
+                    <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
+                  )}
+                </button>
+              </div>
+              {/* <button
               onClick={() => {
                 setShoes(
                   data.shoes[Math.floor(Math.random() * data.shoes.length)].name
@@ -759,42 +759,42 @@ const MenuTwo = ({
                 }
               />{' '}
             </button> */}
+            </div>
+            {/* END SHOES */}
+            {/* world */}
+            <div className="inline-option-row">
+              <span />
+              <div className="inline-select-wrap">
+                <label className="trait-label">World</label>
+                <select value={environment} onChange={(e) => setEnvironment(e.target.value)} className="trait-select">
+                  {data.world.map((arrayValue) => (
+                    <option key={arrayValue.value} value={arrayValue.value}>
+                      {arrayValue.name}
+                    </option>
+                  ))}
+                </select>
+              </div>{' '}
+            </div>
+            {/* end world */}
+            {/*  Animation */}
+            <AnimationSelect animationValue={animationValue} setAnimationState={setAnimationState} setAnimationValue={setAnimationValue} />
+            {/*  End animation */}
+            {/*  Rotate */}
+            <div className="inline-option-row">
+              <span />
+              <div className="inline-select-wrap">
+                <label className="trait-label">Rotate View</label>
+                <select value={autoRotate} onChange={(e) => setAutoRotate(e.target.value)} className="trait-select">
+                  {rotateOptions.map((rotateObj, index) => (
+                    <option key={index} value={rotateObj.value}>
+                      {rotateObj.name}
+                    </option>
+                  ))}
+                </select>
               </div>
-              {/* END SHOES */}
-              {/* world */}
-              <div className="inline-option-row">
-                <span />
-                <div className="inline-select-wrap">
-                  <label className="trait-label">World</label>
-                  <select value={environment} onChange={(e) => setEnvironment(e.target.value)} className="trait-select">
-                    {data.world.map((arrayValue) => (
-                      <option key={arrayValue.value} value={arrayValue.value}>
-                        {arrayValue.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>{' '}
-              </div>
-              {/* end world */}
-              {/*  Animation */}
-              <AnimationSelect animationValue={animationValue} setAnimationState={setAnimationState} setAnimationValue={setAnimationValue} />
-              {/*  End animation */}
-              {/*  Rotate */}
-              <div className="inline-option-row">
-                <span />
-                <div className="inline-select-wrap">
-                  <label className="trait-label">Rotate View</label>
-                  <select value={autoRotate} onChange={(e) => setAutoRotate(e.target.value)} className="trait-select">
-                    {rotateOptions.map((rotateObj, index) => (
-                      <option key={index} value={rotateObj.value}>
-                        {rotateObj.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-              {/* end Rotate */}
-              {/* <Form>
+            </div>
+            {/* end Rotate */}
+            {/* <Form>
               <FormCheck
                 id="switchEnabled"
                 type="switch"
@@ -803,8 +803,8 @@ const MenuTwo = ({
                 label="Cycle (dev only - remove on prod)"
               />
             </Form> */}
-              <div className="menu-footer-row">
-                {/*<div className="menu-footer-row-container">
+            <div className="menu-footer-row">
+              {/*<div className="menu-footer-row-container">
                   <button
                     className="menu-button"
                     onClick={() => {
@@ -814,40 +814,40 @@ const MenuTwo = ({
                   </button>
                 </div>
                 */}
-                <div className="menu-footer-row-container">
-                  <button
-                    className="download-menu-button"
-                    onClick={() => {
-                      setAnimationState(false);
-                      // setAnimationValue('tpose');
-                      setDownloadingModel(true);
-                      setTimeout(() => {
-                        downloadModel();
-                      }, 1500);
-                    }}
-                    // disabled={true}
-                  >
-                    DOWNLOAD
-                    <br />
-                    NOUN
-                    {/* {`< Coming soon! >`} */}
-                    {downloadingModel && (
-                      <Spinner
-                        animation="border"
-                        style={{
-                          marginLeft: '10px',
-                          width: '20px',
-                          height: '20px',
-                        }}
-                      />
-                    )}
-                  </button>
-                </div>
+              <div className="menu-footer-row-container">
+                <button
+                  className="download-menu-button"
+                  onClick={() => {
+                    setAnimationState(false);
+                    // setAnimationValue('tpose');
+                    setDownloadingModel(true);
+                    setTimeout(() => {
+                      downloadModel();
+                    }, 1500);
+                  }}
+                  // disabled={true}
+                >
+                  DOWNLOAD
+                  <br />
+                  NOUN
+                  {/* {`< Coming soon! >`} */}
+                  {downloadingModel && (
+                    <Spinner
+                      animation="border"
+                      style={{
+                        marginLeft: '10px',
+                        width: '20px',
+                        height: '20px',
+                      }}
+                    />
+                  )}
+                </button>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* {showScreenshotModal && (
+        {/* {showScreenshotModal && (
             <div className="screenshot-container">
               <div className="modal-footer-container">
                 <button
@@ -859,8 +859,8 @@ const MenuTwo = ({
               </div>
             </div>
           )} */}
-        </>
-      )}
+      </>
+      {/* )} */}
       <div className="open-menu-container">
         {optionsVisibility === 'none' && isDesktop ? (
           <>

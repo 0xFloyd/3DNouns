@@ -1,6 +1,5 @@
 import { useGraph, useLoader } from '@react-three/fiber';
 import React, { forwardRef, useMemo } from 'react';
-import { headComponents } from 'utils/AllHeadModels';
 import * as THREE from 'three';
 import HeadTest119BonsaiHead from 'assets/Head/HeadTest119BonsaiHead';
 import { useGLTF } from '@react-three/drei';
@@ -8,26 +7,10 @@ import DownloadHead from 'DownloadHead';
 import { SkeletonUtils } from 'three/examples/jsm/utils/SkeletonUtils';
 import DownloadBody from 'DownloadBody';
 
-export const DownloadNoun = (
-  {
-    headProp,
-    glassesProp,
-    animationState,
-    animationValue,
-    pantsProp,
-    accessoryProp,
-    bodyProp,
-    shoeProp,
-    setSceneState,
-  },
-  ref
-) => {
+export const DownloadNoun = ({ headProp, glassesProp, animationState, animationValue, pantsProp, accessoryProp, bodyProp, shoeProp, setSceneState }, ref) => {
   // const MasterHead = useGLTF('/pipeline1110/headAnim.glb');
 
-  const glassesTest = useLoader(
-    THREE.TextureLoader,
-    `/textures/glasses/${glassesProp}`
-  );
+  const glassesTest = useLoader(THREE.TextureLoader, `/textures/glasses/${glassesProp}`);
 
   glassesTest.flipY = false;
   glassesTest.magFilter = glassesTest.minFilter = THREE.NearestFilter;
@@ -48,12 +31,7 @@ export const DownloadNoun = (
 
   return (
     <group visible={false} ref={ref} name="downloadNoun">
-      <DownloadHead
-        headProp={headProp}
-        glassesProp={glassesTest}
-        animationState={animationState}
-        animationValue={animationValue}
-      />
+      <DownloadHead headProp={headProp} glassesProp={glassesTest} animationState={animationState} animationValue={animationValue} />
       <DownloadBody
         headProp={headProp}
         animationState={animationState}

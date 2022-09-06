@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import headerImage from './assets/images/nounstown.webp';
+import logo from './assets/images/3DNounsLogo.png';
 import Section from './components/Section';
 import { Col } from 'react-bootstrap';
 import classes from './HomePage.module.css';
 import Accordion from 'react-bootstrap/Accordion';
 import Link from './components/Link';
 import './styles/HomePage.css';
-import headerImage from './assets/images/nounstown.webp';
 import mobileHeadImage from './assets/images/mobile-toun.png';
 import CoralPicture from './assets/images/CoralOrcaProfilePicture400.jpg';
 import FloydPicture from './assets/images/FloydProfilePicture400.jpg';
 import ThreeDNounsPicture from './assets/images/3DnounsProfilePicture.jpg';
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
 import { SiTwitter } from 'react-icons/si';
-import logo from './assets/images/3DNounsLogo.png';
 import nounsArmy from './assets/images/ArmyFooterLarge.webp';
 import nounsHeart from './assets/images/nounsHeart.gif';
 import './index.css';
 import { BsDiscord } from 'react-icons/bs';
 import { useProgress } from '@react-three/drei';
 import Spinner from 'react-bootstrap/Spinner';
-import InitialLoader from 'components/InitialLoader';
+// import InitialLoader from 'components/InitialLoader';
 
 const HomePage = () => {
   const [hidePage, setHidePage] = useState(false);
@@ -74,15 +74,19 @@ const HomePage = () => {
             <h1 className="welcome-nounstoun">WELCOME TO NOUNSTOUN!</h1>
           </div>
           <div className="enter-container">
-            {!loaded || progress !== 100 ? (
-              <InitialLoader />
+            {!loaded ? (
+              // <InitialLoader />
+              <p>
+                Loading...
+                <Spinner animation={'border'} />
+              </p>
             ) : (
               <button
                 style={{ flexDirection: 'row', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                 className="enter-button"
-                disabled={!loaded || progress !== 100}
+                disabled={!loaded}
                 onClick={() => fadeOut()}>
-                {loaded && progress === 100 ? 'ENTER' : 'LOADING...'}
+                {loaded ? 'ENTER' : 'LOADING...'}
               </button>
             )}
           </div>

@@ -2,47 +2,23 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'utils/utils.js';
 import React, { useEffect, useRef } from 'react';
 
-const Film35MmHead = ({
-  headProp,
-  glassesProp,
-  animationState,
-  animationValue,
-  masterHeadModel,
-}) => {
+const Film35MmHead = ({ headProp, glassesProp, animationState, animationValue, masterHeadModel }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF('/headModels/HeadFilm35mm.glb');
 
-  const { ref, mixer, names, actions } = useAnimations(
-    masterHeadModel.animations,
-    group
-  );
+  const { ref, mixer, names, actions } = useAnimations(masterHeadModel.animations, group);
 
   useEffect(() => {
     if (animationState) {
-      actions[names[lookupAnimation(animationValue)]]
-        .reset()
-        .fadeIn(0.5)
-        .play();
+      actions[names[lookupAnimation(animationValue)]].reset().fadeIn(0.5).play();
       return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.5);
     }
   }, [actions, names, animationState, animationValue]);
 
   return (
-    <group
-      ref={group}
-      dispose={null}
-      visible={headProp === 'Film35Mm' ? true : false}
-      castShadow
-      receiveShadow
-    >
-      <primitive
-        object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd}
-      />
-      <skinnedMesh
-        skeleton={masterHeadModel.nodes.HeadBonsai.skeleton}
-        castShadow
-        receiveShadow
-      >
+    <group ref={group} dispose={null} visible={headProp === 'Film-35Mm' ? true : false} castShadow receiveShadow>
+      <primitive object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd} />
+      <skinnedMesh skeleton={masterHeadModel.nodes.HeadBonsai.skeleton} castShadow receiveShadow>
         <primitive object={nodes.Head.geometry} attach="geometry" />
         <primitive object={materials.headMAT} attach="material" />
       </skinnedMesh>
@@ -54,6 +30,6 @@ const Film35MmHead = ({
   );
 };
 
-useGLTF.preload('/headModels/HeadFilm35mm.glb');
+// useGLTF.preload('/headModels/HeadFilm35mm.glb');
 
 export default Film35MmHead;

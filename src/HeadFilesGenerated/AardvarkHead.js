@@ -30,6 +30,6 @@ const AardvarkHead = ({ headProp, glassesProp, animationState, animationValue, m
   );
 };
 
-useGLTF.preload('/headModels/HeadAardvark.glb');
+// useGLTF.preload('/headModels/HeadAardvark.glb');
 
 export default AardvarkHead;

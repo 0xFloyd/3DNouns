@@ -2,47 +2,23 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 import { lookupAnimation } from 'utils/utils.js';
 import React, { useEffect, useRef } from 'react';
 
-const MixerHead = ({
-  headProp,
-  glassesProp,
-  animationState,
-  animationValue,
-  masterHeadModel,
-}) => {
+const MixerHead = ({ headProp, glassesProp, animationState, animationValue, masterHeadModel }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF('/headModels/mixerHead.glb');
 
-  const { ref, mixer, names, actions } = useAnimations(
-    masterHeadModel.animations,
-    group
-  );
+  const { ref, mixer, names, actions } = useAnimations(masterHeadModel.animations, group);
 
   useEffect(() => {
     if (animationState) {
-      actions[names[lookupAnimation(animationValue)]]
-        .reset()
-        .fadeIn(0.5)
-        .play();
+      actions[names[lookupAnimation(animationValue)]].reset().fadeIn(0.5).play();
       return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.5);
     }
   }, [actions, names, animationState, animationValue]);
 
   return (
-    <group
-      ref={group}
-      dispose={null}
-      visible={headProp === 'Mixer' ? true : false}
-      castShadow
-      receiveShadow
-    >
-      <primitive
-        object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd}
-      />
-      <skinnedMesh
-        skeleton={masterHeadModel.nodes.HeadBonsai.skeleton}
-        castShadow
-        receiveShadow
-      >
+    <group ref={group} dispose={null} visible={headProp === 'Mixer' ? true : false} castShadow receiveShadow>
+      <primitive object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd} />
+      <skinnedMesh skeleton={masterHeadModel.nodes.HeadBonsai.skeleton} castShadow receiveShadow>
         <primitive object={nodes.Head.geometry} attach="geometry" />
         <primitive object={materials.headMAT} attach="material" />
       </skinnedMesh>
@@ -54,6 +30,6 @@ const MixerHead = ({
   );
 };
 
-useGLTF.preload('/headModels/mixerHead.glb');
+// useGLTF.preload('/headModels/mixerHead.glb');
 
 export default MixerHead;
