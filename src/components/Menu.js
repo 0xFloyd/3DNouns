@@ -212,10 +212,7 @@ const MenuTwo = ({
             className="options-controls"
             style={{ display: optionsVisibility }}
           >
-            {/* <h3 className="white-font attribute-label" style={{ textAlign: 'center' }}>
-            Settings
-          </h3> */}
-            <div
+            {/* <div
               className="inline-option-row"
               style={{ marginBottom: '20px' }}
             >
@@ -241,7 +238,7 @@ const MenuTwo = ({
                   Search
                 </button>
               </div>
-            </div>
+            </div> */}
 
             {/* HEAD */}
             <div className="inline-option-row">
