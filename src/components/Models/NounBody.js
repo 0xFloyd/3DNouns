@@ -243,30 +243,3 @@ export const lookupAnimation = (animationState) => {
     return data.animations[0].value;
   }
 };
-
-// data.body.forEach((bodyObj) => {
-//   useTexture.preload(`/textures/body/${bodyObj.value}`);
-// });
-
-// data.head.forEach((headData) => {
-//   useGLTF.preload(`/headModels/${headData.filePath}`);
-// });
-
-// data.accessory.forEach((accessoryObj) => {
-//   useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
-// });
-// data.accessory.forEach((accessoryObj) => {
-//   useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
-// });
-
-// data.pants.forEach((pantsObj) => {
-//   useTexture.preload(`/textures/pants/${pantsObj.value}`);
-// });
-
-// data.shoes.forEach((shoeObj) => {
-//   useTexture.preload(`/textures/shoes/${shoeObj.value}`);
-// });
-
-// data.glasses.forEach((glassesObj) => {
-//   useTexture.preload(`/textures/glasses/${glassesObj.value}`);
-// });

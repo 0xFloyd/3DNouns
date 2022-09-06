@@ -38,8 +38,8 @@ const NounHolder = (
     <group
       ref={ref}
       name="nounGroupHolder"
-      onPointerOver={() => (document.body.style.cursor = 'grab')}
-      onPointerOut={() => (document.body.style.cursor = 'auto')}
+      // onPointerOver={() => (document.body.style.cursor = 'grab')}
+      // onPointerOut={() => (document.body.style.cursor = 'auto')}
     >
       <MasterHead
         headProp={headProp}

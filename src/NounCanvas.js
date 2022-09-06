@@ -254,9 +254,7 @@ const NounCanvas = () => {
           near={0.1}
           far={1500}
         />
-        {/* {cameraRef && cameraRef.current && <cameraHelper args={cameraRef.current} />} */}
         <Lighting environmentParam={environment} />
-
         <OrbitControls
           target={[0, 20, 0]}
           ref={orbitControls}
@@ -267,7 +265,6 @@ const NounCanvas = () => {
           maxDistance={90}
           minDistance={20}
         />
-
         <Suspense fallback={null}>
           <NormalEnvironment environment={environment} />
           <ThreeDLogo
@@ -275,16 +272,6 @@ const NounCanvas = () => {
             ref={GlassesLogo}
           />
         </Suspense>
-
-        {/* {active || !loaded ? (
-          <Html
-            center
-            style={{ color: 'white', fontSize: '2rem' }}
-          >
-            Loading...
-          </Html>
-        ) : null} */}
-
         <Suspense fallback={null}>
           {!showScreenshotModal && loaded && (
             <NounHolder
@@ -301,7 +288,6 @@ const NounCanvas = () => {
             />
           )}
         </Suspense>
-        {/* <Stats showPanel={0} className="stats" /> */}
       </Canvas>
 
       <>

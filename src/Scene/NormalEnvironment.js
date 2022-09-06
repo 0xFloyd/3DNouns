@@ -79,12 +79,7 @@ const NormalEnvironment = ({ environment }) => {
         rotation={[0, Math.PI / 2, 0]}
       >
         <cylinderBufferGeometry args={[2000, 2000, 2, 32]} />
-        {/* <meshStandardMaterial map={texture_1} attach="material" /> */}
-        <meshStandardMaterial
-          color={new THREE.Color(0x404040).convertSRGBToLinear()}
-          // roughness={0.1}
-          // metalness={0}
-        />
+        <meshStandardMaterial color={new THREE.Color(0x404040).convertSRGBToLinear()} />
       </mesh>
     );
   };
@@ -111,11 +106,6 @@ const NormalEnvironment = ({ environment }) => {
           args={[new THREE.Color(0x181818), 1, 1000]}
         />
       ) : null}
-      {/* <Sky distance={1000} sunPosition={[-100, 500, 1000]0} /> */}
-      {/* <color attach="background" args={[new THREE.Color(0x87ceeb)]} /> */}
-      {/* <fog attach="fog" args={[new THREE.Color(0x87ceeb), 1, 5000]} /> */}
-      {/* <Sky distance={5000} sunPosition={[-100, 500, 1000]} /> */}
-
       {loaded && (environment === 'Matrix' || environment === 'VoidNight') ? (
         <color
           attach="background"
@@ -132,55 +122,10 @@ const NormalEnvironment = ({ environment }) => {
           sunPosition={[-100, 500, 1000]}
         />
       ) : null}
-      {/* {loaded && environment === 'Matrix' && (
-        <Stars
-          radius={100}
-          depth={700}
-          count={5000}
-          factor={16}
-          saturation={2}
-          fade
-          // position={[100, 100, 100]}
-        />
-      )} */}
-      {/* <SkyShader /> */}
-      {/* <House /> */}
-      {/* <Ground /> */}
-      {/* <mesh
-        receiveShadow
-        position={[-70, -0.5, -70]}
-        rotation={[0, Math.PI / 2, 0]}
-      >
-        <boxBufferGeometry args={[250, 1, 300]} />
-
-        <meshStandardMaterial
-          color={new THREE.Color(0x404040).convertSRGBToLinear()}
-          // roughness={0.1}
-          // metalness={0}
-        />
-      </mesh> */}
-      {/* position={[75, 6, 0]} */}
       <City environment={environment} />
       <Street environment={environment} />
       {environment === 'Normal' || environment === 'Matrix' ? (
         <>
-          <group
-            dispose={null}
-            scale={[140, 140, 140]}
-            position={[0, 1.5, 100]}
-          >
-            {' '}
-            {/* position={[2600, -24, 1700]} */}
-            {/* <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.Union_142.geometry}
-              material={materials.city3_material}
-              position={[-3.99, -0.1, -3.54]}
-              rotation={[Math.PI / 2, 0, 0]}
-              scale={[0.03, 0.03, 0.03]}
-            /> */}
-          </group>
           {truck && truck.nodes && truck.materials && (
             <group
               ref={truckRef}
@@ -204,15 +149,6 @@ const NormalEnvironment = ({ environment }) => {
               dispose={null}
               visible={showTaxi}
             >
-              {/* <mesh
-                castShadow
-                receiveShadow
-                geometry={truck.nodes.Oren_1117.geometry}
-                material={truck.materials.coca_material}
-                position={[-450, -49, -210]}
-                rotation={[Math.PI / 2, 0, 0]}
-                scale={[3, 3, 3]}
-              /> */}
               <mesh
                 castShadow
                 receiveShadow
@@ -241,12 +177,7 @@ const NormalEnvironment = ({ environment }) => {
           rotation={[0, Math.PI / 2, 0]}
         >
           <cylinderBufferGeometry args={[2000, 2000, 2, 32]} />
-          {/* <meshStandardMaterial map={texture_1} attach="material" /> */}
-          <meshStandardMaterial
-            color={new THREE.Color(0x404040).convertSRGBToLinear()}
-            // roughness={0.1}
-            // metalness={0}
-          />
+          <meshStandardMaterial color={new THREE.Color(0x404040).convertSRGBToLinear()} />
         </mesh>
       ) : null}
     </>
