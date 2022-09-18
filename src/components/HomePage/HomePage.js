@@ -82,7 +82,7 @@ const HomePage = () => {
             className="header-image"
           />
           <div className="welcome-container">
-            <h1 className="welcome-nounstoun">WELCOME TO NOUNSTOUN!</h1>
+            <h1 className="welcome-nounstoun">WELCOME TO 3D NOUNS!</h1>
           </div>
           <div className="enter-container">
             {!loaded ? (
