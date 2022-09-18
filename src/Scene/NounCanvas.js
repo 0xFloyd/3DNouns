@@ -1,31 +1,18 @@
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
 import { Suspense, useEffect, useRef, useState } from 'react';
-import {
-  Html,
-  OrbitControls,
-  PerspectiveCamera,
-  Stats,
-  useGLTF,
-  useHelper,
-  useProgress,
-  useTexture,
-} from '@react-three/drei';
-// import logo from './assets/images/3DNounsLogoSVG.svg';
-import logo from './assets/images/3DNounsLogo.png';
-import { TextureLoader } from 'three';
+import { Html, OrbitControls, PerspectiveCamera, useHelper, useProgress, useTexture } from '@react-three/drei';
+import logo from '../assets/images/3DNounsLogo.png';
 import NormalEnvironment from 'Scene/NormalEnvironment';
-import data from './data.json';
+import data from '../data.json';
 import NounHolder from 'Scene/NounHolder';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
-import { OBJExporter } from 'three/examples/jsm/exporters/OBJExporter.js';
 import { isDesktop } from 'react-device-detect';
 import ThreeDLogo from 'Scene/ThreeDNounsLogo';
-import './styles/ProgressLoader.css';
-import DownloadNoun from 'Scene/DownloadNoun';
-import Menu from 'components/Menu';
-
-const lookAtPos = new THREE.Vector3(10, 5, 0);
+import '../styles/ProgressLoader.css';
+import Menu from 'components/Menu/Menu';
+import { saveArrayBuffer, saveScreenshot, saveString } from 'utils/utils';
+import Lighting from 'Scene/Lighting';
 
 const NounCanvas = () => {
   const { active, progress, errors, item, loaded, total } = useProgress();
@@ -36,139 +23,27 @@ const NounCanvas = () => {
     return false;
   });
 
-  const [optionsVisibility, setOptionsVisibility] = useState('block');
-  const [autoRotate, setAutoRotate] = useState('false');
+  const [autoRotate, setAutoRotate] = useState(false);
   const [deviceState, setDeviceState] = useState(isDesktop);
   const [environment, setEnvironment] = useState('Normal');
   const [animationState, setAnimationState] = useState(false);
   const [showDirections, setShowDirections] = useState(true);
-  const [randomizerOn, setRandomizerOn] = useState(false);
   const [showScreenshotModal, setShowScreenshotModal] = useState(false);
-  const [animationValue, setAnimationValue] = useState(
-    data.animations.find((animation) => animation.name === 'none').name
-  );
   const [downloadingModel, setDownloadingModel] = useState(false);
-  const [lockedTraits, setLockedTraits] = useState({
-    head: false,
-    glasses: false,
-    body: false,
-    accessory: false,
-    pants: false,
-    shoes: false,
-  });
   const [sceneState, setSceneState] = useState(null);
-
   const [head, setHead] = useState(data.head[Math.floor(Math.random() * data.head.length)].name);
-  const [glasses, setGlasses] = useState(data.glasses[Math.floor(Math.random() * data.glasses.length)].value);
+  const [glasses, setGlasses] = useState(data.glasses[Math.floor(Math.random() * data.glasses.length)].name);
   const [body, setBody] = useState(data.body[Math.floor(Math.random() * data.body.length)].name);
   const [accessory, setAccessory] = useState(data.accessory[Math.floor(Math.random() * data.accessory.length)].name);
   const [pants, setPants] = useState(data.pants[Math.floor(Math.random() * data.pants.length)].name);
   const [shoes, setShoes] = useState(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
-
-  const [seed, setSeed] = useState(null);
+  const [animationValue, setAnimationValue] = useState(
+    data.animations.find((animation) => animation.name === 'none').name
+  );
 
   const orbitControls = useRef();
   const modelDownloadMeshForward = useRef();
-  const temporaryModel = useRef();
-  const GlassesLogo = useRef();
   const cameraRef = useRef();
-
-  useEffect(() => {
-    preloadAllAssets();
-
-    function updateMedia() {
-      setDeviceState(isDesktop);
-    }
-
-    window.addEventListener('resize', updateMedia);
-    return () => window.removeEventListener('resize', updateMedia);
-  }, []);
-
-  const generateRandomNoun = () => {
-    if (!lockedTraits.head) {
-      setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
-    }
-
-    if (!lockedTraits.glasses) {
-      setGlasses(data.glasses[Math.floor(Math.random() * data.glasses.length)].value);
-    }
-    if (!lockedTraits.body) {
-      setBody(data.body[Math.floor(Math.random() * data.body.length)].name);
-    }
-
-    if (!lockedTraits.accessory) {
-      setAccessory(data.accessory[Math.floor(Math.random() * data.accessory.length)].name);
-    }
-
-    if (!lockedTraits.pants) {
-      setPants(data.pants[Math.floor(Math.random() * data.pants.length)].name);
-    }
-    if (!lockedTraits.shoes) {
-      setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
-    }
-  };
-
-  const Lighting = ({ environmentParam }) => {
-    const light = useRef();
-    const spotLight = useRef();
-    const logoLightRef = useRef();
-
-    const logoLight = new THREE.SpotLight(0xffffff);
-    // logoLight.intensity = 3;
-    // useHelper(refTwo, DirectionalLightHelper, 'cyan');
-    useHelper(logoLightRef, THREE.SpotLightHelper, 'red');
-    // useHelper(hemiLight, HemisphereLightHelper, 'blue');
-    const d = 5;
-
-    return (
-      <>
-        <group>
-          <ambientLight intensity={environmentParam === 'Matrix' ? 0.35 : 1.35} />
-
-          <hemisphereLight
-            skyColor={new THREE.Color(0xffffbb)}
-            groundColor={new THREE.Color(0x080820)}
-            intensity={environmentParam === 'Matrix' ? 0.85 : 1.85}
-          />
-
-          {environmentParam === 'Matrix' ? (
-            <spotLight
-              penumbra={1}
-              distance={1000}
-              angle={0.35}
-              attenuation={1}
-              anglePower={4}
-              intensity={500}
-              position={[0, 200, 0]}
-              castShadow
-              color={new THREE.Color(0xffa95c)}
-              // lookAt={[100, 0, -200]}
-              shadow-mapSize-width={4096}
-              shadow-mapSize-height={4096}
-              shadow-bias={-0.0001}
-            />
-          ) : null}
-
-          <directionalLight
-            // color={0xffffbb}
-            ref={light}
-            intensity={environmentParam === 'Matrix' ? 0 : 1.35}
-            position={[-100, 500, 500]}
-            shadow-camera-left={d * -100}
-            shadow-camera-bottom={d * -100}
-            shadow-camera-right={d * 100}
-            shadow-camera-top={d * 100}
-            shadow-camera-near={10}
-            shadow-camera-far={5000}
-            shadow-bias={-0.0001}
-            shadow-mapSize-height={4096}
-            shadow-mapSize-width={4096}
-            castShadow
-          />
-        </group>
-      </>
-    );
-  };
 
   const downloadModel = () => {
     const gltfExporter = new GLTFExporter();
@@ -222,6 +97,17 @@ const NounCanvas = () => {
   };
 
   useEffect(() => {
+    preloadAllAssets();
+
+    function updateMedia() {
+      setDeviceState(isDesktop);
+    }
+
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
+  }, []);
+
+  useEffect(() => {
     if (!showDirections && loaded) {
       setAnimationState(true);
       setAnimationValue('idle');
@@ -267,10 +153,7 @@ const NounCanvas = () => {
         />
         <Suspense fallback={null}>
           <NormalEnvironment environment={environment} />
-          <ThreeDLogo
-            environment={environment}
-            ref={GlassesLogo}
-          />
+          <ThreeDLogo environment={environment} />
         </Suspense>
         {active || !loaded ? (
           <Html center>
@@ -298,8 +181,6 @@ const NounCanvas = () => {
       <>
         <Menu
           isDesktop={deviceState}
-          optionsVisibility={optionsVisibility}
-          setOptionsVisibility={setOptionsVisibility}
           head={head}
           setHead={setHead}
           body={body}
@@ -316,7 +197,6 @@ const NounCanvas = () => {
           setEnvironment={setEnvironment}
           autoRotate={autoRotate}
           setAutoRotate={setAutoRotate}
-          generateRandomNoun={generateRandomNoun}
           animationState={animationState}
           animationValue={animationValue}
           setAnimationState={setAnimationState}
@@ -324,16 +204,10 @@ const NounCanvas = () => {
           downloadModel={downloadModel}
           downloadingModel={downloadingModel}
           setDownloadingModel={setDownloadingModel}
-          lockedTraits={lockedTraits}
-          setLockedTraits={setLockedTraits}
-          randomizerOn={randomizerOn}
-          setRandomizerOn={setRandomizerOn}
           // setSceneState={setSceneState}
           showScreenshotModal={showScreenshotModal}
           setShowScreenshotModal={setShowScreenshotModal}
           saveAsImage={saveAsImage}
-          seed={seed}
-          setSeed={setSeed}
         />
         {showDirections && (
           <div
@@ -397,31 +271,4 @@ const preloadAllAssets = () => {
   // data.glasses.forEach((glassesObj) => {
   //   useTexture.preload(`/textures/glasses/${glassesObj.value}`);
   // });
-};
-
-function saveArrayBuffer(buffer, filename) {
-  save(new Blob([buffer], { type: 'application/octet-stream' }), filename);
-}
-function saveString(text, filename) {
-  save(new Blob([text], { type: 'text/plain' }), filename);
-}
-function save(blob, filename) {
-  let link = document.createElement('a');
-  link.style.display = 'none';
-  document.body.appendChild(link); // Firefox workaround, see #6594
-  link.href = URL.createObjectURL(blob);
-  link.download = filename;
-  link.click();
-  // URL.revokeObjectURL( url ); breaks Firefox...
-}
-
-const saveScreenshot = (strData, filename) => {
-  var link = document.createElement('a');
-  if (typeof link.download === 'string') {
-    document.body.appendChild(link); //Firefox requires the link to be in the body
-    link.download = filename;
-    link.href = strData;
-    link.click();
-    document.body.removeChild(link); //remove the link when done
-  }
 };

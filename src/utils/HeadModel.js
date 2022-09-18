@@ -1,5 +1,5 @@
 import { useAnimations, useGLTF } from '@react-three/drei';
-import { lookupAnimation, lookupHead } from 'utils/utils.js';
+import { lookupAnimation, lookupGlasses, lookupHead } from 'utils/utils.js';
 import React, { useEffect, useRef } from 'react';
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -19,7 +19,7 @@ const HeadModel = ({ headProp, glassesProp, animationState, animationValue, mast
 
   // console.count('test head render');
 
-  let glassesTest = useLoader(THREE.TextureLoader, `/textures/glasses/${glassesProp}`);
+  let glassesTest = useLoader(THREE.TextureLoader, `/textures/glasses/${lookupGlasses(glassesProp)}`);
   glassesTest.flipY = false;
   glassesTest.magFilter = THREE.LinearMipMapNearestFilter;
   glassesTest.minFilter = THREE.LinearMipMapNearestFilter;

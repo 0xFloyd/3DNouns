@@ -2,7 +2,7 @@ import React, { forwardRef, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
-const ThreeDLogo = ({ environment }, ref) => {
+const ThreeDLogo = ({ environment }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF('/world/3Dglasses.glb');
 
@@ -56,4 +56,4 @@ const ThreeDLogo = ({ environment }, ref) => {
   );
 };
 
-export default forwardRef(ThreeDLogo);
+export default ThreeDLogo;

@@ -1,11 +1,7 @@
 import React from 'react';
-import data from '../data.json';
+import data from '../../data.json';
 
-const AnimationSelect = ({
-  animationValue,
-  setAnimationState,
-  setAnimationValue,
-}) => {
+const AnimationSelect = ({ animationValue, setAnimationState, setAnimationValue }) => {
   return (
     <div className="inline-option-row">
       <span />
@@ -25,7 +21,10 @@ const AnimationSelect = ({
           className="trait-select"
         >
           {data.animations.map((animationObj) => (
-            <option key={animationObj.value} value={animationObj.name}>
+            <option
+              key={animationObj.value}
+              value={animationObj.name}
+            >
               {animationName(animationObj.name)}
             </option>
           ))}

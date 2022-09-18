@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './styles/App.css';
 import './styles/GlowButton.css';
 import HomePage from './components/HomePage/HomePage';
-import NounCanvas from 'NounCanvas';
+import NounCanvas from 'Scene/NounCanvas';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 
 const client = new ApolloClient({

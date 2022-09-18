@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import '../styles/ScreenshotAnimationSelect.css';
 import data from '../data.json';
-import { animationName } from './AnimationSelect';
+import { animationName } from './Menu/AnimationSelect';
 import { RiArrowLeftSFill, RiArrowRightSFill } from 'react-icons/ri';
 
-const ScreenshotAnimationSelect = ({
-  animationValue,
-  setAnimationState,
-  setAnimationValue,
-}) => {
+const ScreenshotAnimationSelect = ({ animationValue, setAnimationState, setAnimationValue }) => {
   return (
     <div className="animation-select-wrap">
       <select
@@ -25,7 +21,10 @@ const ScreenshotAnimationSelect = ({
         className="animation-name"
       >
         {data.animations.map((animationObj) => (
-          <option key={animationObj.value} value={animationObj.name}>
+          <option
+            key={animationObj.value}
+            value={animationObj.name}
+          >
             {animationName(animationObj.name)}
           </option>
         ))}
@@ -115,15 +114,11 @@ export default ScreenshotAnimationSelect;
 // export default ScreenshotAnimationSelect;
 
 const findIndex = (animationValue) => {
-  let foundAnimation = data.animations.find(
-    (obj, index) => (obj.name = animationValue)
-  );
+  let foundAnimation = data.animations.find((obj, index) => (obj.name = animationValue));
   return foundAnimation.index;
 };
 
 const findAnimationName = (animationIndex) => {
-  let foundAnimation = data.animations.find(
-    (obj, index) => (obj.index = animationIndex)
-  );
+  let foundAnimation = data.animations.find((obj, index) => (obj.index = animationIndex));
   return foundAnimation.name;
 };
