@@ -10,18 +10,14 @@ const MasterHead = ({ headProp, glassesProp, animationState, animationValue }) =
   const { gl } = useThree();
   const MasterHead = useGLTF('/baseModels/head.glb');
 
-  const [allheadsState, setAllHeadsState] = useState([]);
-
   return (
-    <>
-      <HeadModel
-        headProp={headProp}
-        glassesProp={glassesProp}
-        animationState={animationState}
-        animationValue={animationValue}
-        masterHeadModel={MasterHead}
-      />
-    </>
+    <HeadModel
+      headProp={headProp}
+      glassesProp={glassesProp}
+      animationState={animationState}
+      animationValue={animationValue}
+      masterHeadModel={MasterHead}
+    />
   );
 };
 

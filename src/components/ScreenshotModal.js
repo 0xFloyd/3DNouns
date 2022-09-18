@@ -9,7 +9,6 @@ import { GUI } from 'three/examples/jsm/libs/dat.gui.module';
 import { Form } from 'react-bootstrap';
 import '../styles/slider.css';
 // import ScreenshotBackdrop from 'World/ScreenshotBackdrop';
-import AnimationSelect from 'components/AnimationSelect';
 import ScreenshotAnimationSelect from 'components/ScreenshotAnimationSelect';
 import CameraIcon from '../assets/images/cameraIcon.svg';
 

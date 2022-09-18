@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import headerImage from '../../assets/images/nounstown.webp';
 import logo from '../../assets/images/3DNounsLogo.png';
-import Section from '../Section';
+import Section from './Section';
 import { Col } from 'react-bootstrap';
 import classes from './HomePage.module.css';
 import Accordion from 'react-bootstrap/Accordion';
-import Link from '../Link';
+import Link from './Link';
 import './HomePage.css';
 import mobileHeadImage from '../../assets/images/mobile-toun.png';
 import CoralPicture from '../../assets/images/CoralOrcaProfilePicture400.jpg';
