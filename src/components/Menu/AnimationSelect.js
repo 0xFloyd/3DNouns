@@ -12,19 +12,15 @@ const AnimationSelect = ({ animationValue, setAnimationState, setAnimationValue 
           onChange={(e) => {
             if (e.target.value === 'none') {
               setAnimationState(false);
-              setAnimationValue(e.target.value);
             } else {
               setAnimationState(true);
-              setAnimationValue(e.target.value);
             }
+            setAnimationValue(e.target.value);
           }}
           className="trait-select"
         >
           {data.animations.map((animationObj) => (
-            <option
-              key={animationObj.value}
-              value={animationObj.name}
-            >
+            <option key={animationObj.value} value={animationObj.name}>
               {animationName(animationObj.name)}
             </option>
           ))}

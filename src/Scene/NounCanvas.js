@@ -51,18 +51,10 @@ const NounCanvas = () => {
     const fullScene = sceneState;
     // let hiddenDownloadNoun = temporaryModel.current;
     let hiddenDownloadNoun = modelDownloadMeshForward.current;
-    // console.log('fule scene: ', holder);
 
     let currentNoun = fullScene?.scene?.children[1];
     let animations = [];
-    // for (let i = 0; i < fullScene.children.length; i++) {
-    //   const a = fullScene.children[i].animations;
-    //   if (a) {
-    //     animations = animations.concat(a);
-    //     console.log('animation found!');
-    //   }
-    // }
-    // Only download the visible objects, since there are invisible based on user selection
+
     const options = {
       onlyVisible: false,
     };
@@ -107,10 +99,13 @@ const NounCanvas = () => {
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
 
+  const runOnce = useRef(true);
+
   useEffect(() => {
-    if (!showDirections && loaded) {
+    if (!showDirections && loaded && runOnce.current) {
       setAnimationState(true);
       setAnimationValue('idle');
+      runOnce.current = false;
     }
   }, [showDirections, loaded]);
 
@@ -210,19 +205,13 @@ const NounCanvas = () => {
           saveAsImage={saveAsImage}
         />
         {showDirections && (
-          <div
-            className="blocker"
-            onClick={() => setShowDirections(false)}
-          >
+          <div className="blocker" onClick={() => setShowDirections(false)}>
             <div className="directions-popup">
               <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
               <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
               <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
               <div className="close-directions-container">
-                <button
-                  className="menu-button"
-                  onClick={() => setShowDirections(false)}
-                >
+                <button className="menu-button" onClick={() => setShowDirections(false)}>
                   CLOSE
                 </button>
               </div>
@@ -232,11 +221,7 @@ const NounCanvas = () => {
 
         <div className="logo-container">
           <a href="https://3dnouns.com">
-            <img
-              className="nouns-logo"
-              src={logo}
-              alt="NOUNS"
-            />
+            <img className="nouns-logo" src={logo} alt="NOUNS" />
           </a>
           {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
         </div>
