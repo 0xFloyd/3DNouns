@@ -1,47 +1,37 @@
 # 3D Nouns
 
-3D Nouns was created by @0xFloyd and @CoralOrca and funded by NounsDAO under Proposal 2.
+3D Nouns is a web application used for the customization of Noun avatars in 3D. It was created by [@0xFloyd](https://twitter.com/0xFloyd) and [@CoralOrca](https://twitter.com/coralorca) and funded by [NounsDAO](https://github.com/nounsDAO/nouns-monorepo) under [Proposal 2](https://nouns.wtf/vote/2) on September 6, 2021.
 
-// shadows: https://discourse.threejs.org/t/hello-i-am-facing-the-problem-with-shadow-stripes-on-model/18065/2
+## Technology
 
-// https://stackoverflow.com/questions/43621274/how-to-correctly-set-lighting-for-custom-shader-material
+3D Nouns is built using [React-three-fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction), a React renderer for [three.js](https://threejs.org).
 
-// add in to vetrtex: THREE.ShaderChunk['shadowmap_pars_vertex']
+To get Noun avatar data by ID, 3D Nouns uses [Apollo](https://www.npmjs.com/package/@apollo/client), a GraphQL client, to fetch data. Nouns chain data is retrieved from the [Nouns Subgraph](https://thegraph.com/hosted-service/subgraph/nounsdao/nouns-subgraph).
 
-https://www.youtube.com/watch?v=C8Cuwq1eqDw
+## Gotchas
 
-dir /b > printit.txt will print only the file names
+React cannot consume context from a foreign provider. This prevents the use of global state libraries like redux and zustand inside r3f.
 
-<shaderMaterial
-// transparent={true}
-// lights={true}
-attach="material"
-args={[bodyFragmentShader]}
-needsUpdate={true}
-skinning={true}
-// castShadow
-// dithering
-/>
+_From [@0xca0a](https://twitter.com/0xca0a) (r3f creator):_
 
-     const uniforms = useMemo(
-    () =>
-      THREE.UniformsUtils.merge([
-        THREE.UniformsLib.lights,
-        {
-          tex: {
-            type: 't',
-            value: accessoryTexture,
-          },
-          tex2: {
-            type: 't',
-            value: bodyTexture,
-          },
-        },
-      ]),
-    [bodyTexture, accessoryTexture]
+```
+At the moment React context can not be readily used between two renderers, this is due to a problem within React. You can't use redux, tailwind, styled-components, or any foreign context in fiber ootb
+```
 
-);
+[https://docs.pmnd.rs/react-three-fiber/advanced/gotchas](https://docs.pmnd.rs/react-three-fiber/advanced/gotchas)
 
-Design
+_Update_: _A community solution emerged after the development of this project was finished, but keeping this here to explain engineering decisions made at the time._
+[https://twitter.com/0xca0a/status/1573064826339094528](https://twitter.com/0xca0a/status/1573064826339094528)
 
-One of the biggest decisions that had to be made was the method in which to load in all the head models. All 3D Nouns have the same body geometry, so reusing the same body model and applying different textures (with a custom shaderMaterial) allowed for a super lightweight, efficient noun body. Woo! However, each 3D Noun head has different geometry, and thus an indivial model for each head was required. Programmatically "building" each head voxel-style was initially considered, but it turned out to be much more performant to manually build each head model ahead of time and load it into the scene. Adding and disposing of objects in a threejs scene is expensive, so all 234 head models are preloaded into the scene on load, and all remain rendered in the scene at all times, while mesh visibility is toggled based on application state.
+## Usage
+
+To use locally, clone the repository, install dependencies, run using CRA's live development server, and navigate to localhost:3000 in your browser:
+
+```javascript
+yarn install
+yarn run start
+```
+
+## License
+
+The project is licensed under the MIT License.
