@@ -6,21 +6,7 @@ const ProgressLoader = () => {
   const { progress } = useProgress();
   return (
     <Html center>
-      <div
-        className="initial-progress-loader"
-        // style={{
-        //   backgroundColor: rgba(0, 0, 0, 0.8),
-        //   height: '100vh',
-        //   width: '100%',
-        //   position: 'fixed',
-        //   top: 0,
-        //   left: 0,
-        //   zIndex: 2147483647,
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        //   display: 'flex',
-        // }}
-      >
+      <div className="initial-progress-loader">
         <div
           style={{
             margin: '0 auto',
@@ -28,10 +14,7 @@ const ProgressLoader = () => {
           }}
         >
           <h2>Loading 3D Nouns...</h2>
-          <ProgressBar
-            now={progress && Math.round(progress)}
-            label={`${progress && Math.round(progress)}%`}
-          />
+          <ProgressBar now={progress && Math.round(progress)} label={`${progress && Math.round(progress)}%`} />
         </div>
       </div>
     </Html>

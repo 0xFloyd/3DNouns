@@ -19,7 +19,6 @@ import '../../index.css';
 import { BsDiscord } from 'react-icons/bs';
 import { useProgress } from '@react-three/drei';
 import Spinner from 'react-bootstrap/Spinner';
-// import InitialLoader from 'components/InitialLoader';
 
 const HomePage = () => {
   const [hidePage, setHidePage] = useState(false);
@@ -49,13 +48,8 @@ const HomePage = () => {
 
     window.addEventListener('resize', autoResize);
 
-    // This is likely unnecessary, as the initial state should capture
-    // the size, however if a resize occurs between initial state set by
-    // React and before the event listener is attached, this
-    // will just make sure it captures that.
     autoResize();
 
-    // Return a function to disconnect the event listener
     return () => window.removeEventListener('resize', autoResize);
   }, []);
 
@@ -68,25 +62,16 @@ const HomePage = () => {
         <div className="relative header-image">
           <div className="homepage-logo-container">
             <a href="https://3dnouns.com">
-              <img
-                className="nouns-logo"
-                src={logo}
-                alt="NOUNS"
-              />
+              <img className="nouns-logo" src={logo} alt="NOUNS" />
             </a>
             {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
           </div>
-          <img
-            src={isMobileSize ? mobileHeadImage : headerImage}
-            alt="Nounstoun"
-            className="header-image"
-          />
+          <img src={isMobileSize ? mobileHeadImage : headerImage} alt="Nounstoun" className="header-image" />
           <div className="welcome-container">
             <h1 className="welcome-nounstoun">WELCOME TO 3D NOUNS!</h1>
           </div>
           <div className="enter-container">
             {!loaded ? (
-              // <InitialLoader />
               <p>
                 Loading...
                 <Spinner animation={'border'} />
@@ -109,12 +94,7 @@ const HomePage = () => {
               <h1 style={{ textAlign: 'center', color: '#d63c5e' }}>An Experiment in CC0 Avatars</h1>
               <p className={classes.genericText}>
                 3D NOUNS is a collection of composable characters turning{' '}
-                <Link
-                  text={'NounsDAO'}
-                  url={'https://nouns.wtf'}
-                  leavesPage={true}
-                  style={{ fontSize: '1.3rem' }}
-                />{' '}
+                <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}
                 pixel art into 3D avatars. Enter the generator and test infinite possibilities with the randomize button
                 or pick and choose your traits one by one. <br></br>Our goal is to bring 3D NOUNS to a multitude of
                 metaverse platforms and extend the nouns ecosystem to other creative fields like gaming, animation and
@@ -132,10 +112,7 @@ const HomePage = () => {
             </div>
             <div className="accordion-wrap">
               <Accordion flush>
-                <Accordion.Item
-                  eventKey="0"
-                  className={classes.accordionItem}
-                >
+                <Accordion.Item eventKey="0" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
@@ -146,10 +123,7 @@ const HomePage = () => {
                   </Accordion.Body>
                 </Accordion.Item>
 
-                <Accordion.Item
-                  eventKey="1"
-                  className={classes.accordionItem}
-                >
+                <Accordion.Item eventKey="1" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
@@ -159,10 +133,7 @@ const HomePage = () => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
-                <Accordion.Item
-                  eventKey="2"
-                  className={classes.accordionItem}
-                >
+                <Accordion.Item eventKey="2" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
@@ -171,10 +142,7 @@ const HomePage = () => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
-                <Accordion.Item
-                  eventKey="3"
-                  className={classes.accordionItem}
-                >
+                <Accordion.Item eventKey="3" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
@@ -189,10 +157,7 @@ const HomePage = () => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
-                <Accordion.Item
-                  eventKey="4"
-                  className={classes.accordionItem}
-                >
+                <Accordion.Item eventKey="4" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>NFTs</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
@@ -218,57 +183,28 @@ const HomePage = () => {
 
                 <div className="profile-section-creators">
                   <div className="profile-individual-section">
-                    <img
-                      className="profile-picture"
-                      src={CoralPicture}
-                    />
+                    <img className="profile-picture" src={CoralPicture} />
                     <p className="bio-header">Creator</p>
-                    <SiTwitter
-                      className="twitter-logo"
-                      size={isDesktop ? 30 : 25}
-                      color="#1DA1F2"
-                    />
-                    <a
-                      className="social-link"
-                      href="https://twitter.com/coralorca"
-                      target="_blank"
-                    >
+                    <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
+                    <a className="social-link" href="https://twitter.com/coralorca" target="_blank">
                       CoralOrca
                     </a>
                   </div>
 
                   <div className="profile-individual-section">
-                    <img
-                      className="profile-picture"
-                      src={FloydPicture}
-                    />
+                    <img className="profile-picture" src={FloydPicture} />
                     <p className="bio-header">Engineer</p>
-                    <SiTwitter
-                      className="twitter-logo"
-                      size={isDesktop ? 30 : 25}
-                      color="#1DA1F2"
-                    />{' '}
-                    <a
-                      className="social-link"
-                      href="https://twitter.com/0xFloyd"
-                      target="_blank"
-                    >
+                    <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />{' '}
+                    <a className="social-link" href="https://twitter.com/0xFloyd" target="_blank">
                       0xFloyd
                     </a>
                   </div>
                 </div>
 
                 <div className="profile-individual-section ">
-                  <img
-                    className="profile-picture"
-                    src={ThreeDNounsPicture}
-                  />
+                  <img className="profile-picture" src={ThreeDNounsPicture} />
                   <div className="profile-individual-section ">
-                    <SiTwitter
-                      className="twitter-logo"
-                      size={isDesktop ? 30 : 25}
-                      color="#1DA1F2"
-                    />
+                    <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
                     <a
                       style={{ color: 'black' }}
                       className="social-link"
@@ -280,11 +216,7 @@ const HomePage = () => {
                   </div>
 
                   <div className="profile-individual-section">
-                    <BsDiscord
-                      className="twitter-logo"
-                      size={isDesktop ? 30 : 25}
-                      color="#5865F2"
-                    />
+                    <BsDiscord className="twitter-logo" size={isDesktop ? 30 : 25} color="#5865F2" />
                     <a
                       style={{ color: 'black' }}
                       className="social-link"
@@ -300,19 +232,11 @@ const HomePage = () => {
           </Col>
         </Section>
         <div>
-          <img
-            src={nounsArmy}
-            className="footer-image"
-          />
+          <img src={nounsArmy} className="footer-image" />
         </div>
         <div className="footer-info">
           <p>
-            nouns.wtf{' '}
-            <img
-              className="nouns-heart"
-              src={nounsHeart}
-            ></img>{' '}
-            by CoralOrca and 0xFloyd
+            nouns.wtf <img className="nouns-heart" src={nounsHeart}></img> by CoralOrca and 0xFloyd
           </p>
         </div>
       </div>

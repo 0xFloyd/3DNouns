@@ -4,6 +4,13 @@ import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import data from 'data.json';
 import BodyMesh from '../components/Models/BodyMesh';
+import {
+  lookupAccessoryTexture,
+  lookupBodyTexture,
+  lookupHandTexture,
+  lookupPantsTexture,
+  lookupShoeTexture,
+} from 'utils/utils';
 
 export default function DownloadBody({
   headProp,
@@ -17,24 +24,6 @@ export default function DownloadBody({
   const group = useRef();
   const { nodes, materials, animations } = useGLTF('/baseModels/body.glb');
   const { ref, mixer, names, actions } = useAnimations(animations, group);
-
-  // const [preLoadedBodyTextures, setPreLoadedBodyTextures] = useState(
-  //   data.body.map((bodyObj) => {
-  //     let bodyMaterial = useLoader(
-  //       THREE.TextureLoader,
-  //       `/textures/body/${bodyObj.value}`
-  //     );
-
-  //     bodyMaterial.flipY = false;
-  //     bodyMaterial.magFilter = bodyMaterial.minFilter = THREE.NearestFilter;
-  //     // bodyMaterial.premultiplyAlpha = true;
-
-  //     return {
-  //       name: bodyObj.name,
-  //       value: bodyMaterial,
-  //     };
-  //   })
-  // );
 
   const [preLoadedShoesTextures, setPreLoadedShoesTextures] = useState(
     data.shoes.map((shoeObj) => {
@@ -66,25 +55,6 @@ export default function DownloadBody({
     })
   );
 
-  // const [preLoadedAccessoryTextures, setPreLoadedAccessoryTextures] = useState(
-  //   data.accessory.map((accessoryObj) => {
-  //     let accessoryMaterial = useLoader(
-  //       THREE.TextureLoader,
-  //       `/textures/accessories/${accessoryObj.value}`
-  //     );
-
-  //     accessoryMaterial.flipY = false;
-  //     accessoryMaterial.magFilter = accessoryMaterial.minFilter =
-  //       THREE.NearestFilter;
-  //     // accessoryMaterial.premultiplyAlpha = true;
-
-  //     return {
-  //       name: accessoryObj.name,
-  //       value: accessoryMaterial,
-  //     };
-  //   })
-  // );
-
   // These were when we were passing the actual texture
   let accessoryTextureFound = lookupAccessoryTexture(accessoryProp, data.accessory);
 
@@ -93,38 +63,15 @@ export default function DownloadBody({
   let shoeTextureFound = lookupShoeTexture(shoeProp, preLoadedShoesTextures);
   let pantsTextureFound = lookupPantsTexture(pantsProp, preloadedPantsTexture);
 
-  // const [preLoadedAccessoryTextures, setPreLoadedAccessoryTextures] = useState(
-  //   data.accessory.map((accessoryObj) => {
-  //     let accessoryMaterial = useLoader(
-  //       THREE.TextureLoader,
-  //       `/textures/accessories/${accessoryObj.value}`
-  //     );
-
-  //     accessoryMaterial.flipY = false;
-  //     accessoryMaterial.magFilter = accessoryMaterial.minFilter =
-  //       THREE.NearestFilter;
-  //     accessoryMaterial.premultiplyAlpha = true;
-
-  //     return {
-  //       name: accessoryObj.name,
-  //       value: accessoryMaterial,
-  //     };
-  //   })
-  // );
-
   useEffect(() => {
-    if (animationState) {
+    if (animationState && animationValue) {
       actions[names[lookupAnimation(animationValue)]].reset().fadeIn(0.5).play();
       return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.5);
     }
   }, [actions, names, animationState, animationValue]);
 
   return (
-    <group
-      ref={group}
-      dispose={null}
-      castShadow
-    >
+    <group ref={group} dispose={null} castShadow>
       <primitive object={nodes.BodyAnimationSkeletonsJob_006Hipsd} />
       <skinnedMesh
         geometry={nodes.hands.geometry}
@@ -156,10 +103,7 @@ export default function DownloadBody({
         castShadow
         // receiveShadow
       >
-        <meshStandardMaterial
-          map={pantsTextureFound}
-          attach="material"
-        />
+        <meshStandardMaterial map={pantsTextureFound} attach="material" />
       </skinnedMesh>
       <skinnedMesh
         geometry={nodes.shoes.geometry}
@@ -168,10 +112,7 @@ export default function DownloadBody({
         castShadow
         receiveShadow
       >
-        <meshStandardMaterial
-          map={shoeTextureFound}
-          attach="material"
-        />
+        <meshStandardMaterial map={shoeTextureFound} attach="material" />
       </skinnedMesh>
     </group>
   );
@@ -179,93 +120,12 @@ export default function DownloadBody({
 
 useGLTF.preload('/baseModels/body.glb');
 
-export const lookupHandTexture = (headTextureParam, headData) => {
-  let result = headData.find((obj) => {
-    return obj.name === headTextureParam;
-  });
-  if (result) {
-    return result.color;
-  } else {
-    return null;
-  }
-};
-
-export const lookupBodyTexture = (bodyTextureParam, preLoadedBodyTextures) => {
-  let result = preLoadedBodyTextures.find((obj) => {
-    return obj.name === bodyTextureParam;
-  });
-  if (result) {
-    return result.value;
-  } else {
-    return null;
-  }
-};
-
-export const lookupAccessoryTexture = (accessoryTextureParam, preLoadedAccessoryTextures) => {
-  let result = preLoadedAccessoryTextures.find((obj) => {
-    return obj.name === accessoryTextureParam;
-  });
-  if (result) {
-    return result.value;
-  } else {
-    return null;
-  }
-};
-
-export const lookupPantsTexture = (pantsTextureParam, preloadedPantsTexture) => {
-  let result = preloadedPantsTexture.find((obj) => {
-    return obj.name === pantsTextureParam;
-  });
-  if (result) {
-    return result.value;
-  } else {
-    return null;
-  }
-};
-
-export const lookupShoeTexture = (shoeTextureParam, preLoadedShoeTextures) => {
-  let result = preLoadedShoeTextures.find((obj) => {
-    return obj.name === shoeTextureParam;
-  });
-  if (result) {
-    return result.value;
-  } else {
-    return null;
-  }
-};
-
 export const lookupAnimation = (animationState) => {
   let animationValue = data.animations.find((animation) => animation.name === animationState);
   if (animationValue) {
     return animationValue.value;
-  } else {
-    return data.animations[0].value;
   }
+  // else {
+  //   return data.animations[0].value;
+  // }
 };
-
-// data.body.forEach((bodyObj) => {
-//   useTexture.preload(`/textures/body/${bodyObj.value}`);
-// });
-
-// data.head.forEach((headData) => {
-//   useGLTF.preload(`/headModels/${headData.filePath}`);
-// });
-
-// data.accessory.forEach((accessoryObj) => {
-//   useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
-// });
-// data.accessory.forEach((accessoryObj) => {
-//   useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
-// });
-
-// data.pants.forEach((pantsObj) => {
-//   useTexture.preload(`/textures/pants/${pantsObj.value}`);
-// });
-
-// data.shoes.forEach((shoeObj) => {
-//   useTexture.preload(`/textures/shoes/${shoeObj.value}`);
-// });
-
-// data.glasses.forEach((glassesObj) => {
-//   useTexture.preload(`/textures/glasses/${glassesObj.value}`);
-// });

@@ -5,9 +5,10 @@ export const lookupAnimation = (animationState) => {
   let animationValue = data.animations.find((animation) => animation.name === animationState);
   if (animationValue) {
     return animationValue.value;
-  } else {
-    return data.animations[1].value;
   }
+  // else {
+  //   return data.animations[1].value;
+  // }
 };
 
 export const lookupHead = (headProp) => {
@@ -98,3 +99,63 @@ export const GET_NOUNS = gql`
     }
   }
 `;
+
+export const lookupHandTexture = (headTextureParam, headData) => {
+  let result = headData.find((obj) => {
+    return obj.name === headTextureParam;
+  });
+  if (result) {
+    return result.color;
+  } else {
+    return null;
+  }
+};
+
+export const lookupBodyTexture = (bodyTextureParam, preLoadedBodyTextures) => {
+  let result = preLoadedBodyTextures.find((obj) => {
+    return obj.name === bodyTextureParam;
+  });
+  if (result) {
+    return result.value;
+  } else {
+    return null;
+  }
+};
+
+export const lookupAccessoryTexture = (accessoryTextureParam, preLoadedAccessoryTextures) => {
+  let result = preLoadedAccessoryTextures.find((obj) => {
+    return obj.name === accessoryTextureParam;
+  });
+  if (result) {
+    return result.value;
+  } else {
+    return null;
+  }
+};
+
+export const lookupPantsTexture = (pantsTextureParam, preloadedPantsTexture) => {
+  let result = preloadedPantsTexture.find((obj) => {
+    return obj.name === pantsTextureParam;
+  });
+  if (result) {
+    return result.value;
+  } else {
+    return null;
+  }
+};
+
+export const lookupShoeTexture = (shoeTextureParam, preLoadedShoeTextures) => {
+  let result = preLoadedShoeTextures.find((obj) => {
+    return obj.name === shoeTextureParam;
+  });
+  if (result) {
+    return result.value;
+  } else {
+    return null;
+  }
+};
+
+export const getHeadPath = (headProp) => {
+  let headFound = data.head.find((headObj) => headObj.name === headProp);
+  return headFound.filePath;
+};

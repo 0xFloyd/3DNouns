@@ -19,24 +19,6 @@ export default function NounBody({
   const { nodes, materials, animations } = useGLTF('/baseModels/body.glb');
   const { ref, mixer, names, actions } = useAnimations(animations, group);
 
-  // const [preLoadedBodyTextures, setPreLoadedBodyTextures] = useState(
-  //   data.body.map((bodyObj) => {
-  //     let bodyMaterial = useLoader(
-  //       THREE.TextureLoader,
-  //       `/textures/body/${bodyObj.value}`
-  //     );
-
-  //     bodyMaterial.flipY = false;
-  //     bodyMaterial.magFilter = bodyMaterial.minFilter = THREE.NearestFilter;
-  //     // bodyMaterial.premultiplyAlpha = true;
-
-  //     return {
-  //       name: bodyObj.name,
-  //       value: bodyMaterial,
-  //     };
-  //   })
-  // );
-
   const [preLoadedShoesTextures, setPreLoadedShoesTextures] = useState(
     data.shoes.map((shoeObj) => {
       let shoeMaterial = useLoader(THREE.TextureLoader, `/textures/shoes/${shoeObj.value}`);
@@ -67,26 +49,6 @@ export default function NounBody({
     })
   );
 
-  // const [preLoadedAccessoryTextures, setPreLoadedAccessoryTextures] = useState(
-  //   data.accessory.map((accessoryObj) => {
-  //     let accessoryMaterial = useLoader(
-  //       THREE.TextureLoader,
-  //       `/textures/accessories/${accessoryObj.value}`
-  //     );
-
-  //     accessoryMaterial.flipY = false;
-  //     accessoryMaterial.magFilter = accessoryMaterial.minFilter =
-  //       THREE.NearestFilter;
-  //     // accessoryMaterial.premultiplyAlpha = true;
-
-  //     return {
-  //       name: accessoryObj.name,
-  //       value: accessoryMaterial,
-  //     };
-  //   })
-  // );
-
-  // These were when we were passing the actual texture
   let accessoryTextureFound = lookupAccessoryTexture(accessoryProp, data.accessory);
 
   let handTextureFound = lookupHandTexture(headProp, data.head);
@@ -94,38 +56,15 @@ export default function NounBody({
   let shoeTextureFound = lookupShoeTexture(shoeProp, preLoadedShoesTextures);
   let pantsTextureFound = lookupPantsTexture(pantsProp, preloadedPantsTexture);
 
-  // const [preLoadedAccessoryTextures, setPreLoadedAccessoryTextures] = useState(
-  //   data.accessory.map((accessoryObj) => {
-  //     let accessoryMaterial = useLoader(
-  //       THREE.TextureLoader,
-  //       `/textures/accessories/${accessoryObj.value}`
-  //     );
-
-  //     accessoryMaterial.flipY = false;
-  //     accessoryMaterial.magFilter = accessoryMaterial.minFilter =
-  //       THREE.NearestFilter;
-  //     accessoryMaterial.premultiplyAlpha = true;
-
-  //     return {
-  //       name: accessoryObj.name,
-  //       value: accessoryMaterial,
-  //     };
-  //   })
-  // );
-
   useEffect(() => {
-    if (animationState) {
+    if (animationState && animationValue) {
       actions[names[lookupAnimation(animationValue)]].reset().fadeIn(0.25).play();
       return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.25);
     }
   }, [actions, names, animationState, animationValue]);
 
   return (
-    <group
-      ref={group}
-      dispose={null}
-      castShadow
-    >
+    <group ref={group} dispose={null} castShadow>
       <primitive object={nodes.BodyAnimationSkeletonsJob_006Hipsd} />
       <skinnedMesh
         geometry={nodes.hands.geometry}
@@ -157,10 +96,7 @@ export default function NounBody({
         castShadow
         // receiveShadow
       >
-        <meshStandardMaterial
-          map={pantsTextureFound}
-          attach="material"
-        />
+        <meshStandardMaterial map={pantsTextureFound} attach="material" />
       </skinnedMesh>
       <skinnedMesh
         geometry={nodes.shoes.geometry}
@@ -169,10 +105,7 @@ export default function NounBody({
         castShadow
         receiveShadow
       >
-        <meshStandardMaterial
-          map={shoeTextureFound}
-          attach="material"
-        />
+        <meshStandardMaterial map={shoeTextureFound} attach="material" />
       </skinnedMesh>
     </group>
   );
@@ -239,7 +172,5 @@ export const lookupAnimation = (animationState) => {
   let animationValue = data.animations.find((animation) => animation.name === animationState);
   if (animationValue) {
     return animationValue.value;
-  } else {
-    return data.animations[0].value;
   }
 };

@@ -8,7 +8,6 @@ import { CompactPicker } from 'react-color';
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module';
 import { Form } from 'react-bootstrap';
 import '../styles/slider.css';
-// import ScreenshotBackdrop from 'World/ScreenshotBackdrop';
 import ScreenshotAnimationSelect from 'components/ScreenshotAnimationSelect';
 import CameraIcon from '../assets/images/cameraIcon.svg';
 
@@ -137,27 +136,11 @@ const ScreenshotModal = ({
               minDistance={15}
             />
 
-            <color
-              attach="background"
-              args={[new THREE.Color(sceneColor)]}
-            />
-            <fog
-              attach="fog"
-              args={[sceneColor, 1, 1000]}
-            />
+            <color attach="background" args={[new THREE.Color(sceneColor)]} />
+            <fog attach="fog" args={[sceneColor, 1, 1000]} />
             <Suspense fallback={<ProgressLoader />}>
-              {/* <ScreenshotBackdrop color={new THREE.Color(sceneColor)} /> */}
-              <Backdrop
-                receiveShadow
-                castShadow
-                floor={20}
-                position={[0, -1, -100]}
-                scale={[5000, 1000, 50]}
-              >
-                <meshStandardMaterial
-                  color={new THREE.Color(sceneColor).convertSRGBToLinear()}
-                  envMapIntensity={0.1}
-                />
+              <Backdrop receiveShadow castShadow floor={20} position={[0, -1, -100]} scale={[5000, 1000, 50]}>
+                <meshStandardMaterial color={new THREE.Color(sceneColor).convertSRGBToLinear()} envMapIntensity={0.1} />
               </Backdrop>
 
               <SetThreeScene />
@@ -247,11 +230,7 @@ const ScreenshotModal = ({
                 saveAsImage();
               }}
             >
-              <img
-                src={CameraIcon}
-                alt="camera-icon"
-                className="camera-noun-icon"
-              />
+              <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
               {/* SCREENSHOT */}
             </button>
             <button
@@ -270,10 +249,7 @@ const ScreenshotModal = ({
               <label className="background-color-label">Background Color</label>
             </div>
 
-            <CompactPicker
-              color={sceneColor}
-              onChangeComplete={(color) => setSceneColor(color.hex)}
-            />
+            <CompactPicker color={sceneColor} onChangeComplete={(color) => setSceneColor(color.hex)} />
           </div>
         </div>
       </div>

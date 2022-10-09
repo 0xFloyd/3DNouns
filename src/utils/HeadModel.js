@@ -11,7 +11,7 @@ const HeadModel = ({ headProp, glassesProp, animationState, animationValue, mast
   const { ref, mixer, names, actions } = useAnimations(masterHeadModel.animations, group);
 
   useEffect(() => {
-    if (animationState) {
+    if (animationState && animationValue) {
       actions[names[lookupAnimation(animationValue)]].reset().fadeIn(0.25).play();
       return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.25);
     }
@@ -34,36 +34,15 @@ const HeadModel = ({ headProp, glassesProp, animationState, animationValue, mast
   }, [glassesTest.magFilter, glassesTest.minFilter, glassesTest.needsUpdate, glassesProp, glassesTest]);
 
   return (
-    <group
-      ref={group}
-      dispose={null}
-      castShadow
-      receiveShadow
-    >
+    <group ref={group} dispose={null} castShadow receiveShadow>
       <primitive object={masterHeadModel.nodes.BodyAnimationSkeletonsJob_006Hipsd} />
-      <skinnedMesh
-        skeleton={masterHeadModel.nodes.HeadBonsai.skeleton}
-        castShadow
-        receiveShadow
-      >
-        <primitive
-          object={nodes.Head.geometry}
-          attach="geometry"
-        />
-        <primitive
-          object={materials.headMAT}
-          attach="material"
-        />
+      <skinnedMesh skeleton={masterHeadModel.nodes.HeadBonsai.skeleton} castShadow receiveShadow>
+        <primitive object={nodes.Head.geometry} attach="geometry" />
+        <primitive object={materials.headMAT} attach="material" />
       </skinnedMesh>
       <skinnedMesh skeleton={masterHeadModel.nodes.GlassesUV.skeleton}>
-        <primitive
-          object={nodes.GlassesUV.geometry}
-          attach="geometry"
-        />
-        <meshStandardMaterial
-          map={glassesTest}
-          attach="material"
-        />
+        <primitive object={nodes.GlassesUV.geometry} attach="geometry" />
+        <meshStandardMaterial map={glassesTest} attach="material" />
       </skinnedMesh>
     </group>
   );

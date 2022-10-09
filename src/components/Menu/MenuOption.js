@@ -17,12 +17,9 @@ const MenuOption = ({ value, setValue, category, lockedTraits, setLockedTraits, 
             setValue(e.target.value);
           }}
         >
-          {data[category].map((head) => (
-            <option
-              key={head.id}
-              value={head.name}
-            >
-              {head.name}
+          {data[category].map((item) => (
+            <option key={item.name} value={item.name}>
+              {item.name}
             </option>
           ))}
         </select>
@@ -38,17 +35,9 @@ const MenuOption = ({ value, setValue, category, lockedTraits, setLockedTraits, 
           className="select-shuffle-icon-button"
         >
           {lockedTraits[category] ? (
-            <img
-              src={ClosedLockIcon}
-              alt="lock-icon"
-              className="lock-noun-icon"
-            />
+            <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
           ) : (
-            <img
-              src={OpenLockIcon}
-              alt="lock-icon"
-              className="lock-noun-icon"
-            />
+            <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
           )}
         </button>
       </div>

@@ -98,19 +98,15 @@ const Menu = ({
           let accessory = data.accessory.find((element) => element.id == traitData.seed.accessory);
 
           if (head) {
-            console.log('set head: ', head.name);
             setHead(head.name);
           }
           if (body) {
-            console.log('set body: ', body.name);
             setBody(body.name);
           }
           if (accessory) {
-            console.log('set accessory: ', accessory.name);
             setAccessory(accessory.name);
           }
           if (glasses) {
-            console.log('set glasses: ', glasses.name);
             setGlasses(glasses.name);
           }
         } else {
@@ -148,11 +144,7 @@ const Menu = ({
                 disabled={disabledButtonState}
               >
                 {/* <BsCameraFill size={20} color="black" /> */}
-                <img
-                  src={CameraIcon}
-                  alt="camera-icon"
-                  className="camera-noun-icon"
-                />
+                <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
               </button>
 
               <div className="header-randomize-container">
@@ -182,38 +174,7 @@ const Menu = ({
             </div>
           ) : null}
 
-          <div
-            className="options-controls"
-            style={{ display: optionsVisibility }}
-          >
-            {/* <div
-              className="inline-option-row"
-              style={{ marginBottom: '20px' }}
-            >
-              <p>Search for Noun by ID</p>
-              <div
-                className="inline-option-row"
-                style={{ width: '100%' }}
-              >
-                <input
-                  style={{ flex: 0, width: '50%' }}
-                  type="number"
-                  min="0"
-                  max="10]00"
-                  onChange={(e) => setUserInput(e.target.value)}
-                />
-                <button
-                  style={{ flexShrink: 0 }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSeed(userInput);
-                  }}
-                >
-                  Search
-                </button>
-              </div>
-            </div> */}
-
+          <div className="options-controls" style={{ display: optionsVisibility }}>
             {/* HEAD */}
             <MenuOption
               value={head}
@@ -279,16 +240,9 @@ const Menu = ({
               <span />
               <div className="inline-select-wrap">
                 <label className="trait-label">World</label>
-                <select
-                  value={environment}
-                  onChange={(e) => setEnvironment(e.target.value)}
-                  className="trait-select"
-                >
+                <select value={environment} onChange={(e) => setEnvironment(e.target.value)} className="trait-select">
                   {data.world.map((arrayValue) => (
-                    <option
-                      key={arrayValue.value}
-                      value={arrayValue.value}
-                    >
+                    <option key={arrayValue.value} value={arrayValue.value}>
                       {arrayValue.name}
                     </option>
                   ))}
@@ -308,16 +262,9 @@ const Menu = ({
               <span />
               <div className="inline-select-wrap">
                 <label className="trait-label">Rotate View</label>
-                <select
-                  value={autoRotate}
-                  onChange={(e) => setAutoRotate(e.target.value)}
-                  className="trait-select"
-                >
+                <select value={autoRotate} onChange={(e) => setAutoRotate(e.target.value)} className="trait-select">
                   {rotateOptions.map((rotateObj, index) => (
-                    <option
-                      key={index}
-                      value={rotateObj.value}
-                    >
+                    <option key={index} value={rotateObj.value}>
                       {rotateObj.name}
                     </option>
                   ))}
@@ -403,11 +350,7 @@ const Menu = ({
               }}
             >
               {/* <BsCameraFill size={20} color="black" /> */}
-              <img
-                src={CameraIcon}
-                alt="camera-icon"
-                className="camera-noun-icon"
-              />
+              <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
             </button>
             <button
               className="menu-button"
@@ -438,16 +381,9 @@ const Menu = ({
 
         {isMobile && optionsVisibility === 'none' && (
           // <div className= <>
-          <Navbar
-            style={{ touchAction: 'manipulation' }}
-            expand="lg"
-            className="justify-content-end"
-          >
+          <Navbar style={{ touchAction: 'manipulation' }} expand="lg" className="justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse
-              id="basic-navbar-nav"
-              className="justify-content-end"
-            >
+            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
               <Nav.Link
                 onClick={() => {
                   setOptionsVisibility('block');
@@ -532,21 +468,12 @@ const Menu = ({
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
-            <img
-              src={CameraIcon}
-              alt="camera-icon"
-              className="camera-noun-icon"
-            />
+            <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
           </button>
           <button
             className="menu-button"
             onClick={() => {
               saveAsImage();
-              // setAnimationState(false);
-              // setAnimationValue('none');
-              // setTimeout(() => {
-              //   setShowScreenshotModal(true);
-              // }, 1000);
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
@@ -559,7 +486,3 @@ const Menu = ({
 };
 
 export default Menu;
-
-//hidden for now
-
-//hidden for now
