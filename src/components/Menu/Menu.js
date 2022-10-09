@@ -11,6 +11,7 @@ import { GET_NOUNS, hideModals, rotateOptions, throttleClicks, truncateString } 
 import MintModal from './MintModal';
 import InformationModal from './InformationModal';
 import MenuOption from './MenuOption';
+import NounIdInput from './NounIdInput';
 
 const Menu = ({
   isDesktop,
@@ -173,6 +174,8 @@ const Menu = ({
               </button>
             </div>
           ) : null}
+
+          {/* <NounIdInput seed={seed} setSeed={setSeed} /> */}
 
           <div className="options-controls" style={{ display: optionsVisibility }}>
             {/* HEAD */}

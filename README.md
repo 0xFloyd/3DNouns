@@ -1,3 +1,5 @@
+![Nouns](/screenshot.png)
+
 # 3D Nouns
 
 3D Nouns is a web application used for the customization of Noun avatars in 3D. It was created by [@0xFloyd](https://twitter.com/0xFloyd) and [@CoralOrca](https://twitter.com/coralorca) and funded by [NounsDAO](https://github.com/nounsDAO/nouns-monorepo) under [Proposal 2](https://nouns.wtf/vote/2) on September 6, 2021.
@@ -35,3 +37,5 @@ yarn run start
 ## License
 
 The project is licensed under the MIT License.
+
+![Nouns](/ArmyFooterLarge.jpg)

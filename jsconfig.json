@@ -17,5 +17,5 @@
     "baseUrl": "./src",
     "checkJs": true
   },
-  "include": ["src", "templates", "EverydayStarterCanvas.js", "imports.js"]
+  "include": ["src", "templates"]
 }
