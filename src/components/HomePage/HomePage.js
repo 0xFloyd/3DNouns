@@ -101,9 +101,10 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      All 3D Nouns are CC0 and can be used freely. Once you have customized your 3D noun, you can
-                      download it as a GLTF file and open it within a 3D modeler like Blender, or import it to a motion
-                      capture library like Mixamo.
+                      All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
+                      GLTF file for use within 3D modeling programs like Blender or motion capture libraries like
+                      Mixamo. 3D Nouns are ready for the metaverse, and can be imported into platforms like Decentraland
+                      and Cryptovoxels.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -131,14 +132,14 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      We have some fun 3D Snapchat filters that you can check out{' '}
+                      3D Nouns are also available as Snapchat filters that you can check out{' '}
                       <Link
                         text={'here'}
                         url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
                         leavesPage={true}
                         style={{ fontSize: '1.2rem' }}
                       />{' '}
-                      {` `}. More to come!
+                      {` `}.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
