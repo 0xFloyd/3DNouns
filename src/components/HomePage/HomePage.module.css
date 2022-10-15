@@ -6,15 +6,14 @@
 .headerWrapper p {
   font-family: 'PT Root UI', sans-serif !important;
   font-weight: 600;
-  letter-spacing: -0.50px;
+  letter-spacing: -0.5px;
   line-height: 28px;
-  margin: 3rem 0;
 }
 
 .accordionItem {
   font-family: 'PT Root UI', sans-serif !important;
   font-weight: 600;
-  letter-spacing: -0.50px;
+  letter-spacing: -0.5px;
   line-height: 28px;
   font-size: 1.2rem !important;
 }

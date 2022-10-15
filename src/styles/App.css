@@ -1,17 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
 
-
 @font-face {
-    font-family: 'pt_root_uimedium';
-    src: 
-         
-         url('PT Root UI_Medium-webfont.woff') format('woff');
-         
-         
-    font-weight: normal;
-    font-style: normal;
-}
+  font-family: 'pt_root_uimedium';
+  src: url('PT Root UI_Medium-webfont.woff') format('woff');
 
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* noun color: #d63c5e */
 * {
@@ -382,10 +377,8 @@ a {
   bottom: 0;
   right: 0;
   content: ' ';
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
-
-
 
 @media (max-width: 768px) {
   .directions-popup {

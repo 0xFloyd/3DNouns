@@ -14,7 +14,7 @@ import Menu from 'components/Menu/Menu';
 import { saveArrayBuffer, saveScreenshot, saveString } from 'utils/utils';
 import Lighting from 'Scene/Lighting';
 
-const NounCanvas = () => {
+const NounCanvas = ({ hidePage, setHidePage }) => {
   const { active, progress, errors, item, loaded, total } = useProgress();
 
   window.addEventListener('contextmenu', function (e) {
@@ -26,7 +26,7 @@ const NounCanvas = () => {
   const [autoRotate, setAutoRotate] = useState(false);
   const [deviceState, setDeviceState] = useState(isDesktop);
   const [environment, setEnvironment] = useState('Normal');
-  const [animationState, setAnimationState] = useState(false);
+  const [animationState, setAnimationState] = useState(true);
   const [showDirections, setShowDirections] = useState(true);
   const [showScreenshotModal, setShowScreenshotModal] = useState(false);
   const [downloadingModel, setDownloadingModel] = useState(false);
@@ -38,7 +38,7 @@ const NounCanvas = () => {
   const [pants, setPants] = useState(data.pants[Math.floor(Math.random() * data.pants.length)].name);
   const [shoes, setShoes] = useState(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
   const [animationValue, setAnimationValue] = useState(
-    data.animations.find((animation) => animation.name === 'none').name
+    data.animations.find((animation) => animation.name === 'idle').name
   );
 
   const orbitControls = useRef();
@@ -173,59 +173,63 @@ const NounCanvas = () => {
         </Suspense>
       </Canvas>
 
-      <>
-        <Menu
-          isDesktop={deviceState}
-          head={head}
-          setHead={setHead}
-          body={body}
-          setBody={setBody}
-          accessory={accessory}
-          setAccessory={setAccessory}
-          pants={pants}
-          setPants={setPants}
-          glasses={glasses}
-          setGlasses={setGlasses}
-          shoes={shoes}
-          setShoes={setShoes}
-          environment={environment}
-          setEnvironment={setEnvironment}
-          autoRotate={autoRotate}
-          setAutoRotate={setAutoRotate}
-          animationState={animationState}
-          animationValue={animationValue}
-          setAnimationState={setAnimationState}
-          setAnimationValue={setAnimationValue}
-          downloadModel={downloadModel}
-          downloadingModel={downloadingModel}
-          setDownloadingModel={setDownloadingModel}
-          // setSceneState={setSceneState}
-          showScreenshotModal={showScreenshotModal}
-          setShowScreenshotModal={setShowScreenshotModal}
-          saveAsImage={saveAsImage}
-        />
-        {showDirections && (
-          <div className="blocker" onClick={() => setShowDirections(false)}>
-            <div className="directions-popup">
-              <h2 style={{ color: '#d63c5e' }}>Directions: </h2>
-              <h4>{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
-              <h4>{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
-              <div className="close-directions-container">
-                <button className="menu-button" onClick={() => setShowDirections(false)}>
-                  CLOSE
-                </button>
+      {hidePage && (
+        <>
+          <Menu
+            isDesktop={deviceState}
+            head={head}
+            setHead={setHead}
+            body={body}
+            setBody={setBody}
+            accessory={accessory}
+            setAccessory={setAccessory}
+            pants={pants}
+            setPants={setPants}
+            glasses={glasses}
+            setGlasses={setGlasses}
+            shoes={shoes}
+            setShoes={setShoes}
+            environment={environment}
+            setEnvironment={setEnvironment}
+            autoRotate={autoRotate}
+            setAutoRotate={setAutoRotate}
+            animationState={animationState}
+            animationValue={animationValue}
+            setAnimationState={setAnimationState}
+            setAnimationValue={setAnimationValue}
+            downloadModel={downloadModel}
+            downloadingModel={downloadingModel}
+            setDownloadingModel={setDownloadingModel}
+            // setSceneState={setSceneState}
+            showScreenshotModal={showScreenshotModal}
+            setShowScreenshotModal={setShowScreenshotModal}
+            saveAsImage={saveAsImage}
+          />
+          {showDirections && (
+            <div className="blocker" onClick={() => setShowDirections(false)}>
+              <div className="directions-popup">
+                <h2 className="tw-text-3xl" style={{ color: '#d63c5e' }}>
+                  Directions:{' '}
+                </h2>
+                <h4 className="tw-text-xl">{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
+                <h4 className="tw-text-xl">{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
+                <div className="close-directions-container">
+                  <button className="menu-button" onClick={() => setShowDirections(false)}>
+                    CLOSE
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
-        <div className="logo-container">
-          <a href="https://3dnouns.com">
-            <img className="nouns-logo" src={logo} alt="NOUNS" />
-          </a>
-          {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
-        </div>
-      </>
+          <div className="logo-container">
+            <a href="https://3dnouns.com">
+              <img className="nouns-logo" src={logo} alt="NOUNS" />
+            </a>
+            {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
+          </div>
+        </>
+      )}
       {/* )} */}
     </>
   );
