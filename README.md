@@ -1,4 +1,4 @@
-![Nouns](https://raw.githubusercontent.com/0xFloyd/3DNouns/main/public/screenshot.png?token=GHSAT0AAAAAABXTCTOT3CL4BCGLONPIT6RKY2CHJWQ)
+![Nouns](https://raw.githubusercontent.com/0xFloyd/3DNouns/main/public/screenshot.png?token=GHSAT0AAAAAABXTCTOTGOMQLN25ECQTKGIOY2K2STA)
 
 # 3D Nouns
 
@@ -38,4 +38,4 @@ yarn run start
 
 The project is licensed under the MIT License.
 
-![Nouns](https://raw.githubusercontent.com/0xFloyd/3DNouns/main/public/ArmyFooterLarge.jpg?token=GHSAT0AAAAAABXTCTOT7OBETTKPGDMW66ZKY2CHJ7A)
+![Nouns](https://raw.githubusercontent.com/0xFloyd/3DNouns/main/public/ArmyFooterLarge.jpg?token=GHSAT0AAAAAABXTCTOTXKYRPCRVSM7HY7TGY2K2TDA)
