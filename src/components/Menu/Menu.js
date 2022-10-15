@@ -50,7 +50,8 @@ const Menu = ({
   const [optionsVisibility, setOptionsVisibility] = useState('block');
   const [randomizerOn, setRandomizerOn] = useState(false);
   const [seed, setSeed] = useState(null);
-  const [userInput, setUserInput] = useState('');
+  const [triggeredOnce, setTriggeredOnce] = useState(false);
+  const [graphqlError, setGraphqlError] = useState('');
 
   const [lockedTraits, setLockedTraits] = useState({
     head: false,
@@ -111,10 +112,20 @@ const Menu = ({
             setGlasses(glasses.name);
           }
         } else {
-          // console.log('no trait data');
+          if (triggeredOnce) {
+            setGraphqlError('Error fetching Noun data');
+            setTimeout(() => {
+              setGraphqlError('');
+            }, 5000);
+          }
         }
       } else {
-        //  console.log('no graphql data');
+        if (triggeredOnce) {
+          setGraphqlError('Error fetching Noun data');
+          setTimeout(() => {
+            setGraphqlError('');
+          }, 5000);
+        }
       }
     } catch {}
   }, [seed, graphQLData]);
@@ -123,12 +134,9 @@ const Menu = ({
     <>
       {/* {progress === 100 && ( */}
       <>
-        <div
-          className={isDesktop ? 'options-container' : 'mobile-menu-container'}
-          style={{ display: optionsVisibility }}
-        >
+        <div className="tw-transition-all options-container" style={{ display: optionsVisibility }}>
           {optionsVisibility === 'block' ? (
-            <div className="menu-header-row">
+            <div className="tw-flex tw-flex-row tw-items-center tw-justify-between">
               <button
                 className={disabledButtonState ? 'screenshot-button-disabled' : 'screenshot-button'}
                 onClick={() => {
@@ -148,21 +156,21 @@ const Menu = ({
                 <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
               </button>
 
-              <div className="header-randomize-container">
-                <button
-                  className={
-                    // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
-                    disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
-                  }
-                  onClick={() => {
-                    generateRandomNoun();
-                    throttleClicks(setDisabledButtonState);
-                  }}
-                  disabled={disabledButtonState}
-                >
-                  RANDOMIZE
-                </button>
-              </div>
+              {/* <div className="header-randomize-container"> */}
+              <button
+                className={
+                  // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
+                  disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
+                }
+                onClick={() => {
+                  generateRandomNoun();
+                  throttleClicks(setDisabledButtonState);
+                }}
+                disabled={disabledButtonState}
+              >
+                RANDOMIZE
+              </button>
+              {/* </div> */}
               <button
                 className="options-menu-x-button"
                 onClick={() => {
@@ -175,7 +183,13 @@ const Menu = ({
             </div>
           ) : null}
 
-          {/* <NounIdInput seed={seed} setSeed={setSeed} /> */}
+          <NounIdInput
+            seed={seed}
+            setSeed={setSeed}
+            setTriggeredOnce={setTriggeredOnce}
+            graphqlError={graphqlError}
+            setGraphqlError={setGraphqlError}
+          />
 
           <div className="options-controls" style={{ display: optionsVisibility }}>
             {/* HEAD */}
@@ -322,8 +336,8 @@ const Menu = ({
       </>
 
       <div className="open-menu-container">
-        {optionsVisibility === 'none' && isDesktop ? (
-          <>
+        {optionsVisibility === 'none' ? (
+          <div className="tw-hidden lg:tw-flex tw-flex tw-flex-row tw-items-center">
             <button
               className={
                 // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
@@ -353,7 +367,7 @@ const Menu = ({
               }}
             >
               {/* <BsCameraFill size={20} color="black" /> */}
-              <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
+              <img src={CameraIcon} alt="camera-icon" className="tw-object-fit camera-noun-icon" />
             </button>
             <button
               className="menu-button"
@@ -379,32 +393,34 @@ const Menu = ({
             >
               OPTIONS
             </button>
-          </>
+          </div>
         ) : null}
 
-        {isMobile && optionsVisibility === 'none' && (
+        {optionsVisibility === 'none' && (
           // <div className= <>
-          <Navbar style={{ touchAction: 'manipulation' }} expand="lg" className="justify-content-end">
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-              <Nav.Link
-                onClick={() => {
-                  setOptionsVisibility('block');
-                  hideModals(setShowAboutModal, setShowMintModal);
-                }}
-              >
-                Options
-              </Nav.Link>
-              <Nav.Link
-                onClick={() => {
-                  setShowAboutModal(true);
-                  setShowMintModal(false);
-                }}
-              >
-                About
-              </Nav.Link>
-            </Navbar.Collapse>
-          </Navbar>
+          <div className="tw-block lg:tw-hidden">
+            <Navbar style={{ touchAction: 'manipulation' }} expand="lg" className="justify-content-end">
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                <Nav.Link
+                  onClick={() => {
+                    setOptionsVisibility('block');
+                    hideModals(setShowAboutModal, setShowMintModal);
+                  }}
+                >
+                  Options
+                </Nav.Link>
+                <Nav.Link
+                  onClick={() => {
+                    setShowAboutModal(true);
+                    setShowMintModal(false);
+                  }}
+                >
+                  About
+                </Nav.Link>
+              </Navbar.Collapse>
+            </Navbar>
+          </div>
         )}
       </div>
       {showAboutModal && (
@@ -440,8 +456,8 @@ const Menu = ({
           setShowScreenshotModal={setShowScreenshotModal}
         />
       )}
-      {isMobile && optionsVisibility === 'none' && (
-        <div className="mobile-footer">
+      {optionsVisibility === 'none' && (
+        <div className="tw-flex lg:tw-hidden mobile-footer">
           <button
             className={
               // disabledButtonState ? 'menu-button-disabled' : 'menu-button'

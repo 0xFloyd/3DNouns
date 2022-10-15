@@ -242,7 +242,6 @@
   /* color: grey; */
 }
 
-
 /*---------------Toggle rotate button----------------------------*/
 
 .switchtoggle {
@@ -252,7 +251,7 @@
   height: 56px;
 }
 
-.switchtoggle input { 
+.switchtoggle input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -266,20 +265,20 @@
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slidertoggle:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 48px;
   width: 26px;
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slidertoggle {
@@ -287,7 +286,7 @@ input:checked + .slidertoggle {
 }
 
 input:focus + .slidertoggle {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slidertoggle:before {
@@ -296,23 +295,36 @@ input:checked + .slidertoggle:before {
   transform: translateX(26px);
 }
 
-
 /*-------------------------------------------*/
 
+@media (max-width: 1023px) {
+  .options-container {
+    position: fixed;
+    height: 30vh;
+    bottom: 0;
+    overflow-y: auto;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 100 !important;
+    padding: 10px;
+    touch-action: manipulation;
+  }
+}
 
-
-.options-container {
-  z-index: 100 !important;
-  position: fixed;
-  padding: 10px 20px 10px 20px;
-  top: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  font-size: 1rem;
-  border-bottom-left-radius: 10px;
-  overflow-y: auto;
-  /* scrollbar-width: none; */
-  max-height: 95vh;
+@media (min-width: 1024px) {
+  .options-container {
+    z-index: 100 !important;
+    position: fixed;
+    padding: 10px 20px 10px 20px;
+    top: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    border-bottom-left-radius: 10px;
+    overflow-y: auto;
+    /* scrollbar-width: none; */
+    max-height: 95vh;
+  }
 }
 
 .screenshot-container {
@@ -428,6 +440,10 @@ input:checked + .slidertoggle:before {
   padding: 0px 10px 0px 10px;
 }
 
+.download-menu-button:hover {
+  background: rgb(225, 225, 225);
+}
+
 .menu-button {
   display: inline-block;
   text-align: center;
@@ -498,7 +514,7 @@ input:checked + .slidertoggle:before {
 
 .menu-button-options:hover {
   background: #00c7d1;
-  color: rgb(0, 0,0);
+  color: rgb(0, 0, 0);
   /*font-size: 1.25em;*/
   transition: 500ms;
   animation: hueRotation 2s linear infinite;
@@ -707,6 +723,9 @@ input:checked + .slidertoggle:before {
 .profile-individual-section {
   margin: auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .bio-header {
@@ -725,7 +744,7 @@ input:checked + .slidertoggle:before {
   color: #d63c5e;
 }
 .twitter-logo {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 .mint-twitter-logo {
   margin-bottom: 5px;
@@ -743,7 +762,7 @@ input:checked + .slidertoggle:before {
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
-  color: rgb(0, 0,0);
+  color: rgb(0, 0, 0);
   /*font-size: 1.25em;*/
   transition: 500ms;
   animation: hueRotation 2s linear infinite;
@@ -869,7 +888,7 @@ input:checked + .slidertoggle:before {
 }
 
 /*  MOBILE STYLING */
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .menu-x-button {
     position: absolute;
     top: 10px;

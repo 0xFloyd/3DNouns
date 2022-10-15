@@ -58,8 +58,8 @@ export default function NounBody({
 
   useEffect(() => {
     if (animationState && animationValue) {
-      actions[names[lookupAnimation(animationValue)]].reset().fadeIn(0.25).play();
-      return () => actions[names[lookupAnimation(animationValue)]].fadeOut(0.25);
+      actions[names[lookupAnimation(animationValue)]]?.reset()?.fadeIn(0.25).play();
+      return () => actions[names[lookupAnimation(animationValue)]]?.fadeOut(0.25);
     }
   }, [actions, names, animationState, animationValue]);
 
