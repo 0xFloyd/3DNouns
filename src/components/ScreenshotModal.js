@@ -230,7 +230,7 @@ const ScreenshotModal = ({
                 saveAsImage();
               }}
             >
-              <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
+              <img src={CameraIcon} alt="camera-icon" className="tw-mx-auto camera-noun-icon" />
               {/* SCREENSHOT */}
             </button>
             <button

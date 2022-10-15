@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   z-index: 2147483647;
-  background-color: white;
+
   height: 100%;
   width: 100%;
   overflow-y: scroll;
@@ -23,35 +23,39 @@
   height: auto;
   max-height: 90vh;
   min-width: 100vw;
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 30) 0%, rgba(0, 0, 0, 30) 80%); */
 }
 
 .footer-image {
   width: 100vw;
   max-height: 50vh;
   object-fit: cover;
-  padding-top: 5%;
 }
 
 .enter-container {
   position: absolute;
-  bottom: 20%;
+  bottom: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .welcome-container {
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  width: 100%;
 }
 
 .welcome-nounstoun {
-  font-size: 5rem;
   color: #d63c5e;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
+}
+
+.welcome-nounstoun::selection {
+  background: white;
 }
 
 .enter-button {
@@ -61,6 +65,10 @@
   border: 1px solid white;
   border-radius: 10px;
   font-size: 2rem;
+}
+
+.enter-button:hover {
+  background-color: #d75672;
 }
 
 .footer-info {
@@ -168,8 +176,7 @@
   }
 }
 
-img.nouns-heart{
+img.nouns-heart {
   width: 25px; /* you can use % */
   height: auto;
 }
-
