@@ -113,9 +113,9 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      We want to extend traits with the community and allow for customization beyond the original
-                      collection. Currently we have a few easter eggs but we are working with other NFTs projects and
-                      will be featuring more collaborations in the future.
+                      3D Nouns grow with the community, and the downloadable model files allow for customization beyond
+                      the original collection. The 3D Nouns collection contains additional traits outside of the current
+                      Nouns traits, and there will be more collaborations in the future.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
