@@ -131,14 +131,12 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      3D Nouns are also available as Snapchat, Tik Tok and Instagram filters. that you can check out{' '}
-                      <Link
-                        text={'here'}
+                      3D Nouns are also available as{' '}<Link
+                        text={'Snapchat'}
                         url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
                         leavesPage={true}
                         style={{ fontSize: '1.2rem' }}
-                      />{' '}
-                      {` `}.
+                      />, Tik Tok and Instagram filters.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
