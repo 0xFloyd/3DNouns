@@ -49,9 +49,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
             {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
           </div>
           {/* <img src={isMobileSize ? mobileHeadImage : headerImage} alt="Nounstoun" className="header-image" /> */}
-          <div className=" welcome-container">
-            <p className="tw-text-center welcome-nounstoun tw-text-8xl">3D NOUNS</p>
-          </div>
+
           <div className="enter-container">
             {!loaded ? (
               <p>
