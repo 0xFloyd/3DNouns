@@ -77,10 +77,9 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   An Experiment in CC0 Avatars
                 </h1>
                 <p className={classes.genericText}>
-                  3D Nouns is a collection of composable characters turning{' '}
-                  <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}
-                  pixel art into 3D avatars. Enter the generator and play with endless combinations to bring Nouns to
-                  life. <br />
+                    Experience an innovative experiment with CC0 assets through 3D Nouns – a collection of composable characters that transform {' '}
+                  <Link text={'NounsDAO's'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} pixel art into dynamic 3D avatars. 
+                  Step into the generator and unleash your creativity with endless combinations, bringing Nouns to life like never before!<br />
                   <br />
                   3D Nouns was the first community proposal of the Nouns ecosystem and received funding from NounsDAO
                   on September 2nd, 2021 under{' '}
@@ -128,7 +127,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 */}
 
                 <Accordion.Item eventKey="1" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
+                  <Accordion.Header className={classes.accordionHeader}>Augmented Reality</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       3D Nouns are also available as{' '}<Link
@@ -136,7 +135,11 @@ const HomePage = ({ hidePage, setHidePage }) => {
                         url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
                         leavesPage={true}
                         style={{ fontSize: '1.2rem' }}
-                      />, Tik Tok and Instagram filters.
+                      />, Tik Tok and {' '}<Link
+                        text={'Instagram'}
+                        url={'https://www.instagram.com/0xcoralorca filters'}
+                        leavesPage={true}
+                        style={{ fontSize: '1.2rem' }} .
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
