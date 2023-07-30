@@ -95,19 +95,13 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 </p>
               </div>
             </div>
-            <div className="accordion-wrap">
-              <Accordion flush>
-                <Accordion.Item eventKey="0" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
-                  <Accordion.Body>
-                    <p className={classes.genericText}>
-                      All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
-                      GLTF file for use within 3D modeling programs like Blender or motion capture libraries like
-                      Mixamo. 3D Nouns are ready for the metaverse, and can be imported into platforms like Decentraland
-                      and Cryptovoxels.
-                    </p>
-                  </Accordion.Body>
-                </Accordion.Item>
+                    
+            <div className={classes.accordionItem}>
+              <h2 className={classes.accordionHeader}>CC0</h2>
+              <div className={classes.genericText}>
+                All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a GLTF file for use within 3D modeling programs like Blender or Unity.
+              </div>
+            </div>
 
                 <Accordion.Item eventKey="1" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
@@ -119,6 +113,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
+
                 {/* <Accordion.Item eventKey="2" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
                   <Accordion.Body>
@@ -128,6 +123,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item> */}
+
                 <Accordion.Item eventKey="2" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
                   <Accordion.Body>
