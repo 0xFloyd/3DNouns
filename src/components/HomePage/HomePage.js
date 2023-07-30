@@ -78,12 +78,13 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 <h1 className="tw-mb-12 md:tw-mb-0" style={{ textAlign: 'center', color: '#d63c5e' }}>
                   An Experiment in CC0 Avatars
                 </h1>
-                          <p className={classes.genericText}>
-                    Experience an innovative experiment with CC0 assets through 3D Nouns – a collection of composable characters that transform {' '}
-                  <Link text={'NounsDAO's'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} pixel art into dynamic 3D avatars. 
-                  Step into the generator and unleash your creativity with endless combinations, bringing Nouns to life like never before!<br />
+                <p className={classes.genericText}>
+                  3D Nouns is a collection of composable characters turning{' '}
+                  <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}
+                  pixel art into 3D avatars. Enter the generator and play with endless combinations to bring Nouns to
+                  life. <br />
                   <br />
-                  3D Nouns was the first community proposal of the Nouns ecosystem and received funding from NounsDAO
+                  3D Nouns were the first community extension of the Nouns ecosystem and received funding from NounsDAO
                   on September 2nd, 2021 under{' '}
                   <Link
                     text={'NounsDAO Proposal #2.'}
@@ -94,13 +95,19 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 </p>
               </div>
             </div>
-                    
-            <div className={classes.accordionItem}>
-              <h2 className={classes.accordionHeader}>CC0</h2>
-              <div className={classes.genericText}>
-                All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a GLTF file for use within 3D modeling programs like Blender or Unity.
-              </div>
-            </div>
+            <div className="accordion-wrap">
+              <Accordion flush>
+                <Accordion.Item eventKey="0" className={classes.accordionItem}>
+                  <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
+                  <Accordion.Body>
+                    <p className={classes.genericText}>
+                      All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
+                      GLTF file for use within 3D modeling programs like Blender or motion capture libraries like
+                      Mixamo. 3D Nouns are ready for the metaverse, and can be imported into platforms like Decentraland
+                      and Cryptovoxels.
+                    </p>
+                  </Accordion.Body>
+                </Accordion.Item>
 
                 <Accordion.Item eventKey="1" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
@@ -112,7 +119,6 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
-
                 {/* <Accordion.Item eventKey="2" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
                   <Accordion.Body>
@@ -122,7 +128,6 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item> */}
-
                 <Accordion.Item eventKey="2" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
                   <Accordion.Body>
@@ -187,6 +192,21 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   </div>
                 </div>
 
+                <div className="profile-individual-section tw-pb-20">
+                  <img className="profile-picture" src={ThreeDNounsPicture} />
+                  <div className="profile-individual-section ">
+                    <div className="tw-flex tw-flex-row tw-items-center">
+                      <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
+                      <a
+                        style={{ color: 'black' }}
+                        className="social-link"
+                        href="https://twitter.com/3dnouns"
+                        target="_blank"
+                      >
+                        3D Nouns Twitter
+                      </a>
+                    </div>
+                  </div>
 
                   <div className="profile-individual-section">
                     <div className="tw-flex tw-flex-row tw-items-center">
