@@ -100,11 +100,11 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
-                      GLTF file for use within 3D modeling programs like Blender.
+                      GLTF file for use within 3D modeling programs like Blender or Unity.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
-
+                {/*
                 <Accordion.Item eventKey="1" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
                   <Accordion.Body>
@@ -115,7 +115,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
-                {/* <Accordion.Item eventKey="2" className={classes.accordionItem}>
+
+                 <Accordion.Item eventKey="2" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
@@ -123,12 +124,14 @@ const HomePage = ({ hidePage, setHidePage }) => {
                       environment assets and want to provide interoperability with other VR, AR and gaming platforms.
                     </p>
                   </Accordion.Body>
-                </Accordion.Item> */}
-                <Accordion.Item eventKey="2" className={classes.accordionItem}>
+                </Accordion.Item> 
+                */}
+
+                <Accordion.Item eventKey="1" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      3D Nouns are also available as Snapchat filters that you can check out{' '}
+                      3D Nouns are also available as Snapchat, Tik Tok and Instagram filters. that you can check out{' '}
                       <Link
                         text={'here'}
                         url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
@@ -139,7 +142,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
-                <Accordion.Item eventKey="4" className={classes.accordionItem}>
+                <Accordion.Item eventKey="2" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>NFTs</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
