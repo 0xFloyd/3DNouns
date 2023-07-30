@@ -82,7 +82,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   pixel art into 3D avatars. Enter the generator and play with endless combinations to bring Nouns to
                   life. <br />
                   <br />
-                  3D Nouns were the first community extension of the Nouns ecosystem and received funding from NounsDAO
+                  3D Nouns was the first community proposal of the Nouns ecosystem and received funding from NounsDAO
                   on September 2nd, 2021 under{' '}
                   <Link
                     text={'NounsDAO Proposal #2.'}
@@ -100,9 +100,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
-                      GLTF file for use within 3D modeling programs like Blender or motion capture libraries like
-                      Mixamo. 3D Nouns are ready for the metaverse, and can be imported into platforms like Decentraland
-                      and Cryptovoxels.
+                      GLTF file for use within 3D modeling programs like Blender.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
