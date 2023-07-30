@@ -49,7 +49,9 @@ const HomePage = ({ hidePage, setHidePage }) => {
             {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
           </div>
           {/* <img src={isMobileSize ? mobileHeadImage : headerImage} alt="Nounstoun" className="header-image" /> */}
-
+          <div className=" welcome-container">
+            <p className="tw-text-center welcome-nounstoun tw-text-8xl">3D NOUNS</p>
+          </div>
           <div className="enter-container">
             {!loaded ? (
               <p>
@@ -77,11 +79,12 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   An Experiment in CC0 Avatars
                 </h1>
                 <p className={classes.genericText}>
-                    Experience an innovative experiment with CC0 assets through 3D Nouns – a collection of composable characters that transform {' '}
-                  <Link text={'NounsDAO's'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} pixel art into dynamic 3D avatars. 
-                  Step into the generator and unleash your creativity with endless combinations, bringing Nouns to life like never before!<br />
+                  3D Nouns is a collection of composable characters turning{' '}
+                  <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}
+                  pixel art into 3D avatars. Enter the generator and play with endless combinations to bring Nouns to
+                  life. <br />
                   <br />
-                  3D Nouns was the first community proposal of the Nouns ecosystem and received funding from NounsDAO
+                  3D Nouns were the first community extension of the Nouns ecosystem and received funding from NounsDAO
                   on September 2nd, 2021 under{' '}
                   <Link
                     text={'NounsDAO Proposal #2.'}
@@ -99,11 +102,13 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
-                      GLTF file for use within 3D modeling programs like Blender or Unity.
+                      GLTF file for use within 3D modeling programs like Blender or motion capture libraries like
+                      Mixamo. 3D Nouns are ready for the metaverse, and can be imported into platforms like Decentraland
+                      and Cryptovoxels.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
-                {/*
+
                 <Accordion.Item eventKey="1" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
                   <Accordion.Body>
@@ -114,8 +119,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
-
-                 <Accordion.Item eventKey="2" className={classes.accordionItem}>
+                {/* <Accordion.Item eventKey="2" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
@@ -123,27 +127,23 @@ const HomePage = ({ hidePage, setHidePage }) => {
                       environment assets and want to provide interoperability with other VR, AR and gaming platforms.
                     </p>
                   </Accordion.Body>
-                </Accordion.Item> 
-                */}
-
-                <Accordion.Item eventKey="1" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>Augmented Reality</Accordion.Header>
+                </Accordion.Item> */}
+                <Accordion.Item eventKey="2" className={classes.accordionItem}>
+                  <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      3D Nouns are also available as{' '}<Link
-                        text={'Snapchat'}
+                      3D Nouns are also available as Snapchat filters that you can check out{' '}
+                      <Link
+                        text={'here'}
                         url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
                         leavesPage={true}
                         style={{ fontSize: '1.2rem' }}
-                      />, Tik Tok and {' '}<Link
-                        text={'Instagram'}
-                        url={'https://www.instagram.com/0xcoralorca filters'}
-                        leavesPage={true}
-                        style={{ fontSize: '1.2rem' }} .
+                      />{' '}
+                      {` `}.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
-                <Accordion.Item eventKey="2" className={classes.accordionItem}>
+                <Accordion.Item eventKey="4" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>NFTs</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
