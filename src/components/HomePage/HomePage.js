@@ -232,7 +232,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
         </div>
         <div className="footer-info">
           <p className="tw-flex tw-flex-row">
-            {`nouns.wtf `} <img className="nouns-heart tw-mx-1" src={nounsHeart}></img> {` by CoralOrca and 0xFloyd`}
+            {`nouns.wtf `} <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
           </p>
         </div>
       </div>
