@@ -118,16 +118,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
                       Nouns traits, and there will be more collaborations in the future.
                     </p>
                   </Accordion.Body>
+                        
                 </Accordion.Item>
-                {/* <Accordion.Item eventKey="2" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
-                  <Accordion.Body>
-                    <p className={classes.genericText}>
-                      Nouns town is where the 3D NOUNS live, a web-first microverse. We are currently building
-                      environment assets and want to provide interoperability with other VR, AR and gaming platforms.
-                    </p>
-                  </Accordion.Body>
-                </Accordion.Item> */}
                 <Accordion.Item eventKey="2" className={classes.accordionItem}>
                   <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
                   <Accordion.Body>
@@ -192,36 +184,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   </div>
                 </div>
 
-                <div className="profile-individual-section tw-pb-20">
-                  <img className="profile-picture" src={ThreeDNounsPicture} />
-                  <div className="profile-individual-section ">
-                    <div className="tw-flex tw-flex-row tw-items-center">
-                      <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
-                      <a
-                        style={{ color: 'black' }}
-                        className="social-link"
-                        href="https://twitter.com/3dnouns"
-                        target="_blank"
-                      >
-                        3D Nouns Twitter
-                      </a>
-                    </div>
-                  </div>
 
-                  <div className="profile-individual-section">
-                    <div className="tw-flex tw-flex-row tw-items-center">
-                      <BsDiscord className="twitter-logo" size={isDesktop ? 30 : 25} color="#5865F2" />
-                      <a
-                        style={{ color: 'black' }}
-                        className="social-link"
-                        href="https://discord.gg/kZZaz6jy2k"
-                        target="_blank"
-                      >
-                        3D Nouns Discord
-                      </a>
-                    </div>
-                  </div>
-                </div>
               </Accordion>
             </div>
           </Col>
