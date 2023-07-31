@@ -79,11 +79,11 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   An Experiment in CC0 Avatars
                 </h1>
                 <p className={classes.genericText}>
-                  Experience an innovative experiment with CC0 assets through 3D Nouns – a collection of composable characters that transform{' '}
-                  <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}'s pixel art into dynamic 3D avatars. <br />
-                  <br />
+                  Experience an innovative experiment through 3D Nouns – a collection of composable characters that transform{' '}
+                  <Link text={'NounsDAOs'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} pixel art into dynamic 3D avatars.
+                  <br></br>
                   Step into the generator and unleash your creativity with endless combinations, bringing Nouns to life like never before!
-                  <br />
+                  <br></br>
                   3D Nouns were the first community extension of the Nouns ecosystem and received funding from NounsDAO
                   on September 2nd, 2021 under{' '}
                   <Link
