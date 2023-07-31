@@ -109,21 +109,19 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   </Accordion.Body>
                 </Accordion.Item>
 
-                <Accordion.Item eventKey="1" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>Augmented Reality</Accordion.Header>
-                  <Accordion.Body>
-                    <p className={classes.genericText}>
-                      3D Nouns are also available as Snapchat filters that you can check out{' '}
-                      <Link
-                        text={'here'}
-                        url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
-                        leavesPage={true}
-                        style={{ fontSize: '1.2rem' }}
-                      />{' '}
-                      {` `}.
-                    </p>
-                  </Accordion.Body>
-                </Accordion.Item>
+                <div className={classes.genericText}>
+  <p>
+    3D Nouns are also available as Snapchat filters that you can check out{' '}
+    <Link
+      text={'here'}
+      url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
+      leavesPage={true}
+      style={{ fontSize: '1.2rem' }}
+    />
+    {' '}
+    {` `}.
+  </p>
+</div>
 
                 <div className="profile-section-creators">
                   <div className="profile-individual-section">
