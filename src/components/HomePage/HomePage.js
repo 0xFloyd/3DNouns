@@ -82,10 +82,11 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   Experience an innovative experiment through 3D Nouns – a collection of composable characters that transform{' '}
                   <Link text={'NounsDAOs'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} pixel art into dynamic 3D avatars.
                   <br></br>
+                  <br></br>
                   Step into the generator and unleash your creativity with endless combinations, bringing Nouns to life like never before!
                   <br></br>
-                  3D Nouns were the first community extension of the Nouns ecosystem and received funding from NounsDAO
-                  on September 2nd, 2021 under{' '}
+                  <br></br>
+                  As the first community proposal of the Nouns ecosystem, 3D Nouns received enthusiastic support and secured funding from NounsDAO on September 2nd, 2021, under{' '}
                   <Link
                     text={'NounsDAO Proposal #2.'}
                     url={'https://nouns.wtf/vote/2'}
