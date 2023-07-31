@@ -113,7 +113,7 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
     if (showDirections) {
       const timer = setTimeout(() => {
         setShowDirections(false);
-      }, 12000); // 12 seconds (12,000 milliseconds)
+      }, 10000); // 12 seconds (12,000 milliseconds)
 
       return () => clearTimeout(timer);
     }

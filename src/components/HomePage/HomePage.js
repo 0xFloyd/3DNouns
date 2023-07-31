@@ -83,9 +83,6 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   <Link text={'NounsDAOs'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} pixel art into dynamic 3D avatars.
                   <br></br>
                   <br></br>
-                  Step into the generator and unleash your creativity with endless combinations, bringing Nouns to life like never before!
-                  <br></br>
-                  <br></br>
                   As the first community proposal of the Nouns ecosystem, 3D Nouns received enthusiastic support and secured funding from NounsDAO on September 2nd, 2021, under{' '}
                   <Link
                     text={'NounsDAO Proposal #2.'}
@@ -93,6 +90,9 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     leavesPage={true}
                     style={{ fontSize: '1.3rem' }}
                   />
+                  <br></br>
+                  <br></br>
+                  Step into the generator and unleash your creativity with endless combinations, bringing Nouns to life like never before!
                 </p>
               </div>
             </div>
