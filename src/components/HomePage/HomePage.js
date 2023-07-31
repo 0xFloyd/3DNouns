@@ -95,33 +95,22 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 </p>
               </div>
             </div>
+
             <div className="accordion-wrap">
+
               <Accordion flush>
                 <Accordion.Item eventKey="0" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
+                  <Accordion.Header className={classes.accordionHeader}>CC0 assets</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
-                      GLTF file for use within 3D modeling programs like Blender or motion capture libraries like
-                      Mixamo. 3D Nouns are ready for the metaverse, and can be imported into platforms like Decentraland
-                      and Cryptovoxels.
+                      GLTF file for use within 3D modeling programs like Blender or game engines like Unity. 
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="1" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
-                  <Accordion.Body>
-                    <p className={classes.genericText}>
-                      3D Nouns grow with the community, and the downloadable model files allow for customization beyond
-                      the original collection. The 3D Nouns collection contains additional traits outside of the current
-                      Nouns traits, and there will be more collaborations in the future.
-                    </p>
-                  </Accordion.Body>
-                        
-                </Accordion.Item>
-                <Accordion.Item eventKey="2" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
+                  <Accordion.Header className={classes.accordionHeader}>Augmented Reality</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       3D Nouns are also available as Snapchat filters that you can check out{' '}
@@ -132,29 +121,6 @@ const HomePage = ({ hidePage, setHidePage }) => {
                         style={{ fontSize: '1.2rem' }}
                       />{' '}
                       {` `}.
-                    </p>
-                  </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="4" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>NFTs</Accordion.Header>
-                  <Accordion.Body>
-                    <p className={classes.genericText}>
-                      Join the{' '}
-                      <Link
-                        text={'3D Nouns Discord'}
-                        url={'https://discord.gg/kZZaz6jy2k'}
-                        leavesPage={true}
-                        style={{ fontSize: '1.2rem' }}
-                      />{' '}
-                      {` `}
-                      and follow the 3D Nouns{' '}
-                      <Link
-                        text={'Twitter'}
-                        url={'https://twitter.com/3dnouns'}
-                        leavesPage={true}
-                        style={{ fontSize: '1.2rem' }}
-                      />{' '}
-                      account to stay updated on the project's future plans!
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -183,8 +149,37 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </div>
                   </div>
                 </div>
+                
+                <div className="profile-individual-section tw-pb-20">
+                  <img className="profile-picture" src={ThreeDNounsPicture} />
+                  <div className="profile-individual-section ">
+                    <div className="tw-flex tw-flex-row tw-items-center">
+                      <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
+                      <a
+                        style={{ color: 'black' }}
+                        className="social-link"
+                        href="https://twitter.com/3dnouns"
+                        target="_blank"
+                      >
+                        3D Nouns Twitter
+                      </a>
+                    </div>
+                  </div>
 
-
+                  <div className="profile-individual-section">
+                    <div className="tw-flex tw-flex-row tw-items-center">
+                      <BsDiscord className="twitter-logo" size={isDesktop ? 30 : 25} color="#5865F2" />
+                      <a
+                        style={{ color: 'black' }}
+                        className="social-link"
+                        href="https://discord.gg/kZZaz6jy2k"
+                        target="_blank"
+                      >
+                        3D Nouns Discord
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </Accordion>
             </div>
           </Col>
