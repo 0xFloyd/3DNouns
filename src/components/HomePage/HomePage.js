@@ -131,7 +131,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                       {` `} and {' '}
                       <Link
                         text={'Tik Tok'}
-                        url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
+                        url={'https://www.tiktok.com/@0xcoralorca'}
                         leavesPage={true}
                         style={{ fontSize: '1.2rem' }}
                       />{' '}
