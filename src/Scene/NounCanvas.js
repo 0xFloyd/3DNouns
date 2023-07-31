@@ -13,7 +13,6 @@ import '../styles/ProgressLoader.css';
 import Menu from 'components/Menu/Menu';
 import { saveArrayBuffer, saveScreenshot, saveString } from 'utils/utils';
 import Lighting from 'Scene/Lighting';
-import { useEffect, useState } from 'react';
 
 const NounCanvas = ({ hidePage, setHidePage }) => {
   const { active, progress, errors, item, loaded, total } = useProgress();
