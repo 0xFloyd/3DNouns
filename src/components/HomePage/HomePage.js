@@ -183,19 +183,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </div>
                   </div>
 
-                  <div className="profile-individual-section">
-                    <div className="tw-flex tw-flex-row tw-items-center">
-                      <BsDiscord className="twitter-logo" size={isDesktop ? 30 : 25} color="#5865F2" />
-                      <a
-                        style={{ color: 'black' }}
-                        className="social-link"
-                        href="https://discord.gg/kZZaz6jy2k"
-                        target="_blank"
-                      >
-                        3D Nouns Discord
-                      </a>
-                    </div>
-                  </div>
+
+
                 </div>
               </Accordion>
             </div>
