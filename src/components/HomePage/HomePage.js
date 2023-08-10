@@ -168,7 +168,6 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 </div>
                 
                 <div className="profile-individual-section tw-pb-20">
-                  <img className="profile-picture" src={ThreeDNounsPicture} />
                   <div className="profile-individual-section ">
                     <div className="tw-flex tw-flex-row tw-items-center">
                       <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
