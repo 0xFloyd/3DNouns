@@ -171,7 +171,6 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     <div className="tw-flex tw-flex-row tw-items-center">
                       <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
                       <a
-                        style={{ color: 'black' }}
                         className="social-link"
                         href="https://twitter.com/3dnouns"
                         target="_blank"
@@ -198,7 +197,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                         text={`Nouns.WTF`}
                         url={'https://nouns.wtf/'}
                         leavesPage={true}
-                        style={{ color: 'white' }}
+                        className="footer-link"
                       /> <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
           </p>
         </div>
