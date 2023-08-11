@@ -107,7 +107,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                       All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
                       GLTF file for use within 3D modeling programs like {' '}
                   <Link text={'Blender'} url={'https://www.blender.org/'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} or game engines like {' '}
-                  <Link text={'Unity'} url={'https://unity.com/'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} . 
+                  <Link text={'Unity'} url={'https://unity.com/'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} using this <Link text={'tool'} url={'https://gist.github.com/sgarcia22/b80f65d33ccfc3e449f46c47ec933c9f'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}. 
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
