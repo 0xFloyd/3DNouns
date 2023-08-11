@@ -80,7 +80,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 </h1>
                 <p className={classes.genericText}>
                   Experience 3D Nouns – a collection of composable characters that transform{' '}
-                  <Link text={'NounsDAOs'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '0.5rem!important' }} />{' '} pixel art into dynamic 3D avatars.
+                  <Link text={'NounsDAOs'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '0.5rem' }} />{' '} pixel art into dynamic 3D avatars.
                   <br></br>
                   <br></br>
                   As the first community proposal of the Nouns ecosystem, 3D Nouns received enthusiastic support and secured funding from NounsDAO on September 2nd, 2021, under{' '}
@@ -195,7 +195,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
         </div>
         <div className="footer-info">
           <p className="tw-flex tw-flex-row" >
-            {`Nouns.wtf `} <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
+            {`Nouns.WTF`} <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
           </p>
         </div>
       </div>
