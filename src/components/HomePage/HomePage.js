@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import headerImage from '../../assets/images/nounstown.webp';
 import logo from '../../assets/images/3DNounsLogo.png';
 import Section from './Section';
 import { Col } from 'react-bootstrap';
@@ -71,6 +70,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
           </div>
         </div>
         {/* <Section fullWidth={false}> */}
+
+
         <div className="tw-pt-16 lg:tw-pt-32  tw-bg-white">
           <Col lg={{ span: 10, offset: 1 }}>
             <div className={classes.headerWrapper}>
@@ -187,17 +188,16 @@ const HomePage = ({ hidePage, setHidePage }) => {
             </div>
           </Col>
         </div>
+
         {/* </Section> */}
+
         <div>
           <img src={nounsArmy} className="footer-image" />
         </div>
         <div className="footer-info">
-          <p className="tw-flex tw-flex-row footer-link" >
-          <Link
-                        text={`Nouns.WTF`}
-                        url={'https://nouns.wtf/'}
-                        leavesPage={true}
-                      /> <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
+          <p className="tw-flex tw-flex-row" >
+            <Link text={`Nouns.WTF`} url={'https://nouns.wtf/'} leavesPage={true}/>
+            <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
           </p>
         </div>
       </div>

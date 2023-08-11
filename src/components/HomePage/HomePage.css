@@ -49,7 +49,7 @@
 }
 
 .welcome-nounstoun {
-  color: #d63c5e;
+  color: #000000;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
 }
@@ -181,7 +181,3 @@ img.nouns-heart {
   height: auto;
 }
 
-.footer-link{
-  color: blue;
-
-}
