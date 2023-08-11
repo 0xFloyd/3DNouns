@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import headerImage from '../../assets/images/nounstown.webp';
-import logo from '../../assets/images/3DNounsLogo.png';
-import Section from './Section';
-import { Col } from 'react-bootstrap';
-import classes from './HomePage.module.css';
-import Accordion from 'react-bootstrap/Accordion';
+import { Col, Spinner, Accordion } from 'react-bootstrap';
+import { SiTwitter } from 'react-icons/si';
+import { useProgress } from '@react-three/drei';
 import Link from './Link';
-import './HomePage.css';
-import mobileHeadImage from '../../assets/images/mobile-toun.png';
+import logo from '../../assets/images/3DNounsLogo.png';
 import CoralPicture from '../../assets/images/CoralOrcaProfilePicture400.jpg';
 import FloydPicture from '../../assets/images/FloydProfilePicture400.jpg';
-import ThreeDNounsPicture from '../../assets/images/3DnounsProfilePicture.jpg';
-import { isDesktop, isMobile, isTablet } from 'react-device-detect';
-import { SiTwitter } from 'react-icons/si';
 import nounsArmy from '../../assets/images/ArmyFooterLarge.webp';
 import nounsHeart from '../../assets/images/nounsHeart.gif';
 import '../../index.css';
-import { BsDiscord } from 'react-icons/bs';
-import { useProgress } from '@react-three/drei';
-import Spinner from 'react-bootstrap/Spinner';
+import classes from './HomePage.module.css';
+import './HomePage.css';
 
 const HomePage = ({ hidePage, setHidePage }) => {
   const [isFadingOut, setIsFadingOut] = useState(false);
