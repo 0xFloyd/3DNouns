@@ -76,7 +76,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
             <div className={classes.headerWrapper}>
               <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
                 <h1 className="tw-mb-12 md:tw-mb-0" style={{ textAlign: 'center', color: '#d63c5e' }}>
-                  An Experiment in CC0 Avatars
+                  Open Source Avatars
                 </h1>
                 <p className={classes.genericText}>
                   Experience 3D Nouns – a collection of composable characters that transform{' '}
