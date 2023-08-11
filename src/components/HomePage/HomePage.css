@@ -49,9 +49,9 @@
 }
 
 .welcome-nounstoun {
-  color: #000000;
+  color: white;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-color: black;
 }
 
 .welcome-nounstoun::selection {
