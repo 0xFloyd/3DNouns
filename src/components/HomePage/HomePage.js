@@ -198,7 +198,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                         text={`Nouns.WTF`}
                         url={'https://nouns.wtf/'}
                         leavesPage={true}
-                        style={{ fontSize: '1.2rem' }}
+                        style={{ color: 'white' }}
                       /> <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
           </p>
         </div>
