@@ -80,7 +80,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 </h1>
                 <p className={classes.genericText}>
                   Experience 3D Nouns – a collection of composable characters that transform{' '}
-                  <Link text={'NounsDAOs'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} pixel art into dynamic 3D avatars.
+                  <Link text={'NounsDAOs'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '0.7rem' }} />{' '} pixel art into dynamic 3D avatars.
                   <br></br>
                   <br></br>
                   As the first community proposal of the Nouns ecosystem, 3D Nouns received enthusiastic support and secured funding from NounsDAO on September 2nd, 2021, under{' '}
@@ -88,7 +88,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     text={'NounsDAO Proposal #2.'}
                     url={'https://nouns.wtf/vote/2'}
                     leavesPage={true}
-                    style={{ fontSize: '1.3rem' }}
+                    style={{ fontSize: '0.7rem' }}
                   />
                   <br></br>
                   <br></br>
@@ -106,8 +106,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     <p className={classes.genericText}>
                       All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
                       GLTF file for use within 3D modeling programs like {' '}
-                  <Link text={'Blender'} url={'https://www.blender.org/'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} or game engines like {' '}
-                  <Link text={'Unity'} url={'https://unity.com/'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '} using this <Link text={'tool'} url={'https://gist.github.com/sgarcia22/b80f65d33ccfc3e449f46c47ec933c9f'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}. 
+                  <Link text={'Blender'} url={'https://www.blender.org/'} leavesPage={true} style={{ fontSize: '0.7rem' }} />{' '} or game engines like {' '}
+                  <Link text={'Unity'} url={'https://unity.com/'} leavesPage={true} style={{ fontSize: '0.7rem' }} />{' '} using this <Link text={'tool'} url={'https://gist.github.com/sgarcia22/b80f65d33ccfc3e449f46c47ec933c9f'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}. 
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
