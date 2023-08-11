@@ -192,12 +192,11 @@ const HomePage = ({ hidePage, setHidePage }) => {
           <img src={nounsArmy} className="footer-image" />
         </div>
         <div className="footer-info">
-          <p className="tw-flex tw-flex-row" >
+          <p className="tw-flex tw-flex-row footer-link" >
           <Link
                         text={`Nouns.WTF`}
                         url={'https://nouns.wtf/'}
                         leavesPage={true}
-                        className="footer-link"
                       /> <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
           </p>
         </div>
