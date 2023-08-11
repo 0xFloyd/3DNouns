@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 @font-face {
@@ -12,7 +12,7 @@
 /* noun color: #d63c5e */
 * {
   box-sizing: border-box;
-  font-family: 'Londrina Solid';
+  font-family: 'Press Start 2P';
   font-size: 1rem;
 }
 
