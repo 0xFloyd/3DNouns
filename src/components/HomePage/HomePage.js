@@ -194,8 +194,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
           <img src={nounsArmy} className="footer-image" />
         </div>
         <div className="footer-info">
-          <p className="tw-flex tw-flex-row">
-            {`nouns.wtf `} <img className="nouns-heart tw-mx-1" href="https://nouns.wtf/" src={nounsHeart}></img>
+          <p className="tw-flex tw-flex-row" href="https://nouns.wtf/" >
+            {`nouns.wtf `} <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
           </p>
         </div>
       </div>
