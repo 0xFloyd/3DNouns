@@ -12,25 +12,21 @@ const InformationModal = (props) => {
         </h1>
 
         <h3 className="tw-text-justify tw-px-6">
-          3D Nouns are the first community extension of the Nouns ecosystem. The project was proposed under Nouns DAO
-          Proposal Two, where it passed unanimously on September 2nd, 2021.
-        </h3>
-        <h5 className="about-paragraph-text">
-          <a href="https://nouns.wtf" target="_blank" className="modal-link">
-            Nouns
+          Experience 3D Nouns – a collection of composable characters that transform <a href="https://nouns.wtf" target="_blank" className="modal-link">
+            NounsDAOs
           </a>{' '}
-          are an experimental attempt to improve the formation of on-chain avatar communities, attempting to bootstrap
-          identity, community, governance and a treasury for the community.
-        </h5>
-        <h5 className="about-paragraph-text">
-          3D Nouns aims to expand Nouns into the online metaverse by creating avatars for existing and future digital
-          platforms. Eventually, 3D Nouns will extend into many different mediums, including gaming, animation, virtual
-          reality, and augmented reality.
-        </h5>
-        <h5 className="about-paragraph-text">
-          3D Nouns stay true to the original Nouns ethos by emulating the original artwork and open source nature, while
-          letting you craft your own 3D Noun or randomly generating one of over one billion different combinations.
-        </h5>
+          pixel art into dynamic 3D avatars.
+        </h3>
+        <br></br>
+        <h3 className="tw-text-justify tw-px-6">
+        As the first community proposal of the Nouns ecosystem, 3D Nouns received enthusiastic support and secured funding from NounsDAO on September 2nd, 2021, under<a href="https://nouns.wtf/vote/2" target="_blank" className="modal-link">
+            Propsal #2.
+          </a>{' '}
+        </h3>
+        <br></br>
+        <h3 className="tw-text-justify tw-px-6">
+        Step into the generator and unleash your creativity with endless combinations, bringing Nouns to life like never before!
+        </h3>
       </div>
       <div className="profile-section">
         <div className="profile-individual-section">
