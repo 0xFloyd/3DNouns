@@ -69,7 +69,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
         </div>
         {/* <Section fullWidth={false}> */}
 
-        <div className="tw-pt-8 lg:tw-pt-32  tw-bg-white">
+        <div className="tw-pt-16 lg:tw-pt-16  tw-bg-white">
           <Col lg={{ span: 10, offset: 1 }}>
             <div className={classes.headerWrapper}>
               <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
