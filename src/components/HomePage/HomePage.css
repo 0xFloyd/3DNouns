@@ -49,9 +49,9 @@
 }
 
 .welcome-nounstoun {
-  color: white;
-  -webkit-text-stroke-width: 4px;
-  -webkit-text-stroke-color: black;
+  color: #d63c5e;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
 }
 
 .welcome-nounstoun::selection {
@@ -180,4 +180,3 @@ img.nouns-heart {
   width: 25px; /* you can use % */
   height: auto;
 }
-

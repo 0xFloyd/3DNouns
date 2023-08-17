@@ -109,16 +109,6 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
     }
   }, [showDirections, loaded]);
 
-  useEffect(() => {
-    if (showDirections) {
-      const timer = setTimeout(() => {
-        setShowDirections(false);
-      }, 10000); // 12 seconds (12,000 milliseconds)
-
-      return () => clearTimeout(timer);
-    }
-  }, [showDirections]);
-
   return (
     <>
       <Canvas

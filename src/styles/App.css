@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
 
 @font-face {
   font-family: 'pt_root_uimedium';
@@ -12,7 +11,7 @@
 /* noun color: #d63c5e */
 * {
   box-sizing: border-box;
-  font-family: 'Press Start 2P';
+  font-family: 'Londrina Solid';
   font-size: 1rem;
 }
 
@@ -118,7 +117,7 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  font-family: 'Press Start 2P';
+  font-family: 'Londrina Solid';
 }
 
 .attribute-select-box:hover {
@@ -192,7 +191,7 @@ body {
   background: #d63c5e;
   color: white;
   cursor: pointer;
-  font-family: 'Press Start 2P';
+  font-family: 'Londrina Solid';
 }
 
 .attribute-select-box option:hover {

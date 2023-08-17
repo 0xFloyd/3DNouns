@@ -1,6 +1,6 @@
 .headerWrapper h1 {
-  font-family: 'Press Start 2P';
-  font-size: 3rem;
+  font-family: 'Londrina Solid';
+  font-size: 4rem;
 }
 
 .headerWrapper p {
@@ -54,8 +54,8 @@
 .accordionHeader button {
   border: none;
   background-color: transparent;
-  font-family: 'Press Start 2P';
-  font-size: 1.5rem !important;
+  font-family: 'Londrina Solid';
+  font-size: 2.5rem !important;
   cursor: pointer;
   line-height: normal;
   padding-top: 0;

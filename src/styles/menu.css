@@ -212,7 +212,7 @@
   padding-top: 18px;
   background-color: white;
   border-radius: 5px;
-  font-family: 'Press Start 2P';
+  font-family: 'Londrina Solid';
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -1055,7 +1055,7 @@ input:checked + .slidertoggle:before {
     padding-top: 18px;
     background-color: white;
     border-radius: 5px;
-    font-family: 'Press Start 2P';
+    font-family: 'Londrina Solid';
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;

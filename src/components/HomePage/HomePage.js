@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import headerImage from '../../assets/images/nounstown.webp';
 import logo from '../../assets/images/3DNounsLogo.png';
 import Section from './Section';
 import { Col } from 'react-bootstrap';
@@ -6,8 +7,10 @@ import classes from './HomePage.module.css';
 import Accordion from 'react-bootstrap/Accordion';
 import Link from './Link';
 import './HomePage.css';
+import mobileHeadImage from '../../assets/images/mobile-toun.png';
 import CoralPicture from '../../assets/images/CoralOrcaProfilePicture400.jpg';
 import FloydPicture from '../../assets/images/FloydProfilePicture400.jpg';
+import ThreeDNounsPicture from '../../assets/images/3DnounsProfilePicture.jpg';
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
 import { SiTwitter } from 'react-icons/si';
 import nounsArmy from '../../assets/images/ArmyFooterLarge.webp';
@@ -68,73 +71,98 @@ const HomePage = ({ hidePage, setHidePage }) => {
           </div>
         </div>
         {/* <Section fullWidth={false}> */}
-
-        <div className="tw-pt-16 lg:tw-pt-16  tw-bg-white">
+        <div className="tw-pt-16 lg:tw-pt-32  tw-bg-white">
           <Col lg={{ span: 10, offset: 1 }}>
             <div className={classes.headerWrapper}>
               <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
-                <h1 className="tw-mb-12 md:tw-mb-0" style={{ textAlign: 'center', color: '#000000' }}>
-                  Open-Source Avatars
+                <h1 className="tw-mb-12 md:tw-mb-0" style={{ textAlign: 'center', color: '#d63c5e' }}>
+                  An Experiment in CC0 Avatars
                 </h1>
                 <p className={classes.genericText}>
-                  Experience 3D Nouns – a collection of composable characters that transform{' '}
-                  <Link text={'NounsDAOs'} url={'https://nouns.wtf'} leavesPage={true}  />{' '} pixel art into dynamic 3D avatars.
-                  <br></br>
-                  <br></br>
-                  As the first community proposal of the Nouns ecosystem, 3D Nouns received enthusiastic support and secured funding from NounsDAO on September 2nd, 2021, under{' '}
+                  3D Nouns is a collection of composable characters turning{' '}
+                  <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}
+                  pixel art into 3D avatars. Enter the generator and play with endless combinations to bring Nouns to
+                  life. <br />
+                  <br />
+                  3D Nouns were the first community extension of the Nouns ecosystem and received funding from NounsDAO
+                  on September 2nd, 2021 under{' '}
                   <Link
                     text={'NounsDAO Proposal #2.'}
                     url={'https://nouns.wtf/vote/2'}
                     leavesPage={true}
+                    style={{ fontSize: '1.3rem' }}
                   />
-                  <br></br>
-                  <br></br>
-                  Step into the generator and unleash your creativity with endless combinations, bringing Nouns to life like never before!
                 </p>
               </div>
             </div>
-
             <div className="accordion-wrap">
-
               <Accordion flush>
                 <Accordion.Item eventKey="0" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>CC0 assets</Accordion.Header>
+                  <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
                       All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
-                      GLTF file for use within 3D modeling programs like {' '}
-                  <Link text={'Blender'} url={'https://www.blender.org/'} leavesPage={true} />{' '} or game engines like {' '}
-                  <Link text={'Unity'} url={'https://unity.com/'} leavesPage={true} />{' '} using this <Link text={'tool'} url={'https://gist.github.com/sgarcia22/b80f65d33ccfc3e449f46c47ec933c9f'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}. 
+                      GLTF file for use within 3D modeling programs like Blender or motion capture libraries like
+                      Mixamo. 3D Nouns are ready for the metaverse, and can be imported into platforms like Decentraland
+                      and Cryptovoxels.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
 
                 <Accordion.Item eventKey="1" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>Augmented Reality</Accordion.Header>
+                  <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
                   <Accordion.Body>
                     <p className={classes.genericText}>
-                      3D Nouns are also available as{' '}
+                      3D Nouns grow with the community, and the downloadable model files allow for customization beyond
+                      the original collection. The 3D Nouns collection contains additional traits outside of the current
+                      Nouns traits, and there will be more collaborations in the future.
+                    </p>
+                  </Accordion.Body>
+                </Accordion.Item>
+                {/* <Accordion.Item eventKey="2" className={classes.accordionItem}>
+                  <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
+                  <Accordion.Body>
+                    <p className={classes.genericText}>
+                      Nouns town is where the 3D NOUNS live, a web-first microverse. We are currently building
+                      environment assets and want to provide interoperability with other VR, AR and gaming platforms.
+                    </p>
+                  </Accordion.Body>
+                </Accordion.Item> */}
+                <Accordion.Item eventKey="2" className={classes.accordionItem}>
+                  <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
+                  <Accordion.Body>
+                    <p className={classes.genericText}>
+                      3D Nouns are also available as Snapchat filters that you can check out{' '}
                       <Link
-                        text={'Snapchat'}
+                        text={'here'}
                         url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
                         leavesPage={true}
                         style={{ fontSize: '1.2rem' }}
                       />{' '}
-                      {` `}, {' '}
+                      {` `}.
+                    </p>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="4" className={classes.accordionItem}>
+                  <Accordion.Header className={classes.accordionHeader}>NFTs</Accordion.Header>
+                  <Accordion.Body>
+                    <p className={classes.genericText}>
+                      Join the{' '}
                       <Link
-                        text={'Instagram'}
-                        url={'https://www.instagram.com/0xcoralorca/'}
+                        text={'3D Nouns Discord'}
+                        url={'https://discord.gg/kZZaz6jy2k'}
                         leavesPage={true}
                         style={{ fontSize: '1.2rem' }}
                       />{' '}
-                      {` `} and {' '}
+                      {` `}
+                      and follow the 3D Nouns{' '}
                       <Link
-                        text={'Tik Tok'}
-                        url={'https://www.tiktok.com/@0xcoralorca'}
+                        text={'Twitter'}
+                        url={'https://twitter.com/3dnouns'}
                         leavesPage={true}
                         style={{ fontSize: '1.2rem' }}
                       />{' '}
-                      {` `}filters.
+                      account to stay updated on the project's future plans!
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -163,12 +191,14 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="profile-individual-section tw-pb-20">
+                  <img className="profile-picture" src={ThreeDNounsPicture} />
                   <div className="profile-individual-section ">
                     <div className="tw-flex tw-flex-row tw-items-center">
                       <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
                       <a
+                        style={{ color: 'black' }}
                         className="social-link"
                         href="https://twitter.com/3dnouns"
                         target="_blank"
@@ -178,27 +208,33 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     </div>
                   </div>
 
-
-
+                  <div className="profile-individual-section">
+                    <div className="tw-flex tw-flex-row tw-items-center">
+                      <BsDiscord className="twitter-logo" size={isDesktop ? 30 : 25} color="#5865F2" />
+                      <a
+                        style={{ color: 'black' }}
+                        className="social-link"
+                        href="https://discord.gg/kZZaz6jy2k"
+                        target="_blank"
+                      >
+                        3D Nouns Discord
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </Accordion>
             </div>
           </Col>
         </div>
-
         {/* </Section> */}
-
         <div>
           <img src={nounsArmy} className="footer-image" />
         </div>
-
         <div className="footer-info">
           <p className="tw-flex tw-flex-row">
-            <Link text={`Nouns.WTF`} url={'https://nouns.wtf/'} leavesPage={true}/>
-            <img className="nouns-heart tw-mx-1" src={nounsHeart} alt="Nouns Heart"></img>
+            {`nouns.wtf `} <img className="nouns-heart tw-mx-1" src={nounsHeart}></img> {` by CoralOrca and 0xFloyd`}
           </p>
         </div>
-
       </div>
     </div>
   );
