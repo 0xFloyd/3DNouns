@@ -6,10 +6,8 @@ import classes from './HomePage.module.css';
 import Accordion from 'react-bootstrap/Accordion';
 import Link from './Link';
 import './HomePage.css';
-import mobileHeadImage from '../../assets/images/mobile-toun.png';
 import CoralPicture from '../../assets/images/CoralOrcaProfilePicture400.jpg';
 import FloydPicture from '../../assets/images/FloydProfilePicture400.jpg';
-import ThreeDNounsPicture from '../../assets/images/3DnounsProfilePicture.jpg';
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
 import { SiTwitter } from 'react-icons/si';
 import nounsArmy from '../../assets/images/ArmyFooterLarge.webp';
@@ -193,12 +191,14 @@ const HomePage = ({ hidePage, setHidePage }) => {
         <div>
           <img src={nounsArmy} className="footer-image" />
         </div>
+
         <div className="footer-info">
-          <p className="tw-flex tw-flex-row" >
+          <p className="tw-flex tw-flex-row">
             <Link text={`Nouns.WTF`} url={'https://nouns.wtf/'} leavesPage={true}/>
-            <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
+            <img className="nouns-heart tw-mx-1" src={nounsHeart} alt="Nouns Heart"></img>
           </p>
         </div>
+
       </div>
     </div>
   );
