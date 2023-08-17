@@ -14,13 +14,13 @@ const NounIdInput = ({ seed, setSeed, setTriggeredOnce, graphqlError, setGraphql
 
   return (
     <>
-      <p className="tw-mt-4 ">Search by Noun ID</p>
+      <br></br>
       <div className=" tw-flex tw-flex-row tw-justify-between">
         <input
           value={nounID}
           onChange={(e) => setNounId(e.target.value)}
           className="tw-flex-grow tw-mr-2 tw-border tw-border-[#999999] tw-px-2 tw-py-1 tw-rounded-[5px]"
-          placeholder="Noun ID"
+          placeholder="Search by Noun Token ID"
           onKeyDown={(e) => handleEnter(e)}
         />
         <button

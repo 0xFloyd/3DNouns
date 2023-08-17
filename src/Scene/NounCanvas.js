@@ -152,7 +152,7 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
         </Suspense>
         {active || !loaded ? (
           <Html center>
-            <p style={{ color: 'white', fontSize: '2rem' }}>Loading...</p>
+            <p style={{ color: 'white', fontSize: '2rem', position: 'relative', top: '-40px', transform: 'translateY(-50%)'}}>Loading...</p>
           </Html>
         ) : null}
         <Suspense fallback={null}>

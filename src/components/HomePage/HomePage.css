@@ -26,11 +26,7 @@
   /* background: linear-gradient(180deg, rgba(0, 0, 0, 30) 0%, rgba(0, 0, 0, 30) 80%); */
 }
 
-.footer-image {
-  width: 100vw;
-  max-height: 50vh;
-  object-fit: cover;
-}
+
 
 .enter-container {
   position: absolute;
@@ -176,7 +172,23 @@
   }
 }
 
+
+.footer-image {
+  width: 100vw;
+  max-height: 50vh;
+  object-fit: cover;
+}
+
 img.nouns-heart {
-  width: 25px; /* you can use % */
-  height: auto;
+  width: 35px; /* you can use % */
+  height: 35px;
+}
+
+.custom-footer-link {
+  color: rgb(255, 255, 255)!important; 
+  font-size: 1.5rem!important;
+}
+
+.custom-footer-link:hover {
+  color: #d63c5e!important; 
 }
