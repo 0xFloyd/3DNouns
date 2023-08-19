@@ -865,8 +865,8 @@ input:checked + .slidertoggle:before {
 }
 
 .camera-noun-icon {
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
 }
 
 .lock-noun-icon {

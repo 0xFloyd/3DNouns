@@ -6,6 +6,7 @@ import { isDesktop, isMobile } from 'react-device-detect';
 import ScreenshotModal from 'components/ScreenshotModal';
 import AnimationSelect from 'components/Menu/AnimationSelect';
 import CameraIcon from '../../assets/images/cameraIcon.svg';
+import CrossIcon from '../../assets/images/XcrossIcon.svg';
 import { gql, useQuery } from '@apollo/client';
 import { GET_NOUNS, hideModals, rotateOptions, throttleClicks, truncateString } from 'utils/utils';
 import MintModal from './MintModal';
@@ -152,8 +153,8 @@ const Menu = ({
                 }}
                 disabled={disabledButtonState}
               >
-                {/* <BsCameraFill size={20} color="black" /> */}
-                <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
+              {/* <BsCameraFill size={20} color="black" /> */}
+                STUDIO
               </button>
 
               {/* <div className="header-randomize-container"> */}
@@ -171,6 +172,7 @@ const Menu = ({
                 RANDOMIZE
               </button>
               {/* </div> */}
+
               <button
                 className="options-menu-x-button"
                 onClick={() => {
@@ -178,7 +180,7 @@ const Menu = ({
                   setShowMintModal(false);
                 }}
               >
-                X
+                <img src={CrossIcon} alt="x-icon" className="camera-noun-icon" />
               </button>
             </div>
           ) : null}
@@ -277,59 +279,32 @@ const Menu = ({
             {/*  Rotate */}
             <div className="inline-option-row">
               <span />
-              <div className="inline-select-wrap">
-                <label className="trait-label">Rotate View</label>
-                <select value={autoRotate} onChange={(e) => setAutoRotate(e.target.value)} className="trait-select">
-                  {rotateOptions.map((rotateObj, index) => (
-                    <option key={index} value={rotateObj.value}>
-                      {rotateObj.name}
-                    </option>
-                  ))}
-                </select>
+              <div className="toggle-wrap">
+                <label className="toggle-button-title">Rotate</label>
+                <button
+                  className={`toggle-button ${autoRotate ? 'active' : ''}`}
+                  onClick={() => setAutoRotate(!autoRotate)}
+                >
+                  {autoRotate ? 'On' : 'Off'}
+                </button>
               </div>
             </div>
-            {/* end Rotate */}
 
-            <div className="menu-footer-row">
-              {/*<div className="menu-footer-row-container">
-                  <button
-                    className="menu-button"
-                    onClick={() => {
-                      setShowMintModal(true);
-                    }}>
-                    MINT NOUN
-                  </button>
-                </div>
-                */}
+            <div className="inline-option-row">
               <div className="menu-footer-row-container">
                 <button
                   className="download-menu-button"
-                  onClick={() => {
-                    setAnimationState(false);
-                    // setAnimationValue('tpose');
-                    setDownloadingModel(true);
-                    setTimeout(() => {
-                      downloadModel();
-                    }, 1500);
-                  }}
-                  // disabled={true}
+                  onClick={() => {setAnimationState(false);setDownloadingModel(true);setTimeout(() => {downloadModel(); }, 1500);}}
                 >
-                  DOWNLOAD
-                  <br />
-                  NOUN
-                  {/* {`< Coming soon! >`} */}
+                  DOWNLOAD NOUN
                   {downloadingModel && (
                     <Spinner
-                      animation="border"
-                      style={{
-                        marginLeft: '10px',
-                        width: '20px',
-                        height: '20px',
-                      }}
+                      animation="border" style={{marginLeft: '10px', width: '15px', height: '15px',}}
                     />
                   )}
                 </button>
               </div>
+              
             </div>
           </div>
         </div>

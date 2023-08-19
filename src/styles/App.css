@@ -407,3 +407,33 @@ a {
     margin-top: -10px;
   }
 }
+
+
+.toggle-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-button {
+  background-color: #ccc;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 1px;
+}
+
+.toggle-button.active {
+  background-color: #61dafb;
+  color: white;
+}
+
+.toggle-button-title {
+  background-color: #ffffff;
+  border:1px solid rgb(128, 128, 128);
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
