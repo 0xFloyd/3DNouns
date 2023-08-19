@@ -415,13 +415,14 @@ a {
 }
 
 .toggle-button {
-  background-color: #ccc;
+  background-color: #747474;
   border: none;
   border-radius: 4px;
   padding: 5px 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-left: 1px;
+  color:white;
 }
 
 .toggle-button.active {
@@ -434,6 +435,5 @@ a {
   border:1px solid rgb(128, 128, 128);
   border-radius: 4px;
   padding: 5px 10px;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }

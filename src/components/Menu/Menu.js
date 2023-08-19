@@ -180,7 +180,7 @@ const Menu = ({
                   setShowMintModal(false);
                 }}
               >
-                <img src={CrossIcon} alt="x-icon" className="camera-noun-icon" />
+                <img src={CrossIcon} alt="x-icon" className="X-Cross-icon" />
               </button>
             </div>
           ) : null}
@@ -277,34 +277,35 @@ const Menu = ({
             />
             {/*  End animation */}
             {/*  Rotate */}
-            <div className="inline-option-row">
-              <span />
-              <div className="toggle-wrap">
-                <label className="toggle-button-title">Rotate</label>
-                <button
-                  className={`toggle-button ${autoRotate ? 'active' : ''}`}
-                  onClick={() => setAutoRotate(!autoRotate)}
-                >
-                  {autoRotate ? 'On' : 'Off'}
-                </button>
-              </div>
-            </div>
 
-            <div className="inline-option-row">
-              <div className="menu-footer-row-container">
-                <button
-                  className="download-menu-button"
-                  onClick={() => {setAnimationState(false);setDownloadingModel(true);setTimeout(() => {downloadModel(); }, 1500);}}
-                >
-                  DOWNLOAD NOUN
-                  {downloadingModel && (
-                    <Spinner
-                      animation="border" style={{marginLeft: '10px', width: '15px', height: '15px',}}
-                    />
-                  )}
-                </button>
+            <div className=" tw-flex tw-flex-row tw-justify-between">
+              <div className="inline-option-row">
+                <span />
+                <div className="toggle-wrap">
+                  <label className="toggle-button-title">Rotate</label>
+                  <button
+                    className={`toggle-button ${autoRotate ? 'active' : ''}`}
+                    onClick={() => setAutoRotate(!autoRotate)}
+                  >
+                    {autoRotate ? 'On' : 'Off'}
+                  </button>
+                </div>
               </div>
-              
+
+              <div className="inline-option-row">
+                  <button
+                    className="download-menu-button"
+                    onClick={() => {setAnimationState(false);setDownloadingModel(true);setTimeout(() => {downloadModel(); }, 1500);}}
+                  >
+                    DOWNLOAD 3D NOUN
+                    {downloadingModel && (
+                      <Spinner
+                        animation="border" style={{marginLeft: '10px', width: '15px', height: '15px',}}
+                      />
+                    )}
+                  </button>
+              </div>
+
             </div>
           </div>
         </div>
@@ -342,7 +343,7 @@ const Menu = ({
               }}
             >
               {/* <BsCameraFill size={20} color="black" /> */}
-              <img src={CameraIcon} alt="camera-icon" className="tw-object-fit camera-noun-icon" />
+              <img src={CameraIcon} alt="camera-icon" className="tw-object-fit X-Cross-icon" />
             </button>
             <button
               className="menu-button"
@@ -462,7 +463,7 @@ const Menu = ({
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
-            <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
+            <img src={CameraIcon} alt="camera-icon" className="X-Cross-icon" />
           </button>
           <button
             className="menu-button"

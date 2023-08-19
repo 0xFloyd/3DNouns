@@ -433,11 +433,12 @@ input:checked + .slidertoggle:before {
 }
 
 .download-menu-button {
-  background: #fff;
+  background: #d63c5e;
+  color:white;
   outline: none;
   border: 1px solid rgb(128, 128, 128);
   border-radius: 5px;
-  padding: 0px 10px 0px 10px;
+  padding: 5px 15px 5px 15px;
 }
 
 .download-menu-button:hover {
@@ -765,7 +766,7 @@ input:checked + .slidertoggle:before {
   color: rgb(0, 0, 0);
   /*font-size: 1.25em;*/
   transition: 500ms;
-  animation: hueRotation 2s linear infinite;
+  /*animation: hueRotation 2s linear infinite;*/
 }
 
 .rainbow-button:hover {
@@ -780,14 +781,14 @@ input:checked + .slidertoggle:before {
   padding: 0px 10px 0px 10px;
   margin: 0px;
   background: #6dd6d1;
-  border: 1px solid rgb(128, 128, 128);
+  border: 2px solid rgb(128, 128, 128);
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
   color: rgb(51, 51, 51);
 
   transition: 250ms;
-  animation: hueRotation 2s linear infinite;
+  /*animation: hueRotation 2s linear infinite;*/
   cursor: wait;
 }
 .rainbow-button-disabled:hover {
@@ -864,14 +865,14 @@ input:checked + .slidertoggle:before {
   margin-bottom: 10px;
 }
 
-.camera-noun-icon {
+.X-Cross-icon {
   height: 20px;
   width: 20px;
 }
 
 .lock-noun-icon {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
 }
 
 .screenshot-button-container {
