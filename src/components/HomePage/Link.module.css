@@ -1,10 +1,10 @@
 .link,
 .link:hover,
 .link:active {
-  color: #3a3a3a;
-  font-size: 1.5rem;
+  color:#d63c5e;
+  font-size: 1.25rem;
+  font-family: 'PT Root UI', sans-serif !important;
 }
 .link:hover {
-  text-decoration: none;
-  color: #d63c5e;
+  text-decoration: underline;
 }

@@ -26,8 +26,6 @@
   /* background: linear-gradient(180deg, rgba(0, 0, 0, 30) 0%, rgba(0, 0, 0, 30) 80%); */
 }
 
-
-
 .enter-container {
   position: absolute;
   bottom: 35%;
@@ -36,8 +34,8 @@
 }
 
 .welcome-container {
-  position: absolute;
-  top: 25%;
+  position: relative;
+  top: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -45,9 +43,10 @@
 }
 
 .welcome-nounstoun {
-  color: #d63c5e;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  color: #ffffff;
+  /*-webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);*/
+  font-size: XX-large;
 }
 
 .welcome-nounstoun::selection {
@@ -55,12 +54,12 @@
 }
 
 .enter-button {
-  padding: 2px 20px 2px 20px;
+  padding: 5px 20px 5px 20px;
   background-color: #d63c5e;
   color: white;
-  border: 1px solid white;
+  border: 2px solid white;
   border-radius: 10px;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .enter-button:hover {
@@ -186,7 +185,7 @@ img.nouns-heart {
 
 .custom-footer-link {
   color: rgb(255, 255, 255)!important; 
-  font-size: 1.5rem!important;
+  font-size: 1.2rem!important;
 }
 
 .custom-footer-link:hover {

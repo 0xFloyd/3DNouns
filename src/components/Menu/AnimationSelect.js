@@ -3,10 +3,10 @@ import data from '../../data.json';
 
 const AnimationSelect = ({ animationValue, setAnimationState, setAnimationValue }) => {
   return (
-    <div className="inline-option-row">
+    <div className="inline-option-row special-footer-button ">
       <span />
-      <div className="inline-select-wrap">
-        <label className="trait-label">Animation</label>
+      <div className="inline-select-wrap ">
+        <label className="trait-label">animation</label>
         <select
           value={animationValue}
           onChange={(e) => {

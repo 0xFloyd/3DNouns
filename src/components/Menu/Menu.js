@@ -135,11 +135,11 @@ const Menu = ({
     <>
       {/* {progress === 100 && ( */}
       <>
-        <div className="tw-transition-all options-container" style={{ display: optionsVisibility }}>
+        <div className="tw-transition-all options-container " style={{ display: optionsVisibility }}>
           {optionsVisibility === 'block' ? (
-            <div className="tw-flex tw-flex-row tw-items-center tw-justify-between">
+            <div className="tw-flex tw-flex-row tw-items-center tw-justify-between ">
               <button
-                className={disabledButtonState ? 'screenshot-button-disabled' : 'screenshot-button'}
+                className= {disabledButtonState ? 'screenshot-button-disabled' : 'screenshot-button'  } 
                 onClick={() => {
                   // saveAsImage();
                   // stop animation
@@ -154,13 +154,12 @@ const Menu = ({
                 disabled={disabledButtonState}
               >
               {/* <BsCameraFill size={20} color="black" /> */}
-                STUDIO
+                <p className='special-font-style'>STUDIO</p>
               </button>
 
               {/* <div className="header-randomize-container"> */}
               <button
                 className={
-                  // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
                   disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
                 }
                 onClick={() => {
@@ -169,7 +168,7 @@ const Menu = ({
                 }}
                 disabled={disabledButtonState}
               >
-                RANDOMIZE
+                <p className='special-font-style'>RANDOMIZE</p>
               </button>
               {/* </div> */}
 
@@ -254,33 +253,30 @@ const Menu = ({
               disabled={disabledButtonState}
             />
 
-            {/* world */}
-            <div className="inline-option-row">
-              <span />
-              <div className="inline-select-wrap">
-                <label className="trait-label">World</label>
-                <select value={environment} onChange={(e) => setEnvironment(e.target.value)} className="trait-select">
-                  {data.world.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </div>{' '}
+
+            <div className=" tw-flex tw-justify-between"> 
+                <div className="inline-option-row special-footer-button ">
+                  <div className=" inline-select-wrap ">
+                    <label className="trait-label">world</label>
+                    <select value={environment} onChange={(e) => setEnvironment(e.target.value)} className="trait-select">
+                      {data.world.map((arrayValue) => (
+                        <option key={arrayValue.value} value={arrayValue.value}>
+                          {arrayValue.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>{' '}
+                </div>
+
+                <AnimationSelect
+                  animationValue={animationValue}
+                  setAnimationState={setAnimationState}
+                  setAnimationValue={setAnimationValue}
+                />
             </div>
-            {/* end world */}
-            {/*  Animation */}
-            <AnimationSelect
-              animationValue={animationValue}
-              setAnimationState={setAnimationState}
-              setAnimationValue={setAnimationValue}
-            />
-            {/*  End animation */}
-            {/*  Rotate */}
 
             <div className=" tw-flex tw-flex-row tw-justify-between">
               <div className="inline-option-row">
-                <span />
                 <div className="toggle-wrap">
                   <label className="toggle-button-title">Rotate</label>
                   <button
@@ -292,15 +288,14 @@ const Menu = ({
                 </div>
               </div>
 
-              <div className="inline-option-row">
+              <div className="inline-option-row special-footer-button download-menu-button">
                   <button
-                    className="download-menu-button"
                     onClick={() => {setAnimationState(false);setDownloadingModel(true);setTimeout(() => {downloadModel(); }, 1500);}}
                   >
-                    DOWNLOAD 3D NOUN
+                    <p className='special-font-style'>DOWNLOAD NOUN</p>
                     {downloadingModel && (
                       <Spinner
-                        animation="border" style={{marginLeft: '10px', width: '15px', height: '15px',}}
+                        animation="border" style={{marginLeft: '10px', width: '15px', height: '15px',}}   
                       />
                     )}
                   </button>
@@ -325,7 +320,7 @@ const Menu = ({
               }}
               disabled={disabledButtonState}
             >
-              RANDOMIZE
+             <p className='special-font-style'> RANDOMIZE</p>
             </button>
             <button
               style={{ marginLeft: '20px', marginRight: '0px' }}
@@ -343,7 +338,7 @@ const Menu = ({
               }}
             >
               {/* <BsCameraFill size={20} color="black" /> */}
-              <img src={CameraIcon} alt="camera-icon" className="tw-object-fit X-Cross-icon" />
+              <p className='special-font-style'> STUDIO </p>
             </button>
             <button
               className="menu-button"
@@ -357,7 +352,7 @@ const Menu = ({
                 // }, 1000);
               }}
             >
-              SCREENSHOT
+              <img src={CameraIcon} alt="camera-icon" className="tw-object-fit camera-icon" />
             </button>
             <button
               onClick={() => {
@@ -367,7 +362,7 @@ const Menu = ({
               className="menu-button-options"
               style={{ marginLeft: '20px' }}
             >
-              OPTIONS
+              <p className='special-font-style'> OPTIONS </p>
             </button>
           </div>
         ) : null}
@@ -445,7 +440,7 @@ const Menu = ({
             }}
             disabled={disabledButtonState}
           >
-            RANDOMIZE
+            <p className='special-font-style'>RANDOMIZE</p>
           </button>
 
           <button
@@ -463,7 +458,7 @@ const Menu = ({
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
-            <img src={CameraIcon} alt="camera-icon" className="X-Cross-icon" />
+            <p className='special-font-style'> STUDIO </p>
           </button>
           <button
             className="menu-button"
@@ -472,7 +467,8 @@ const Menu = ({
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
-            SCREENSHOT
+            
+            <img src={CameraIcon} alt="camera-icon" className="X-Cross-icon-2" />
           </button>
         </div>
       )}

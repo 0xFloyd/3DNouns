@@ -533,7 +533,7 @@
     { "name": "Pillow", "trait": "head-pillow", "filePath": "HeadPillow.glb", "componentName": "PillowHead", "color": "0xF5FCFF", "id": "156" },
     { "name": "Pineapple", "trait": "head-pineapple", "filePath": "pineappleHead.glb", "componentName": "PineappleHead", "color": "0xFFC110", "id": "157" },
     { "name": "Pipe", "trait": "head-pipe", "filePath": "HeadPipe.glb", "componentName": "PipeHead", "color": "0x5A423F", "id": "158" },
-    { "name": "Pirateship", "trait": "head-pirateship", "filePath": "pirateshipHead.glb", "componentName": "PirateshipHead", "color": "0x62616D", "id": "159" },
+    { "name": "Pirateship", "trait": "head-pirateship", "filePath": "pirateshipHead.glb", "componentName": "PirateshipHead", "color": "0x7D5243", "id": "159" },
     { "name": "Pizza", "trait": "head-pizza", "filePath": "HeadPizza.glb", "componentName": "PizzaHead", "color": "0xFFEF16", "id": "160" },
     { "name": "Plane", "trait": "head-plane", "filePath": "HeadPlane.glb", "componentName": "PlaneHead", "color": "0x34AC80", "id": "161" },
     { "name": "Pop", "trait": "head-pop", "filePath": "HeadPop.glb", "componentName": "PopHead", "color": "0xF84C05", "id": "162" },

@@ -7,38 +7,35 @@ const InformationModal = (props) => {
   return (
     <div className="modal-box-popup">
       <div>
-        <h1 className="tw-text-4xl tw-mb-4" style={{ color: '#d63c5e', textAlign: 'center' }}>
+        <h1 className="tw-text-4xl tw-mb-4 special-font-style" style={{ color: '#d63c5e', textAlign: 'center' }}>
           3D Nouns{' '}
         </h1>
 
-        <h3 className="tw-text-justify tw-px-6">
-          3D Nouns are the first community extension of the Nouns ecosystem. The project was proposed under Nouns DAO
-          Proposal Two, where it passed unanimously on September 2nd, 2021.
-        </h3>
-        <h5 className="about-paragraph-text">
-          <a href="https://nouns.wtf" target="_blank" className="modal-link">
-            Nouns
-          </a>{' '}
-          are an experimental attempt to improve the formation of on-chain avatar communities, attempting to bootstrap
-          identity, community, governance and a treasury for the community.
+        <h5 className="tw-text-justify tw-px-6 ">
+        Experience 3D Nouns – a collection of composable characters that transform <a href="https://nouns.wtf" target="_blank" className="modal-link">
+            NounsDAOs
+          </a> pixel art into dynamic 3D avatars.
         </h5>
-        <h5 className="about-paragraph-text">
-          3D Nouns aims to expand Nouns into the online metaverse by creating avatars for existing and future digital
-          platforms. Eventually, 3D Nouns will extend into many different mediums, including gaming, animation, virtual
-          reality, and augmented reality.
+        <br></br>
+        
+        <h5 className="tw-text-justify tw-px-6">
+          As the first NounsDAO community proposal, 3D Nouns received enthusiastic support and secured funding under <a href="https://nouns.wtf/vote/2" target="_blank" className="modal-link">
+            proposal #2.
+          </a>
         </h5>
-        <h5 className="about-paragraph-text">
-          3D Nouns stay true to the original Nouns ethos by emulating the original artwork and open source nature, while
-          letting you craft your own 3D Noun or randomly generating one of over one billion different combinations.
+        <br></br>
+        <h5 className="tw-text-justify tw-px-6">
+        Step into the generator and unleash your creativity with endless combinations, bringing Nouns to life like never before!
         </h5>
       </div>
-      <div className="profile-section">
-        <div className="profile-individual-section">
+
+      <div className="profile-section ">
+        <div className="profile-individual-section ">
           <img className="profile-picture" src={CoralPicture} />
           <p className="bio-header">Creator</p>
           <div className="tw-flex tw-flex-row tw-items-center">
             <SiTwitter className="twitter-logo" size={props.isDesktop ? 30 : 25} color="#1DA1F2" />
-            <a className="social-link" href="https://twitter.com/coralorca" target="_blank">
+            <a className="social-link special-font-style" href="https://twitter.com/coralorca" target="_blank">
               CoralOrca
             </a>
           </div>
@@ -48,7 +45,7 @@ const InformationModal = (props) => {
           <p className="bio-header">Engineer</p>
           <div className="tw-flex tw-flex-row tw-items-center">
             <SiTwitter className="twitter-logo" size={props.isDesktop ? 30 : 25} color="#1DA1F2" />{' '}
-            <a className="social-link" href="https://twitter.com/0xFloyd" target="_blank">
+            <a className="social-link special-font-style" href="https://twitter.com/0xFloyd" target="_blank">
               0xFloyd
             </a>
           </div>
@@ -59,7 +56,7 @@ const InformationModal = (props) => {
           {' '}
           <div className="tw-flex tw-flex-row tw-items-center">
             <SiTwitter className="twitter-logo" size={props.isDesktop ? 30 : 25} color="#1DA1F2" />
-            <a className="social-link" href="https://twitter.com/3dnouns" target="_blank">
+            <a className="social-link special-font-style" href="https://twitter.com/3dnouns" target="_blank">
               3D Nouns Twitter
             </a>
           </div>
@@ -67,7 +64,7 @@ const InformationModal = (props) => {
         <div className="profile-individual-section">
           <div className="tw-flex tw-flex-row tw-items-center">
             <BsDiscord className="twitter-logo" size={props.isDesktop ? 30 : 25} color="#5865F2" />
-            <a className="social-link" href="https://discord.gg/kZZaz6jy2k" target="_blank">
+            <a className="social-link special-font-style" href="https://discord.gg/kZZaz6jy2k" target="_blank">
               3D Nouns Discord
             </a>
           </div>

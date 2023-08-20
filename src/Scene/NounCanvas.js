@@ -1,23 +1,30 @@
-import { Canvas } from '@react-three/fiber';
-import * as THREE from 'three';
-import { Suspense, useEffect, useRef, useState } from 'react';
-import { Html, OrbitControls, PerspectiveCamera, useHelper, useProgress, useTexture } from '@react-three/drei';
-import logo from '../assets/images/3DNounsLogo.png';
-import NormalEnvironment from 'Scene/NormalEnvironment';
-import data from '../data.json';
-import NounHolder from 'Scene/NounHolder';
-import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
-import { isDesktop } from 'react-device-detect';
-import ThreeDLogo from 'Scene/ThreeDNounsLogo';
-import '../styles/ProgressLoader.css';
-import Menu from 'components/Menu/Menu';
-import { saveArrayBuffer, saveScreenshot, saveString } from 'utils/utils';
-import Lighting from 'Scene/Lighting';
+import { Canvas } from "@react-three/fiber";
+import * as THREE from "three";
+import { Suspense, useEffect, useRef, useState } from "react";
+import {
+  Html,
+  OrbitControls,
+  PerspectiveCamera,
+  useHelper,
+  useProgress,
+  useTexture,
+} from "@react-three/drei";
+import logo from "../assets/images/HomePageLogo.png";
+import NormalEnvironment from "Scene/NormalEnvironment";
+import data from "../data.json";
+import NounHolder from "Scene/NounHolder";
+import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter.js";
+import { isDesktop } from "react-device-detect";
+import ThreeDLogo from "Scene/ThreeDNounsLogo";
+import "../styles/ProgressLoader.css";
+import Menu from "components/Menu/Menu";
+import { saveArrayBuffer, saveScreenshot, saveString } from "utils/utils";
+import Lighting from "Scene/Lighting";
 
 const NounCanvas = ({ hidePage, setHidePage }) => {
   const { active, progress, errors, item, loaded, total } = useProgress();
 
-  window.addEventListener('contextmenu', function (e) {
+  window.addEventListener("contextmenu", function (e) {
     e.preventDefault();
     e.stopPropagation();
     return false;
@@ -25,20 +32,32 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
 
   const [autoRotate, setAutoRotate] = useState(false);
   const [deviceState, setDeviceState] = useState(isDesktop);
-  const [environment, setEnvironment] = useState('Normal');
+  const [environment, setEnvironment] = useState("Normal");
   const [animationState, setAnimationState] = useState(true);
   const [showDirections, setShowDirections] = useState(true);
   const [showScreenshotModal, setShowScreenshotModal] = useState(false);
   const [downloadingModel, setDownloadingModel] = useState(false);
   const [sceneState, setSceneState] = useState(null);
-  const [head, setHead] = useState(data.head[Math.floor(Math.random() * data.head.length)].name);
-  const [glasses, setGlasses] = useState(data.glasses[Math.floor(Math.random() * data.glasses.length)].name);
-  const [body, setBody] = useState(data.body[Math.floor(Math.random() * data.body.length)].name);
-  const [accessory, setAccessory] = useState(data.accessory[Math.floor(Math.random() * data.accessory.length)].name);
-  const [pants, setPants] = useState(data.pants[Math.floor(Math.random() * data.pants.length)].name);
-  const [shoes, setShoes] = useState(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
+  const [head, setHead] = useState(
+    data.head[Math.floor(Math.random() * data.head.length)].name
+  );
+  const [glasses, setGlasses] = useState(
+    data.glasses[Math.floor(Math.random() * data.glasses.length)].name
+  );
+  const [body, setBody] = useState(
+    data.body[Math.floor(Math.random() * data.body.length)].name
+  );
+  const [accessory, setAccessory] = useState(
+    data.accessory[Math.floor(Math.random() * data.accessory.length)].name
+  );
+  const [pants, setPants] = useState(
+    data.pants[Math.floor(Math.random() * data.pants.length)].name
+  );
+  const [shoes, setShoes] = useState(
+    data.shoes[Math.floor(Math.random() * data.shoes.length)].name
+  );
   const [animationValue, setAnimationValue] = useState(
-    data.animations.find((animation) => animation.name === 'idle').name
+    data.animations.find((animation) => animation.name === "idle").name
   );
 
   const orbitControls = useRef();
@@ -62,13 +81,13 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
       hiddenDownloadNoun,
       function (result) {
         if (result instanceof ArrayBuffer) {
-          saveArrayBuffer(result, 'NounModel.glb');
+          saveArrayBuffer(result, "NounModel.glb");
         } else {
           const output = JSON.stringify(result, null, 2);
-          saveString(output, 'NounModel.gltf');
+          saveString(output, "NounModel.gltf");
           setDownloadingModel(false);
           setAnimationState(false);
-          setAnimationValue('none');
+          setAnimationValue("none");
         }
       },
       options
@@ -78,10 +97,13 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
   const saveAsImage = () => {
     var imgData, imgNode;
     try {
-      var strMime = 'image/jpeg';
+      var strMime = "image/jpeg";
       imgData = sceneState.gl.domElement.toDataURL(strMime, 1.0);
 
-      saveScreenshot(imgData.replace(strMime, 'image/octet-stream'), '3DNoun.jpg');
+      saveScreenshot(
+        imgData.replace(strMime, "image/octet-stream"),
+        "3DNoun.jpg"
+      );
     } catch (e) {
       console.log(e);
       return;
@@ -95,8 +117,8 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
       setDeviceState(isDesktop);
     }
 
-    window.addEventListener('resize', updateMedia);
-    return () => window.removeEventListener('resize', updateMedia);
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
   const runOnce = useRef(true);
@@ -104,7 +126,7 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
   useEffect(() => {
     if (!showDirections && loaded && runOnce.current) {
       setAnimationState(true);
-      setAnimationValue('idle');
+      setAnimationValue("idle");
       runOnce.current = false;
     }
   }, [showDirections, loaded]);
@@ -115,7 +137,7 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
         shadows
         mode="concurrent"
         gl={{
-          powerPreference: 'high-performance',
+          powerPreference: "high-performance",
           preserveDrawingBuffer: true,
           // logarithmicDepthBuffer: true,
           antialias: true,
@@ -152,7 +174,16 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
         </Suspense>
         {active || !loaded ? (
           <Html center>
-            <p style={{ color: 'white', fontSize: '2rem', position: 'relative', top: '-40px', transform: 'translateY(-50%)'}}>Loading...</p>
+            <p
+              style={{
+                color: "white",
+                fontSize: "1rem",
+                position: "relative",
+                transform: "translateY(-20%)",
+              }}
+            >
+              Loading...
+            </p>
           </Html>
         ) : null}
         <Suspense fallback={null}>
@@ -205,16 +236,27 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
             setShowScreenshotModal={setShowScreenshotModal}
             saveAsImage={saveAsImage}
           />
+
           {showDirections && (
             <div className="blocker" onClick={() => setShowDirections(false)}>
-              <div className="directions-popup">
-                <h2 className="tw-text-3xl" style={{ color: '#d63c5e' }}>
-                  Directions:{' '}
+              <div className="directions-popup ">
+                <h2
+                  className="tw-text-3xl special-font-style"
+                  style={{ color: "#d63c5e", marginBottom: "10px" }}
+                >
+                  DIRECTIONS{" "}
                 </h2>
-                <h4 className="tw-text-xl">{`${isDesktop ? 'CLICK' : 'TOUCH'} AND DRAG TO ROTATE`}</h4>
-                <h4 className="tw-text-xl">{`${isDesktop ? 'SCROLL WHEEL' : 'PINCH'} TO ZOOM`}</h4>
+                <h4 className="tw-text-xl special-font-style">{` ${
+                  isDesktop ? "CLICK" : "TOUCH"
+                } AND DRAG TO ROTATE`}</h4>
+                <h4 className="tw-text-xl special-font-style">{` ${
+                  isDesktop ? "SCROLL WHEEL" : "PINCH"
+                } TO ZOOM`}</h4>
                 <div className="close-directions-container">
-                  <button className="menu-button" onClick={() => setShowDirections(false)}>
+                  <button
+                    className="menu-button special-font-style"
+                    onClick={() => setShowDirections(false)}
+                  >
                     CLOSE
                   </button>
                 </div>
@@ -238,26 +280,10 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
 export default NounCanvas;
 
 const preloadAllAssets = () => {
-  // data.head.forEach((headData) => {
-  //   useGLTF.preload(`/headModels/${headData.filePath}`);
-  // });
-
   data.body.forEach((bodyObj) => {
     useTexture.preload(`/textures/body/${bodyObj.value}`);
   });
   data.accessory.forEach((accessoryObj) => {
     useTexture.preload(`/textures/accessories/${accessoryObj.value}`);
   });
-
-  // data.pants.forEach((pantsObj) => {
-  //   useTexture.preload(`/textures/pants/${pantsObj.value}`);
-  // });
-
-  // data.shoes.forEach((shoeObj) => {
-  //   useTexture.preload(`/textures/shoes/${shoeObj.value}`);
-  // });
-
-  // data.glasses.forEach((glassesObj) => {
-  //   useTexture.preload(`/textures/glasses/${glassesObj.value}`);
-  // });
 };

@@ -89,7 +89,7 @@
 .trait-select-box {
   padding-left: 50px;
   height: 40px;
-  color: white;
+  color: blue;
   position: relative;
   width: 100%;
   display: block;
@@ -183,6 +183,7 @@
   /* display: grid;
   grid-template-columns: 1fr 6fr; */
 }
+
 .inline-select-wrap {
   background-color: white;
   border: 1px solid rgb(128, 128, 128);
@@ -190,6 +191,7 @@
   margin-bottom: 10px;
   position: relative;
 }
+
 .inline-select-wrap:hover {
   background-color: rgb(200, 200, 200);
   cursor: pointer;
@@ -436,13 +438,16 @@ input:checked + .slidertoggle:before {
   background: #d63c5e;
   color:white;
   outline: none;
-  border: 1px solid rgb(128, 128, 128);
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
   padding: 5px 15px 5px 15px;
+  text-align: center;
+  transition: 500ms;
 }
 
 .download-menu-button:hover {
-  background: rgb(225, 225, 225);
+  background: #d63c5e;
+  transform: scale(1.1);
 }
 
 .menu-button {
@@ -518,7 +523,7 @@ input:checked + .slidertoggle:before {
   color: rgb(0, 0, 0);
   /*font-size: 1.25em;*/
   transition: 500ms;
-  animation: hueRotation 2s linear infinite;
+  /*animation: hueRotation 2s linear infinite;*/
 }
 
 .header-randomize-container {
@@ -578,11 +583,11 @@ input:checked + .slidertoggle:before {
 .options-menu-x-button {
   display: inline-block;
   text-align: center;
-  padding: 0px 15px 0px 15px;
+  padding: 0px 10px 0px 10px;
   height: 40px;
   outline: none;
   color: black;
-  background: #fff;
+  background: rgb(230, 230, 230);
   cursor: pointer;
   z-index: 0;
   font-size: 1.125em;
@@ -595,7 +600,7 @@ input:checked + .slidertoggle:before {
 }
 
 .options-menu-x-button:hover {
-  background-color: rgb(225, 225, 225);
+  background-color: rgb(205, 205, 205);
   cursor: pointer;
 }
 
@@ -634,7 +639,7 @@ input:checked + .slidertoggle:before {
   right: 25%;
   width: 50vw;
   max-height: 75vh;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   font-size: 1rem;
   border-radius: 10px;
   padding: 50px;
@@ -642,18 +647,20 @@ input:checked + .slidertoggle:before {
   scrollbar-width: none;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
+
 .modal-box-popup::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
+  
 }
 
 .modal-link {
-  font-size: 1.25rem;
   color: #d63c5e;
   text-decoration: none;
+  font-weight: 700;
+  font-family: 'PT Root UI', sans-serif !important;
 }
 
 .modal-link:hover {
-  font-size: 1.25rem;
   color: #d63c5e;
   text-decoration: underline;
 }
@@ -714,6 +721,7 @@ input:checked + .slidertoggle:before {
   touch-action: manipulation;
   user-select: none;
   padding: 0px;
+  
 }
 
 .modal-closer:hover {
@@ -731,6 +739,8 @@ input:checked + .slidertoggle:before {
 
 .bio-header {
   text-align: center;
+  font-size: medium;
+  margin-top: 5px;
 }
 
 .social-link {
@@ -773,6 +783,7 @@ input:checked + .slidertoggle:before {
   transform: scale(1.1);
 }
 
+
 .rainbow-button-disabled {
   display: inline-block;
   text-align: center;
@@ -796,6 +807,7 @@ input:checked + .slidertoggle:before {
   transform: scale(1.1);
 }
 
+
 @keyframes hueRotation {
   to {
     filter: hue-rotate(360deg);
@@ -807,24 +819,25 @@ input:checked + .slidertoggle:before {
   margin-top: -10px;
 }
 
+
 .screenshot-button {
   display: inline-block;
   text-align: center;
   padding: 0px 10px 0px 10px;
   height: 40px;
   cursor: pointer;
-
-  background: #fff;
-  border: 1px solid rgb(128, 128, 128);
+  background: #7ed0ff;
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
-  color: rgb(51, 51, 51);
+  color: rgb(0, 0, 0);
   margin-right: 40px;
+  transition: 500ms;
 }
 
 .screenshot-button:hover {
-  background-color: rgb(225, 225, 225);
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -843,12 +856,18 @@ input:checked + .slidertoggle:before {
   margin-right: 40px;
 }
 
+
+input::placeholder {
+  color: rgb(128, 128, 128); /* Replace with your desired color */
+  font-size: 14px; /* Replace with your desired font size */
+}
+
 .light-slider-container {
   padding-right: 0px;
   width: 80%;
 }
 
-.about-paragraph-text {
+.about-paragraph-text { /*Superflu*/
   text-align: justify;
   margin-top: 20px;
   text-justify: distribute;
@@ -869,6 +888,17 @@ input:checked + .slidertoggle:before {
   height: 20px;
   width: 20px;
 }
+
+.X-Cross-icon-2 {
+  height: 30px;
+  width: 30px;
+}
+
+.camera-icon {
+  height: 40px;
+  width: 40px;
+}
+
 
 .lock-noun-icon {
   height: 20px;
@@ -1007,7 +1037,7 @@ input:checked + .slidertoggle:before {
     border-radius: 5px;
     color: rgb(51, 51, 51);
     transition: 500ms;
-    animation: hueRotation 2s linear infinite;
+    /*animation: hueRotation 2s linear infinite;*/
   }
   .footer-button:hover {
     transform: none;
@@ -1031,7 +1061,7 @@ input:checked + .slidertoggle:before {
     color: rgb(51, 51, 51);
 
     transition: 250ms;
-    animation: hueRotation 2s linear infinite;
+    /*animation: hueRotation 2s linear infinite;*/
     cursor: wait;
   }
   .footer-button-disabled:hover {
@@ -1138,22 +1168,6 @@ input:checked + .slidertoggle:before {
   .screenshot-canvas-container {
     height: 45vh;
     padding-bottom: 0px;
-
-    /* z-index: 101 !important;
-    position: fixed;
-    padding: 10px;
-    top: 2.5%;
-    right: 0;
-    width: 100vw;
-    max-height: 100vh;
-    height: 75vh;
-    background-color: rgb(255, 255, 255);
-    font-size: 1rem;
-    border-radius: 10px;
-    padding: 25px 25px 75px 25px;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    text-align: center; */
   }
 
   .react-color-picker-container {
