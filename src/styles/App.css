@@ -449,3 +449,7 @@ a {
 .special-font-style{
   font-family:'Press Start 2P'!important;
 }
+
+.special-font-menu{
+  font-size: 0.7rem;
+}

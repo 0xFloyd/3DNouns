@@ -38,8 +38,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
       className={`homepage-body ${isFadingOut ? "item-fadeout" : ""}`}
       style={{ visibility: hidePage ? "hidden" : "visible" }}
     >
-      {/* tw-bg-opacity-30 tw-bg-black */}
-      <div className="relative header-image tw-bg-opacity-30 tw-bg-black  !tw-h-[80vh] -tw-mb-12">
+      <div className="relative header-image tw-bg-opacity-30 tw-bg-black !tw-h-[80vh] -tw-mb-12">
         <div className="homepage-logo-container">
           <a href="https://3dnouns.com">
             <img
@@ -49,12 +48,12 @@ const HomePage = ({ hidePage, setHidePage }) => {
             />
           </a>
         </div>
-        {/*
-        <div className=" welcome-container">
-          <p className="tw-text-center welcome-nounstoun tw-text-8xl special-font-style">
+
+        <div className="welcome-container">
+          <p className="tw-text-center main-title-homepage tw-text-8xl special-font-style">
             3D NOUNS
           </p>
-        </div>*/}
+        </div>
 
         <div className="enter-container ">
           {
