@@ -241,17 +241,18 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
             <div className="blocker" onClick={() => setShowDirections(false)}>
               <div className="directions-popup ">
                 <h2
-                  className="tw-text-3xl special-font-style"
+                  className="tw-text-2xl special-font-style"
                   style={{ color: "#d63c5e", marginBottom: "10px" }}
                 >
                   DIRECTIONS{" "}
                 </h2>
-                <h4 className="tw-text-xl special-font-style">{` ${
+                <h5 className="tw-text-l special-font-style">{` ${
                   isDesktop ? "CLICK" : "TOUCH"
-                } AND DRAG TO ROTATE`}</h4>
-                <h4 className="tw-text-xl special-font-style">{` ${
+                } AND DRAG TO ROTATE`}</h5>
+                <br></br>
+                <h5 className="tw-text-l special-font-style">{` ${
                   isDesktop ? "SCROLL WHEEL" : "PINCH"
-                } TO ZOOM`}</h4>
+                } TO ZOOM`}</h5>
                 <div className="close-directions-container">
                   <button
                     className="menu-button special-font-style"

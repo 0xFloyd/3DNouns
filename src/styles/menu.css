@@ -744,7 +744,7 @@ input:checked + .slidertoggle:before {
 }
 
 .social-link {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: black;
   padding: 5px;
   text-decoration: none;
@@ -826,7 +826,7 @@ input:checked + .slidertoggle:before {
   padding: 0px 10px 0px 10px;
   height: 40px;
   cursor: pointer;
-  background: #7ed0ff;
+  background: white;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
@@ -846,13 +846,13 @@ input:checked + .slidertoggle:before {
   text-align: center;
   padding: 0px 10px 0px 10px;
   height: 40px;
-  cursor: wait;
-  background: #fff;
-  border: 1px solid rgb(128, 128, 128);
+  cursor: pointer;
+  background: white;
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
-  color: rgb(51, 51, 51);
+  color: rgb(0, 0, 0);
   margin-right: 40px;
 }
 
@@ -1113,7 +1113,7 @@ input::placeholder {
   }
 
   .social-link {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: black;
     padding: 5px;
     text-decoration: none;

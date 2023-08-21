@@ -94,11 +94,15 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 Experience 3D Nouns – a collection of composable characters that
                 transform{" "}
                 <Link
-                  text={"NounsDAOs"}
+                  text={"NounsDAOs'"}
                   url={"https://nouns.wtf"}
                   leavesPage={true}
                 />{" "}
                 pixel art into dynamic 3D avatars.
+                <br></br>
+                <br></br>
+                Step into the generator and unleash your creativity with endless
+                combinations, bringing Nouns to life like never before!
                 <br></br>
                 <br></br>
                 As the first NounsDAO community proposal, 3D Nouns received
@@ -108,10 +112,6 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   url={"https://nouns.wtf/vote/2"}
                   leavesPage={true}
                 />
-                <br></br>
-                <br></br>
-                Step into the generator and unleash your creativity with endless
-                combinations, bringing Nouns to life like never before!
               </p>
             </div>
           </div>
@@ -130,8 +130,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
               </h1>
               <p className={classes.genericText}>
                 All 3D Nouns assets are CC0 and can be used freely. Customize
-                your character, then download it as a GLTF file and use it with
-                3D modeling programs like{" "}
+                your character, download it as a GLTF file and use it with 3D
+                modeling programs like{" "}
                 <Link
                   text={"Blender"}
                   url={"https://www.blender.org/"}
@@ -177,7 +177,6 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     "https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw"
                   }
                   leavesPage={true}
-                  style={{ fontSize: "1.2rem" }}
                 />
                 ,{" "}
                 <Link
