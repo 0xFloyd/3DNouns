@@ -68,7 +68,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
               disabled={!loaded}
               onClick={() => fadeOut()}
             >
-              {loaded ? "ENTER" : "LOADING..."}
+              ENTER
             </button>
           }
         </div>
@@ -177,6 +177,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     "https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw"
                   }
                   leavesPage={true}
+                  style={{ fontSize: "1.2rem" }}
                 />
                 ,{" "}
                 <Link

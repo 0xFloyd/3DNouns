@@ -24,7 +24,7 @@ const NounIdInput = ({
       <div className=" tw-flex tw-flex-row tw-justify-between">
         <input
           value={nounID}
-          style={{ border: "2px solid grey" }}
+          style={{ border: "2px solid black" }}
           onChange={(e) => setNounId(e.target.value)}
           className="tw-flex-grow tw-mr-2 tw-border tw-border-[#999999] tw-px-2 tw-py-1 tw-rounded-[5px]"
           placeholder="Noun Token ID..."

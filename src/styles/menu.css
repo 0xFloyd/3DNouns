@@ -186,7 +186,7 @@
 
 .inline-select-wrap {
   background-color: white;
-  border: 1px solid rgb(128, 128, 128);
+ 
   border-radius: 5px;
   margin-bottom: 10px;
   position: relative;
@@ -519,8 +519,7 @@ input:checked + .slidertoggle:before {
 }
 
 .menu-button-options:hover {
-  background: #00c7d1;
-  color: rgb(0, 0, 0);
+  transform: scale(1.1);
   /*font-size: 1.25em;*/
   transition: 500ms;
   /*animation: hueRotation 2s linear infinite;*/
@@ -1236,4 +1235,24 @@ input::placeholder {
     color: rgb(51, 51, 51);
     touch-action: manipulation;
   }
+}
+
+
+.menu-bottom-dropdown{
+  background-color: #666666;
+  color:white;
+  border: 2px solid black;
+}
+
+.menu-bottom-dropdown:hover{
+  background-color: #7c7c7c;
+  color:white;
+}
+
+.menu-bottom-title{
+  color:rgb(202, 202, 202);
+}
+
+.border-select{
+  border: 2px solid black;
 }

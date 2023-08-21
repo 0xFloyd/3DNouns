@@ -288,13 +288,13 @@ const Menu = ({
             />
 
             <div className=" tw-flex tw-justify-between">
-              <div className="inline-option-row special-footer-button ">
-                <div className=" inline-select-wrap ">
-                  <label className="trait-label">world</label>
+              <div className="inline-option-row special-footer-button">
+                <div className="inline-select-wrap ">
+                  <label className="trait-label menu-bottom-title">world</label>
                   <select
                     value={environment}
                     onChange={(e) => setEnvironment(e.target.value)}
-                    className="trait-select"
+                    className="trait-select menu-bottom-dropdown"
                   >
                     {data.world.map((arrayValue) => (
                       <option key={arrayValue.value} value={arrayValue.value}>
@@ -314,8 +314,10 @@ const Menu = ({
 
             <div className=" tw-flex tw-flex-row tw-justify-between">
               <div className="inline-option-row">
-                <div className="toggle-wrap">
-                  <label className="toggle-button-title">Rotate</label>
+                <div className="toggle-wrap ">
+                  <label className="toggle-button-title border-select">
+                    Rotate
+                  </label>
                   <button
                     className={`toggle-button ${autoRotate ? "active" : ""}`}
                     onClick={() => setAutoRotate(!autoRotate)}
@@ -396,7 +398,7 @@ const Menu = ({
               <p className="special-font-style"> STUDIO </p>
             </button>
             <button
-              className="menu-button"
+              className="screenshot-button"
               style={{ marginLeft: "20px" }}
               onClick={() => {
                 saveAsImage();

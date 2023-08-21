@@ -413,7 +413,7 @@ a {
 .toggle-button {
   background-color: #747474;
   border: none;
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0px 5px 5px 0px;
   padding: 5px 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -423,23 +423,26 @@ a {
   border:1px solid rgb(128, 128, 128);
   border-left: none;
   font-size: small;
+  border: 2px solid black;
+  border-left: none;
 }
 
 .toggle-button.active {
   background-color: #00c7d1;
   color: black;
   /*border: 2px solid black;*/
-  border:1px solid rgb(128, 128, 128);
+  border: 2px solid black;
   border-left: none;
 }
 
 .toggle-button-title {
   background-color: #ffffff;
   border:1px solid rgb(128, 128, 128);
-  border-radius: 4px 0px 0px 4px;
+  border-radius: 5px 0px 0px 5px;
   padding: 5px 10px;
   transition: background-color 0.3s ease;
   font-size: small;
+
 }
 
 .special-footer-button {
@@ -452,4 +455,5 @@ a {
 
 .special-font-menu{
   font-size: 0.7rem;
+  
 }

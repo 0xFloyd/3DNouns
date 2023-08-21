@@ -1,15 +1,16 @@
-import { Backdrop, Html, OrbitControls, useHelper } from '@react-three/drei';
-import { Canvas, useThree } from '@react-three/fiber';
-import ProgressLoader from 'components/Loader';
-import NounHolder from 'Scene/NounHolder';
-import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import * as THREE from 'three';
-import { CompactPicker } from 'react-color';
-import { GUI } from 'three/examples/jsm/libs/dat.gui.module';
-import { Form } from 'react-bootstrap';
-import '../styles/slider.css';
-import ScreenshotAnimationSelect from 'components/ScreenshotAnimationSelect';
-import CameraIcon from '../assets/images/cameraIcon.svg';
+import { Backdrop, Html, OrbitControls, useHelper } from "@react-three/drei";
+import { Canvas, useThree } from "@react-three/fiber";
+import ProgressLoader from "components/Loader";
+import NounHolder from "Scene/NounHolder";
+import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import * as THREE from "three";
+import { CompactPicker } from "react-color";
+import { GUI } from "three/examples/jsm/libs/dat.gui.module";
+import { Form } from "react-bootstrap";
+import "../styles/slider.css";
+import ScreenshotAnimationSelect from "components/ScreenshotAnimationSelect";
+import CameraIcon from "../assets/images/cameraIcon.svg";
+import CrossIcon from "../assets/images/XcrossIcon.svg";
 
 const ScreenshotModal = ({
   head,
@@ -32,7 +33,7 @@ const ScreenshotModal = ({
   const hemisphereLightRef = useRef();
 
   const [threeScene, setThreeScene] = useState(null);
-  const [sceneColor, setSceneColor] = useState('#d5d7e1');
+  const [sceneColor, setSceneColor] = useState("#d5d7e1");
   const [hemisphereLightIntensity, setHemisphereLightIntensity] = useState(1.5);
   const [directionalLightIntensity, setDirectionalLightIntensity] = useState(2);
   const [lightDirection, setLightDirection] = useState(-100);
@@ -50,10 +51,13 @@ const ScreenshotModal = ({
   const saveAsImage = () => {
     var imgData, imgNode;
     try {
-      var strMime = 'image/jpeg';
+      var strMime = "image/jpeg";
       imgData = sceneScreenshotState.gl.domElement.toDataURL(strMime, 1.0);
 
-      saveScreenshot(imgData.replace(strMime, 'image/octet-stream'), '3DNoun.jpg');
+      saveScreenshot(
+        imgData.replace(strMime, "image/octet-stream"),
+        "3DNoun.jpg"
+      );
     } catch (e) {
       console.log(e);
       return;
@@ -139,8 +143,17 @@ const ScreenshotModal = ({
             <color attach="background" args={[new THREE.Color(sceneColor)]} />
             <fog attach="fog" args={[sceneColor, 1, 1000]} />
             <Suspense fallback={<ProgressLoader />}>
-              <Backdrop receiveShadow castShadow floor={20} position={[0, -1, -100]} scale={[5000, 1000, 50]}>
-                <meshStandardMaterial color={new THREE.Color(sceneColor).convertSRGBToLinear()} envMapIntensity={0.1} />
+              <Backdrop
+                receiveShadow
+                castShadow
+                floor={20}
+                position={[0, -1, -100]}
+                scale={[5000, 1000, 50]}
+              >
+                <meshStandardMaterial
+                  color={new THREE.Color(sceneColor).convertSRGBToLinear()}
+                  envMapIntensity={0.1}
+                />
               </Backdrop>
 
               <SetThreeScene />
@@ -165,13 +178,13 @@ const ScreenshotModal = ({
           className="modal-closer screenshot-close-button"
           onClick={() => {
             setAnimationState(false);
-            setAnimationValue('none');
+            setAnimationValue("none");
             setTimeout(() => {
               setShowScreenshotModal(false);
-            }, 1500);
+            }, 1);
           }}
         >
-          X
+          <img src={CrossIcon} alt="x-icon" className="X-Cross-icon" />
         </button>
         <div className="take-screenshot-container">
           <div className="light-slider-container">
@@ -193,7 +206,9 @@ const ScreenshotModal = ({
               max="3"
               step="0.1"
               value={directionalLightIntensity}
-              onChange={(e) => setDirectionalLightIntensity(Number(e.target.value))}
+              onChange={(e) =>
+                setDirectionalLightIntensity(Number(e.target.value))
+              }
             />
             <label className="slider-label">World Light</label>
             <input
@@ -203,7 +218,9 @@ const ScreenshotModal = ({
               max="3"
               step="0.1"
               value={hemisphereLightIntensity}
-              onChange={(e) => setHemisphereLightIntensity(Number(e.target.value))}
+              onChange={(e) =>
+                setHemisphereLightIntensity(Number(e.target.value))
+              }
             />
             <label className="slider-label">Light Direction</label>
             <input
@@ -224,13 +241,13 @@ const ScreenshotModal = ({
             /> */}
 
             <button
-              className="menu-button screenshot-mobile-button"
+              className=" screenshot-mobile-button"
               onClick={() => {
                 // setShowScreenshotModal(false);
                 saveAsImage();
               }}
             >
-              <img src={CameraIcon} alt="camera-icon" className="tw-mx-auto X-Cross-icon" />
+              <img src={CameraIcon} alt="camera-icon" className="tw-mx-auto " />
               {/* SCREENSHOT */}
             </button>
             <button
@@ -241,7 +258,7 @@ const ScreenshotModal = ({
                 updateCamera();
               }}
             >
-              {cameraHeadShot ? 'Focus Body' : 'Focus Head'}
+              {cameraHeadShot ? "Focus Body" : "Focus Head"}
             </button>
           </div>
           <div className="react-color-picker-container">
@@ -249,7 +266,10 @@ const ScreenshotModal = ({
               <label className="background-color-label">Background Color</label>
             </div>
 
-            <CompactPicker color={sceneColor} onChangeComplete={(color) => setSceneColor(color.hex)} />
+            <CompactPicker
+              color={sceneColor}
+              onChangeComplete={(color) => setSceneColor(color.hex)}
+            />
           </div>
         </div>
       </div>
@@ -260,8 +280,8 @@ const ScreenshotModal = ({
 export default ScreenshotModal;
 
 const saveScreenshot = (strData, filename) => {
-  var link = document.createElement('a');
-  if (typeof link.download === 'string') {
+  var link = document.createElement("a");
+  if (typeof link.download === "string") {
     document.body.appendChild(link); //Firefox requires the link to be in the body
     link.download = filename;
     link.href = strData;
