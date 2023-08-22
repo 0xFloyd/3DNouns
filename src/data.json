@@ -667,7 +667,7 @@
     { "name": "Capybara", "trait": "head-capybara", "filePath": "CapybaraHead.glb", "componentName": "CapybaraHead", "color": "0xD56333", "id": "234" },
     { "name": "Couch", "trait": "head-couch", "filePath": "CouchHead.glb", "componentName": "CouchHead", "color": "0xC16923", "id": "235" },
     { "name": "Hanger", "trait": "head-hanger", "filePath": "HangerHead.glb", "componentName": "HangerHead", "color": "0xFFFFFF", "id": "236" },
-    { "name": "Index-Card", "trait": "head-index-card", "filePath": "IndexCardHead.glb", "componentName": "IndexCardHead", "color": "0xFFFFFF", "id": "237" },
+    { "name": "Index-card", "trait": "head-index-card", "filePath": "IndexCardHead.glb", "componentName": "IndexCardHead", "color": "0xFFFFFF", "id": "237" },
     { "name": "Snowman", "trait": "head-snowman", "filePath": "SnowmanHead.glb", "componentName": "SnowmanHead", "color": "0xFFFFFF", "id": "238" },
     {
       "name": "Treasurechest",
@@ -678,7 +678,7 @@
       "id": "239"
     },
     {
-      "name": "Vending-Machine",
+      "name": "Vending-machine",
       "trait": "head-vending-machine",
       "filePath": "VendingMachineHead.glb",
       "componentName": "VendingMachineHead",
@@ -686,13 +686,86 @@
       "id": "240"
     },
     {
-      "name": "Wine-Barrel",
+      "name": "Wine-barrel",
       "trait": "head-wine-barrel",
       "filePath": "WineBarrelHead.glb",
       "componentName": "WineBarrelHead",
       "color": "0x85634F",
       "id": "241"
     },
+
+    {
+      "name": "Bagpack",
+      "trait": "head-backpack",
+      "filePath": "BackpackHead.glb",
+      "componentName": "BackpackHead",
+      "color": "0x909B0E",
+      "id": "242"
+    },
+
+    {
+      "name": "Beanie",
+      "trait": "head-beanie",
+      "filePath": "BeanieHead.glb",
+      "componentName": "BeanieHead",
+      "color": "0xC5030E",
+      "id": "243"
+    },
+
+    {
+      "name": "Beluga",
+      "trait": "head-beluga",
+      "filePath": "BelugaHead.glb",
+      "componentName": "BelugaHead",
+      "color": "0xFFFDF2",
+      "id": "245"
+    },
+
+    {
+      "name": "Cotton-candy",
+      "trait": "head-CottonCandy",
+      "filePath": "CottonCandyHead.glb",
+      "componentName": "CottonCandyHead",
+      "color": "0xFEB9D5",
+      "id": "246"
+    },
+
+    {
+      "name": "Curling-stone",
+      "trait": "head-curling-stone",
+      "filePath": "CurlingStoneHead.glb",
+      "componentName": "CurlingStoneHead",
+      "color": "0x5A6B7B",
+      "id": "249"
+    },
+
+    {
+      "name": "Fax-machine",
+      "trait": "head-fax-machine",
+      "filePath": "FaxMachineHead.glb",
+      "componentName": "FaxMachineHead",
+      "color": "0xC5B9A1",
+      "id": "247"
+    },
+
+    {
+      "name": "Satellite",
+      "trait": "head-satellite",
+      "filePath": "SatelliteHead.glb",
+      "componentName": "SatelliteHead",
+      "color": "0xFFB913",
+      "id": "244"
+    },
+
+    {
+      "name": "Tiger",
+      "trait": "head-tiger",
+      "filePath": "TigerHead.glb",
+      "componentName": "TigerHead",
+      "color": "0xFE500C",
+      "id": "248"
+    },
+
     { "name": "4156", "trait": "head-4156", "filePath": "Head4156.glb", "componentName": "Head4156", "color": "0x352410", "id": "10000" }
   ]
 }
