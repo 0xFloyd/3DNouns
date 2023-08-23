@@ -266,7 +266,10 @@
     { "name": "Ice-Cold", "value": "body-ice-cold.png", "trait": "body-ice-cold", "id": "136" },
     { "name": "Grease", "value": "accessory-grease.png", "trait": "accessory-grease", "id": "137" },
     { "name": "Tatewaku", "value": "accessory-tatewaku.png", "trait": "accessory-tatewaku", "id": "138" },
-    { "name": "Uroko", "value": "accessory-uroko.png", "trait": "accessory-uroko", "id": "139" }
+    { "name": "Uroko", "value": "accessory-uroko.png", "trait": "accessory-uroko", "id": "139" },
+    { "name": "Broken-heart", "value": "accessory-broken-heart.png", "trait": "accessory-broken-heart", "id": "140" },
+    { "name": "Sweater", "value": "accessory-sweater.png", "trait": "accessory-sweater", "id": "141" }
+    
   ],
   "head": [
     { "name": "Aardvark", "trait": "head-aardvark", "filePath": "HeadAardvark.glb", "componentName": "AardvarkHead", "color": "0xE8705B", "id": "0" },
@@ -718,7 +721,7 @@
       "filePath": "BelugaHead.glb",
       "componentName": "BelugaHead",
       "color": "0xFFFDF2",
-      "id": "245"
+      "id": "244"
     },
 
     {
@@ -727,7 +730,7 @@
       "filePath": "CottonCandyHead.glb",
       "componentName": "CottonCandyHead",
       "color": "0xFEB9D5",
-      "id": "246"
+      "id": "245"
     },
 
     {
@@ -736,7 +739,7 @@
       "filePath": "CurlingStoneHead.glb",
       "componentName": "CurlingStoneHead",
       "color": "0x5A6B7B",
-      "id": "249"
+      "id": "246"
     },
 
     {
@@ -754,7 +757,7 @@
       "filePath": "SatelliteHead.glb",
       "componentName": "SatelliteHead",
       "color": "0xFFB913",
-      "id": "244"
+      "id": "248"
     },
 
     {
@@ -763,7 +766,7 @@
       "filePath": "TigerHead.glb",
       "componentName": "TigerHead",
       "color": "0xFE500C",
-      "id": "248"
+      "id": "249"
     },
 
     { "name": "4156", "trait": "head-4156", "filePath": "Head4156.glb", "componentName": "Head4156", "color": "0x352410", "id": "10000" }
