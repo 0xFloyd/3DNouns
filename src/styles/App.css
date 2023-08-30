@@ -104,16 +104,12 @@ body {
   font-size: 1em;
 }
 
-.white-font {
-  color: black;
-}
-
 .attribute-select-box {
   border-radius: 10px;
   display: inline-block;
   overflow: hidden;
-  background: #d63c5e;
-  border: 1px solid #d63c5e;
+  background: #fd3333;
+  border: 1px solid #fd3333;
   color: white;
   padding: 5px;
   cursor: pointer;
@@ -144,7 +140,7 @@ body {
   border: none;
   outline: none;
   color: #fff;
-  background: #d63c5e;
+  background: #fd3333;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -192,14 +188,14 @@ body {
 }
 
 .attribute-select-box > option {
-  background: #d63c5e;
+  background: #fd3333;
   color: white;
   cursor: pointer;
   font-family: 'Londrina Solid';
 }
 
 .attribute-select-box option:hover {
-  background: #d63c5e;
+  background: #fd3333;
   color: white;
   cursor: pointer;
 }
@@ -216,8 +212,8 @@ body {
   border-radius: 10px;
   display: inline-block;
   overflow: hidden;
-  background: #d63c5e;
-  border: 1px solid #d63c5e;
+  background: #fd3333;
+  border: 1px solid #fd3333;
   color: white;
   padding: 8px;
 }
@@ -263,7 +259,7 @@ body {
 }
 
 .toggle:checked {
-  background-color: #d63c5e;
+  background-color: #fd3333;
 }
 
 .toggle:checked:before {
@@ -271,7 +267,7 @@ body {
 }
 
 a {
-  color: #d63c5e;
+  color: #fd3333;
 }
 
 .mobile-show-menu-button {
@@ -282,8 +278,8 @@ a {
   border-radius: 10px;
   display: inline-block;
   overflow: hidden;
-  background: #d63c5e;
-  border: 1px solid #d63c5e;
+  background: #fd3333;
+  border: 1px solid #fd3333;
   color: white;
   padding: 8px;
 }
@@ -411,7 +407,7 @@ a {
 }
 
 .toggle-button {
-  background-color: #747474;
+  background-color: #3c3c3c;
   border: none;
   border-radius: 0px 5px 5px 0px;
   padding: 5px 10px;
@@ -419,19 +415,17 @@ a {
   transition: background-color 0.3s ease;
   margin-left: 0px;
   color:white;
-  /*border: 2px solid black;*/
   border:1px solid rgb(128, 128, 128);
   border-left: none;
   font-size: small;
-  border: 2px solid black;
+  border: 1px solid rgba(0,0,0,0.5);;
   border-left: none;
 }
 
 .toggle-button.active {
-  background-color: #00c7d1;
-  color: black;
-  /*border: 2px solid black;*/
-  border: 2px solid black;
+  background-color: #001db3;
+  color: white;
+  border: px solid #222;
   border-left: none;
 }
 

@@ -120,7 +120,7 @@
   height: 40px;
   line-height: 40px;
   /* text-indent: 20px; */
-  background-color: #d63c5e;
+  background-color: #fd3333;
   /* border-right: 1px solid black; */
   padding-right: 40px;
   -moz-appearance: none;
@@ -140,20 +140,20 @@
 }
 
 .random-trait-icon {
-  color: black;
+  color: #222;
   margin: 0px auto 8px auto;
   transition: transform 0.5s ease-in-out;
 }
 
 .disabled-random-trait-icon {
-  color: black;
+  color: #222;
   font-size: 1em;
   margin: 0px auto 8px auto;
   cursor: wait !important;
 }
 
 .random-trait-icon:hover {
-  color: black;
+  color: #222;
   cursor: pointer;
   transform: rotate(360deg);
 }
@@ -435,10 +435,10 @@ input:checked + .slidertoggle:before {
 }
 
 .download-menu-button {
-  background: #d63c5e;
+  background: #fd3333;
   color:white;
   outline: none;
-  border: 2px solid rgb(0, 0, 0);
+  border: 1px solid rgba(0,0,0,0.5);;
   border-radius: 5px;
   padding: 5px 15px 5px 15px;
   text-align: center;
@@ -446,7 +446,7 @@ input:checked + .slidertoggle:before {
 }
 
 .download-menu-button:hover {
-  background: #d63c5e;
+  background: #fd3333;
   transform: scale(1.1);
 }
 
@@ -466,15 +466,9 @@ input:checked + .slidertoggle:before {
   user-select: none;
   border: 1px solid rgb(128, 128, 128);
   border-radius: 5px;
+
 }
 
-.menu-button:hover {
-  background-color: rgb(225, 225, 225);
-}
-
-.menu-button:focus {
-  background: rgba(255, 255, 255);
-}
 .menu-button-disabled {
   display: inline-block;
   text-align: center;
@@ -482,7 +476,7 @@ input:checked + .slidertoggle:before {
   height: 40px;
   outline: none;
   color: black;
-  background: rgba(255, 255, 255);
+  background: #fd3333;
   position: relative;
   z-index: 0;
   font-size: 1em;
@@ -491,14 +485,9 @@ input:checked + .slidertoggle:before {
   touch-action: manipulation;
   user-select: none;
   cursor: wait !important;
+  text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
 }
 
-.menu-button-disabled:focus {
-  background: rgba(255, 255, 255);
-}
-.menu-button-disabled:hover {
-  background: rgba(255, 255, 255);
-}
 
 .menu-button-options {
   display: inline-block;
@@ -507,14 +496,15 @@ input:checked + .slidertoggle:before {
   height: 40px;
   outline: none;
   color: white;
-  background: #d63c5e;
+  background: #fd3333;
   cursor: pointer;
   position: relative;
   z-index: 0;
   font-size: 1em;
   touch-action: manipulation;
   user-select: none;
-  border: 2px solid black;
+  border: 1px solid rgba(0,0,0,0.5);;
+  text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
   border-radius: 5px;
 }
 
@@ -586,13 +576,13 @@ input:checked + .slidertoggle:before {
   height: 40px;
   outline: none;
   color: black;
-  background: rgb(230, 230, 230);
+  background: rgb(255, 255, 255);
   cursor: pointer;
   z-index: 0;
   font-size: 1.125em;
   touch-action: manipulation;
   user-select: none;
-  border: 1px solid rgb(128, 128, 128);
+  border: 1px solid rgba(0,0,0,0.5);
   border-radius: 5px;
   text-align: center;
   margin-left: 40px;
@@ -653,31 +643,31 @@ input:checked + .slidertoggle:before {
 }
 
 .modal-link {
-  color: #d63c5e;
+  color: #fd3333;
   text-decoration: none;
   font-weight: 700;
   font-family: 'PT Root UI', sans-serif !important;
 }
 
 .modal-link:hover {
-  color: #d63c5e;
+  color: #fd3333;
   text-decoration: underline;
 }
 
 .mint-modal-link {
   font-size: 1.5rem;
-  color: #d63c5e;
+  color: #fd3333;
   text-decoration: none;
 }
 
 .mint-modal-link:hover {
   font-size: 1.5rem;
-  color: #d63c5e;
+  color: #fd3333;
   text-decoration: underline;
 }
 
 .noun-color-h2 {
-  color: #d63c5e;
+  color: #fd3333;
   font-size: 2rem;
 }
 
@@ -751,7 +741,7 @@ input:checked + .slidertoggle:before {
 
 .social-link:hover {
   text-decoration: underline;
-  color: #d63c5e;
+  color: #001db3;
 }
 .twitter-logo {
   margin-bottom: 0px;
@@ -767,12 +757,13 @@ input:checked + .slidertoggle:before {
   height: 40px;
   cursor: pointer;
   margin: 0px;
-  background: #00c7d1;
-  border: 2px solid rgb(0, 0, 0);
+  background: #fd3333;
+  border: 1px solid rgba(0,0,0,0.5);;
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
   /*font-size: 1.25em;*/
   transition: 500ms;
   /*animation: hueRotation 2s linear infinite;*/
@@ -790,14 +781,14 @@ input:checked + .slidertoggle:before {
   cursor: pointer;
   padding: 0px 10px 0px 10px;
   margin: 0px;
-  background: #6dd6d1;
+  background: #7e7e7e;
   border: 2px solid rgb(128, 128, 128);
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
-  color: rgb(51, 51, 51);
-
+  color: rgb(255, 255, 255);
   transition: 250ms;
+  text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
   /*animation: hueRotation 2s linear infinite;*/
   cursor: wait;
 }
@@ -825,12 +816,13 @@ input:checked + .slidertoggle:before {
   padding: 0px 10px 0px 10px;
   height: 40px;
   cursor: pointer;
-  background: white;
-  border: 2px solid rgb(0, 0, 0);
+  background: #001db3;
+  border: 1px solid rgba(0,0,0,0.5);;
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
   margin-right: 40px;
   transition: 500ms;
 }
@@ -846,12 +838,13 @@ input:checked + .slidertoggle:before {
   padding: 0px 10px 0px 10px;
   height: 40px;
   cursor: pointer;
-  background: white;
-  border: 2px solid rgb(0, 0, 0);
+  background:#001db3;
+  border: 1px solid rgba(0,0,0,0.5);;
   border-radius: 5px;
   /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
   margin-right: 40px;
 }
 
@@ -1118,17 +1111,14 @@ input::placeholder {
     text-decoration: none;
   }
 
-  .menu-button:active {
-    background: rgba(255, 255, 255);
-  }
-  .menu-button:hover {
-    background: rgba(255, 255, 255);
-  }
+
+
   .menu-button:focus {
-    background: rgba(225, 225, 225);
+    background: #7e7e7e;
   }
   .menu-button-disabled:hover {
-    background: rgba(225, 225, 225);
+    background: #fd3333;
+    text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
   }
 
   .screenshot-container {
@@ -1210,8 +1200,8 @@ input::placeholder {
     padding: 0px 10px 0px 10px;
     height: 40px;
     cursor: pointer;
-
-    background: #fff;
+    color: white;
+    background: #001db3;
     border: 1px solid rgb(128, 128, 128);
     border-radius: 5px;
     /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
@@ -1226,26 +1216,25 @@ input::placeholder {
     padding: 0px 10px 0px 10px;
     height: 40px;
     cursor: pointer;
-
-    background: #fff;
+    background: #001db3;
     border: 1px solid rgb(128, 128, 128);
     border-radius: 5px;
     /* box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa,
     inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa; */
-    color: rgb(51, 51, 51);
+    color:white;
     touch-action: manipulation;
   }
 }
 
 
 .menu-bottom-dropdown{
-  background-color: #666666;
+  background-color: #3c3c3c;
   color:white;
-  border: 2px solid black;
+  border: 1px solid rgba(0,0,0,0.5);;
 }
 
 .menu-bottom-dropdown:hover{
-  background-color: #7c7c7c;
+  background-color: #3c3c3c;
   color:white;
 }
 
@@ -1254,5 +1243,26 @@ input::placeholder {
 }
 
 .border-select{
-  border: 2px solid black;
+  border: 1px solid rgba(0,0,0,0.5);;
+}
+
+.button-studio{
+background-color: #001db3;
+text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
+}
+
+
+.test-class{
+background-color: #fd3333;
+text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
+}
+
+.font-white{
+  color:white;
+}
+
+.navbar-font{
+font-size: medium;
+text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
+line-height: 2.5rem;
 }

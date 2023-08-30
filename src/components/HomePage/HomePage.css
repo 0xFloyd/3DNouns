@@ -32,17 +32,19 @@
   transform: translate(-50%, -50%);
 }
 
-
 .welcome-container {
   position: relative;
   text-align: center;
   width: 100%;
   height:100px;
-  background-color: rgb(0, 0, 0, 0.5);
+  /*background-color: rgb(0, 0, 0, 0.5);*/
 }
 
 .main-title-homepage {
   color: #ffffff;
+  text-shadow: -6px 5px rgb(0, 0, 0), -8px 7px black, -6px 2px rgb(0, 0, 0), 0 -0px black;
+
+
   /*-webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgb(255, 255, 255);*/
   font-size: XX-large;
@@ -55,15 +57,33 @@
 
 .enter-button {
   padding: 5px 20px 5px 20px;
-  background-color: #d63c5e;
+  background-color: #fd3333;
   color: white;
   border: 2px solid white;
   border-radius: 10px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  text-shadow: -2px 2px rgb(37, 37, 37), -2px 2px rgb(37, 37, 37), -2px 2px rgb(37, 37, 37), 0 -0px rgb(37, 37, 37);
+  transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+	}
+
+	70% {
+		transform: scale(1.15);
+	}
+
+	100% {
+		transform: scale(0.95);
+	}
+  
 }
 
 .enter-button:hover {
-  background-color: #d75672;
+  background-color: #001db3;
 }
 
 .footer-info {
@@ -199,5 +219,18 @@ img.nouns-heart {
 }
 
 .custom-footer-link:hover {
-  color: #d63c5e!important; 
+  color: #001db3!important; 
+}
+
+.section-picture {
+  width: 60%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  margin: auto; /* Center horizontally */
+  position: relative; /* Position for absolute centering */
+  padding: 2rem;
+}
+
+.div-test {
+
+padding: 5rem;
 }

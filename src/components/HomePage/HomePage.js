@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/HomePageLogo.png";
+import SkeletonGif from "../../assets/images/SkeletonNoun.gif";
+import ARGif from "../../assets/images/ARfilterCrop.gif";
 import Section from "./Section";
 import { Col } from "react-bootstrap";
 import classes from "./HomePage.module.css";
 import Accordion from "react-bootstrap/Accordion";
 import Link from "./Link";
 import "./HomePage.css";
-import mobileHeadImage from "../../assets/images/mobile-toun.png";
 import CoralPicture from "../../assets/images/CoralOrcaProfilePicture400.jpg";
 import FloydPicture from "../../assets/images/FloydProfilePicture400.jpg";
-import ThreeDNounsPicture from "../../assets/images/3DnounsProfilePicture.jpg";
 import { isDesktop, isMobile, isTablet } from "react-device-detect";
 import { SiTwitter } from "react-icons/si";
 import nounsArmy from "../../assets/images/ArmyFooterLarge.webp";
 import nounsHeart from "../../assets/images/nounsHeart.gif";
+import nounsArmyAxo from "../../assets/images/ArmyAxo.png";
 import "../../index.css";
 import { BsDiscord } from "react-icons/bs";
 import { useProgress } from "@react-three/drei";
@@ -42,7 +43,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
         <div className="homepage-logo-container">
           <a href="https://3dnouns.com">
             <img
-              className="tw-transition-all hover:tw-scale-110 nouns-logo !tw-select-none"
+              className="tw-transition-all nouns-logo !tw-select-none"
               src={logo}
               alt="NOUNS"
             />
@@ -86,13 +87,14 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   textAlign: "center",
                   color: "#000000",
                   fontSize: "XX-large",
+                  lineHeight: "1.8",
                 }}
               >
-                Open-Source Avatars
+                Open-Source<br></br>3D Avatars
               </h1>
               <p className={classes.genericText}>
-                Experience 3D Nouns – a collection of composable characters that
-                transform{" "}
+                Experience 3D Nouns – a collection of 250 composable characters
+                that transform{" "}
                 <Link
                   text={"NounsDAOs'"}
                   url={"https://nouns.wtf"}
@@ -116,85 +118,112 @@ const HomePage = ({ hidePage, setHidePage }) => {
             </div>
           </div>
 
+          {/* CC0 Assets */}
+
           <div className={classes.headerWrapper}>
-            <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
-              <h1
-                className="tw-mb-12 md:tw-mb-0 special-font-style"
-                style={{
-                  textAlign: "center",
-                  color: "#000000",
-                  fontSize: "XX-large",
-                }}
-              >
-                CC0 Game Assets
-              </h1>
-              <p className={classes.genericText}>
-                All 3D Nouns assets are CC0 and can be used freely. Customize
-                your character, download it as a GLTF file and use it with 3D
-                modeling programs like{" "}
-                <Link
-                  text={"Blender"}
-                  url={"https://www.blender.org/"}
-                  leavesPage={true}
-                />{" "}
-                or game engines like{" "}
-                <Link
-                  text={"Unity"}
-                  url={"https://unity.com/"}
-                  leavesPage={true}
-                />{" "}
-                using this{" "}
-                <Link
-                  text={"tool"}
-                  url={
-                    "https://gist.github.com/sgarcia22/b80f65d33ccfc3e449f46c47ec933c9f"
-                  }
-                  leavesPage={true}
-                  style={{ fontSize: "1.3rem" }}
-                />{" "}
-                .
-              </p>
+            <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32 ">
+              <div>
+                <h1
+                  className="tw-mb-12 md:tw-mb-0 special-font-style"
+                  style={{
+                    textAlign: "center",
+                    color: "#000000",
+                    fontSize: "X-large",
+                  }}
+                >
+                  CC0 Game Assets
+                </h1>
+
+                <img
+                  className=" tw-mb-12 md:tw-mb-0 section-picture"
+                  src={SkeletonGif}
+                />
+              </div>
+              <div className="div-test">
+                <p className={classes.genericText}>
+                  250 CCO assets available for your enjoyement.
+                  <br></br>
+                  <br></br>
+                  Customize your character, animate and download it as a GLTF
+                  file!
+                  <br></br>
+                  <br></br>
+                  You can import it in 3D programs like{" "}
+                  <Link
+                    text={"Blender"}
+                    url={"https://www.blender.org/"}
+                    leavesPage={true}
+                  />{" "}
+                  or game engines like{" "}
+                  <Link
+                    text={"Unity"}
+                    url={"https://unity.com/"}
+                    leavesPage={true}
+                  />{" "}
+                  using this{" "}
+                  <Link
+                    text={"script"}
+                    url={
+                      "https://gist.github.com/sgarcia22/b80f65d33ccfc3e449f46c47ec933c9f"
+                    }
+                    leavesPage={true}
+                    style={{ fontSize: "1.3rem" }}
+                  />{" "}
+                  .
+                </p>
+              </div>
             </div>
           </div>
 
+          {/* AR Filters */}
+
           <div className={classes.headerWrapper}>
             <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
-              <h1
-                className="tw-mb-12 md:tw-mb-0 special-font-style"
-                style={{
-                  textAlign: "center",
-                  color: "#000000",
-                  fontSize: "XX-large",
-                }}
-              >
-                AR Filters
-              </h1>
-              <p className={classes.genericText}>
-                3D Nouns are also available as{" "}
-                <Link
-                  text={"Snapchat"}
-                  url={
-                    "https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw"
-                  }
-                  leavesPage={true}
-                  style={{ fontSize: "1.2rem" }}
+              <div>
+                <h1
+                  className="tw-mb-12 md:tw-mb-0 special-font-style"
+                  style={{
+                    textAlign: "center",
+                    color: "#000000",
+                    fontSize: "X-large",
+                  }}
+                >
+                  AR Filters
+                </h1>
+
+                <img
+                  className=" tw-mb-12 md:tw-mb-0 section-picture"
+                  src={ARGif}
                 />
-                ,{" "}
-                <Link
-                  text={"Instagram"}
-                  url={"https://www.instagram.com/0xcoralorca/"}
-                  leavesPage={true}
-                  style={{ fontSize: "1.2rem" }}
-                />{" "}
-                {` `} and{" "}
-                <Link
-                  text={"Tik Tok"}
-                  url={"https://www.tiktok.com/@0xcoralorca"}
-                  leavesPage={true}
-                  style={{ fontSize: "1.2rem" }}
-                />{" "}
-                {` `} Augmented Reality filters.
-              </p>
+              </div>
+              <div className="div-test">
+                <p className={classes.genericText}>
+                  50+ 3D Nouns heads are also available as{" "}
+                  <Link
+                    text={"Snapchat"}
+                    url={
+                      "https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw"
+                    }
+                    leavesPage={true}
+                    style={{ fontSize: "1.2rem" }}
+                  />
+                  ,{" "}
+                  <Link
+                    text={"Instagram"}
+                    url={"https://www.instagram.com/0xcoralorca/"}
+                    leavesPage={true}
+                    style={{ fontSize: "1.2rem" }}
+                  />{" "}
+                  {` `} and{" "}
+                  <Link
+                    text={"Tik Tok"}
+                    url={"https://www.tiktok.com/@0xcoralorca"}
+                    leavesPage={true}
+                    style={{ fontSize: "1.2rem" }}
+                  />{" "}
+                  {` `} Augmented Reality filters with over 2M plays.
+                </p>
+              </div>
             </div>
           </div>
 

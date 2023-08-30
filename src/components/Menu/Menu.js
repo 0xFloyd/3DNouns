@@ -165,7 +165,7 @@ const Menu = ({
                 className={
                   disabledButtonState
                     ? "screenshot-button-disabled"
-                    : "screenshot-button"
+                    : "screenshot-button" + " button-studio"
                 }
                 onClick={() => {
                   // saveAsImage();
@@ -181,7 +181,7 @@ const Menu = ({
                 disabled={disabledButtonState}
               >
                 {/* <BsCameraFill size={20} color="black" /> */}
-                <p className="special-font-style special-font-menu">STUDIO</p>
+                <p className="special-font-style ">STUDIO</p>
               </button>
 
               {/* <div className="header-randomize-container"> */}
@@ -197,9 +197,7 @@ const Menu = ({
                 }}
                 disabled={disabledButtonState}
               >
-                <p className="special-font-style special-font-menu">
-                  RANDOMIZE
-                </p>
+                <p className="special-font-style ">GENERATE!</p>
               </button>
               {/* </div> */}
 
@@ -327,7 +325,7 @@ const Menu = ({
                 </div>
               </div>
 
-              <div className="inline-option-row special-footer-button download-menu-button">
+              <div className="inline-option-row special-footer-button download-menu-button bg-black">
                 <button
                   onClick={() => {
                     setAnimationState(false);
@@ -337,9 +335,7 @@ const Menu = ({
                     }, 1500);
                   }}
                 >
-                  <p className="special-font-style special-font-menu">
-                    DOWNLOAD NOUN
-                  </p>
+                  <p className="special-font-style"> GET GLTF</p>
                   {downloadingModel && (
                     <Spinner
                       animation="border"
@@ -373,7 +369,7 @@ const Menu = ({
               }}
               disabled={disabledButtonState}
             >
-              <p className="special-font-style"> RANDOMIZE</p>
+              <p className="special-font-style "> GENERATE!</p>
             </button>
             <button
               style={{ marginLeft: "20px", marginRight: "0px" }}
@@ -395,10 +391,10 @@ const Menu = ({
               }}
             >
               {/* <BsCameraFill size={20} color="black" /> */}
-              <p className="special-font-style"> STUDIO </p>
+              <p className="special-font-style "> STUDIO </p>
             </button>
             <button
-              className="screenshot-button"
+              className="screenshot-button bg-white"
               style={{ marginLeft: "20px" }}
               onClick={() => {
                 saveAsImage();
@@ -420,10 +416,10 @@ const Menu = ({
                 setOptionsVisibility("block");
                 hideModals(setShowAboutModal, setShowMintModal);
               }}
-              className="menu-button-options"
+              className="menu-button-options bg-black"
               style={{ marginLeft: "20px" }}
             >
-              <p className="special-font-style"> OPTIONS </p>
+              <p className="special-font-style "> OPTIONS </p>
             </button>
           </div>
         ) : null}
@@ -446,6 +442,7 @@ const Menu = ({
                     setOptionsVisibility("block");
                     hideModals(setShowAboutModal, setShowMintModal);
                   }}
+                  className="special-font-style font-white navbar-font"
                 >
                   Options
                 </Nav.Link>
@@ -454,6 +451,7 @@ const Menu = ({
                     setShowAboutModal(true);
                     setShowMintModal(false);
                   }}
+                  className="special-font-style font-white navbar-font"
                 >
                   About
                 </Nav.Link>
@@ -496,11 +494,13 @@ const Menu = ({
         />
       )}
       {optionsVisibility === "none" && (
-        <div className="tw-flex lg:tw-hidden mobile-footer">
+        <div className="tw-flex lg:tw-hidden mobile-footer ">
           <button
             className={
               // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
-              disabledButtonState ? "menu-button-disabled" : "menu-button"
+              disabledButtonState
+                ? "menu-button-disabled"
+                : "menu-button" + " test-class"
             }
             onClick={() => {
               generateRandomNoun();
@@ -508,14 +508,15 @@ const Menu = ({
             }}
             disabled={disabledButtonState}
           >
-            <p className="special-font-style">RANDOMIZE</p>
+            <p className="special-font-style font-white ">GENERATE!</p>
           </button>
 
           <button
             className={
               disabledButtonState
-                ? "mobile-screenshot-button-disabled"
-                : "mobile-screenshot-button"
+                ? "mobile-screenshot-button-disabled" +
+                  " button-studio-disabled"
+                : "mobile-screenshot-button" + " button-studio"
             }
             onClick={() => {
               // saveAsImage();
@@ -530,7 +531,7 @@ const Menu = ({
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
-            <p className="special-font-style"> STUDIO </p>
+            <p className="special-font-style font-white"> STUDIO </p>
           </button>
           <button
             className="menu-button"

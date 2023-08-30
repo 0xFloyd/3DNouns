@@ -24,7 +24,9 @@ const NounIdInput = ({
       <div className=" tw-flex tw-flex-row tw-justify-between">
         <input
           value={nounID}
-          style={{ border: "2px solid black" }}
+          style={{
+            border: "1px solid rgba(0,0,0,0.5)",
+          }}
           onChange={(e) => setNounId(e.target.value)}
           className="tw-flex-grow tw-mr-2 tw-border tw-border-[#999999] tw-px-2 tw-py-1 tw-rounded-[5px]"
           placeholder="Noun Token ID..."
@@ -32,14 +34,18 @@ const NounIdInput = ({
         />
         <button
           className="tw-bg-white tw-rounded-[5px] tw-border tw-border-[#999999] tw-px-2 hover:tw-cursor-pointer hover:tw-bg-[#E1E1E1]"
-          style={{ border: "2px solid black" }}
+          style={{
+            border: "1px solid rgba(0,0,0,0.5)",
+            background: " #3c3c3c",
+            color: "white",
+          }}
           onClick={() => {
             setGraphqlError("");
             setTriggeredOnce(true);
             setSeed(nounID);
           }}
         >
-          <p className="special-font-style special-font-menu"> SEARCH </p>
+          <p className=""> Search</p>
         </button>
       </div>
       <p className="tw-text-black-600 italic tw-mb-2">
