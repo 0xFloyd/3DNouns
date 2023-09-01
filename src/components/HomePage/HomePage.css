@@ -3,7 +3,6 @@
   top: 0;
   left: 0;
   z-index: 2147483647;
-
   height: 100%;
   width: 100%;
   overflow-y: scroll;
@@ -49,13 +48,39 @@
   margin-right: 5px;
 }
 
+@media (min-width: 768px) and (max-width: 1199px) {
+  .App-logo {
+    min-width: 85px;;
+  }
+}
+/* Responsive styles for screens less than 768px (e.g., mobile devices) */
+@media (max-width: 767px) {
+  .App-logo {
+    min-width: 75px;;
+  }
+}
+
 .main-title-homepage {
   color: #ffffff;
   text-shadow: -6px 5px rgb(0, 0, 0), -8px 7px black, -6px 2px rgb(0, 0, 0), 0 -0px black;
   /*-webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgb(255, 255, 255);*/
-  font-size: X-large;
+  font-size: XX-large;
+  margin-top: 0;
 }
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .main-title-homepage {
+    font-size: 1.5rem;
+  }
+}
+/* Responsive styles for screens less than 768px (e.g., mobile devices) */
+@media (max-width: 767px) {
+  .main-title-homepage {
+    font-size: 1.2rem;
+  }
+}
+
 
 .main-title-homepage::selection {
   background: white;
@@ -164,20 +189,12 @@
 }
 
 @media (max-width: 768px) {
-  .main-title-homepage {
-    color: #ffffff;
-    /*-webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(255, 255, 255);*/
-    font-size: 1.7rem;
-    /*background-color: black;*/
-  }
 
   .header-image {
     width: 100vw;
     height: auto;
     max-height: 80vh;
   }
-
   .homepage-logo-container {
     z-index: 99 !important;
     position: absolute;
@@ -185,11 +202,10 @@
     left: 0;
     width: 25%;
   }
-  
 }
 
-@media (max-width: 992px) {
-}
+
+
 @media (min-width: 992px) {
   .header-image {
     width: 100vw;

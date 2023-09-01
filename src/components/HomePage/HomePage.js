@@ -60,17 +60,17 @@ const HomePage = ({ hidePage, setHidePage }) => {
       style={{ visibility: hidePage ? "hidden" : "visible" }}
     >
       <div className="tw-bg-opacity-30 tw-bg-black !tw-h-[80vh] ">
-        <header className=" text-white sticky top-0 z-10 ">
-          <section className="max-w-6xl mx-auto p-4 flex justify-betweem items-center sticky top-0 ">
-            <a href="https://3dnouns.com">
-              <img className=" App-logo " src={logo} alt="NOUNS" />
-            </a>
+        <header className=" ">
+          <section className="">
+            <div
+              className="div-section-test"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <img className="App-logo" src={logo} alt="3D NOUNS" />
+              <p className="special-font-style main-title-homepage">3D NOUNS</p>
+            </div>
 
-            <h1 className="special-font-style main-title-homepage sticky top-0 ">
-              3D NOUNS
-            </h1>
-
-            <div className="flex ml-auto">
+            <div className="flex ml-auto tw-text-white">
               <button
                 id="mobile-open-button"
                 className="text-3xl sm:hidden focus:outline-none"
@@ -82,15 +82,24 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 className="hidden sm:block space-x-8 text-xl font-large "
                 aria-label="main"
               >
-                <a href="#anchor1" className=" hover:opacity-90">
+                <p
+                  href="#anchor1"
+                  className=" special-font-style hover:opacity-90"
+                >
                   CC0
-                </a>
-                <a href="#anchor2" className=" hover:opacity-90">
+                </p>
+                <p
+                  href="#anchor2"
+                  className=" special-font-style hover:opacity-90"
+                >
                   AR
-                </a>
-                <a href="#anchor3" className=" hover:opacity-90">
+                </p>
+                <p
+                  href="#anchor3"
+                  className=" special-font-style hover:opacity-90"
+                >
                   Game Assets
-                </a>
+                </p>
               </nav>
             </div>
           </section>
