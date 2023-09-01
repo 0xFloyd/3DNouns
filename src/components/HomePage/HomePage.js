@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/HomePageLogo.png";
+
 import SkeletonGif from "../../assets/images/SkeletonNoun.gif";
+import CloudGif from "../../assets/images/CloudNoun.gif";
+import BotGif from "../../assets/images/botNoun.gif";
+import SquidGif from "../../assets/images/SquidNoun.gif";
+import NoodlesGif from "../../assets/images/NoodlesNoun.gif";
+
 import ARGif from "../../assets/images/ARfilterCrop.gif";
 import Section from "./Section";
 import { Col } from "react-bootstrap";
@@ -21,6 +27,20 @@ import { useProgress } from "@react-three/drei";
 import Spinner from "react-bootstrap/Spinner";
 
 const HomePage = ({ hidePage, setHidePage }) => {
+  const gifList = [SkeletonGif, CloudGif, BotGif, SquidGif, NoodlesGif];
+
+  const [currentGifIndex, setCurrentGifIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentGifIndex((prevIndex) =>
+        prevIndex === gifList.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5500); // Swap GIFs every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   const { active, progress, errors, item, loaded, total } = useProgress();
@@ -39,22 +59,42 @@ const HomePage = ({ hidePage, setHidePage }) => {
       className={`homepage-body ${isFadingOut ? "item-fadeout" : ""}`}
       style={{ visibility: hidePage ? "hidden" : "visible" }}
     >
-      <div className="relative header-image tw-bg-opacity-30 tw-bg-black !tw-h-[80vh] -tw-mb-12">
-        <div className="homepage-logo-container">
-          <a href="https://3dnouns.com">
-            <img
-              className="tw-transition-all nouns-logo !tw-select-none"
-              src={logo}
-              alt="NOUNS"
-            />
-          </a>
-        </div>
+      <div className="tw-bg-opacity-30 tw-bg-black !tw-h-[80vh] ">
+        <header className=" text-white sticky top-0 z-10 ">
+          <section className="max-w-6xl mx-auto p-4 flex justify-betweem items-center sticky top-0 ">
+            <a href="https://3dnouns.com">
+              <img className=" App-logo " src={logo} alt="NOUNS" />
+            </a>
 
-        <div className="welcome-container">
-          <p className="tw-text-center main-title-homepage tw-text-8xl special-font-style">
-            3D NOUNS
-          </p>
-        </div>
+            <h1 className="special-font-style main-title-homepage sticky top-0 ">
+              3D NOUNS
+            </h1>
+
+            <div className="flex ml-auto">
+              <button
+                id="mobile-open-button"
+                className="text-3xl sm:hidden focus:outline-none"
+              >
+                &#9776;
+              </button>
+
+              <nav
+                className="hidden sm:block space-x-8 text-xl font-large "
+                aria-label="main"
+              >
+                <a href="#anchor1" className=" hover:opacity-90">
+                  CC0
+                </a>
+                <a href="#anchor2" className=" hover:opacity-90">
+                  AR
+                </a>
+                <a href="#anchor3" className=" hover:opacity-90">
+                  Game Assets
+                </a>
+              </nav>
+            </div>
+          </section>
+        </header>
 
         <div className="enter-container ">
           {
@@ -94,7 +134,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
               </h1>
               <p className={classes.genericText}>
                 Experience 3D Nouns – a collection of 250 composable characters
-                that transform{" "}
+                that turns{" "}
                 <Link
                   text={"NounsDAOs'"}
                   url={"https://nouns.wtf"}
@@ -122,9 +162,9 @@ const HomePage = ({ hidePage, setHidePage }) => {
 
           <div className={classes.headerWrapper}>
             <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32 ">
-              <div>
+              <div className=" div-section-test ">
                 <h1
-                  className="tw-mb-12 md:tw-mb-0 special-font-style"
+                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-py-5"
                   style={{
                     textAlign: "center",
                     color: "#000000",
@@ -136,19 +176,20 @@ const HomePage = ({ hidePage, setHidePage }) => {
 
                 <img
                   className=" tw-mb-12 md:tw-mb-0 section-picture"
-                  src={SkeletonGif}
+                  src={gifList[currentGifIndex]} // Use the current GIF based on the index
+                  alt={`GIF ${currentGifIndex + 1}`}
                 />
               </div>
               <div className="div-test">
                 <p className={classes.genericText}>
-                  250 CCO assets available for your enjoyement.
+                  250 CCO assets available for your enjoyement!
                   <br></br>
                   <br></br>
                   Customize your character, animate and download it as a GLTF
                   file!
                   <br></br>
                   <br></br>
-                  You can import it in 3D programs like{" "}
+                  You can import GLTF files in 3D programs like{" "}
                   <Link
                     text={"Blender"}
                     url={"https://www.blender.org/"}
@@ -179,9 +220,9 @@ const HomePage = ({ hidePage, setHidePage }) => {
 
           <div className={classes.headerWrapper}>
             <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
-              <div>
+              <div className="div-section-test">
                 <h1
-                  className="tw-mb-12 md:tw-mb-0 special-font-style"
+                  className="tw-mb-12 md:tw-mb-0 special-font-style "
                   style={{
                     textAlign: "center",
                     color: "#000000",
@@ -192,13 +233,13 @@ const HomePage = ({ hidePage, setHidePage }) => {
                 </h1>
 
                 <img
-                  className=" tw-mb-12 md:tw-mb-0 section-picture"
+                  className=" tw-mb-12 md:tw-mb-0 section-picture "
                   src={ARGif}
                 />
               </div>
               <div className="div-test">
                 <p className={classes.genericText}>
-                  50+ 3D Nouns heads are also available as{" "}
+                  50+ 3D Nouns heads are available as{" "}
                   <Link
                     text={"Snapchat"}
                     url={
@@ -221,7 +262,17 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     leavesPage={true}
                     style={{ fontSize: "1.2rem" }}
                   />{" "}
-                  {` `} Augmented Reality filters with over 2M plays.
+                  {` `} Augmented Reality filters with over 2M plays!
+                  <br></br>
+                  <br></br>
+                  Create Nounish stories and share them with your friends!
+                  <br></br>
+                  <br></br>
+                  Additionnaly, you can download all blendshapes model to use in
+                  animations.
+                  <br></br>
+                  <br></br>
+                  This was made possible by NounsDAO proposal 182.
                 </p>
               </div>
             </div>
