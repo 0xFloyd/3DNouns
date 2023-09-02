@@ -62,22 +62,45 @@
 
 .main-title-homepage {
   color: #ffffff;
-  text-shadow: -6px 5px rgb(0, 0, 0), -8px 7px black, -6px 2px rgb(0, 0, 0), 0 -0px black;
+  text-shadow: -8px 7px rgb(0, 0, 0), -7px 6px black, -6px 5px rgb(0, 0, 0), -4px 3px black;
   /*-webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgb(255, 255, 255);*/
   font-size: XX-large;
   margin-top: 0;
 }
 
+.main-title-menu {
+  color: #ffffff;
+  text-shadow: -8px 7px rgb(0, 0, 0), -7px 6px black, -6px 5px rgb(0, 0, 0), -4px 3px black;
+  /*-webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);*/
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.main-title-menu:hover{
+  color:#fd3333;
+}
+
 @media (min-width: 768px) and (max-width: 1199px) {
   .main-title-homepage {
     font-size: 1.5rem;
   }
+  .main-title-menu {
+    font-size: 1rem;
+  }
 }
 /* Responsive styles for screens less than 768px (e.g., mobile devices) */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .main-title-homepage {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+  .main-title-menu {
+    font-size: 0.7rem;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
 
@@ -235,13 +258,14 @@ img.nouns-heart {
 }
 
 .section-picture {
-  width: 60%; /* Make the image responsive */
+  width: 70%; /* Make the image responsive */
   height: auto; /* Maintain aspect ratio */
-  margin: auto; /* Center horizontally */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  margin-top: 1rem;
   display: flex;
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
-  padding: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -270,6 +294,12 @@ img.nouns-heart {
     width: 80%; 
     padding: 1rem;
     }
+}
+
+.homepage-text-block{
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
 }
 
 .div-test {

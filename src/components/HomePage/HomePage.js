@@ -19,6 +19,7 @@ import FloydPicture from "../../assets/images/FloydProfilePicture400.jpg";
 import { isDesktop, isMobile, isTablet } from "react-device-detect";
 import { SiTwitter } from "react-icons/si";
 import nounsArmy from "../../assets/images/ArmyFooterLarge.webp";
+import Axo from "../../assets/images/Axo.jpg";
 import nounsHeart from "../../assets/images/nounsHeart.gif";
 import nounsArmyAxo from "../../assets/images/ArmyAxo.png";
 import "../../index.css";
@@ -56,51 +57,54 @@ const HomePage = ({ hidePage, setHidePage }) => {
 
   return (
     <div
-      className={`homepage-body ${isFadingOut ? "item-fadeout" : ""}`}
+      className={
+        `homepage-body ${isFadingOut ? "item-fadeout" : ""}` +
+        " tw-scroll-smooth"
+      }
       style={{ visibility: hidePage ? "hidden" : "visible" }}
     >
       <div className="tw-bg-opacity-30 tw-bg-black !tw-h-[80vh] ">
-        <header className=" ">
-          <section className="">
+        <header>
+          <section>
             <div
               className="div-section-test"
               style={{ display: "flex", alignItems: "center" }}
             >
               <img className="App-logo" src={logo} alt="3D NOUNS" />
               <p className="special-font-style main-title-homepage">3D NOUNS</p>
-            </div>
 
-            <div className="flex ml-auto tw-text-white">
-              <button
-                id="mobile-open-button"
-                className="text-3xl sm:hidden focus:outline-none"
-              >
-                &#9776;
-              </button>
+              <div className="tw-flex-grow" />
 
-              <nav
-                className="hidden sm:block space-x-8 text-xl font-large "
-                aria-label="main"
-              >
-                <p
-                  href="#anchor1"
-                  className=" special-font-style hover:opacity-90"
+              <div>
+                <nav
+                  aria-label="main"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginRight: "2rem",
+                  }}
                 >
-                  CC0
-                </p>
-                <p
-                  href="#anchor2"
-                  className=" special-font-style hover:opacity-90"
-                >
-                  AR
-                </p>
-                <p
-                  href="#anchor3"
-                  className=" special-font-style hover:opacity-90"
-                >
-                  Game Assets
-                </p>
-              </nav>
+                  <a
+                    href="#CC0"
+                    className="special-font-style main-title-menu hover:opacity-90 "
+                  >
+                    CC0
+                  </a>
+                  <a
+                    href="#Assets"
+                    className="special-font-style main-title-menu hover:opacity-90 "
+                  >
+                    Assets
+                  </a>
+                  <a
+                    href="#AR"
+                    className="special-font-style main-title-menu hover:opacity-90 "
+                  >
+                    AR
+                  </a>
+                </nav>
+              </div>
             </div>
           </section>
         </header>
@@ -130,40 +134,51 @@ const HomePage = ({ hidePage, setHidePage }) => {
         <Col lg={{ span: 10, offset: 1 }}>
           <div className={classes.headerWrapper}>
             <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
-              <h1
-                className="tw-mb-12 md:tw-mb-0 special-font-style"
-                style={{
-                  textAlign: "center",
-                  color: "#000000",
-                  fontSize: "XX-large",
-                  lineHeight: "1.8",
-                }}
-              >
-                Open-Source<br></br>3D Avatars
-              </h1>
-              <p className={classes.genericText}>
-                Experience 3D Nouns – a collection of 250 composable characters
-                that turns{" "}
-                <Link
-                  text={"NounsDAOs'"}
-                  url={"https://nouns.wtf"}
-                  leavesPage={true}
-                />{" "}
-                pixel art into dynamic 3D avatars.
-                <br></br>
-                <br></br>
-                Step into the generator and unleash your creativity with endless
-                combinations, bringing Nouns to life like never before!
-                <br></br>
-                <br></br>
-                As the first NounsDAO community proposal, 3D Nouns received
-                enthusiastic support and secured funding under{" "}
-                <Link
-                  text={"Proposal #2."}
-                  url={"https://nouns.wtf/vote/2"}
-                  leavesPage={true}
+              <div className=" div-section-test ">
+                <h1
+                  id="CC0"
+                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-scroll-mt-10"
+                  style={{
+                    textAlign: "center",
+                    color: "#000000",
+                    fontSize: "X-large",
+                    lineHeight: "1.8",
+                  }}
+                >
+                  Open-Source<br></br>3D Avatars
+                </h1>
+
+                <img
+                  className=" tw-mb-12 md:tw-mb-0 section-picture "
+                  src={Axo}
                 />
-              </p>
+              </div>
+              <div className=" homepage-text-block">
+                <p className={classes.genericText}>
+                  Experience 3D Nouns – a collection of 250 composable
+                  characters that turns{" "}
+                  <Link
+                    text={"NounsDAOs'"}
+                    url={"https://nouns.wtf"}
+                    leavesPage={true}
+                  />{" "}
+                  pixel art into dynamic 3D avatars.
+                  <br></br>
+                  <br></br>
+                  Step into the generator and unleash your creativity with
+                  endless combinations, bringing Nouns to life like never
+                  before!
+                  <br></br>
+                  <br></br>
+                  As the first NounsDAO community proposal, 3D Nouns received
+                  enthusiastic support and secured funding under{" "}
+                  <Link
+                    text={"Proposal #2."}
+                    url={"https://nouns.wtf/vote/2"}
+                    leavesPage={true}
+                  />
+                </p>
+              </div>
             </div>
           </div>
 
@@ -173,7 +188,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
             <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32 ">
               <div className=" div-section-test ">
                 <h1
-                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-py-5"
+                  id="Assets"
+                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-py-5 tw-scroll-mt-10"
                   style={{
                     textAlign: "center",
                     color: "#000000",
@@ -189,9 +205,9 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   alt={`GIF ${currentGifIndex + 1}`}
                 />
               </div>
-              <div className="div-test">
+              <div className=" homepage-text-block">
                 <p className={classes.genericText}>
-                  250 CCO assets available for your enjoyement!
+                  There are 250 CCO assets available for your enjoyement!
                   <br></br>
                   <br></br>
                   Customize your character, animate and download it as a GLTF
@@ -219,7 +235,10 @@ const HomePage = ({ hidePage, setHidePage }) => {
                     leavesPage={true}
                     style={{ fontSize: "1.3rem" }}
                   />{" "}
-                  .
+                  .<br></br>
+                  <br></br>
+                  You can consider 3D printing them by converting the GLTF to
+                  FBX with Blender and then to a STL file suitable for printing.
                 </p>
               </div>
             </div>
@@ -231,7 +250,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
             <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
               <div className="div-section-test">
                 <h1
-                  className="tw-mb-12 md:tw-mb-0 special-font-style "
+                  id="AR"
+                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-py-5 tw-scroll-mt-10"
                   style={{
                     textAlign: "center",
                     color: "#000000",
@@ -246,9 +266,9 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   src={ARGif}
                 />
               </div>
-              <div className="div-test">
+              <div className=" homepage-text-block">
                 <p className={classes.genericText}>
-                  50+ 3D Nouns heads are available as{" "}
+                  50+ 3D Nouns heads are also available as{" "}
                   <Link
                     text={"Snapchat"}
                     url={
@@ -277,11 +297,22 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   Create Nounish stories and share them with your friends!
                   <br></br>
                   <br></br>
-                  Additionnaly, you can download all blendshapes model to use in
-                  animations.
+                  Additionnaly, you can download all blendshapes model{" "}
+                  <Link
+                    text={"here"}
+                    url={"https://www.tiktok.com/@0xcoralorca"}
+                    leavesPage={true}
+                    style={{ fontSize: "1.2rem" }}
+                  />{" "}
+                  to use in animations or games.
                   <br></br>
                   <br></br>
-                  This was made possible by NounsDAO proposal 182.
+                  This was made possible thanks to NounsDAO's{" "}
+                  <Link
+                    text={"Proposal #182."}
+                    url={"https://nouns.wtf/vote/182"}
+                    leavesPage={true}
+                  />
                 </p>
               </div>
             </div>
