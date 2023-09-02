@@ -628,7 +628,7 @@ input:checked + .slidertoggle:before {
   right: 25%;
   width: 50vw;
   max-height: 75vh;
-  background-color: rgb(255, 255, 255);
+  background-color: #121212;
   font-size: 1rem;
   border-radius: 10px;
   padding: 50px;
@@ -643,14 +643,14 @@ input:checked + .slidertoggle:before {
 }
 
 .modal-link {
-  color: #fd3333;
+  color: #328efd;
   text-decoration: none;
   font-weight: 700;
   font-family: 'PT Root UI', sans-serif !important;
 }
 
 .modal-link:hover {
-  color: #fd3333;
+  
   text-decoration: underline;
 }
 
@@ -728,14 +728,17 @@ input:checked + .slidertoggle:before {
 
 .bio-header {
   text-align: center;
-  font-size: medium;
-  margin-top: 5px;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color:#b8bcc5;
 }
 
 .social-link {
   font-size: 1.2rem;
-  color: black;
+  color: white;
   padding: 5px;
+  margin-left:1rem;
+  margin-right: 1rem;
   text-decoration: none;
 }
 
@@ -963,7 +966,7 @@ input::placeholder {
     right: 6.25%;
     width: 87.5vw;
     max-height: 65vh;
-    background-color: white;
+    background-color: #121212;
     font-size: 1rem;
     border-radius: 10px;
     padding: 50px;
@@ -1104,12 +1107,6 @@ input::placeholder {
     padding: 10px;
   }
 
-  .social-link {
-    font-size: 1.1rem;
-    color: black;
-    padding: 5px;
-    text-decoration: none;
-  }
 
 
 
@@ -1265,4 +1262,8 @@ text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px
 font-size: medium;
 text-shadow: -3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black;
 line-height: 2.5rem;
+}
+
+.info-text{
+  color:#e3e4e7;
 }

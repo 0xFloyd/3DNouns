@@ -74,14 +74,14 @@
   text-shadow: -8px 7px rgb(0, 0, 0), -7px 6px black, -6px 5px rgb(0, 0, 0), -4px 3px black;
   /*-webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgb(255, 255, 255);*/
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-top: 0;
   margin-right: 20px;
   margin-left: 20px;
 }
 
 .main-title-menu:hover{
-  color:#fd3333;
+  color:#328efd;
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -98,7 +98,7 @@
     font-size: 1rem;
   }
   .main-title-menu {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     margin-right: 10px;
     margin-left: 10px;
   }
@@ -143,7 +143,7 @@
 .footer-info {
   width: 100vw;
   height: 15vh;
-  background-color: black;
+  background-color: #121212;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -300,7 +300,17 @@ img.nouns-heart {
   display: flex;
   align-items: center; /* Vertical centering */
   justify-content: center; /* Horizontal centering */
+  color:#e3e4e7;
+  transform: translateY(2rem);
 }
+
+@media (max-width: 768px) {
+  .homepage-text-block{
+    transform: translateY(0.2rem);
+    }
+}
+
+
 
 .div-test {
 padding-top: 5rem;
@@ -321,3 +331,23 @@ padding-right:1rem;
 }
 */
 
+
+.top-title-style{
+  text-shadow: -6px 5px rgb(0, 0, 0), -5px 4px black, -4px 3px rgb(0, 0, 0), -3px 2px black;
+  font-size: 3rem;
+  letter-spacing: .2rem;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .top-title-style {
+    font-size: 2.3rem;
+  }
+
+}
+/* Responsive styles for screens less than 768px (e.g., mobile devices) */
+@media (max-width: 768px) {
+  .top-title-style {
+    font-size: 1.8rem;
+  }
+
+}

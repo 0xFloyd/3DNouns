@@ -325,7 +325,10 @@ const Menu = ({
                 </div>
               </div>
 
-              <div className="inline-option-row special-footer-button download-menu-button bg-black">
+              <div
+                className="inline-option-row special-footer-button download-menu-button"
+                style={{ background: "#121212" }}
+              >
                 <button
                   onClick={() => {
                     setAnimationState(false);
@@ -416,8 +419,8 @@ const Menu = ({
                 setOptionsVisibility("block");
                 hideModals(setShowAboutModal, setShowMintModal);
               }}
-              className="menu-button-options bg-black"
-              style={{ marginLeft: "20px" }}
+              className="menu-button-options "
+              style={{ marginLeft: "20px", background: "#121212" }}
             >
               <p className="special-font-style "> OPTIONS </p>
             </button>

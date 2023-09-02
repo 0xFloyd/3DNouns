@@ -63,7 +63,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
       }
       style={{ visibility: hidePage ? "hidden" : "visible" }}
     >
-      <div className="tw-bg-opacity-30 tw-bg-black !tw-h-[80vh] ">
+      <div className="tw-bg-opacity-30 tw-bg-black !tw-h-[75vh] ">
         <header>
           <section>
             <div
@@ -130,24 +130,28 @@ const HomePage = ({ hidePage, setHidePage }) => {
 
       {/* <Section fullWidth={false}> */}
 
-      <div className="tw-pt-8 lg:tw-pt-16  tw-bg-white">
+      <div
+        className="tw-pt-8 lg:tw-pt-10"
+        style={{
+          background: "#121212",
+        }}
+      >
         <Col lg={{ span: 10, offset: 1 }}>
           <div className={classes.headerWrapper}>
+            <h1
+              id="CC0"
+              className="tw-mb-12 md:tw-mb-0 special-font-style tw-scroll-mt-10 top-title-style"
+              style={{
+                textAlign: "center",
+                lineHeight: "1.8",
+                marginBottom: "1rem",
+                color: "white",
+              }}
+            >
+              OPEN-SOURCE 3D AVATARS
+            </h1>
             <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
               <div className=" div-section-test ">
-                <h1
-                  id="CC0"
-                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-scroll-mt-10"
-                  style={{
-                    textAlign: "center",
-                    color: "#000000",
-                    fontSize: "X-large",
-                    lineHeight: "1.8",
-                  }}
-                >
-                  Open-Source<br></br>3D Avatars
-                </h1>
-
                 <img
                   className=" tw-mb-12 md:tw-mb-0 section-picture "
                   src={Axo}
@@ -189,11 +193,11 @@ const HomePage = ({ hidePage, setHidePage }) => {
               <div className=" div-section-test ">
                 <h1
                   id="Assets"
-                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-py-5 tw-scroll-mt-10"
+                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-py-5 tw-scroll-mt-10  top-title-style"
                   style={{
                     textAlign: "center",
-                    color: "#000000",
-                    fontSize: "X-large",
+                    color: "white",
+                    fontSize: "XX-large",
                   }}
                 >
                   CC0 Game Assets
@@ -208,10 +212,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
               <div className=" homepage-text-block">
                 <p className={classes.genericText}>
                   There are 250 CCO assets available for your enjoyement!
-                  <br></br>
-                  <br></br>
                   Customize your character, animate and download it as a GLTF
-                  file!
+                  file.
                   <br></br>
                   <br></br>
                   You can import GLTF files in 3D programs like{" "}
@@ -251,11 +253,11 @@ const HomePage = ({ hidePage, setHidePage }) => {
               <div className="div-section-test">
                 <h1
                   id="AR"
-                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-py-5 tw-scroll-mt-10"
+                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-py-5 tw-scroll-mt-10 top-title-style"
                   style={{
                     textAlign: "center",
-                    color: "#000000",
-                    fontSize: "X-large",
+                    color: "white",
+                    fontSize: "XX-large",
                   }}
                 >
                   AR Filters
@@ -297,7 +299,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   Create Nounish stories and share them with your friends!
                   <br></br>
                   <br></br>
-                  Additionnaly, you can download all blendshapes model{" "}
+                  Additionnaly, you can download all blendshapes FBX models{" "}
                   <Link
                     text={"here"}
                     url={"https://www.tiktok.com/@0xcoralorca"}

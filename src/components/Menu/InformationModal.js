@@ -6,12 +6,12 @@ import CrossIcon from "../../assets/images/XcrossIcon.svg";
 
 const InformationModal = (props) => {
   return (
-    <div className="modal-box-popup">
+    <div className="modal-box-popup ">
       <div>
         <h1
           className="tw-text-4xl tw-mb-4 special-font-style"
           style={{
-            color: "#fd3333",
+            color: "white",
             textAlign: "center",
             textShadow:
               "-3px 3px rgb(0, 0, 0), -2px 2px black, 0px 1px rgb(0, 0, 0), 0 -0px black",
@@ -20,7 +20,7 @@ const InformationModal = (props) => {
           3D Nouns{" "}
         </h1>
         <br></br>
-        <h5 className="tw-text-justify tw-px-6 ">
+        <h5 className="tw-text-justify tw-px-6 info-text">
           Experience 3D Nouns – a collection of composable characters that
           transform{" "}
           <a href="https://nouns.wtf" target="_blank" className="modal-link">
@@ -30,7 +30,7 @@ const InformationModal = (props) => {
         </h5>
         <br></br>
 
-        <h5 className="tw-text-justify tw-px-6">
+        <h5 className="tw-text-justify tw-px-6 info-text">
           As the first NounsDAO community proposal, 3D Nouns received
           enthusiastic support and secured funding under{" "}
           <a
@@ -42,7 +42,7 @@ const InformationModal = (props) => {
           </a>
         </h5>
         <br></br>
-        <h5 className="tw-text-justify tw-px-6">
+        <h5 className="tw-text-justify tw-px-6 info-text">
           Step into the generator and unleash your creativity with endless
           combinations, bringing Nouns to life like never before!
         </h5>
@@ -86,33 +86,13 @@ const InformationModal = (props) => {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: "50px" }}>
-        <div className="profile-individual-section">
-          {" "}
-          <div className="tw-flex tw-flex-row tw-items-center">
-            <SiTwitter
-              className="twitter-logo"
-              size={props.isDesktop ? 30 : 25}
-              color="#1DA1F2"
-            />
-            <a
-              className="social-link special-font-style"
-              href="https://twitter.com/3dnouns"
-              target="_blank"
-            >
-              3D Nouns Twitter
-            </a>
-          </div>
-        </div>
-        <div className="profile-individual-section"></div>
-      </div>
 
-      <div className="modal-footer-container">
+      <div className="modal-footer-container ">
         <button
-          className="modal-closer"
+          className="modal-closer tw-m-5 "
           onClick={() => props.setShowAboutModal(false)}
         >
-          <img src={CrossIcon} alt="x-icon" className="X-Cross-icon" />
+          <img src={CrossIcon} alt="x-icon" className="X-Cross-icon " />
         </button>
       </div>
     </div>
