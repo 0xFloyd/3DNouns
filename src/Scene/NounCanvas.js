@@ -155,7 +155,7 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
           ref={cameraRef}
           position={[-20, 40, 70]}
           near={0.1}
-          far={1500}
+          far={2000}
         />
         <Lighting environmentParam={environment} />
         <OrbitControls
@@ -164,9 +164,9 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
           autoRotate={JSON.parse(autoRotate)}
           enablePan={false}
           enableDamping={true}
-          maxPolarAngle={Math.PI / 1.85}
-          maxDistance={550}
-          minDistance={25}
+          maxPolarAngle={Math.PI / 1.75}
+          maxDistance={150}
+          minDistance={30}
           //Mouse Orbiting
           // maxDistance={90}150
           //maxPolarAngle={Math.PI / 1.85}

@@ -6,6 +6,7 @@ import * as THREE from "three";
 import City from "./City";
 import BlockPark from "./BlockPark";
 import BlockTNS from "./BlockTNS";
+import BlockPH from "./BlockPH";
 
 const NormalEnvironment = ({ environment }) => {
   const SPEED = isMobile ? 1 : 1.5;
@@ -98,6 +99,7 @@ const NormalEnvironment = ({ environment }) => {
       <City environment={environment} />
       <BlockPark environment={environment} />
       <BlockTNS environment={environment} />
+      <BlockPH environment={environment} />
       {environment === "Normal" || environment === "Matrix" ? (
         <>
           {truck && truck.nodes && truck.materials && (
@@ -107,7 +109,7 @@ const NormalEnvironment = ({ environment }) => {
                 receiveShadow
                 geometry={truck.nodes.Oren_1117.geometry}
                 material={truck.materials.truck_material}
-                position={[-450, -4, -127]}
+                position={[-450, -4, -145]}
                 rotation={[Math.PI / 2, 0, 0]}
                 scale={[3, 3, 3]}
               />
@@ -120,7 +122,7 @@ const NormalEnvironment = ({ environment }) => {
                 receiveShadow
                 geometry={taxi.nodes.Oren_1113.geometry}
                 material={taxi.materials.cab_material}
-                position={[100, -4, -60]}
+                position={[100, -4, -65]}
                 rotation={[Math.PI / 2, 0, 0]}
                 scale={[3, 3, 3]}
               />

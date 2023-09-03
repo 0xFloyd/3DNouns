@@ -12,10 +12,10 @@ const BlockPark = ({ environment }) => {
             castShadow
             receiveShadow
             geometry={nodes.Block_Park.geometry}
-            material={materials.Block_Park_material}
-            position={[0, 0, 0]}
+            material={materials.Block_Park_material1}
+            position={[70, 0, 0]}
             rotation={[Math.PI / 2, 0, 0]}
-            scale={3}
+            scale={3.5}
           />
         </group>
       ) : null}

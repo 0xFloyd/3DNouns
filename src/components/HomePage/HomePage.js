@@ -6,6 +6,9 @@ import CloudGif from "../../assets/images/CloudNoun.gif";
 import BotGif from "../../assets/images/botNoun.gif";
 import SquidGif from "../../assets/images/SquidNoun.gif";
 import NoodlesGif from "../../assets/images/NoodlesNoun.gif";
+import DinoGif from "../../assets/images/dinoNoun.gif";
+import BonzaiGif from "../../assets/images/BonzaiNoun.gif";
+import SandwichGif from "../../assets/images/nounSandwich.gif";
 
 import ARGif from "../../assets/images/ARfilterCrop.gif";
 import Section from "./Section";
@@ -29,7 +32,16 @@ import Spinner from "react-bootstrap/Spinner";
 import TweetEmbed from "./TwitterEmbed";
 
 const HomePage = ({ hidePage, setHidePage }) => {
-  const gifList = [SkeletonGif, CloudGif, BotGif, SquidGif, NoodlesGif];
+  const gifList = [
+    SkeletonGif,
+    CloudGif,
+    BotGif,
+    SquidGif,
+    NoodlesGif,
+    DinoGif,
+    BonzaiGif,
+    SandwichGif,
+  ];
 
   const [currentGifIndex, setCurrentGifIndex] = useState(0);
 

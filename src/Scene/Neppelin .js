@@ -12,11 +12,11 @@ const Neppelin = ({ environment }) => {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Box_143.geometry}
+            geometry={nodes.Neppelin.geometry}
             material={materials.Neppelin_material}
-            position={[0, 150, 900]}
-            rotation={[0, 0, 0]}
-            scale={100}
+            position={[0, 0, 200]}
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={3.5}
           />
         </group>
       ) : null}
