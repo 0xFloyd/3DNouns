@@ -15,7 +15,7 @@ import data from "../data.json";
 import NounHolder from "Scene/NounHolder";
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter.js";
 import { isDesktop } from "react-device-detect";
-import ThreeDLogo from "Scene/ThreeDNounsLogo";
+import Neppelin from "Scene/Neppelin ";
 import "../styles/ProgressLoader.css";
 import Menu from "components/Menu/Menu";
 import { saveArrayBuffer, saveScreenshot, saveString } from "utils/utils";
@@ -165,12 +165,15 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
           enablePan={false}
           enableDamping={true}
           maxPolarAngle={Math.PI / 1.85}
-          maxDistance={90}
-          minDistance={20}
+          maxDistance={550}
+          minDistance={25}
+          //Mouse Orbiting
+          // maxDistance={90}150
+          //maxPolarAngle={Math.PI / 1.85}
         />
         <Suspense fallback={null}>
           <NormalEnvironment environment={environment} />
-          <ThreeDLogo environment={environment} />
+          <Neppelin environment={environment} />
         </Suspense>
         {active || !loaded ? (
           <Html center>

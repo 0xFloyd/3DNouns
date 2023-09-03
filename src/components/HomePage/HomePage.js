@@ -21,11 +21,12 @@ import { SiTwitter } from "react-icons/si";
 import nounsArmy from "../../assets/images/ArmyFooterLarge.webp";
 import Axo from "../../assets/images/Axo.jpg";
 import nounsHeart from "../../assets/images/nounsHeart.gif";
-import nounsArmyAxo from "../../assets/images/ArmyAxo.png";
 import "../../index.css";
 import { BsDiscord } from "react-icons/bs";
 import { useProgress } from "@react-three/drei";
 import Spinner from "react-bootstrap/Spinner";
+
+import TweetEmbed from "./TwitterEmbed";
 
 const HomePage = ({ hidePage, setHidePage }) => {
   const gifList = [SkeletonGif, CloudGif, BotGif, SquidGif, NoodlesGif];
@@ -319,6 +320,18 @@ const HomePage = ({ hidePage, setHidePage }) => {
               </div>
             </div>
           </div>
+
+          <ul className="tw-flex tw-flex-row tw-list-none tw-mx-auto tw-items-center tw-gap-8 ul-twitter tw-mb-24">
+            <li className=" tw-flex tw-flex-row tw-items-center">
+              <TweetEmbed tweetId="1410600358317936640" />
+            </li>
+            <li className=" tw-flex tw-flex-row tw-items-center">
+              <TweetEmbed tweetId="1454023001784020994" />
+            </li>
+            <li className=" tw-flex tw-flex-row tw-items-center">
+              <TweetEmbed tweetId="1460203270199123975" />
+            </li>
+          </ul>
 
           <div className="profile-section-creators">
             <div className="profile-individual-section">

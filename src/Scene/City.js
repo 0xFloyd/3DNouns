@@ -1,20 +1,20 @@
-import { useGLTF } from '@react-three/drei';
-import React from 'react';
+import { useGLTF } from "@react-three/drei";
+import React from "react";
 
 const City = ({ environment }) => {
-  const { nodes, materials } = useGLTF('/world/buildings.glb');
+  const { nodes, materials } = useGLTF("/world/Block_OG.glb");
   return (
     <>
-      {environment === 'Normal' || environment === 'Matrix' ? (
+      {environment === "Normal" || environment === "Matrix" ? (
         <group dispose={null}>
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Union.geometry}
-            material={materials.streetBuildings_material}
-            position={[-1250, 0, -450]}
+            geometry={nodes.Block_OG.geometry}
+            material={materials.Block_OG_material}
+            position={[0, 0, 0]}
             rotation={[Math.PI / 2, 0, 0]}
-            scale={4}
+            scale={3}
           />
         </group>
       ) : null}

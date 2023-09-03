@@ -310,6 +310,21 @@ img.nouns-heart {
     }
 }
 
+.ul-twitter{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+
+}
+
+/* Media query for small screens (adjust the max-width as needed) */
+@media (max-width: 768px) {
+  .ul-twitter{
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 
 .div-test {

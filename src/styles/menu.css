@@ -737,8 +737,8 @@ input:checked + .slidertoggle:before {
   font-size: 1.2rem;
   color: white;
   padding: 5px;
-  margin-left:1rem;
-  margin-right: 1rem;
+  margin-left:0.5rem;
+  margin-right: 0.5rem;
   text-decoration: none;
 }
 

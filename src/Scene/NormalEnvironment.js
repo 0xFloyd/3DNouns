@@ -1,21 +1,17 @@
-import { Sky, Stars, useGLTF, useProgress } from '@react-three/drei';
-import { useFrame, useLoader } from '@react-three/fiber';
-import React, { useEffect, useRef, useState } from 'react';
-import { isMobile } from 'react-device-detect';
-import * as THREE from 'three';
-import City from './City';
-import Street from './Street';
+import { Sky, Stars, useGLTF, useProgress } from "@react-three/drei";
+import { useFrame, useLoader } from "@react-three/fiber";
+import React, { useEffect, useRef, useState } from "react";
+import { isMobile } from "react-device-detect";
+import * as THREE from "three";
+import City from "./City";
+import BlockPark from "./BlockPark";
+import BlockTNS from "./BlockTNS";
 
 const NormalEnvironment = ({ environment }) => {
-  // color="#101010"
-  // transparent
-  // depthWrite={false}
+  const SPEED = isMobile ? 1 : 1.5;
 
-  // const { nodes, materials } = useGLTF('/world/voxelworld.glb');
-  const SPEED = isMobile ? 1.5 : 0.5;
-
-  const truck = useGLTF('/world/cocatruck.glb');
-  const taxi = useGLTF('/world/taxi.glb');
+  const truck = useGLTF("/world/cocatruck.glb");
+  const taxi = useGLTF("/world/taxi.glb");
 
   const truckRef = useRef();
   const taxiRef = useRef();
@@ -63,23 +59,12 @@ const NormalEnvironment = ({ environment }) => {
   };
 
   const Ground = () => {
-    // const texture_1 = useLoader(
-    //   THREE.TextureLoader,
-    //   '/textures/world/grass2.png'
-    // );
-    // texture_1.wrapS = texture_1.wrapT = THREE.RepeatWrapping;
-    // texture_1.repeat.set(32, 32);
-    // texture_1.anisotropy = 64;
-    // texture_1.encoding = THREE.sRGBEncoding;
-
     return (
-      <mesh
-        receiveShadow
-        position={[32, -1, 0]}
-        rotation={[0, Math.PI / 2, 0]}
-      >
+      <mesh receiveShadow position={[32, -1, 0]} rotation={[0, Math.PI / 2, 0]}>
         <cylinderBufferGeometry args={[2000, 2000, 2, 32]} />
-        <meshStandardMaterial color={new THREE.Color(0x404040).convertSRGBToLinear()} />
+        <meshStandardMaterial
+          color={new THREE.Color(0x404040).convertSRGBToLinear()}
+        />
       </mesh>
     );
   };
@@ -88,31 +73,19 @@ const NormalEnvironment = ({ environment }) => {
 
   return (
     <>
-      {environment === 'Normal' || environment === 'VoidDay' ? (
-        <fog
-          attach="fog"
-          args={[new THREE.Color(0xffffff), 1, 2500]}
-        />
+      {environment === "Normal" || environment === "VoidDay" ? (
+        <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 2500]} />
       ) : null}
-      {environment === 'Matrix' ? (
-        <fog
-          attach="fog"
-          args={[new THREE.Color(0x181818), 1, 2500]}
-        />
+      {environment === "Matrix" ? (
+        <fog attach="fog" args={[new THREE.Color(0x181818), 1, 2500]} />
       ) : null}
-      {environment === 'VoidNight' ? (
-        <fog
-          attach="fog"
-          args={[new THREE.Color(0x181818), 1, 1000]}
-        />
+      {environment === "VoidNight" ? (
+        <fog attach="fog" args={[new THREE.Color(0x181818), 1, 1000]} />
       ) : null}
-      {loaded && (environment === 'Matrix' || environment === 'VoidNight') ? (
-        <color
-          attach="background"
-          args={[0x181818]}
-        />
+      {loaded && (environment === "Matrix" || environment === "VoidNight") ? (
+        <color attach="background" args={[0x181818]} />
       ) : null}
-      {loaded && (environment === 'Normal' || environment === 'VoidDay') ? (
+      {loaded && (environment === "Normal" || environment === "VoidDay") ? (
         <Sky
           azimuth={0.5}
           turbidity={7.5}
@@ -123,38 +96,31 @@ const NormalEnvironment = ({ environment }) => {
         />
       ) : null}
       <City environment={environment} />
-      <Street environment={environment} />
-      {environment === 'Normal' || environment === 'Matrix' ? (
+      <BlockPark environment={environment} />
+      <BlockTNS environment={environment} />
+      {environment === "Normal" || environment === "Matrix" ? (
         <>
           {truck && truck.nodes && truck.materials && (
-            <group
-              ref={truckRef}
-              dispose={null}
-              visible={showTruck}
-            >
+            <group ref={truckRef} dispose={null} visible={showTruck}>
               <mesh
                 castShadow
                 receiveShadow
                 geometry={truck.nodes.Oren_1117.geometry}
                 material={truck.materials.truck_material}
-                position={[-450, -4, -180]}
+                position={[-450, -4, -127]}
                 rotation={[Math.PI / 2, 0, 0]}
                 scale={[3, 3, 3]}
               />
             </group>
           )}
           {taxi && taxi.nodes && taxi.materials && (
-            <group
-              ref={taxiRef}
-              dispose={null}
-              visible={showTaxi}
-            >
+            <group ref={taxiRef} dispose={null} visible={showTaxi}>
               <mesh
                 castShadow
                 receiveShadow
                 geometry={taxi.nodes.Oren_1113.geometry}
                 material={taxi.materials.cab_material}
-                position={[100, -4, -90]}
+                position={[100, -4, -60]}
                 rotation={[Math.PI / 2, 0, 0]}
                 scale={[3, 3, 3]}
               />
@@ -162,22 +128,29 @@ const NormalEnvironment = ({ environment }) => {
           )}
         </>
       ) : null}
-      {environment === 'VoidDay' || environment === 'VoidNight' ? (
+      {environment === "VoidDay" || environment === "VoidNight" ? (
         <gridHelper
           receiveShadow
           // castShadow
-          args={[5000, 150, new THREE.Color(0x7d7d7d), new THREE.Color(0x7d7d7d)]}
+          args={[
+            5000,
+            150,
+            new THREE.Color(0x7d7d7d),
+            new THREE.Color(0x7d7d7d),
+          ]}
           position={[0, 0.1, 0]}
         />
       ) : null}
-      {environment === 'VoidDay' || environment === 'VoidNight' ? (
+      {environment === "VoidDay" || environment === "VoidNight" ? (
         <mesh
           receiveShadow
           position={[32, -1, 0]}
           rotation={[0, Math.PI / 2, 0]}
         >
           <cylinderBufferGeometry args={[2000, 2000, 2, 32]} />
-          <meshStandardMaterial color={new THREE.Color(0x404040).convertSRGBToLinear()} />
+          <meshStandardMaterial
+            color={new THREE.Color(0x404040).convertSRGBToLinear()}
+          />
         </mesh>
       ) : null}
     </>
