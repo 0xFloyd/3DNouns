@@ -7,23 +7,28 @@ import City from "./City";
 import BlockPark from "./BlockPark";
 import BlockTNS from "./BlockTNS";
 import BlockPH from "./BlockPH";
+import Block1 from "./Block1";
+import Block2 from "./Block2";
 
 const NormalEnvironment = ({ environment }) => {
-  const SPEED = isMobile ? 1 : 1.5;
+  const SPEED = isMobile ? 0.5 : 1;
 
   const truck = useGLTF("/world/cocatruck.glb");
   const taxi = useGLTF("/world/taxi.glb");
+  const neppelin = useGLTF("/world/Neppelin.glb");
 
   const truckRef = useRef();
   const taxiRef = useRef();
+  const neppelinRef = useRef();
 
   const [showTruck, setShowTruck] = useState(true);
   const [showTaxi, setShowTaxi] = useState(isMobile ? false : true);
+  const [showNeppelin, setShowNeppelin] = useState(true);
 
   useFrame(() => {
     if (truckRef.current && showTruck) {
       truckRef.current.position.x += SPEED;
-      if (truckRef.current.position.x > 1300) {
+      if (truckRef.current.position.x > 2300) {
         setShowTruck(false);
         delayTruck();
       }
@@ -35,13 +40,20 @@ const NormalEnvironment = ({ environment }) => {
         delayTaxi();
       }
     }
+    if (neppelinRef.current && showNeppelin) {
+      neppelinRef.current.position.x -= SPEED / 3;
+      if (neppelinRef.current.position.x < -5000) {
+        setShowNeppelin(false);
+        delayNeppelin();
+      }
+    }
   });
 
   const delayTruck = () => {
     if (truckRef && truckRef.current) {
       setTimeout(() => {
         if (truckRef && truckRef.current) {
-          truckRef.current.position.x = -500;
+          truckRef.current.position.x = -1500;
           setShowTruck(true);
         }
       }, randomIntFromInterval(1000, 2500));
@@ -54,6 +66,17 @@ const NormalEnvironment = ({ environment }) => {
         if (taxiRef && taxiRef.current) {
           taxiRef.current.position.x = 650;
           setShowTaxi(true);
+        }
+      }, randomIntFromInterval(1200, 2700));
+    }
+  };
+
+  const delayNeppelin = () => {
+    if (neppelinRef && neppelinRef.current) {
+      setTimeout(() => {
+        if (neppelinRef && neppelinRef.current) {
+          neppelinRef.current.position.x = 650;
+          setShowNeppelin(true);
         }
       }, randomIntFromInterval(1200, 2700));
     }
@@ -100,6 +123,9 @@ const NormalEnvironment = ({ environment }) => {
       <BlockPark environment={environment} />
       <BlockTNS environment={environment} />
       <BlockPH environment={environment} />
+      <Block1 environment={environment} />
+      <Block2 environment={environment} />
+
       {environment === "Normal" || environment === "Matrix" ? (
         <>
           {truck && truck.nodes && truck.materials && (
@@ -109,7 +135,7 @@ const NormalEnvironment = ({ environment }) => {
                 receiveShadow
                 geometry={truck.nodes.Oren_1117.geometry}
                 material={truck.materials.truck_material}
-                position={[-450, -4, -145]}
+                position={[-450, -4, -75]}
                 rotation={[Math.PI / 2, 0, 0]}
                 scale={[3, 3, 3]}
               />
@@ -122,7 +148,20 @@ const NormalEnvironment = ({ environment }) => {
                 receiveShadow
                 geometry={taxi.nodes.Oren_1113.geometry}
                 material={taxi.materials.cab_material}
-                position={[100, -4, -65]}
+                position={[100, -4, -138]}
+                rotation={[Math.PI / 2, 0, 0]}
+                scale={[3, 3, 3]}
+              />
+            </group>
+          )}
+          {neppelin && neppelin.nodes && neppelin.materials && (
+            <group ref={neppelinRef} dispose={null} visible={showNeppelin}>
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={neppelin.nodes.Neppelin.geometry}
+                material={neppelin.materials.Neppelin_material}
+                position={[1800, 50, 0]}
                 rotation={[Math.PI / 2, 0, 0]}
                 scale={[3, 3, 3]}
               />

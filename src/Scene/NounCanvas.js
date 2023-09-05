@@ -15,7 +15,6 @@ import data from "../data.json";
 import NounHolder from "Scene/NounHolder";
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter.js";
 import { isDesktop } from "react-device-detect";
-import Neppelin from "Scene/Neppelin ";
 import "../styles/ProgressLoader.css";
 import Menu from "components/Menu/Menu";
 import { saveArrayBuffer, saveScreenshot, saveString } from "utils/utils";
@@ -155,7 +154,7 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
           ref={cameraRef}
           position={[-20, 40, 70]}
           near={0.1}
-          far={2000}
+          far={2200}
         />
         <Lighting environmentParam={environment} />
         <OrbitControls
@@ -164,7 +163,7 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
           autoRotate={JSON.parse(autoRotate)}
           enablePan={false}
           enableDamping={true}
-          maxPolarAngle={Math.PI / 1.75}
+          maxPolarAngle={Math.PI / 1.85}
           maxDistance={150}
           minDistance={30}
           //Mouse Orbiting
@@ -173,7 +172,6 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
         />
         <Suspense fallback={null}>
           <NormalEnvironment environment={environment} />
-          <Neppelin environment={environment} />
         </Suspense>
         {active || !loaded ? (
           <Html center>

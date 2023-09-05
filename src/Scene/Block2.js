@@ -2,7 +2,7 @@ import { useGLTF } from "@react-three/drei";
 import React from "react";
 
 const Block2 = ({ environment }) => {
-  const { nodes, materials } = useGLTF("/world/Block2.glb");
+  const { nodes, materials } = useGLTF("/world/Block1.glb");
   return (
     <>
       {environment === "Normal" || environment === "Matrix" ? (
@@ -10,11 +10,11 @@ const Block2 = ({ environment }) => {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Union_374.geometry}
-            material={materials.lambert2}
-            position={[300, -2, -40]}
+            geometry={nodes.Block_Side1.geometry}
+            material={materials.Block_side1_material}
+            position={[-2720, 0, 0]}
             rotation={[Math.PI / 2, 0, 0]}
-            scale={3}
+            scale={3.5}
           />
         </group>
       ) : null}

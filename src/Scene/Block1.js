@@ -1,10 +1,8 @@
-import React, { forwardRef, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
+import React from "react";
 
-const Block_PH = ({ environment }) => {
-  const { nodes, materials } = useGLTF("/world/Block_PH.glb");
-
+const Block1 = ({ environment }) => {
+  const { nodes, materials } = useGLTF("/world/Block1.glb");
   return (
     <>
       {environment === "Normal" || environment === "Matrix" ? (
@@ -12,8 +10,8 @@ const Block_PH = ({ environment }) => {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Block_PH.geometry}
-            material={materials.Block_PH_material}
+            geometry={nodes.Block_Side1.geometry}
+            material={materials.Block_side1_material}
             position={[80, 0, 0]}
             rotation={[Math.PI / 2, 0, 0]}
             scale={3.5}
@@ -24,4 +22,4 @@ const Block_PH = ({ environment }) => {
   );
 };
 
-export default Block_PH;
+export default Block1;
