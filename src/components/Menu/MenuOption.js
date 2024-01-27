@@ -1,9 +1,16 @@
-import React from 'react';
-import data from '../../data.json';
-import ClosedLockIcon from '../../assets/images/lockIconClosed.svg';
-import OpenLockIcon from '../../assets/images/lockIconOpen.svg';
+import React from "react";
+import data from "../../data.json";
+import ClosedLockIcon from "../../assets/images/lockIconClosed.svg";
+import OpenLockIcon from "../../assets/images/lockIconOpen.svg";
 
-const MenuOption = ({ value, setValue, category, lockedTraits, setLockedTraits, disabled }) => {
+const MenuOption = ({
+  value,
+  setValue,
+  category,
+  lockedTraits,
+  setLockedTraits,
+  disabled,
+}) => {
   return (
     <div className="inline-option-row">
       <span />
@@ -12,7 +19,7 @@ const MenuOption = ({ value, setValue, category, lockedTraits, setLockedTraits, 
         <label className="trait-label">{category}</label>
         <select
           value={value}
-          className="trait-select"
+          className="trait-select border-select"
           onChange={(e) => {
             setValue(e.target.value);
           }}
@@ -35,9 +42,17 @@ const MenuOption = ({ value, setValue, category, lockedTraits, setLockedTraits, 
           className="select-shuffle-icon-button"
         >
           {lockedTraits[category] ? (
-            <img src={ClosedLockIcon} alt="lock-icon" className="lock-noun-icon" />
+            <img
+              src={ClosedLockIcon}
+              alt="lock-icon"
+              className="lock-noun-icon"
+            />
           ) : (
-            <img src={OpenLockIcon} alt="lock-icon" className="lock-noun-icon" />
+            <img
+              src={OpenLockIcon}
+              alt="lock-icon"
+              className="lock-noun-icon"
+            />
           )}
         </button>
       </div>

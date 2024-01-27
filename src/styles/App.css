@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
 @font-face {
   font-family: 'pt_root_uimedium';
   src: url('PT Root UI_Medium-webfont.woff') format('woff');
@@ -11,8 +14,9 @@
 /* noun color: #d63c5e */
 * {
   box-sizing: border-box;
-  font-family: 'Londrina Solid';
   font-size: 1rem;
+  font-family: 'PT Root UI', sans-serif !important;
+  font-weight: 600;
 }
 
 body {
@@ -100,16 +104,12 @@ body {
   font-size: 1em;
 }
 
-.white-font {
-  color: black;
-}
-
 .attribute-select-box {
   border-radius: 10px;
   display: inline-block;
   overflow: hidden;
-  background: #d63c5e;
-  border: 1px solid #d63c5e;
+  background: #fd3333;
+  border: 1px solid #fd3333;
   color: white;
   padding: 5px;
   cursor: pointer;
@@ -140,7 +140,7 @@ body {
   border: none;
   outline: none;
   color: #fff;
-  background: #d63c5e;
+  background: #fd3333;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -188,14 +188,14 @@ body {
 }
 
 .attribute-select-box > option {
-  background: #d63c5e;
+  background: #fd3333;
   color: white;
   cursor: pointer;
   font-family: 'Londrina Solid';
 }
 
 .attribute-select-box option:hover {
-  background: #d63c5e;
+  background: #fd3333;
   color: white;
   cursor: pointer;
 }
@@ -212,8 +212,8 @@ body {
   border-radius: 10px;
   display: inline-block;
   overflow: hidden;
-  background: #d63c5e;
-  border: 1px solid #d63c5e;
+  background: #fd3333;
+  border: 1px solid #fd3333;
   color: white;
   padding: 8px;
 }
@@ -259,7 +259,7 @@ body {
 }
 
 .toggle:checked {
-  background-color: #d63c5e;
+  background-color: #fd3333;
 }
 
 .toggle:checked:before {
@@ -267,7 +267,7 @@ body {
 }
 
 a {
-  color: #d63c5e;
+  color: #fd3333;
 }
 
 .mobile-show-menu-button {
@@ -278,8 +278,8 @@ a {
   border-radius: 10px;
   display: inline-block;
   overflow: hidden;
-  background: #d63c5e;
-  border: 1px solid #d63c5e;
+  background: #fd3333;
+  border: 1px solid #fd3333;
   color: white;
   padding: 8px;
 }
@@ -298,14 +298,6 @@ a {
   }
 } */
 
-.starting-screen-container {
-  background-color: red;
-  position: fixed;
-  z-index: 2147483648;
-  /* left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); */
-}
 
 .progress {
   width: 300px;
@@ -367,7 +359,7 @@ a {
 .close-directions-container {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .blocker {
@@ -406,4 +398,55 @@ a {
     margin-left: 10px;
     margin-top: -10px;
   }
+}
+
+.toggle-wrap {
+  display: flex;
+  align-items: center;
+  
+}
+
+.toggle-button {
+  background-color: #121212;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 0px;
+  color:white;
+  border:1px solid rgb(128, 128, 128);
+  border-left: none;
+  font-size: small;
+  border: 1px solid rgba(0,0,0,0.5);;
+  border-left: none;
+}
+
+.toggle-button.active {
+  background-color: #001db3;
+  color: white;
+  border: px solid #222;
+  border-left: none;
+}
+
+.toggle-button-title {
+  background-color: #ffffff;
+  border:1px solid rgb(128, 128, 128);
+  border-radius: 5px 0px 0px 5px;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease;
+  font-size: small;
+
+}
+
+.special-footer-button {
+  width: 49%;
+}
+
+.special-font-style{
+  font-family:'Press Start 2P'!important;
+}
+
+.special-font-menu{
+  font-size: 0.7rem;
 }

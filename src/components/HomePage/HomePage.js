@@ -1,26 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import headerImage from '../../assets/images/nounstown.webp';
-import logo from '../../assets/images/3DNounsLogo.png';
-import Section from './Section';
-import { Col } from 'react-bootstrap';
-import classes from './HomePage.module.css';
-import Accordion from 'react-bootstrap/Accordion';
-import Link from './Link';
-import './HomePage.css';
-import mobileHeadImage from '../../assets/images/mobile-toun.png';
-import CoralPicture from '../../assets/images/CoralOrcaProfilePicture400.jpg';
-import FloydPicture from '../../assets/images/FloydProfilePicture400.jpg';
-import ThreeDNounsPicture from '../../assets/images/3DnounsProfilePicture.jpg';
-import { isDesktop, isMobile, isTablet } from 'react-device-detect';
-import { SiTwitter } from 'react-icons/si';
-import nounsArmy from '../../assets/images/ArmyFooterLarge.webp';
-import nounsHeart from '../../assets/images/nounsHeart.gif';
-import '../../index.css';
-import { BsDiscord } from 'react-icons/bs';
-import { useProgress } from '@react-three/drei';
-import Spinner from 'react-bootstrap/Spinner';
+import React, { useEffect, useState } from "react";
+import logo from "../../assets/images/HomePageLogo.png";
+
+import SkeletonGif from "../../assets/images/SkeletonNoun.gif";
+import CloudGif from "../../assets/images/CloudNoun.gif";
+import BotGif from "../../assets/images/botNoun.gif";
+import SquidGif from "../../assets/images/SquidNoun.gif";
+import NoodlesGif from "../../assets/images/NoodlesNoun.gif";
+import DinoGif from "../../assets/images/dinoNoun.gif";
+import BonzaiGif from "../../assets/images/BonzaiNoun.gif";
+import SandwichGif from "../../assets/images/nounSandwich.gif";
+
+import ARGif from "../../assets/images/ARfilterCrop.gif";
+import Section from "./Section";
+import { Col } from "react-bootstrap";
+import classes from "./HomePage.module.css";
+import Accordion from "react-bootstrap/Accordion";
+import Link from "./Link";
+import "./HomePage.css";
+import CoralPicture from "../../assets/images/CoralOrcaProfilePicture400.jpg";
+import FloydPicture from "../../assets/images/FloydProfilePicture400.jpg";
+import { isDesktop, isMobile, isTablet } from "react-device-detect";
+import { SiTwitter } from "react-icons/si";
+import nounsArmy from "../../assets/images/ArmyFooterLarge.webp";
+import Axo from "../../assets/images/Axo.jpg";
+import nounsHeart from "../../assets/images/nounsHeart.gif";
+import "../../index.css";
+import { BsDiscord } from "react-icons/bs";
+import { useProgress } from "@react-three/drei";
+import Spinner from "react-bootstrap/Spinner";
+
+import TweetEmbed from "./TwitterEmbed";
 
 const HomePage = ({ hidePage, setHidePage }) => {
+  const gifList = [
+    SkeletonGif,
+    CloudGif,
+    BotGif,
+    SquidGif,
+    NoodlesGif,
+    DinoGif,
+    BonzaiGif,
+    SandwichGif,
+  ];
+
+  const [currentGifIndex, setCurrentGifIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentGifIndex((prevIndex) =>
+        prevIndex === gifList.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5500); // Swap GIFs every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   const { active, progress, errors, item, loaded, total } = useProgress();
@@ -36,205 +70,344 @@ const HomePage = ({ hidePage, setHidePage }) => {
 
   return (
     <div
-      className={`homepage-body ${isFadingOut ? 'item-fadeout' : ''}`}
-      style={{ visibility: hidePage ? 'hidden' : 'visible' }}
+      className={
+        `homepage-body ${isFadingOut ? "item-fadeout" : ""}` +
+        " tw-scroll-smooth"
+      }
+      style={{ visibility: hidePage ? "hidden" : "visible" }}
     >
-      <div className="container-huh">
-        {/* tw-bg-opacity-30 tw-bg-black */}
-        <div className="relative header-image tw-bg-opacity-30 tw-bg-black  !tw-h-[80vh] -tw-mb-12">
-          <div className="homepage-logo-container">
-            <a href="https://3dnouns.com">
-              <img className="tw-transition-all hover:tw-scale-110 nouns-logo !tw-select-none" src={logo} alt="NOUNS" />
-            </a>
-            {/* <button onClick={() => setMoveCamera(true)}>hey</button> */}
-          </div>
-          {/* <img src={isMobileSize ? mobileHeadImage : headerImage} alt="Nounstoun" className="header-image" /> */}
-          <div className=" welcome-container">
-            <p className="tw-text-center welcome-nounstoun tw-text-8xl">3D NOUNS</p>
-          </div>
-          <div className="enter-container">
-            {!loaded ? (
-              <p>
-                Loading...
-                <Spinner animation={'border'} />
-              </p>
-            ) : (
-              <button
-                style={{ flexDirection: 'row', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-                className="enter-button tw-transition-all hover:tw-scale-110"
-                disabled={!loaded}
-                onClick={() => fadeOut()}
-              >
-                {loaded ? 'ENTER' : 'LOADING...'}
-              </button>
-            )}
-          </div>
+      <div className="tw-bg-opacity-30 tw-bg-black !tw-h-[75vh] ">
+        <header>
+          <section>
+            <div
+              className="div-section-test"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <img className="App-logo" src={logo} alt="3D NOUNS" />
+              <p className="special-font-style main-title-homepage">3D NOUNS</p>
+
+              <div className="tw-flex-grow" />
+
+              <div>
+                <nav
+                  aria-label="main"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginRight: "2rem",
+                  }}
+                >
+                  <a
+                    href="#CC0"
+                    className="special-font-style main-title-menu hover:opacity-90 "
+                  >
+                    CC0
+                  </a>
+                  <a
+                    href="#Assets"
+                    className="special-font-style main-title-menu hover:opacity-90 "
+                  >
+                    Assets
+                  </a>
+                  <a
+                    href="#AR"
+                    className="special-font-style main-title-menu hover:opacity-90 "
+                  >
+                    AR
+                  </a>
+                </nav>
+              </div>
+            </div>
+          </section>
+        </header>
+
+        <div className="enter-container ">
+          {
+            <button
+              style={{
+                flexDirection: "row",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              className="enter-button tw-transition-all hover:tw-scale-110 special-font-style"
+              disabled={!loaded}
+              onClick={() => fadeOut()}
+            >
+              ENTER
+            </button>
+          }
         </div>
-        {/* <Section fullWidth={false}> */}
-        <div className="tw-pt-16 lg:tw-pt-32  tw-bg-white">
-          <Col lg={{ span: 10, offset: 1 }}>
-            <div className={classes.headerWrapper}>
-              <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
-                <h1 className="tw-mb-12 md:tw-mb-0" style={{ textAlign: 'center', color: '#d63c5e' }}>
-                  An Experiment in CC0 Avatars
-                </h1>
-                <p className={classes.genericText}>
-                  3D Nouns is a collection of composable characters turning{' '}
-                  <Link text={'NounsDAO'} url={'https://nouns.wtf'} leavesPage={true} style={{ fontSize: '1.3rem' }} />{' '}
-                  pixel art into 3D avatars. Enter the generator and play with endless combinations to bring Nouns to
-                  life. <br />
-                  <br />
-                  3D Nouns were the first community extension of the Nouns ecosystem and received funding from NounsDAO
-                  on September 2nd, 2021 under{' '}
+      </div>
+
+      {/* <Section fullWidth={false}> */}
+
+      <div
+        className="tw-pt-8 lg:tw-pt-10"
+        style={{
+          background: "#121212",
+        }}
+      >
+        <Col lg={{ span: 10, offset: 1 }}>
+          <div className={classes.headerWrapper}>
+            <h1
+              id="CC0"
+              className="tw-mb-12 md:tw-mb-0 special-font-style tw-scroll-mt-10 top-title-style"
+              style={{
+                textAlign: "center",
+                lineHeight: "1.8",
+                marginBottom: "1rem",
+                color: "white",
+              }}
+            >
+              OPEN-SOURCE 3D AVATARS
+            </h1>
+
+            <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32 ">
+              <div className=" div-section-test">
+                <img
+                  className="tw-mb-12 md:tw-mb-0 section-picture "
+                  src={Axo}
+                />
+              </div>
+
+              <div className="homepage-text-block">
+                <p className="homepage-text">
+                  Experience 3D Nouns – a collection of 250 composable
+                  characters that turns{" "}
                   <Link
-                    text={'NounsDAO Proposal #2.'}
-                    url={'https://nouns.wtf/vote/2'}
+                    text={"NounsDAOs'"}
+                    url={"https://nouns.wtf"}
                     leavesPage={true}
-                    style={{ fontSize: '1.3rem' }}
+                  />{" "}
+                  pixel art into dynamic 3D avatars.
+                  <br></br>
+                  <br></br>
+                  Step into the generator and unleash your creativity with
+                  endless combinations, bringing Nouns to life like never
+                  before!
+                  <br></br>
+                  <br></br>
+                  As the first NounsDAO community proposal, 3D Nouns received
+                  enthusiastic support and secured funding under{" "}
+                  <Link
+                    text={"Proposal #2."}
+                    url={"https://nouns.wtf/vote/2"}
+                    leavesPage={true}
                   />
                 </p>
               </div>
             </div>
-            <div className="accordion-wrap">
-              <Accordion flush>
-                <Accordion.Item eventKey="0" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>CC0</Accordion.Header>
-                  <Accordion.Body>
-                    <p className={classes.genericText}>
-                      All 3D Nouns assets are CC0 and can be used freely. Customize your noun, then download it as a
-                      GLTF file for use within 3D modeling programs like Blender or motion capture libraries like
-                      Mixamo. 3D Nouns are ready for the metaverse, and can be imported into platforms like Decentraland
-                      and Cryptovoxels.
-                    </p>
-                  </Accordion.Body>
-                </Accordion.Item>
+          </div>
 
-                <Accordion.Item eventKey="1" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>EXTENDABLE</Accordion.Header>
-                  <Accordion.Body>
-                    <p className={classes.genericText}>
-                      3D Nouns grow with the community, and the downloadable model files allow for customization beyond
-                      the original collection. The 3D Nouns collection contains additional traits outside of the current
-                      Nouns traits, and there will be more collaborations in the future.
-                    </p>
-                  </Accordion.Body>
-                </Accordion.Item>
-                {/* <Accordion.Item eventKey="2" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>NOUNS TOUN</Accordion.Header>
-                  <Accordion.Body>
-                    <p className={classes.genericText}>
-                      Nouns town is where the 3D NOUNS live, a web-first microverse. We are currently building
-                      environment assets and want to provide interoperability with other VR, AR and gaming platforms.
-                    </p>
-                  </Accordion.Body>
-                </Accordion.Item> */}
-                <Accordion.Item eventKey="2" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>AR</Accordion.Header>
-                  <Accordion.Body>
-                    <p className={classes.genericText}>
-                      3D Nouns are also available as Snapchat filters that you can check out{' '}
-                      <Link
-                        text={'here'}
-                        url={'https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw'}
-                        leavesPage={true}
-                        style={{ fontSize: '1.2rem' }}
-                      />{' '}
-                      {` `}.
-                    </p>
-                  </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="4" className={classes.accordionItem}>
-                  <Accordion.Header className={classes.accordionHeader}>NFTs</Accordion.Header>
-                  <Accordion.Body>
-                    <p className={classes.genericText}>
-                      Join the{' '}
-                      <Link
-                        text={'3D Nouns Discord'}
-                        url={'https://discord.gg/kZZaz6jy2k'}
-                        leavesPage={true}
-                        style={{ fontSize: '1.2rem' }}
-                      />{' '}
-                      {` `}
-                      and follow the 3D Nouns{' '}
-                      <Link
-                        text={'Twitter'}
-                        url={'https://twitter.com/3dnouns'}
-                        leavesPage={true}
-                        style={{ fontSize: '1.2rem' }}
-                      />{' '}
-                      account to stay updated on the project's future plans!
-                    </p>
-                  </Accordion.Body>
-                </Accordion.Item>
+          {/* CC0 Assets */}
 
-                <div className="profile-section-creators">
-                  <div className="profile-individual-section">
-                    <img className="profile-picture" src={CoralPicture} />
-                    <p className="bio-header">Creator</p>
-                    <div className="tw-flex tw-flex-row tw-items-center">
-                      <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
-                      <a className="social-link" href="https://twitter.com/coralorca" target="_blank">
-                        CoralOrca
-                      </a>
-                    </div>
-                  </div>
+          <div className={classes.headerWrapper}>
+            <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
+              <div className=" div-section-test ">
+                <h1
+                  id="Assets"
+                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-py-5 tw-scroll-mt-10  top-title-style"
+                  style={{
+                    textAlign: "center",
+                    color: "white",
+                    fontSize: "XX-large",
+                  }}
+                >
+                  CC0 Game Assets
+                </h1>
 
-                  <div className="profile-individual-section">
-                    <img className="profile-picture" src={FloydPicture} />
-
-                    <p className="bio-header">Engineer</p>
-                    <div className="tw-flex tw-flex-row tw-items-center">
-                      <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />{' '}
-                      <a className="social-link" href="https://twitter.com/0xFloyd" target="_blank">
-                        0xFloyd
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="profile-individual-section tw-pb-20">
-                  <img className="profile-picture" src={ThreeDNounsPicture} />
-                  <div className="profile-individual-section ">
-                    <div className="tw-flex tw-flex-row tw-items-center">
-                      <SiTwitter className="twitter-logo" size={isDesktop ? 30 : 25} color="#1DA1F2" />
-                      <a
-                        style={{ color: 'black' }}
-                        className="social-link"
-                        href="https://twitter.com/3dnouns"
-                        target="_blank"
-                      >
-                        3D Nouns Twitter
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="profile-individual-section">
-                    <div className="tw-flex tw-flex-row tw-items-center">
-                      <BsDiscord className="twitter-logo" size={isDesktop ? 30 : 25} color="#5865F2" />
-                      <a
-                        style={{ color: 'black' }}
-                        className="social-link"
-                        href="https://discord.gg/kZZaz6jy2k"
-                        target="_blank"
-                      >
-                        3D Nouns Discord
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </Accordion>
+                <img
+                  className=" tw-mb-12 md:tw-mb-0 section-picture"
+                  src={gifList[currentGifIndex]} // Use the current GIF based on the index
+                  alt={`GIF ${currentGifIndex + 1}`}
+                />
+              </div>
+              <div className="homepage-text-block">
+                <p className="homepage-text">
+                  There are 250 CCO assets available for your enjoyement!
+                  Customize your character, animate and download it as a GLTF
+                  file.
+                  <br></br>
+                  <br></br>
+                  You can import GLTF files in 3D programs like{" "}
+                  <Link
+                    text={"Blender"}
+                    url={"https://www.blender.org/"}
+                    leavesPage={true}
+                  />{" "}
+                  or game engines like{" "}
+                  <Link
+                    text={"Unity"}
+                    url={"https://unity.com/"}
+                    leavesPage={true}
+                  />{" "}
+                  using this{" "}
+                  <Link
+                    text={"script"}
+                    url={
+                      "https://gist.github.com/sgarcia22/b80f65d33ccfc3e449f46c47ec933c9f"
+                    }
+                    leavesPage={true}
+                    style={{ fontSize: "1.3rem" }}
+                  />{" "}
+                  .<br></br>
+                  <br></br>
+                  You can consider 3D printing them by converting the GLTF to
+                  FBX with Blender and then to a STL file suitable for printing.
+                </p>
+              </div>
             </div>
-          </Col>
-        </div>
-        {/* </Section> */}
-        <div>
-          <img src={nounsArmy} className="footer-image" />
-        </div>
-        <div className="footer-info">
-          <p className="tw-flex tw-flex-row">
-            {`nouns.wtf `} <img className="nouns-heart tw-mx-1" src={nounsHeart}></img> {` by CoralOrca and 0xFloyd`}
-          </p>
-        </div>
+          </div>
+
+          {/* AR Filters */}
+
+          <div className={classes.headerWrapper}>
+            <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
+              <div className="div-section-test">
+                <h1
+                  id="AR"
+                  className="tw-mb-12 md:tw-mb-0 special-font-style tw-py-5 tw-scroll-mt-10 top-title-style"
+                  style={{
+                    textAlign: "center",
+                    color: "white",
+                    fontSize: "XX-large",
+                  }}
+                >
+                  AR Filters
+                </h1>
+
+                <img
+                  className=" tw-mb-12 md:tw-mb-0 section-picture "
+                  src={ARGif}
+                />
+              </div>
+
+              <div className=" homepage-text-block">
+                <p className="homepage-text">
+                  50+ 3D Nouns heads are also available as{" "}
+                  <Link
+                    text={"Snapchat"}
+                    url={
+                      "https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw"
+                    }
+                    leavesPage={true}
+                  />
+                  ,{" "}
+                  <Link
+                    text={"Instagram"}
+                    url={"https://www.instagram.com/0xcoralorca/"}
+                    leavesPage={true}
+                  />{" "}
+                  {` `} and{" "}
+                  <Link
+                    text={"Tik Tok"}
+                    url={"https://www.tiktok.com/@0xcoralorca"}
+                    leavesPage={true}
+                  />{" "}
+                  {` `} Augmented Reality filters with over 2M plays!
+                  <br></br>
+                  <br></br>
+                  Create Nounish stories and share them with your friends!
+                  <br></br>
+                  <br></br>
+                  You can search for tags like "Coralorca" or "Nounsdao" in
+                  order to find the filters on each platform.
+                  {/* <br></br>
+                  <br></br>
+                  Additionnaly, you can download all blendshapes FBX models{" "}
+                  <Link
+                    text={"here"}
+                    url={"https://www.tiktok.com/@0xcoralorca"}
+                    leavesPage={true}
+                  />{" "}
+                  to use in animations or games.*/}
+                  <br></br>
+                  <br></br>
+                  This was made possible thanks to NounsDAO's{" "}
+                  <Link
+                    text={"Proposal #182."}
+                    url={"https://nouns.wtf/vote/182"}
+                    leavesPage={true}
+                  />
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <ul className="tw-flex tw-flex-row tw-list-none tw-mx-auto tw-items-center tw-gap-8 ul-twitter tw-mb-24">
+            <li className=" tw-flex tw-flex-row tw-items-center">
+              <TweetEmbed tweetId="1410600358317936640" />
+            </li>
+            <li className=" tw-flex tw-flex-row tw-items-center">
+              <TweetEmbed tweetId="1454023001784020994" />
+            </li>
+            <li className=" tw-flex tw-flex-row tw-items-center">
+              <TweetEmbed tweetId="1460203270199123975" />
+            </li>
+          </ul>
+
+          <div className="profile-section-creators">
+            <div className="profile-individual-section">
+              <img className="profile-picture" src={CoralPicture} />
+              <p className="bio-header">Creator</p>
+              <div className="tw-flex tw-flex-row tw-items-center">
+                <SiTwitter
+                  className="twitter-logo"
+                  size={isDesktop ? 30 : 25}
+                  color="#1DA1F2"
+                />
+                <a
+                  className="social-link special-font-style"
+                  href="https://twitter.com/coralorca"
+                  target="_blank"
+                >
+                  CoralOrca
+                </a>
+              </div>
+            </div>
+
+            <div className="profile-individual-section">
+              <img className="profile-picture" src={FloydPicture} />
+
+              <p className="bio-header">Engineer</p>
+              <div className="tw-flex tw-flex-row tw-items-center">
+                <SiTwitter
+                  className="twitter-logo"
+                  size={isDesktop ? 30 : 25}
+                  color="#1DA1F2"
+                />{" "}
+                <a
+                  className="social-link special-font-style"
+                  href="https://twitter.com/0xFloyd"
+                  target="_blank"
+                >
+                  0xFloyd
+                </a>
+              </div>
+            </div>
+          </div>
+          <br></br>
+        </Col>
+      </div>
+
+      {/* </Section> */}
+
+      <div>
+        <img src={nounsArmy} className="footer-image" />
+      </div>
+      <div className="footer-info">
+        <p className="tw-flex tw-flex-row ">
+          <a
+            href="https://nouns.wtf/"
+            target="_blank"
+            className="custom-footer-link special-font-style"
+          >
+            Nouns.WTF
+          </a>
+          <img className="nouns-heart tw-mx-1" src={nounsHeart}></img>
+        </p>
       </div>
     </div>
   );

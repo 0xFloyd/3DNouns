@@ -1,17 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { Nav, Navbar, Spinner } from 'react-bootstrap';
-import data from '../../data.json';
-import '../../styles/menu.css';
-import { isDesktop, isMobile } from 'react-device-detect';
-import ScreenshotModal from 'components/ScreenshotModal';
-import AnimationSelect from 'components/Menu/AnimationSelect';
-import CameraIcon from '../../assets/images/cameraIcon.svg';
-import { gql, useQuery } from '@apollo/client';
-import { GET_NOUNS, hideModals, rotateOptions, throttleClicks, truncateString } from 'utils/utils';
-import MintModal from './MintModal';
-import InformationModal from './InformationModal';
-import MenuOption from './MenuOption';
-import NounIdInput from './NounIdInput';
+import React, { useEffect, useState } from "react";
+import { Nav, Navbar, Spinner } from "react-bootstrap";
+import data from "../../data.json";
+import "../../styles/menu.css";
+import { isDesktop, isMobile } from "react-device-detect";
+import ScreenshotModal from "components/ScreenshotModal";
+import AnimationSelect from "components/Menu/AnimationSelect";
+import CameraIcon from "../../assets/images/cameraIcon.svg";
+import CrossIcon from "../../assets/images/XcrossIcon.svg";
+import { gql, useQuery } from "@apollo/client";
+import {
+  GET_NOUNS,
+  hideModals,
+  rotateOptions,
+  throttleClicks,
+  truncateString,
+} from "utils/utils";
+import MintModal from "./MintModal";
+import InformationModal from "./InformationModal";
+import MenuOption from "./MenuOption";
+import NounIdInput from "./NounIdInput";
 
 const Menu = ({
   isDesktop,
@@ -47,11 +54,11 @@ const Menu = ({
   const [disabledButtonState, setDisabledButtonState] = useState(false);
   const [showAboutModal, setShowAboutModal] = useState(false);
   const [showMintModal, setShowMintModal] = useState(false);
-  const [optionsVisibility, setOptionsVisibility] = useState('block');
+  const [optionsVisibility, setOptionsVisibility] = useState("block");
   const [randomizerOn, setRandomizerOn] = useState(false);
   const [seed, setSeed] = useState(null);
   const [triggeredOnce, setTriggeredOnce] = useState(false);
-  const [graphqlError, setGraphqlError] = useState('');
+  const [graphqlError, setGraphqlError] = useState("");
 
   const [lockedTraits, setLockedTraits] = useState({
     head: false,
@@ -70,14 +77,18 @@ const Menu = ({
     }
 
     if (!lockedTraits.glasses) {
-      setGlasses(data.glasses[Math.floor(Math.random() * data.glasses.length)].name);
+      setGlasses(
+        data.glasses[Math.floor(Math.random() * data.glasses.length)].name
+      );
     }
     if (!lockedTraits.body) {
       setBody(data.body[Math.floor(Math.random() * data.body.length)].name);
     }
 
     if (!lockedTraits.accessory) {
-      setAccessory(data.accessory[Math.floor(Math.random() * data.accessory.length)].name);
+      setAccessory(
+        data.accessory[Math.floor(Math.random() * data.accessory.length)].name
+      );
     }
 
     if (!lockedTraits.pants) {
@@ -91,13 +102,23 @@ const Menu = ({
   useEffect(() => {
     try {
       if (graphQLData && seed && data) {
-        let traitData = graphQLData.nouns.find((element) => element.id === seed);
+        let traitData = graphQLData.nouns.find(
+          (element) => element.id === seed
+        );
 
         if (traitData) {
-          let head = data.head.find((element) => element.id == traitData.seed.head);
-          let body = data.body.find((element) => element.id == traitData.seed.body);
-          let glasses = data.glasses.find((element) => element.id == traitData.seed.glasses);
-          let accessory = data.accessory.find((element) => element.id == traitData.seed.accessory);
+          let head = data.head.find(
+            (element) => element.id == traitData.seed.head
+          );
+          let body = data.body.find(
+            (element) => element.id == traitData.seed.body
+          );
+          let glasses = data.glasses.find(
+            (element) => element.id == traitData.seed.glasses
+          );
+          let accessory = data.accessory.find(
+            (element) => element.id == traitData.seed.accessory
+          );
 
           if (head) {
             setHead(head.name);
@@ -113,17 +134,17 @@ const Menu = ({
           }
         } else {
           if (triggeredOnce) {
-            setGraphqlError('Error fetching Noun data');
+            setGraphqlError("Error fetching Noun data");
             setTimeout(() => {
-              setGraphqlError('');
+              setGraphqlError("");
             }, 5000);
           }
         }
       } else {
         if (triggeredOnce) {
-          setGraphqlError('Error fetching Noun data');
+          setGraphqlError("Error fetching Noun data");
           setTimeout(() => {
-            setGraphqlError('');
+            setGraphqlError("");
           }, 5000);
         }
       }
@@ -134,17 +155,24 @@ const Menu = ({
     <>
       {/* {progress === 100 && ( */}
       <>
-        <div className="tw-transition-all options-container" style={{ display: optionsVisibility }}>
-          {optionsVisibility === 'block' ? (
-            <div className="tw-flex tw-flex-row tw-items-center tw-justify-between">
+        <div
+          className="tw-transition-all options-container "
+          style={{ display: optionsVisibility }}
+        >
+          {optionsVisibility === "block" ? (
+            <div className="tw-flex tw-flex-row tw-items-center tw-justify-between ">
               <button
-                className={disabledButtonState ? 'screenshot-button-disabled' : 'screenshot-button'}
+                className={
+                  disabledButtonState
+                    ? "screenshot-button-disabled"
+                    : "screenshot-button" + " button-studio"
+                }
                 onClick={() => {
                   // saveAsImage();
                   // stop animation
                   setDisabledButtonState(true);
                   setAnimationState(false);
-                  setAnimationValue('none');
+                  setAnimationValue("none");
                   setTimeout(() => {
                     setShowScreenshotModal(true);
                     setDisabledButtonState(false);
@@ -153,14 +181,15 @@ const Menu = ({
                 disabled={disabledButtonState}
               >
                 {/* <BsCameraFill size={20} color="black" /> */}
-                <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
+                <p className="special-font-style ">STUDIO</p>
               </button>
 
               {/* <div className="header-randomize-container"> */}
               <button
                 className={
-                  // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
-                  disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
+                  disabledButtonState
+                    ? "rainbow-button-disabled"
+                    : "rainbow-button"
                 }
                 onClick={() => {
                   generateRandomNoun();
@@ -168,17 +197,18 @@ const Menu = ({
                 }}
                 disabled={disabledButtonState}
               >
-                RANDOMIZE
+                <p className="special-font-style ">GENERATE!</p>
               </button>
               {/* </div> */}
+
               <button
                 className="options-menu-x-button"
                 onClick={() => {
-                  setOptionsVisibility('none');
+                  setOptionsVisibility("none");
                   setShowMintModal(false);
                 }}
               >
-                X
+                <img src={CrossIcon} alt="x-icon" className="X-Cross-icon" />
               </button>
             </div>
           ) : null}
@@ -191,12 +221,15 @@ const Menu = ({
             setGraphqlError={setGraphqlError}
           />
 
-          <div className="options-controls" style={{ display: optionsVisibility }}>
+          <div
+            className="options-controls"
+            style={{ display: optionsVisibility }}
+          >
             {/* HEAD */}
             <MenuOption
               value={head}
               setValue={setHead}
-              category={'head'}
+              category={"head"}
               lockedTraits={lockedTraits}
               setLockedTraits={setLockedTraits}
               disabled={disabledButtonState}
@@ -206,7 +239,7 @@ const Menu = ({
             <MenuOption
               value={glasses}
               setValue={setGlasses}
-              category={'glasses'}
+              category={"glasses"}
               lockedTraits={lockedTraits}
               setLockedTraits={setLockedTraits}
               disabled={disabledButtonState}
@@ -216,7 +249,7 @@ const Menu = ({
             <MenuOption
               value={body}
               setValue={setBody}
-              category={'body'}
+              category={"body"}
               lockedTraits={lockedTraits}
               setLockedTraits={setLockedTraits}
               disabled={disabledButtonState}
@@ -226,7 +259,7 @@ const Menu = ({
             <MenuOption
               value={accessory}
               setValue={setAccessory}
-              category={'accessory'}
+              category={"accessory"}
               lockedTraits={lockedTraits}
               setLockedTraits={setLockedTraits}
               disabled={disabledButtonState}
@@ -236,7 +269,7 @@ const Menu = ({
             <MenuOption
               value={pants}
               setValue={setPants}
-              category={'pants'}
+              category={"pants"}
               lockedTraits={lockedTraits}
               setLockedTraits={setLockedTraits}
               disabled={disabledButtonState}
@@ -246,85 +279,73 @@ const Menu = ({
             <MenuOption
               value={shoes}
               setValue={setShoes}
-              category={'shoes'}
+              category={"shoes"}
               lockedTraits={lockedTraits}
               setLockedTraits={setLockedTraits}
               disabled={disabledButtonState}
             />
 
-            {/* world */}
-            <div className="inline-option-row">
-              <span />
-              <div className="inline-select-wrap">
-                <label className="trait-label">World</label>
-                <select value={environment} onChange={(e) => setEnvironment(e.target.value)} className="trait-select">
-                  {data.world.map((arrayValue) => (
-                    <option key={arrayValue.value} value={arrayValue.value}>
-                      {arrayValue.name}
-                    </option>
-                  ))}
-                </select>
-              </div>{' '}
-            </div>
-            {/* end world */}
-            {/*  Animation */}
-            <AnimationSelect
-              animationValue={animationValue}
-              setAnimationState={setAnimationState}
-              setAnimationValue={setAnimationValue}
-            />
-            {/*  End animation */}
-            {/*  Rotate */}
-            <div className="inline-option-row">
-              <span />
-              <div className="inline-select-wrap">
-                <label className="trait-label">Rotate View</label>
-                <select value={autoRotate} onChange={(e) => setAutoRotate(e.target.value)} className="trait-select">
-                  {rotateOptions.map((rotateObj, index) => (
-                    <option key={index} value={rotateObj.value}>
-                      {rotateObj.name}
-                    </option>
-                  ))}
-                </select>
+            <div className=" tw-flex tw-justify-between">
+              <div className="inline-option-row special-footer-button">
+                <div className="inline-select-wrap ">
+                  <label className="trait-label menu-bottom-title">world</label>
+                  <select
+                    value={environment}
+                    onChange={(e) => setEnvironment(e.target.value)}
+                    className="trait-select menu-bottom-dropdown"
+                  >
+                    {data.world.map((arrayValue) => (
+                      <option key={arrayValue.value} value={arrayValue.value}>
+                        {arrayValue.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>{" "}
               </div>
-            </div>
-            {/* end Rotate */}
 
-            <div className="menu-footer-row">
-              {/*<div className="menu-footer-row-container">
+              <AnimationSelect
+                animationValue={animationValue}
+                setAnimationState={setAnimationState}
+                setAnimationValue={setAnimationValue}
+              />
+            </div>
+
+            <div className=" tw-flex tw-flex-row tw-justify-between">
+              <div className="inline-option-row">
+                <div className="toggle-wrap ">
+                  <label className="toggle-button-title border-select">
+                    Rotate
+                  </label>
                   <button
-                    className="menu-button"
-                    onClick={() => {
-                      setShowMintModal(true);
-                    }}>
-                    MINT NOUN
+                    className={`toggle-button ${autoRotate ? "active" : ""}`}
+                    onClick={() => setAutoRotate(!autoRotate)}
+                  >
+                    {autoRotate ? "On" : "Off"}
                   </button>
                 </div>
-                */}
-              <div className="menu-footer-row-container">
+              </div>
+
+              <div
+                className="inline-option-row special-footer-button download-menu-button"
+                style={{ background: "#121212" }}
+              >
                 <button
-                  className="download-menu-button"
                   onClick={() => {
                     setAnimationState(false);
-                    // setAnimationValue('tpose');
                     setDownloadingModel(true);
                     setTimeout(() => {
                       downloadModel();
                     }, 1500);
                   }}
-                  // disabled={true}
                 >
-                  DOWNLOAD
-                  <br />
-                  NOUN
-                  {/* {`< Coming soon! >`} */}
+                  <p className="special-font-style"> GET GLTF</p>
                   {downloadingModel && (
                     <Spinner
                       animation="border"
                       style={{
-                        marginLeft: '10px',
-                        width: '20px',
-                        height: '20px',
+                        marginLeft: "10px",
+                        width: "15px",
+                        height: "15px",
                       }}
                     />
                   )}
@@ -336,12 +357,14 @@ const Menu = ({
       </>
 
       <div className="open-menu-container">
-        {optionsVisibility === 'none' ? (
+        {optionsVisibility === "none" ? (
           <div className="tw-hidden lg:tw-flex tw-flex tw-flex-row tw-items-center">
             <button
               className={
                 // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
-                disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
+                disabledButtonState
+                  ? "rainbow-button-disabled"
+                  : "rainbow-button"
               }
               onClick={() => {
                 generateRandomNoun();
@@ -349,17 +372,21 @@ const Menu = ({
               }}
               disabled={disabledButtonState}
             >
-              RANDOMIZE
+              <p className="special-font-style "> GENERATE!</p>
             </button>
             <button
-              style={{ marginLeft: '20px', marginRight: '0px' }}
-              className={disabledButtonState ? 'screenshot-button-disabled' : 'screenshot-button'}
+              style={{ marginLeft: "20px", marginRight: "0px" }}
+              className={
+                disabledButtonState
+                  ? "screenshot-button-disabled"
+                  : "screenshot-button"
+              }
               onClick={() => {
                 // saveAsImage();
                 // stop animation
                 setDisabledButtonState(true);
                 setAnimationState(false);
-                setAnimationValue('none');
+                setAnimationValue("none");
                 setTimeout(() => {
                   setShowScreenshotModal(true);
                   setDisabledButtonState(false);
@@ -367,11 +394,11 @@ const Menu = ({
               }}
             >
               {/* <BsCameraFill size={20} color="black" /> */}
-              <img src={CameraIcon} alt="camera-icon" className="tw-object-fit camera-noun-icon" />
+              <p className="special-font-style "> STUDIO </p>
             </button>
             <button
-              className="menu-button"
-              style={{ marginLeft: '20px' }}
+              className="screenshot-button bg-white"
+              style={{ marginLeft: "20px" }}
               onClick={() => {
                 saveAsImage();
                 // setAnimationState(false);
@@ -381,32 +408,44 @@ const Menu = ({
                 // }, 1000);
               }}
             >
-              SCREENSHOT
+              <img
+                src={CameraIcon}
+                alt="camera-icon"
+                className="tw-object-fit camera-icon"
+              />
             </button>
             <button
               onClick={() => {
-                setOptionsVisibility('block');
+                setOptionsVisibility("block");
                 hideModals(setShowAboutModal, setShowMintModal);
               }}
-              className="menu-button-options"
-              style={{ marginLeft: '20px' }}
+              className="menu-button-options "
+              style={{ marginLeft: "20px", background: "#121212" }}
             >
-              OPTIONS
+              <p className="special-font-style "> OPTIONS </p>
             </button>
           </div>
         ) : null}
 
-        {optionsVisibility === 'none' && (
+        {optionsVisibility === "none" && (
           // <div className= <>
           <div className="tw-block lg:tw-hidden">
-            <Navbar style={{ touchAction: 'manipulation' }} expand="lg" className="justify-content-end">
+            <Navbar
+              style={{ touchAction: "manipulation" }}
+              expand="lg"
+              className="justify-content-end"
+            >
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+              <Navbar.Collapse
+                id="basic-navbar-nav"
+                className="justify-content-end"
+              >
                 <Nav.Link
                   onClick={() => {
-                    setOptionsVisibility('block');
+                    setOptionsVisibility("block");
                     hideModals(setShowAboutModal, setShowMintModal);
                   }}
+                  className="special-font-style font-white navbar-font"
                 >
                   Options
                 </Nav.Link>
@@ -415,6 +454,7 @@ const Menu = ({
                     setShowAboutModal(true);
                     setShowMintModal(false);
                   }}
+                  className="special-font-style font-white navbar-font"
                 >
                   About
                 </Nav.Link>
@@ -456,12 +496,14 @@ const Menu = ({
           setShowScreenshotModal={setShowScreenshotModal}
         />
       )}
-      {optionsVisibility === 'none' && (
-        <div className="tw-flex lg:tw-hidden mobile-footer">
+      {optionsVisibility === "none" && (
+        <div className="tw-flex lg:tw-hidden mobile-footer ">
           <button
             className={
               // disabledButtonState ? 'menu-button-disabled' : 'menu-button'
-              disabledButtonState ? 'menu-button-disabled' : 'menu-button'
+              disabledButtonState
+                ? "menu-button-disabled"
+                : "menu-button" + " test-class"
             }
             onClick={() => {
               generateRandomNoun();
@@ -469,17 +511,22 @@ const Menu = ({
             }}
             disabled={disabledButtonState}
           >
-            RANDOMIZE
+            <p className="special-font-style font-white ">GENERATE!</p>
           </button>
 
           <button
-            className={disabledButtonState ? 'mobile-screenshot-button-disabled' : 'mobile-screenshot-button'}
+            className={
+              disabledButtonState
+                ? "mobile-screenshot-button-disabled" +
+                  " button-studio-disabled"
+                : "mobile-screenshot-button" + " button-studio"
+            }
             onClick={() => {
               // saveAsImage();
               // stop animation
               setDisabledButtonState(true);
               setAnimationState(false);
-              setAnimationValue('none');
+              setAnimationValue("none");
               setTimeout(() => {
                 setShowScreenshotModal(true);
                 setDisabledButtonState(false);
@@ -487,7 +534,7 @@ const Menu = ({
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
-            <img src={CameraIcon} alt="camera-icon" className="camera-noun-icon" />
+            <p className="special-font-style font-white"> STUDIO </p>
           </button>
           <button
             className="menu-button"
@@ -496,7 +543,12 @@ const Menu = ({
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
-            SCREENSHOT
+
+            <img
+              src={CameraIcon}
+              alt="camera-icon"
+              className="X-Cross-icon-2"
+            />
           </button>
         </div>
       )}
