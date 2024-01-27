@@ -300,15 +300,43 @@ img.nouns-heart {
   display: flex;
   align-items: center; /* Vertical centering */
   justify-content: center; /* Horizontal centering */
-  color:#e3e4e7;
-  transform: translateY(2rem);
 }
 
-@media (max-width: 768px) {
-  .homepage-text-block{
-    transform: translateY(0.2rem);
-    }
+.homepage-text{
+  color:#ffffff;
+  font-size: 1.25rem;
 }
+
+@media (max-width: 3500px) {
+  .homepage-text{
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 3100px) {
+  .homepage-text {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 2600px) {
+  .homepage-text{
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 2000px) {
+  .homepage-text{
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .homepage-text{
+    font-size: 1rem;
+  }
+}
+
 
 .ul-twitter{
   display: flex;

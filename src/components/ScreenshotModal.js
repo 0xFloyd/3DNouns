@@ -251,7 +251,7 @@ const ScreenshotModal = ({
               {/* SCREENSHOT */}
             </button>
             <button
-              className="menu-button screenshot-mobile-button special-font-style"
+              className="menu-button screenshot-mobile-button"
               onClick={() => {
                 // setShowScreenshotModal(false);
                 // saveAsImage();

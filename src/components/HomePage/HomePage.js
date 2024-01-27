@@ -163,15 +163,17 @@ const HomePage = ({ hidePage, setHidePage }) => {
             >
               OPEN-SOURCE 3D AVATARS
             </h1>
-            <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
-              <div className=" div-section-test ">
+
+            <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32 ">
+              <div className=" div-section-test">
                 <img
-                  className=" tw-mb-12 md:tw-mb-0 section-picture "
+                  className="tw-mb-12 md:tw-mb-0 section-picture "
                   src={Axo}
                 />
               </div>
-              <div className=" homepage-text-block">
-                <p className={classes.genericText}>
+
+              <div className="homepage-text-block">
+                <p className="homepage-text">
                   Experience 3D Nouns – a collection of 250 composable
                   characters that turns{" "}
                   <Link
@@ -202,7 +204,7 @@ const HomePage = ({ hidePage, setHidePage }) => {
           {/* CC0 Assets */}
 
           <div className={classes.headerWrapper}>
-            <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32 ">
+            <div className="tw-grid tw-grid-cols-1 md:tw-gap-x-8 md:tw-grid-cols-2 tw-mb-16 md:tw-mb-32">
               <div className=" div-section-test ">
                 <h1
                   id="Assets"
@@ -222,8 +224,8 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   alt={`GIF ${currentGifIndex + 1}`}
                 />
               </div>
-              <div className=" homepage-text-block">
-                <p className={classes.genericText}>
+              <div className="homepage-text-block">
+                <p className="homepage-text">
                   There are 250 CCO assets available for your enjoyement!
                   Customize your character, animate and download it as a GLTF
                   file.
@@ -281,8 +283,9 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   src={ARGif}
                 />
               </div>
+
               <div className=" homepage-text-block">
-                <p className={classes.genericText}>
+                <p className="homepage-text">
                   50+ 3D Nouns heads are also available as{" "}
                   <Link
                     text={"Snapchat"}
@@ -290,21 +293,18 @@ const HomePage = ({ hidePage, setHidePage }) => {
                       "https://lensstudio.snapchat.com/creator/6y_fgP0Vr6RqaJt3jIJLRw"
                     }
                     leavesPage={true}
-                    style={{ fontSize: "1.2rem" }}
                   />
                   ,{" "}
                   <Link
                     text={"Instagram"}
                     url={"https://www.instagram.com/0xcoralorca/"}
                     leavesPage={true}
-                    style={{ fontSize: "1.2rem" }}
                   />{" "}
                   {` `} and{" "}
                   <Link
                     text={"Tik Tok"}
                     url={"https://www.tiktok.com/@0xcoralorca"}
                     leavesPage={true}
-                    style={{ fontSize: "1.2rem" }}
                   />{" "}
                   {` `} Augmented Reality filters with over 2M plays!
                   <br></br>
@@ -312,14 +312,17 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   Create Nounish stories and share them with your friends!
                   <br></br>
                   <br></br>
+                  You can search for tags like "Coralorca" or "Nounsdao" in
+                  order to find the filters on each platform.
+                  {/* <br></br>
+                  <br></br>
                   Additionnaly, you can download all blendshapes FBX models{" "}
                   <Link
                     text={"here"}
                     url={"https://www.tiktok.com/@0xcoralorca"}
                     leavesPage={true}
-                    style={{ fontSize: "1.2rem" }}
                   />{" "}
-                  to use in animations or games.
+                  to use in animations or games.*/}
                   <br></br>
                   <br></br>
                   This was made possible thanks to NounsDAO's{" "}

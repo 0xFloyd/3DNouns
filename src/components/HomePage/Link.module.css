@@ -2,10 +2,48 @@
 .link:hover,
 .link:active {
   color:#328efd;
-  font-size: 1.25rem;
   font-family: 'PT Root UI', sans-serif !important;
-  font-weight: 800;
 }
 .link:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 3500px) {
+  .link,
+  .link:hover,
+  .link:active {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 3100px) {
+  .link,
+.link:hover,
+.link:active  {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 2600px) {
+  .link,
+.link:hover,
+.link:active {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 2000px) {
+  .link,
+  .link:hover,
+  .link:active {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .link,
+  .link:hover,
+  .link:active {
+    font-size: 1rem;
+  }
 }

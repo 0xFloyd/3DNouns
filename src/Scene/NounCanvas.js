@@ -180,7 +180,7 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
                 color: "white",
                 fontSize: "1rem",
                 position: "relative",
-                transform: "translateY(-20%)",
+                transform: "translateY(-100%)",
               }}
             >
               Loading...
