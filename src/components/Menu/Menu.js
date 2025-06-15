@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { Nav, Navbar, Spinner } from 'react-bootstrap';
-import data from '../../data.json';
-import '../../styles/menu.css';
-import { isDesktop, isMobile } from 'react-device-detect';
-import ScreenshotModal from 'components/ScreenshotModal';
-import AnimationSelect from 'components/Menu/AnimationSelect';
-import CameraIcon from '../../assets/images/cameraIcon.svg';
-import { gql, useQuery } from '@apollo/client';
-import { GET_NOUNS, hideModals, rotateOptions, throttleClicks, truncateString } from 'utils/utils';
-import MintModal from './MintModal';
-import InformationModal from './InformationModal';
-import MenuOption from './MenuOption';
-import NounIdInput from './NounIdInput';
+import React, { useEffect, useState } from 'react'
+import { Nav, Navbar, Spinner } from 'react-bootstrap'
+import data from '../../data.json'
+import '../../styles/menu.css'
+import { isDesktop, isMobile } from 'react-device-detect'
+import ScreenshotModal from 'components/ScreenshotModal'
+import AnimationSelect from 'components/Menu/AnimationSelect'
+import CameraIcon from '../../assets/images/cameraIcon.svg'
+import { useQuery } from 'urql'
+import { GET_NOUNS, hideModals, rotateOptions, throttleClicks, truncateString } from 'utils/utils'
+import MintModal from './MintModal'
+import InformationModal from './InformationModal'
+import MenuOption from './MenuOption'
+import NounIdInput from './NounIdInput'
 
 const Menu = ({
   isDesktop,
@@ -42,16 +42,16 @@ const Menu = ({
   // setSceneState,
   showScreenshotModal,
   setShowScreenshotModal,
-  saveAsImage,
+  saveAsImage
 }) => {
-  const [disabledButtonState, setDisabledButtonState] = useState(false);
-  const [showAboutModal, setShowAboutModal] = useState(false);
-  const [showMintModal, setShowMintModal] = useState(false);
-  const [optionsVisibility, setOptionsVisibility] = useState('block');
-  const [randomizerOn, setRandomizerOn] = useState(false);
-  const [seed, setSeed] = useState(null);
-  const [triggeredOnce, setTriggeredOnce] = useState(false);
-  const [graphqlError, setGraphqlError] = useState('');
+  const [disabledButtonState, setDisabledButtonState] = useState(false)
+  const [showAboutModal, setShowAboutModal] = useState(false)
+  const [showMintModal, setShowMintModal] = useState(false)
+  const [optionsVisibility, setOptionsVisibility] = useState('block')
+  const [randomizerOn, setRandomizerOn] = useState(false)
+  const [seed, setSeed] = useState(null)
+  const [triggeredOnce, setTriggeredOnce] = useState(false)
+  const [graphqlError, setGraphqlError] = useState('')
 
   const [lockedTraits, setLockedTraits] = useState({
     head: false,
@@ -59,76 +59,76 @@ const Menu = ({
     body: false,
     accessory: false,
     pants: false,
-    shoes: false,
-  });
+    shoes: false
+  })
 
-  const { loading, error, data: graphQLData } = useQuery(GET_NOUNS);
+  const [{ data: graphQLData, fetching, error }] = useQuery({ query: GET_NOUNS })
 
   const generateRandomNoun = () => {
     if (!lockedTraits.head) {
-      setHead(data.head[Math.floor(Math.random() * data.head.length)].name);
+      setHead(data.head[Math.floor(Math.random() * data.head.length)].name)
     }
 
     if (!lockedTraits.glasses) {
-      setGlasses(data.glasses[Math.floor(Math.random() * data.glasses.length)].name);
+      setGlasses(data.glasses[Math.floor(Math.random() * data.glasses.length)].name)
     }
     if (!lockedTraits.body) {
-      setBody(data.body[Math.floor(Math.random() * data.body.length)].name);
+      setBody(data.body[Math.floor(Math.random() * data.body.length)].name)
     }
 
     if (!lockedTraits.accessory) {
-      setAccessory(data.accessory[Math.floor(Math.random() * data.accessory.length)].name);
+      setAccessory(data.accessory[Math.floor(Math.random() * data.accessory.length)].name)
     }
 
     if (!lockedTraits.pants) {
-      setPants(data.pants[Math.floor(Math.random() * data.pants.length)].name);
+      setPants(data.pants[Math.floor(Math.random() * data.pants.length)].name)
     }
     if (!lockedTraits.shoes) {
-      setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name);
+      setShoes(data.shoes[Math.floor(Math.random() * data.shoes.length)].name)
     }
-  };
+  }
 
   useEffect(() => {
     try {
       if (graphQLData && seed && data) {
-        let traitData = graphQLData.nouns.find((element) => element.id === seed);
+        let traitData = graphQLData.nouns.find((element) => element.id === seed)
 
         if (traitData) {
-          let head = data.head.find((element) => element.id == traitData.seed.head);
-          let body = data.body.find((element) => element.id == traitData.seed.body);
-          let glasses = data.glasses.find((element) => element.id == traitData.seed.glasses);
-          let accessory = data.accessory.find((element) => element.id == traitData.seed.accessory);
+          let head = data.head.find((element) => element.id == traitData.seed.head)
+          let body = data.body.find((element) => element.id == traitData.seed.body)
+          let glasses = data.glasses.find((element) => element.id == traitData.seed.glasses)
+          let accessory = data.accessory.find((element) => element.id == traitData.seed.accessory)
 
           if (head) {
-            setHead(head.name);
+            setHead(head.name)
           }
           if (body) {
-            setBody(body.name);
+            setBody(body.name)
           }
           if (accessory) {
-            setAccessory(accessory.name);
+            setAccessory(accessory.name)
           }
           if (glasses) {
-            setGlasses(glasses.name);
+            setGlasses(glasses.name)
           }
         } else {
           if (triggeredOnce) {
-            setGraphqlError('Error fetching Noun data');
+            setGraphqlError('Error fetching Noun data')
             setTimeout(() => {
-              setGraphqlError('');
-            }, 5000);
+              setGraphqlError('')
+            }, 5000)
           }
         }
       } else {
         if (triggeredOnce) {
-          setGraphqlError('Error fetching Noun data');
+          setGraphqlError('Error fetching Noun data')
           setTimeout(() => {
-            setGraphqlError('');
-          }, 5000);
+            setGraphqlError('')
+          }, 5000)
         }
       }
     } catch {}
-  }, [seed, graphQLData]);
+  }, [seed, graphQLData])
 
   return (
     <>
@@ -142,13 +142,13 @@ const Menu = ({
                 onClick={() => {
                   // saveAsImage();
                   // stop animation
-                  setDisabledButtonState(true);
-                  setAnimationState(false);
-                  setAnimationValue('none');
+                  setDisabledButtonState(true)
+                  setAnimationState(false)
+                  setAnimationValue('none')
                   setTimeout(() => {
-                    setShowScreenshotModal(true);
-                    setDisabledButtonState(false);
-                  }, 1000);
+                    setShowScreenshotModal(true)
+                    setDisabledButtonState(false)
+                  }, 1000)
                 }}
                 disabled={disabledButtonState}
               >
@@ -163,8 +163,8 @@ const Menu = ({
                   disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
                 }
                 onClick={() => {
-                  generateRandomNoun();
-                  throttleClicks(setDisabledButtonState);
+                  generateRandomNoun()
+                  throttleClicks(setDisabledButtonState)
                 }}
                 disabled={disabledButtonState}
               >
@@ -174,8 +174,8 @@ const Menu = ({
               <button
                 className="options-menu-x-button"
                 onClick={() => {
-                  setOptionsVisibility('none');
-                  setShowMintModal(false);
+                  setOptionsVisibility('none')
+                  setShowMintModal(false)
                 }}
               >
                 X
@@ -305,12 +305,12 @@ const Menu = ({
                 <button
                   className="download-menu-button"
                   onClick={() => {
-                    setAnimationState(false);
+                    setAnimationState(false)
                     // setAnimationValue('tpose');
-                    setDownloadingModel(true);
+                    setDownloadingModel(true)
                     setTimeout(() => {
-                      downloadModel();
-                    }, 1500);
+                      downloadModel()
+                    }, 1500)
                   }}
                   // disabled={true}
                 >
@@ -324,7 +324,7 @@ const Menu = ({
                       style={{
                         marginLeft: '10px',
                         width: '20px',
-                        height: '20px',
+                        height: '20px'
                       }}
                     />
                   )}
@@ -344,8 +344,8 @@ const Menu = ({
                 disabledButtonState ? 'rainbow-button-disabled' : 'rainbow-button'
               }
               onClick={() => {
-                generateRandomNoun();
-                throttleClicks(setDisabledButtonState);
+                generateRandomNoun()
+                throttleClicks(setDisabledButtonState)
               }}
               disabled={disabledButtonState}
             >
@@ -357,13 +357,13 @@ const Menu = ({
               onClick={() => {
                 // saveAsImage();
                 // stop animation
-                setDisabledButtonState(true);
-                setAnimationState(false);
-                setAnimationValue('none');
+                setDisabledButtonState(true)
+                setAnimationState(false)
+                setAnimationValue('none')
                 setTimeout(() => {
-                  setShowScreenshotModal(true);
-                  setDisabledButtonState(false);
-                }, 1000);
+                  setShowScreenshotModal(true)
+                  setDisabledButtonState(false)
+                }, 1000)
               }}
             >
               {/* <BsCameraFill size={20} color="black" /> */}
@@ -373,7 +373,7 @@ const Menu = ({
               className="menu-button"
               style={{ marginLeft: '20px' }}
               onClick={() => {
-                saveAsImage();
+                saveAsImage()
                 // setAnimationState(false);
                 // setAnimationValue('none');
                 // setTimeout(() => {
@@ -385,8 +385,8 @@ const Menu = ({
             </button>
             <button
               onClick={() => {
-                setOptionsVisibility('block');
-                hideModals(setShowAboutModal, setShowMintModal);
+                setOptionsVisibility('block')
+                hideModals(setShowAboutModal, setShowMintModal)
               }}
               className="menu-button-options"
               style={{ marginLeft: '20px' }}
@@ -404,16 +404,16 @@ const Menu = ({
               <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                 <Nav.Link
                   onClick={() => {
-                    setOptionsVisibility('block');
-                    hideModals(setShowAboutModal, setShowMintModal);
+                    setOptionsVisibility('block')
+                    hideModals(setShowAboutModal, setShowMintModal)
                   }}
                 >
                   Options
                 </Nav.Link>
                 <Nav.Link
                   onClick={() => {
-                    setShowAboutModal(true);
-                    setShowMintModal(false);
+                    setShowAboutModal(true)
+                    setShowMintModal(false)
                   }}
                 >
                   About
@@ -464,8 +464,8 @@ const Menu = ({
               disabledButtonState ? 'menu-button-disabled' : 'menu-button'
             }
             onClick={() => {
-              generateRandomNoun();
-              throttleClicks(setDisabledButtonState);
+              generateRandomNoun()
+              throttleClicks(setDisabledButtonState)
             }}
             disabled={disabledButtonState}
           >
@@ -477,13 +477,13 @@ const Menu = ({
             onClick={() => {
               // saveAsImage();
               // stop animation
-              setDisabledButtonState(true);
-              setAnimationState(false);
-              setAnimationValue('none');
+              setDisabledButtonState(true)
+              setAnimationState(false)
+              setAnimationValue('none')
               setTimeout(() => {
-                setShowScreenshotModal(true);
-                setDisabledButtonState(false);
-              }, 1000);
+                setShowScreenshotModal(true)
+                setDisabledButtonState(false)
+              }, 1000)
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
@@ -492,7 +492,7 @@ const Menu = ({
           <button
             className="menu-button"
             onClick={() => {
-              saveAsImage();
+              saveAsImage()
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
@@ -501,7 +501,7 @@ const Menu = ({
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Menu;
+export default Menu
